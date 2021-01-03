@@ -1,0 +1,44 @@
+---
+output: 
+  pdf_document:
+    citation_package: natbib
+    # keep_tex: true
+    fig_caption: true
+    latex_engine: pdflatex
+    number_sections: true  
+header-includes:
+  -  \usepackage{hyperref}
+title: "Analysis output"
+---
+
+
+\newpage
+\tableofcontents # adds table of contents
+\newpage
+
+# Sec 1
+
+# Sec 2
+
+# Sec 3
+
+
+```{r eval=FALSE}
+
+```
+
+
+```{r, eval=TRUE, tidy = TRUE, cache=FALSE, fig.cap="A Coefficient Plot", message=F, warning=F}
+# library(arm)
+# coefplot(M1)
+```
+
+
+```{r, eval=TRUE, tidy = TRUE, size="small", cache=FALSE, results="asis", message=F, warning=F}
+# stargazer(M1, title="A Handsome Table", header=FALSE)
+```
+
+
+
+
+
