@@ -16,27 +16,111 @@ title: "Analysis output"
 \tableofcontents # adds table of contents
 \newpage
 
-# Sec 1
 
-# Sec 2
-
-# Sec 3
-
-
-```{r eval=FALSE}
+```{r echo=FALSE}
+library(mongolite)
+library(stringr)
+library(dplyr)
+library(ggplot2)
+# R studio wd same as source file
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+source("./../data_read_in.R")
+responses_an = df_from_db()
+responses_an$uuid = as.factor(responses_an$uuid)
+responses_an$maptype = as.factor(responses_an$maptype)
+responses_an$colour = as.factor(responses_an$colour)
+responses_an$legend = as.factor(responses_an$legend)
 
 ```
 
 
-```{r, eval=TRUE, tidy = TRUE, cache=FALSE, fig.cap="A Coefficient Plot", message=F, warning=F}
-# library(arm)
-# coefplot(M1)
+# Summary Statistics
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+summary(responses_an)
 ```
 
 
-```{r, eval=TRUE, tidy = TRUE, size="small", cache=FALSE, results="asis", message=F, warning=F}
-# stargazer(M1, title="A Handsome Table", header=FALSE)
+# Plots response against legends
+
+## PerceptionValueError
+```{r, echo=FALSE}
+# PerceptionValueError
+p <- ggplot(responses_an, aes(legend, percept_error))
+p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
 ```
+
+## ABS PerceptionValError
+```{r, echo=FALSE}
+p <- ggplot(responses_an, aes(legend, percept_error_abs))
+p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+```
+
+
+
+## TimeToSubmit
+```{r, echo=FALSE}
+p <- ggplot(responses_an, aes(legend, submitTime))
+p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+```
+
+
+
+
+## DecisionChanges
+```{r, echo=FALSE}
+p <- ggplot(responses_an, aes(legend, inputChanges))
+p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+```
+
+
+## Acceptance
+```{r, echo=FALSE}
+p <- ggplot(responses_an, aes(legend, acceptance))
+p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+```
+
+
+# Plots response against colour
+
+## PerceptionValueError
+```{r, echo=FALSE}
+# PerceptionValueError
+p <- ggplot(responses_an, aes(colour, percept_error))
+p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+```
+
+## ABS PerceptionValError
+```{r, echo=FALSE}
+p <- ggplot(responses_an, aes(colour, percept_error_abs))
+p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+```
+
+
+
+## TimeToSubmit
+```{r, echo=FALSE}
+p <- ggplot(responses_an, aes(colour, submitTime))
+p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+```
+
+
+
+
+## DecisionChanges
+```{r, echo=FALSE}
+p <- ggplot(responses_an, aes(colour, inputChanges))
+p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+```
+
+
+## Acceptance
+```{r, echo=FALSE}
+p <- ggplot(responses_an, aes(colour , acceptance))
+p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+```
+
+
+
 
 
 

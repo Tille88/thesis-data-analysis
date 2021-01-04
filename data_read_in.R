@@ -7,6 +7,7 @@
 
 
 df_from_db = function(){
+  # TODO: SANITY CHECK ALL DATA READ INS AND JOINS
   ##############
   # Respondents
   respondentdf <- mongo("respondents", url = "mongodb://127.0.0.1:27017/thesis-dev")$find()
@@ -82,7 +83,7 @@ df_from_db = function(){
   
   ##############
   # Actual values
-  correct = read.csv("./data/correct-vals.csv")
+  correct = read.csv("../data/correct-vals.csv")
   
   
   # Joins

@@ -18,7 +18,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 ########################################
 # Data READ IN
 ########################################
-source("data_read_in.R")
+source("../data_read_in.R")
 
 responses_an = df_from_db()
 # Read from CSV as alternative
@@ -37,114 +37,114 @@ responses_an$legend = as.factor(responses_an$legend)
 # Summary statistics/Exploratory analysis
 ########################################
 summary(responses_an)
-# TODO: When color perception -> plot against error - should be correlated if not random...
-
-# TODO: Increase models (all FE-models)
-# TODO: statistical assumptions section (export as functions...)
-# TODO: colourvalueerror - once there is alpha-picker data
-# TODO: Look at response time as % of first image time... learning/remember/tired effects?
-# TODO: learning effects as progression or getting tired of task... (INDIVIDUAL+PROGNUM)
-# TODO: Progression fixed effects or as linear effect?
-# TODO: Coefficient plots
 # TODO: More plots
+# TODO: When color perception -> plot against error - should be correlated if not random...
+# TODO: Look at response time as % of first image time... learning/remember/tired effects?
+
+
+
+
 
 
 ########################################
 # Visual inspection and outliers by variables
-# 1-way ANOVA + plots
+# 1-way ANOVA + plots (NOT SUITABLE)
+# The repeated-measures ANOVA is used for analyzing data where same subjects are measured more than once. This test is also referred to as a within-subjects ANOVA or ANOVA with repeated measures. The “within-subjects” term means that the same individuals are measured on the same outcome variable under different time points or conditions.
 # TODO: Check statistical assumptions BEFORE running models
-# https://stat-methods.com/home/one-way-anova-r/#:~:text=%20One-way%20ANOVA%20Annotated%20R%20Output%20%201,the%20theoretical%20normal%20reference%20line%20and...%20More%20
-# http://www.sthda.com/english/wiki/one-way-anova-test-in-r
+# TODO: colourvalueerror - once there is alpha-picker data
+# TODO: statistical assumptions section (export as functions...)
+# https://statistics.laerd.com/statistical-guides/repeated-measures-anova-statistical-guide.php
+# https://www.datanovia.com/en/lessons/repeated-measures-anova-in-r/#:~:text=The%20repeated-measures%20ANOVA%20is%20used%20for%20analyzing%20data,outcome%20variable%20under%20different%20time%20points%20or%20conditions.
 ########################################
 
 #### Against vis/legend type; X = VisualizationType
 
 # PerceptionValueError
-p <- ggplot(responses_an, aes(factor(legend), percept_error))
+p <- ggplot(responses_an, aes(legend, percept_error))
 p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
-p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+# p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
 
-m <-aov(percept_error ~ factor(legend), data=responses_an)
-summary(m)
+# m <-aov(percept_error ~ legend, data=responses_an)
+# summary(m)
 
 
 # ABS PerceptionValueError
-p <- ggplot(responses_an, aes(factor(legend), percept_error_abs))
+p <- ggplot(responses_an, aes(legend, percept_error_abs))
 p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
-p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+# p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
 
-m <-aov(percept_error_abs ~ factor(legend), data=responses_an)
-summary(m)
+# m <-aov(percept_error_abs ~ legend, data=responses_an)
+# summary(m)
 
 
 # TimeToSubmit
-p <- ggplot(responses_an, aes(factor(legend), submitTime))
+p <- ggplot(responses_an, aes(legend, submitTime))
 p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
-p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+# p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
 
-m <-aov(submitTime ~ factor(legend), data=responses_an)
-summary(m)
+# m <-aov(submitTime ~ legend, data=responses_an)
+# summary(m)
 
 
 
 # DecisionChanges
-p <- ggplot(responses_an, aes(factor(legend), inputChanges))
+p <- ggplot(responses_an, aes(legend, inputChanges))
 p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
-p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+# p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
 
-m <-aov(inputChanges ~ factor(legend), data=responses_an)
-summary(m)
+# m <-aov(inputChanges ~ legend, data=responses_an)
+# summary(m)
 
 
 # Acceptance
 # How are alternative legend design choices received by the subjects 
 # (subjective user acceptance testing)?
-p <- ggplot(responses_an, aes(factor(legend), acceptance))
+p <- ggplot(responses_an, aes(legend, acceptance))
 p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
-p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+# p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
 
-m <-aov(acceptance ~ factor(legend), data=responses_an)
-summary(m)
+# m <-aov(acceptance ~ legend, data=responses_an)
+# summary(m)
 
 
 
 #### Against color; X = colour
 
 # PerceptionValueError
-p <- ggplot(responses_an, aes(factor(colour), percept_error))
+p <- ggplot(responses_an, aes(colour, percept_error))
 p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
-p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+# p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
 
-m <-aov(percept_error ~ factor(colour), data=responses_an)
-summary(m)
+# m <-aov(percept_error ~ colour, data=responses_an)
+# summary(m)
 
 
 # ABS PerceptionValueError
-p <- ggplot(responses_an, aes(factor(colour), percept_error_abs))
+p <- ggplot(responses_an, aes(colour, percept_error_abs))
 p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
-p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+# p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
 
-m <-aov(percept_error_abs ~ factor(colour), data=responses_an)
-summary(m)
+# m <-aov(percept_error_abs ~ colour, data=responses_an)
+# summary(m)
 
 
 # TimeToSubmit
-p <- ggplot(responses_an, aes(factor(colour), submitTime))
+p <- ggplot(responses_an, aes(colour, submitTime))
 p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
-p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+# p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
 
-m <-aov(submitTime ~ factor(colour), data=responses_an)
-summary(m)
+# m <-aov(submitTime ~ colour, data=responses_an)
+# summary(m)
 
 
 
 # DecisionChanges
-p <- ggplot(responses_an, aes(factor(colour), inputChanges))
+p <- ggplot(responses_an, aes(colour, inputChanges))
 p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
-p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+# p + geom_boxplot() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
 
-m <-aov(inputChanges ~ factor(colour), data=responses_an)
-summary(m)
+# m <-aov(inputChanges ~ colour, data=responses_an)
+# summary(m)
 
 
 
@@ -153,29 +153,36 @@ summary(m)
 # https://www.econometrics-with-r.org/10-3-fixed-effects-regression.html
 # https://cran.r-project.org/web/packages/fixest/vignettes/fixest_walkthrough.html
 # TODO: assumptions on distributions
+# TODO: colourvalueerror - once there is alpha-picker data
+# TODO: Increase models (all FE-models)
+# TODO: learning effects as progression or getting tired of task... (INDIVIDUAL+PROGNUM)
+# TODO: Progression fixed effects or as linear effect?
+# TODO: Visualize coeffiecients
 ########################################
 library(plm)
 library(zoo)
 
+responses_an$legend = relevel(responses_an$legend, ref = "headline")
+
 # Baseline
 # estimate the fixed effects regression with plm()
-lm_mod <- lm(percept_error ~ relevel(factor(legend), ref = "headline"), 
+lm_mod <- lm(percept_error ~ legend, 
               data = responses_an)
 summary(lm_mod)
 
 
 # estimate the fixed effects regression with plm()
-fe_mod <- plm(percept_error ~ relevel(factor(legend), ref = "headline"), 
-                    data = responses_an,
-                    index = c("uuid"), 
-                    model = "within")
-
-# print summary using robust standard errors
-coeftest(fe_mod, vcov. = vcovHC, type = "HC1")
+# fe_mod <- plm(percept_error ~ legend, 
+#                     data = responses_an,
+#                     index = c("uuid"), 
+#                     model = "within")
+# 
+# # print summary using robust standard errors
+# coeftest(fe_mod, vcov. = vcovHC, type = "HC1")
 
 
 # estimate the fixed effects regression with plm()
-fe_mod <- plm(percept_error_abs ~ relevel(factor(legend), ref = "headline"), 
+fe_mod <- plm(percept_error_abs ~ legend, 
               data = responses_an,
               index = c("uuid"), 
               model = "within")
@@ -184,7 +191,7 @@ fe_mod <- plm(percept_error_abs ~ relevel(factor(legend), ref = "headline"),
 coeftest(fe_mod, vcov. = vcovHC, type = "HC1")
 
 
-fe_mod <- plm(percept_error_abs ~ factor(colour), 
+fe_mod_color <- plm(percept_error_abs ~ colour, 
               data = responses_an,
               index = c("uuid"), 
               model = "within")
