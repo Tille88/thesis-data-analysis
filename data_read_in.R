@@ -12,7 +12,7 @@ df_from_db = function(){
   # Respondents
   respondentdf <- mongo("respondents", url = "mongodb://127.0.0.1:27017/thesis-dev")$find()
   respondentdf[,ncol(respondentdf)] <- NULL
-  glimpse(respondentdf)
+  
   
   ##############
   # Responses
@@ -28,7 +28,8 @@ df_from_db = function(){
   responsesdf$submitVal = lapply(responsesdf$sliderChanges, function(x){ tail(x$val, 1) }) %>% unlist()
   responsesdf$rangeMin = lapply(responsesdf$sliderChanges, function(x){ min(x$val) }) %>% unlist()
   responsesdf$rangeMax = lapply(responsesdf$sliderChanges, function(x){ max(x$val) }) %>% unlist()
-  
+
+  responsesdf$hoverEvents = lapply(responsesdf$imageHoverEvents, function(x){ nrow(x) }) %>% unlist()
   # INCLUDE WHICH MAP
   # imagehover events
   hoverev_list = responsesdf %>% 
@@ -39,7 +40,7 @@ df_from_db = function(){
           "mapVersion" = x$mapVersion,
           "timestamp" = x$imageHoverEvents$timestamp,
           "x" = x$imageHoverEvents$x,
-          "y" = x$imageHoverEvents$x
+          "y" = x$imageHoverEvents$y
         )
       }
     })

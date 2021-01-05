@@ -2,6 +2,8 @@ library(mongolite)
 library(stringr)
 library(dplyr)
 library(ggplot2)
+library(GGally)
+library(corrplot)
 
 # RES QUESTIONS
 # DONE: - How is data opacity mapping perception influenced by legend display choices?
@@ -37,12 +39,15 @@ responses_an$legend = as.factor(responses_an$legend)
 # Summary statistics/Exploratory analysis
 ########################################
 summary(responses_an)
-# TODO: More plots
-# TODO: When color perception -> plot against error - should be correlated if not random...
 # TODO: Look at response time as % of first image time... learning/remember/tired effects?
 
-
-
+# Correlation
+ggpairs(responses_an %>% 
+          select(-c(uuid, maptype, rangeMin, rangeMax, submitVal, correctVal))
+        )
+corrplot(cor(responses_an %>% 
+               select(-c(uuid, maptype, rangeMin, rangeMax, submitVal, correctVal, colour, legend))), 
+         method = "circle")
 
 
 
@@ -51,8 +56,8 @@ summary(responses_an)
 # 1-way ANOVA + plots (NOT SUITABLE)
 # The repeated-measures ANOVA is used for analyzing data where same subjects are measured more than once. This test is also referred to as a within-subjects ANOVA or ANOVA with repeated measures. The “within-subjects” term means that the same individuals are measured on the same outcome variable under different time points or conditions.
 # TODO: Check statistical assumptions BEFORE running models
-# TODO: colourvalueerror - once there is alpha-picker data
 # TODO: statistical assumptions section (export as functions...)
+# TODO: Model only the most interesting ones (2-3)
 # https://statistics.laerd.com/statistical-guides/repeated-measures-anova-statistical-guide.php
 # https://www.datanovia.com/en/lessons/repeated-measures-anova-in-r/#:~:text=The%20repeated-measures%20ANOVA%20is%20used%20for%20analyzing%20data,outcome%20variable%20under%20different%20time%20points%20or%20conditions.
 ########################################
@@ -153,7 +158,6 @@ p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
 # https://www.econometrics-with-r.org/10-3-fixed-effects-regression.html
 # https://cran.r-project.org/web/packages/fixest/vignettes/fixest_walkthrough.html
 # TODO: assumptions on distributions
-# TODO: colourvalueerror - once there is alpha-picker data
 # TODO: Increase models (all FE-models)
 # TODO: learning effects as progression or getting tired of task... (INDIVIDUAL+PROGNUM)
 # TODO: Progression fixed effects or as linear effect?
@@ -165,44 +169,48 @@ library(zoo)
 responses_an$legend = relevel(responses_an$legend, ref = "headline")
 
 # Baseline
-# estimate the fixed effects regression with plm()
-lm_mod <- lm(percept_error ~ legend, 
+lm_mod_percept <- lm(percept_error ~ legend, 
               data = responses_an)
-summary(lm_mod)
+summary(lm_mod_percept)
 
 
 # estimate the fixed effects regression with plm()
-# fe_mod <- plm(percept_error ~ legend, 
-#                     data = responses_an,
-#                     index = c("uuid"), 
-#                     model = "within")
-# 
+fe_mod_percept <- plm(percept_error ~ legend, 
+                    data = responses_an,
+                    index = c("uuid"), 
+                    model = "within")
+
+# print summary using robust standard errors
+coeftest(fe_mod_percept, vcov. = vcovHC, type = "HC1")
+
+# Baseline
+lm_mod_percept_abs <- lm(percept_error ~ legend, 
+              data = responses_an)
+summary(lm_mod_percept_abs)
+
+
+# estimate the fixed effects regression with plm()
+fe_mod_percept_abs <- plm(percept_error_abs ~ legend, 
+              data = responses_an,
+              index = c("uuid"), 
+              model = "within")
+
+# print summary using robust standard errors
+coeftest(fe_mod_percept_abs, vcov. = vcovHC, type = "HC1")
+
+
+# fe_mod_color <- plm(percept_error_abs ~ colour, 
+#               data = responses_an,
+#               index = c("uuid"), 
+#               model = "within")
+
 # # print summary using robust standard errors
 # coeftest(fe_mod, vcov. = vcovHC, type = "HC1")
 
 
-# estimate the fixed effects regression with plm()
-fe_mod <- plm(percept_error_abs ~ legend, 
-              data = responses_an,
-              index = c("uuid"), 
-              model = "within")
-
-# print summary using robust standard errors
-coeftest(fe_mod, vcov. = vcovHC, type = "HC1")
-
-
-fe_mod_color <- plm(percept_error_abs ~ colour, 
-              data = responses_an,
-              index = c("uuid"), 
-              model = "within")
-
-# print summary using robust standard errors
-coeftest(fe_mod, vcov. = vcovHC, type = "HC1")
-
-
 
 library(stargazer)
-stargazer(lm_mod, fe_mod, title="Regression Results", align=TRUE)
+stargazer(lm_mod_percept, fe_mod_percept, lm_mod_percept_abs, fe_mod_percept_abs, title="Regression Results", align=TRUE)
 
 
 # TODO: Subset = first 4-5 images? if signs of learning/remember/tired effects
