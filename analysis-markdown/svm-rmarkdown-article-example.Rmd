@@ -37,6 +37,10 @@ responses_an$legend = as.factor(responses_an$legend)
 # Summary Statistics
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 summary(responses_an)
+
+# PLOTS
+# TABLE
+# https://thatdatatho.com/2018/08/20/easily-create-descriptive-summary-statistic-tables-r-studio/
 ```
 
 

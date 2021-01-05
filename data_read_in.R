@@ -106,5 +106,19 @@ df_from_db = function(){
   
   clean_df = responses_joined %>% select(-c(mapVersion, sliderChanges, imageHoverEvents)) 
   
+  save(
+    respondentdf, 
+    responsesdf, 
+    acceptancessdf, 
+    hover_df, 
+    slider_df, 
+    progressiondf, 
+    acceptancessdf_long, 
+    clean_df,
+    file = paste0("../data/", Sys.time() %>% str_replace_all("[ :]", "-"), ".RData")
+  )
+  # load("data.RData") used to programmatically read in file
+  
+  
   return(clean_df)
 }
