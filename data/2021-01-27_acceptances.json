@@ -1,0 +1,210 @@
+[{
+  "_id": {
+    "$oid": "5ff971e1fd113f5177b04e65"
+  },
+  "headline": "2",
+  "annotated": "5",
+  "checkered": "3",
+  "sampled": "4",
+  "clustered": "3",
+  "uuid": "9479cecd-2eca-4e6d-a9a3-a6163f783206",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ffcf6af0b430c300e003617"
+  },
+  "headline": "1",
+  "annotated": "4",
+  "checkered": "3",
+  "sampled": "2",
+  "clustered": "3",
+  "uuid": "5fd16019-3b0a-4635-b2ba-f4c05ee4d9e0",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fffa0c591fbfd60f1a60568"
+  },
+  "headline": "3",
+  "annotated": "5",
+  "checkered": "3",
+  "sampled": "5",
+  "clustered": "2",
+  "uuid": "4cd3b90f-b835-43af-8349-70a752f2ce33",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fffa49b91fbfd60f1a60601"
+  },
+  "headline": "1",
+  "annotated": "2",
+  "checkered": "2",
+  "sampled": "4",
+  "clustered": "4",
+  "uuid": "008908f0-3d8c-47b0-8361-a7553d6456a3",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fffb4b2fe3085783dd8cafa"
+  },
+  "headline": "3",
+  "annotated": "2",
+  "checkered": "2",
+  "sampled": "4",
+  "clustered": "2",
+  "uuid": "cb6757c0-5cc5-424b-8a80-4763929fffe1",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fffbc3efe3085783dd8cb78"
+  },
+  "headline": "3",
+  "annotated": "5",
+  "checkered": "2",
+  "sampled": "5",
+  "clustered": "2",
+  "uuid": "b56d9123-973c-4940-bbc4-9bdff56621c1",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60011e3f8681d88980dacf7c"
+  },
+  "headline": "1",
+  "annotated": "4",
+  "checkered": "3",
+  "sampled": "5",
+  "clustered": "1",
+  "uuid": "325bf49c-f329-4c40-ad0e-c65b223149ea",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600126ed8681d88980dad014"
+  },
+  "headline": "3",
+  "annotated": "4",
+  "checkered": "3",
+  "sampled": "5",
+  "clustered": "3",
+  "uuid": "fd13d1ee-9765-4cf0-853e-025f1622b5fc",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60012d008681d88980dad0ca"
+  },
+  "headline": "2",
+  "annotated": "3",
+  "checkered": "4",
+  "sampled": "4",
+  "clustered": "4",
+  "uuid": "2c6ce486-4a5a-4abe-90a0-139518ad332d",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60067988dcc31b80976a27b1"
+  },
+  "headline": "2",
+  "annotated": "3",
+  "checkered": "4",
+  "sampled": "4",
+  "clustered": "3",
+  "uuid": "cfbc05d5-d665-4bc5-b80f-c43efc984314",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60078d40394e7bd8d893838c"
+  },
+  "headline": "1",
+  "annotated": "4",
+  "checkered": "3",
+  "sampled": "5",
+  "clustered": "2",
+  "uuid": "b734ea67-1e6d-40d8-8ef2-ef667cc7ea66",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6007b17bd55ca314fbb07b14"
+  },
+  "headline": "3",
+  "annotated": "4",
+  "checkered": "5",
+  "sampled": "3",
+  "clustered": "3",
+  "uuid": "722fe504-6d56-40dc-ac9d-d9633e4b7281",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6007b3dad55ca314fbb07bd8"
+  },
+  "headline": "1",
+  "annotated": "4",
+  "checkered": "NA",
+  "sampled": "3",
+  "clustered": "4",
+  "uuid": "8d3f8076-0932-4012-ac72-f4dfe00581fd",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6009087146d2dc4d89051bd6"
+  },
+  "headline": "NA",
+  "annotated": "NA",
+  "checkered": "NA",
+  "sampled": "NA",
+  "clustered": "NA",
+  "uuid": "ef80f2fb-a871-45fc-ae81-b59c84be1035",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600e34319254f0aee5cbca63"
+  },
+  "headline": "2",
+  "annotated": "3",
+  "checkered": "2",
+  "sampled": "3",
+  "clustered": "2",
+  "uuid": "e18bf279-0d9e-44f3-8b13-002ed775aa6f",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600e4d2f9254f0aee5cbcb20"
+  },
+  "headline": "2",
+  "annotated": "5",
+  "checkered": "3",
+  "sampled": "4",
+  "clustered": "3",
+  "uuid": "508e7cc8-bcaf-4fea-999d-519a7d6b97cd",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6010ef8ca02ab0646812f7bb"
+  },
+  "headline": "1",
+  "annotated": "5",
+  "checkered": "3",
+  "sampled": "5",
+  "clustered": "2",
+  "uuid": "19fb42b0-cdb6-43ee-9484-3925ef30448d",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6010f256a02ab0646812f7ff"
+  },
+  "headline": "1",
+  "annotated": "4",
+  "checkered": "3",
+  "sampled": "4",
+  "clustered": "2",
+  "uuid": "f4b1a513-3fe2-4a94-9c50-7e8dfff5c25d",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "601106590d3184806dd0e9f3"
+  },
+  "headline": "3",
+  "annotated": "5",
+  "checkered": "5",
+  "sampled": "5",
+  "clustered": "5",
+  "uuid": "d689d0dc-fb9f-4e47-af63-efc2074a8fea",
+  "__v": 0
+}]
