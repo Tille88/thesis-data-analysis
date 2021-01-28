@@ -6,17 +6,20 @@
 # secrets = jsonlite::read_json(path)
 
 
+
 df_from_db = function(){
-  # TODO: SANITY CHECK ALL DATA READ INS AND JOINS
+  
+  db_string = "mongodb://127.0.0.1:27017/thesis-loc-prod"
+  
   ##############
   # Respondents
-  respondentdf <- mongo("respondents", url = "mongodb://127.0.0.1:27017/thesis-dev")$find()
+  respondentdf <- mongo("respondents", url = db_string)$find()
   respondentdf[,ncol(respondentdf)] <- NULL
   
   
   ##############
   # Responses
-  responsesdf <- mongo("responses", url = "mongodb://127.0.0.1:27017/thesis-dev")$find()
+  responsesdf <- mongo("responses", url = db_string)$find()
   responsesdf[,ncol(responsesdf)] <- NULL
   
   # Variable generation
@@ -75,7 +78,7 @@ df_from_db = function(){
   
   ##############
   # Acceptance
-  acceptancessdf <- mongo("acceptances", url = "mongodb://127.0.0.1:27017/thesis-dev")$find()
+  acceptancessdf <- mongo("acceptances", url = db_string)$find()
   acceptancessdf[,ncol(acceptancessdf)] <- NULL
   acc_cols_to_num <- c(1:5)                                  
   acceptancessdf[ , acc_cols_to_num] <- apply(acceptancessdf[ , acc_cols_to_num], 2,            # Specify own function within apply

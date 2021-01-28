@@ -23,14 +23,28 @@ library(stringr)
 library(dplyr)
 library(ggplot2)
 # R studio wd same as source file
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+# setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 source("./../data_read_in.R")
 responses_an = df_from_db()
+
+questionable_uuids = c(
+  "db5cf00b-448f-47cf-842c-8d237f6cf45b"
+  # "2c6ce486-4a5a-4abe-90a0-139518ad332d",
+  # "722fe504-6d56-40dc-ac9d-d9633e4b7281",
+  # "ef80f2fb-a871-45fc-ae81-b59c84be1035"
+)
+
+# responses_an = responses_an %>% filter((prog <= 5) && !(uuid %in% questionable_uuids))
+# responses_an = responses_an %>% filter(prog <= 5)
+responses_an = responses_an %>% filter(!(uuid %in% questionable_uuids))
+
+
 responses_an$uuid = as.factor(responses_an$uuid)
 responses_an$maptype = as.factor(responses_an$maptype)
 responses_an$colour = as.factor(responses_an$colour)
 responses_an$legend = as.factor(responses_an$legend)
-
+responses_an$has_legend = as.factor(responses_an$legend == "headline")
+# responses_an = responses_an %>% filter(uuid=="d689d0dc-fb9f-4e47-af63-efc2074a8fea")
 ```
 
 
@@ -49,8 +63,17 @@ summary(responses_an)
 ## PerceptionValueError
 ```{r, echo=FALSE}
 # PerceptionValueError
-p <- ggplot(responses_an, aes(legend, percept_error))
-p + geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.5)
+ggplot(responses_an, aes(x=percept_error, fill=has_legend)) +
+  geom_density(alpha=0.4)
+# Add mean lines
+```
+
+
+## PerceptionValueError
+```{r, echo=FALSE}
+# PerceptionValueError
+p <- ggplot(responses_an, aes(legend, percept_error, colour=prog))
+p + geom_violin() + geom_jitter(height = 0, width = 0.1)
 ```
 
 ## ABS PerceptionValError
