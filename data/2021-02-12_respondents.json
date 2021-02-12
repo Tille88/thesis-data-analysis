@@ -1,0 +1,778 @@
+[{
+  "_id": {
+    "$oid": "5ff97155fd113f5177b04e2f"
+  },
+  "imageProg": [
+    "http://localhost:4321/016-red-headline-legend-merge.png",
+    "http://localhost:4321/09-blue-sampled-legend-merge.png",
+    "http://localhost:4321/021-green-clustered-legend-merge.png",
+    "http://localhost:4321/015-red-checkered-legend-merge.png",
+    "http://localhost:4321/018-blue-annotated-legend-merge.png",
+    "http://localhost:4321/01-green-clustered-legend-merge.png",
+    "http://localhost:4321/011-red-checkered-legend-merge.png",
+    "http://localhost:4321/020-blue-annotated-legend-merge.png",
+    "http://localhost:4321/08-green-sampled-legend-merge.png",
+    "http://localhost:4321/014-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-09T09:01:15.976Z"
+  },
+  "uuid": "9479cecd-2eca-4e6d-a9a3-a6163f783206",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ffcf4980b430c300e0033a8"
+  },
+  "imageProg": [
+    "http://localhost:4321/06-green-headline-legend-merge.png",
+    "http://localhost:4321/015-red-sampled-legend-merge.png",
+    "http://localhost:4321/019-blue-annotated-legend-merge.png",
+    "http://localhost:4321/03-green-checkered-legend-merge.png",
+    "http://localhost:4321/08-red-clustered-legend-merge.png",
+    "http://localhost:4321/02-blue-clustered-legend-merge.png",
+    "http://localhost:4321/05-green-checkered-legend-merge.png",
+    "http://localhost:4321/012-red-annotated-legend-merge.png",
+    "http://localhost:4321/04-blue-sampled-legend-merge.png",
+    "http://localhost:4321/07-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-12T00:54:23.462Z"
+  },
+  "uuid": "5fd16019-3b0a-4635-b2ba-f4c05ee4d9e0",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fff9d8191fbfd60f1a603fc"
+  },
+  "imageProg": [
+    "http://localhost:4321/013-blue-headline-legend-merge.png",
+    "http://localhost:4321/09-red-sampled-legend-merge.png",
+    "http://localhost:4321/010-green-checkered-legend-merge.png",
+    "http://localhost:4321/03-blue-clustered-legend-merge.png",
+    "http://localhost:4321/011-red-annotated-legend-merge.png",
+    "http://localhost:4321/020-green-checkered-legend-merge.png",
+    "http://localhost:4321/07-blue-annotated-legend-merge.png",
+    "http://localhost:4321/018-red-sampled-legend-merge.png",
+    "http://localhost:4321/016-green-clustered-legend-merge.png",
+    "http://localhost:4321/014-blue-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-14T01:13:07.914Z"
+  },
+  "uuid": "4cd3b90f-b835-43af-8349-70a752f2ce33",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fffa37391fbfd60f1a60569"
+  },
+  "imageProg": [
+    "http://localhost:4321/021-green-headline-legend-merge.png",
+    "http://localhost:4321/013-blue-clustered-legend-merge.png",
+    "http://localhost:4321/019-red-annotated-legend-merge.png",
+    "http://localhost:4321/016-green-checkered-legend-merge.png",
+    "http://localhost:4321/011-blue-sampled-legend-merge.png",
+    "http://localhost:4321/05-red-sampled-legend-merge.png",
+    "http://localhost:4321/018-green-annotated-legend-merge.png",
+    "http://localhost:4321/08-blue-checkered-legend-merge.png",
+    "http://localhost:4321/017-red-clustered-legend-merge.png",
+    "http://localhost:4321/04-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-14T01:13:07.914Z"
+  },
+  "uuid": "008908f0-3d8c-47b0-8361-a7553d6456a3",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fffb306fe3085783dd8ca7a"
+  },
+  "imageProg": [
+    "http://localhost:4321/021-green-headline-legend-merge.png",
+    "http://localhost:4321/09-red-clustered-legend-merge.png",
+    "http://localhost:4321/018-blue-checkered-legend-merge.png",
+    "http://localhost:4321/05-green-annotated-legend-merge.png",
+    "http://localhost:4321/03-red-sampled-legend-merge.png",
+    "http://localhost:4321/014-blue-clustered-legend-merge.png",
+    "http://localhost:4321/013-green-annotated-legend-merge.png",
+    "http://localhost:4321/020-red-sampled-legend-merge.png",
+    "http://localhost:4321/010-blue-checkered-legend-merge.png",
+    "http://localhost:4321/015-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-14T02:55:29.656Z"
+  },
+  "uuid": "cb6757c0-5cc5-424b-8a80-4763929fffe1",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fffbb05fe3085783dd8cafb"
+  },
+  "imageProg": [
+    "http://localhost:4321/011-green-headline-legend-merge.png",
+    "http://localhost:4321/012-blue-annotated-legend-merge.png",
+    "http://localhost:4321/016-red-sampled-legend-merge.png",
+    "http://localhost:4321/013-green-clustered-legend-merge.png",
+    "http://localhost:4321/05-blue-checkered-legend-merge.png",
+    "http://localhost:4321/021-red-sampled-legend-merge.png",
+    "http://localhost:4321/010-green-annotated-legend-merge.png",
+    "http://localhost:4321/020-blue-clustered-legend-merge.png",
+    "http://localhost:4321/01-red-checkered-legend-merge.png",
+    "http://localhost:4321/015-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-14T02:55:29.656Z"
+  },
+  "uuid": "b56d9123-973c-4940-bbc4-9bdff56621c1",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60011cd58681d88980dace74"
+  },
+  "imageProg": [
+    "http://localhost:4321/021-blue-headline-legend-merge.png",
+    "http://localhost:4321/010-red-clustered-legend-merge.png",
+    "http://localhost:4321/011-green-sampled-legend-merge.png",
+    "http://localhost:4321/013-blue-checkered-legend-merge.png",
+    "http://localhost:4321/01-red-annotated-legend-merge.png",
+    "http://localhost:4321/015-green-sampled-legend-merge.png",
+    "http://localhost:4321/06-blue-annotated-legend-merge.png",
+    "http://localhost:4321/02-red-checkered-legend-merge.png",
+    "http://localhost:4321/012-green-clustered-legend-merge.png",
+    "http://localhost:4321/014-blue-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-15T04:36:03.841Z"
+  },
+  "uuid": "325bf49c-f329-4c40-ad0e-c65b223149ea",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600125608681d88980dacf7d"
+  },
+  "imageProg": [
+    "http://localhost:4321/010-green-headline-legend-merge.png",
+    "http://localhost:4321/06-blue-checkered-legend-merge.png",
+    "http://localhost:4321/014-red-annotated-legend-merge.png",
+    "http://localhost:4321/021-green-sampled-legend-merge.png",
+    "http://localhost:4321/018-blue-clustered-legend-merge.png",
+    "http://localhost:4321/07-red-sampled-legend-merge.png",
+    "http://localhost:4321/03-green-clustered-legend-merge.png",
+    "http://localhost:4321/019-blue-annotated-legend-merge.png",
+    "http://localhost:4321/017-red-checkered-legend-merge.png",
+    "http://localhost:4321/09-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-15T04:36:03.841Z"
+  },
+  "uuid": "fd13d1ee-9765-4cf0-853e-025f1622b5fc",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60012aa28681d88980dad015"
+  },
+  "imageProg": [
+    "http://localhost:4321/02-green-headline-legend-merge.png",
+    "http://localhost:4321/013-blue-sampled-legend-merge.png",
+    "http://localhost:4321/014-red-annotated-legend-merge.png",
+    "http://localhost:4321/019-green-clustered-legend-merge.png",
+    "http://localhost:4321/012-blue-checkered-legend-merge.png",
+    "http://localhost:4321/016-red-clustered-legend-merge.png",
+    "http://localhost:4321/017-green-checkered-legend-merge.png",
+    "http://localhost:4321/018-blue-sampled-legend-merge.png",
+    "http://localhost:4321/011-red-annotated-legend-merge.png",
+    "http://localhost:4321/09-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-15T04:36:03.841Z"
+  },
+  "uuid": "2c6ce486-4a5a-4abe-90a0-139518ad332d",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6006787ddcc31b80976a272f"
+  },
+  "imageProg": [
+    "http://localhost:4321/019-green-headline-legend-merge.png",
+    "http://localhost:4321/03-red-annotated-legend-merge.png",
+    "http://localhost:4321/010-blue-sampled-legend-merge.png",
+    "http://localhost:4321/02-green-clustered-legend-merge.png",
+    "http://localhost:4321/06-red-checkered-legend-merge.png",
+    "http://localhost:4321/01-blue-sampled-legend-merge.png",
+    "http://localhost:4321/09-green-clustered-legend-merge.png",
+    "http://localhost:4321/05-red-annotated-legend-merge.png",
+    "http://localhost:4321/08-blue-checkered-legend-merge.png",
+    "http://localhost:4321/014-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-19T04:35:45.726Z"
+  },
+  "uuid": "cfbc05d5-d665-4bc5-b80f-c43efc984314",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60078bcf394e7bd8d89382c1"
+  },
+  "imageProg": [
+    "http://localhost:4321/06-red-headline-legend-merge.png",
+    "http://localhost:4321/018-blue-sampled-legend-merge.png",
+    "http://localhost:4321/07-green-annotated-legend-merge.png",
+    "http://localhost:4321/08-red-checkered-legend-merge.png",
+    "http://localhost:4321/09-blue-clustered-legend-merge.png",
+    "http://localhost:4321/012-green-annotated-legend-merge.png",
+    "http://localhost:4321/020-red-sampled-legend-merge.png",
+    "http://localhost:4321/04-blue-checkered-legend-merge.png",
+    "http://localhost:4321/019-green-clustered-legend-merge.png",
+    "http://localhost:4321/016-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-20T01:00:54.615Z"
+  },
+  "uuid": "b734ea67-1e6d-40d8-8ef2-ef667cc7ea66",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6007af8cd55ca314fbb07a48"
+  },
+  "imageProg": [
+    "http://localhost:4321/015-blue-headline-legend-merge.png",
+    "http://localhost:4321/018-red-sampled-legend-merge.png",
+    "http://localhost:4321/010-green-annotated-legend-merge.png",
+    "http://localhost:4321/05-blue-checkered-legend-merge.png",
+    "http://localhost:4321/07-red-clustered-legend-merge.png",
+    "http://localhost:4321/016-green-sampled-legend-merge.png",
+    "http://localhost:4321/014-blue-checkered-legend-merge.png",
+    "http://localhost:4321/011-red-clustered-legend-merge.png",
+    "http://localhost:4321/01-green-annotated-legend-merge.png",
+    "http://localhost:4321/012-blue-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-20T04:11:51.802Z"
+  },
+  "uuid": "d9cd90e9-36dd-49ee-bc75-b0607e56c438",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6007afc5d55ca314fbb07a49"
+  },
+  "imageProg": [
+    "http://localhost:4321/017-green-headline-legend-merge.png",
+    "http://localhost:4321/07-red-sampled-legend-merge.png",
+    "http://localhost:4321/019-blue-checkered-legend-merge.png",
+    "http://localhost:4321/01-green-annotated-legend-merge.png",
+    "http://localhost:4321/05-red-clustered-legend-merge.png",
+    "http://localhost:4321/014-blue-checkered-legend-merge.png",
+    "http://localhost:4321/02-green-clustered-legend-merge.png",
+    "http://localhost:4321/020-red-annotated-legend-merge.png",
+    "http://localhost:4321/09-blue-sampled-legend-merge.png",
+    "http://localhost:4321/010-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-20T04:11:51.802Z"
+  },
+  "uuid": "722fe504-6d56-40dc-ac9d-d9633e4b7281",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6007b275d55ca314fbb07b15"
+  },
+  "imageProg": [
+    "http://localhost:4321/018-red-headline-legend-merge.png",
+    "http://localhost:4321/014-green-clustered-legend-merge.png",
+    "http://localhost:4321/09-blue-annotated-legend-merge.png",
+    "http://localhost:4321/021-red-sampled-legend-merge.png",
+    "http://localhost:4321/011-green-checkered-legend-merge.png",
+    "http://localhost:4321/06-blue-clustered-legend-merge.png",
+    "http://localhost:4321/020-red-checkered-legend-merge.png",
+    "http://localhost:4321/03-green-annotated-legend-merge.png",
+    "http://localhost:4321/013-blue-sampled-legend-merge.png",
+    "http://localhost:4321/015-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-20T04:11:51.802Z"
+  },
+  "uuid": "8d3f8076-0932-4012-ac72-f4dfe00581fd",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600906e946d2dc4d89051ba0"
+  },
+  "imageProg": [
+    "http://localhost:4321/019-green-headline-legend-merge.png",
+    "http://localhost:4321/07-red-checkered-legend-merge.png",
+    "http://localhost:4321/021-blue-sampled-legend-merge.png",
+    "http://localhost:4321/06-green-annotated-legend-merge.png",
+    "http://localhost:4321/03-red-clustered-legend-merge.png",
+    "http://localhost:4321/01-blue-sampled-legend-merge.png",
+    "http://localhost:4321/020-green-checkered-legend-merge.png",
+    "http://localhost:4321/09-red-clustered-legend-merge.png",
+    "http://localhost:4321/017-blue-annotated-legend-merge.png",
+    "http://localhost:4321/014-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-21T03:31:50.514Z"
+  },
+  "uuid": "ef80f2fb-a871-45fc-ae81-b59c84be1035",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600e336a9254f0aee5cbca1f"
+  },
+  "imageProg": [
+    "http://localhost:4321/016-green-headline-legend-merge.png",
+    "http://localhost:4321/012-red-sampled-legend-merge.png",
+    "http://localhost:4321/04-blue-annotated-legend-merge.png",
+    "http://localhost:4321/020-green-checkered-legend-merge.png",
+    "http://localhost:4321/011-red-clustered-legend-merge.png",
+    "http://localhost:4321/02-blue-checkered-legend-merge.png",
+    "http://localhost:4321/018-green-sampled-legend-merge.png",
+    "http://localhost:4321/08-red-clustered-legend-merge.png",
+    "http://localhost:4321/01-blue-annotated-legend-merge.png",
+    "http://localhost:4321/07-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-25T01:50:37.626Z"
+  },
+  "uuid": "e18bf279-0d9e-44f3-8b13-002ed775aa6f",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600e4c029254f0aee5cbca64"
+  },
+  "imageProg": [
+    "http://localhost:4321/05-green-headline-legend-merge.png",
+    "http://localhost:4321/020-red-annotated-legend-merge.png",
+    "http://localhost:4321/016-blue-checkered-legend-merge.png",
+    "http://localhost:4321/09-green-sampled-legend-merge.png",
+    "http://localhost:4321/017-red-clustered-legend-merge.png",
+    "http://localhost:4321/010-blue-clustered-legend-merge.png",
+    "http://localhost:4321/012-green-sampled-legend-merge.png",
+    "http://localhost:4321/018-red-checkered-legend-merge.png",
+    "http://localhost:4321/019-blue-annotated-legend-merge.png",
+    "http://localhost:4321/011-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-25T01:50:37.626Z"
+  },
+  "uuid": "508e7cc8-bcaf-4fea-999d-519a7d6b97cd",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6010ee62a02ab0646812f6ea"
+  },
+  "imageProg": [
+    "http://localhost:4321/011-red-headline-legend-merge.png",
+    "http://localhost:4321/04-blue-sampled-legend-merge.png",
+    "http://localhost:4321/06-green-clustered-legend-merge.png",
+    "http://localhost:4321/07-red-checkered-legend-merge.png",
+    "http://localhost:4321/012-blue-annotated-legend-merge.png",
+    "http://localhost:4321/05-green-clustered-legend-merge.png",
+    "http://localhost:4321/016-red-checkered-legend-merge.png",
+    "http://localhost:4321/014-blue-annotated-legend-merge.png",
+    "http://localhost:4321/03-green-sampled-legend-merge.png",
+    "http://localhost:4321/020-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-27T04:32:43.949Z"
+  },
+  "uuid": "19fb42b0-cdb6-43ee-9484-3925ef30448d",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6010f13da02ab0646812f7bc"
+  },
+  "imageProg": [
+    "http://localhost:4321/010-blue-headline-legend-merge.png",
+    "http://localhost:4321/016-red-checkered-legend-merge.png",
+    "http://localhost:4321/08-green-sampled-legend-merge.png",
+    "http://localhost:4321/03-blue-annotated-legend-merge.png",
+    "http://localhost:4321/014-red-clustered-legend-merge.png",
+    "http://localhost:4321/06-green-checkered-legend-merge.png",
+    "http://localhost:4321/015-blue-sampled-legend-merge.png",
+    "http://localhost:4321/017-red-annotated-legend-merge.png",
+    "http://localhost:4321/019-green-clustered-legend-merge.png",
+    "http://localhost:4321/01-blue-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-27T04:32:43.949Z"
+  },
+  "uuid": "f4b1a513-3fe2-4a94-9c50-7e8dfff5c25d",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "601103fe0d3184806dd0e94b"
+  },
+  "imageProg": [
+    "http://localhost:4321/018-blue-headline-legend-merge.png",
+    "http://localhost:4321/011-red-sampled-legend-merge.png",
+    "http://localhost:4321/015-green-annotated-legend-merge.png",
+    "http://localhost:4321/06-blue-clustered-legend-merge.png",
+    "http://localhost:4321/020-red-checkered-legend-merge.png",
+    "http://localhost:4321/019-green-annotated-legend-merge.png",
+    "http://localhost:4321/08-blue-clustered-legend-merge.png",
+    "http://localhost:4321/016-red-sampled-legend-merge.png",
+    "http://localhost:4321/010-green-checkered-legend-merge.png",
+    "http://localhost:4321/05-blue-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-27T06:06:50.265Z"
+  },
+  "uuid": "d689d0dc-fb9f-4e47-af63-efc2074a8fea",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "601216721ffe3cbb8682a9f1"
+  },
+  "imageProg": [
+    "http://localhost:4321/011-green-headline-legend-merge.png",
+    "http://localhost:4321/015-blue-clustered-legend-merge.png",
+    "http://localhost:4321/09-red-checkered-legend-merge.png",
+    "http://localhost:4321/018-green-sampled-legend-merge.png",
+    "http://localhost:4321/021-blue-annotated-legend-merge.png",
+    "http://localhost:4321/05-red-clustered-legend-merge.png",
+    "http://localhost:4321/012-green-sampled-legend-merge.png",
+    "http://localhost:4321/013-blue-annotated-legend-merge.png",
+    "http://localhost:4321/04-red-checkered-legend-merge.png",
+    "http://localhost:4321/07-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "40fc64f0-d7f6-4add-8d9c-56b09660204d",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "601218851ffe3cbb8682aacd"
+  },
+  "imageProg": [
+    "http://localhost:4321/09-red-headline-legend-merge.png",
+    "http://localhost:4321/015-green-sampled-legend-merge.png",
+    "http://localhost:4321/020-blue-checkered-legend-merge.png",
+    "http://localhost:4321/016-red-clustered-legend-merge.png",
+    "http://localhost:4321/08-green-annotated-legend-merge.png",
+    "http://localhost:4321/06-blue-clustered-legend-merge.png",
+    "http://localhost:4321/05-red-annotated-legend-merge.png",
+    "http://localhost:4321/021-green-checkered-legend-merge.png",
+    "http://localhost:4321/03-blue-sampled-legend-merge.png",
+    "http://localhost:4321/010-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "1f155924-d0d8-4474-91b6-df0c23ecc598",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60121a5d1ffe3cbb8682ab36"
+  },
+  "imageProg": [
+    "http://localhost:4321/020-green-headline-legend-merge.png",
+    "http://localhost:4321/08-red-annotated-legend-merge.png",
+    "http://localhost:4321/03-blue-checkered-legend-merge.png",
+    "http://localhost:4321/018-green-clustered-legend-merge.png",
+    "http://localhost:4321/011-red-sampled-legend-merge.png",
+    "http://localhost:4321/02-blue-clustered-legend-merge.png",
+    "http://localhost:4321/04-green-checkered-legend-merge.png",
+    "http://localhost:4321/019-red-annotated-legend-merge.png",
+    "http://localhost:4321/021-blue-sampled-legend-merge.png",
+    "http://localhost:4321/015-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "d1bed6ac-cc9e-496a-bab2-586aa7b726b4",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60121c951ffe3cbb8682ac74"
+  },
+  "imageProg": [
+    "http://localhost:4321/018-red-headline-legend-merge.png",
+    "http://localhost:4321/04-green-checkered-legend-merge.png",
+    "http://localhost:4321/020-blue-annotated-legend-merge.png",
+    "http://localhost:4321/09-red-sampled-legend-merge.png",
+    "http://localhost:4321/019-green-clustered-legend-merge.png",
+    "http://localhost:4321/06-blue-checkered-legend-merge.png",
+    "http://localhost:4321/03-red-sampled-legend-merge.png",
+    "http://localhost:4321/05-green-annotated-legend-merge.png",
+    "http://localhost:4321/017-blue-clustered-legend-merge.png",
+    "http://localhost:4321/012-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "a5e4b998-ae8a-4ea6-9c29-b65f5bf5b9f6",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60121f2a1ffe3cbb8682acd1"
+  },
+  "imageProg": [
+    "http://localhost:4321/016-red-headline-legend-merge.png",
+    "http://localhost:4321/03-blue-sampled-legend-merge.png",
+    "http://localhost:4321/02-green-checkered-legend-merge.png",
+    "http://localhost:4321/013-red-annotated-legend-merge.png",
+    "http://localhost:4321/014-blue-clustered-legend-merge.png",
+    "http://localhost:4321/01-green-clustered-legend-merge.png",
+    "http://localhost:4321/019-red-annotated-legend-merge.png",
+    "http://localhost:4321/017-blue-sampled-legend-merge.png",
+    "http://localhost:4321/018-green-checkered-legend-merge.png",
+    "http://localhost:4321/06-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "b37efc3d-82f5-4def-8da0-06fd6db175be",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "601221301ffe3cbb8682ad66"
+  },
+  "imageProg": [
+    "http://localhost:4321/08-blue-headline-legend-merge.png",
+    "http://localhost:4321/017-green-annotated-legend-merge.png",
+    "http://localhost:4321/010-red-clustered-legend-merge.png",
+    "http://localhost:4321/05-blue-checkered-legend-merge.png",
+    "http://localhost:4321/09-green-sampled-legend-merge.png",
+    "http://localhost:4321/014-red-sampled-legend-merge.png",
+    "http://localhost:4321/015-blue-clustered-legend-merge.png",
+    "http://localhost:4321/020-green-annotated-legend-merge.png",
+    "http://localhost:4321/016-red-checkered-legend-merge.png",
+    "http://localhost:4321/04-blue-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "bf0f0269-e52d-4bac-98c4-c74b31afd74f",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "601226b81ffe3cbb8682af2a"
+  },
+  "imageProg": [
+    "http://localhost:4321/018-green-headline-legend-merge.png",
+    "http://localhost:4321/01-red-clustered-legend-merge.png",
+    "http://localhost:4321/012-blue-checkered-legend-merge.png",
+    "http://localhost:4321/013-green-annotated-legend-merge.png",
+    "http://localhost:4321/02-red-sampled-legend-merge.png",
+    "http://localhost:4321/09-blue-annotated-legend-merge.png",
+    "http://localhost:4321/011-green-checkered-legend-merge.png",
+    "http://localhost:4321/021-red-sampled-legend-merge.png",
+    "http://localhost:4321/06-blue-clustered-legend-merge.png",
+    "http://localhost:4321/03-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "db5cf00b-448f-47cf-842c-8d237f6cf45b",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6012275c1ffe3cbb8682af5c"
+  },
+  "imageProg": [
+    "http://localhost:4321/09-green-headline-legend-merge.png",
+    "http://localhost:4321/014-red-checkered-legend-merge.png",
+    "http://localhost:4321/01-blue-sampled-legend-merge.png",
+    "http://localhost:4321/06-green-annotated-legend-merge.png",
+    "http://localhost:4321/08-red-clustered-legend-merge.png",
+    "http://localhost:4321/02-blue-checkered-legend-merge.png",
+    "http://localhost:4321/019-green-annotated-legend-merge.png",
+    "http://localhost:4321/013-red-sampled-legend-merge.png",
+    "http://localhost:4321/010-blue-clustered-legend-merge.png",
+    "http://localhost:4321/04-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "a4cf6853-b0f9-412f-abc4-dcb1fe0ada77",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6012293f1ffe3cbb8682af97"
+  },
+  "imageProg": [
+    "http://localhost:4321/017-red-headline-legend-merge.png",
+    "http://localhost:4321/07-green-clustered-legend-merge.png",
+    "http://localhost:4321/06-blue-checkered-legend-merge.png",
+    "http://localhost:4321/015-red-annotated-legend-merge.png",
+    "http://localhost:4321/02-green-sampled-legend-merge.png",
+    "http://localhost:4321/011-blue-sampled-legend-merge.png",
+    "http://localhost:4321/016-red-annotated-legend-merge.png",
+    "http://localhost:4321/012-green-clustered-legend-merge.png",
+    "http://localhost:4321/01-blue-checkered-legend-merge.png",
+    "http://localhost:4321/09-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "8d67fbc1-a0ed-4d54-9370-f81f26a1ef4a",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60122d611ffe3cbb8682aff9"
+  },
+  "imageProg": [
+    "http://localhost:4321/012-blue-headline-legend-merge.png",
+    "http://localhost:4321/02-red-checkered-legend-merge.png",
+    "http://localhost:4321/021-green-sampled-legend-merge.png",
+    "http://localhost:4321/020-blue-annotated-legend-merge.png",
+    "http://localhost:4321/01-red-clustered-legend-merge.png",
+    "http://localhost:4321/011-green-sampled-legend-merge.png",
+    "http://localhost:4321/014-blue-annotated-legend-merge.png",
+    "http://localhost:4321/017-red-clustered-legend-merge.png",
+    "http://localhost:4321/015-green-checkered-legend-merge.png",
+    "http://localhost:4321/04-blue-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "eb825e80-7fb8-403a-ab60-6ca68021a1cc",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60122ea31ffe3cbb8682b06f"
+  },
+  "imageProg": [
+    "http://localhost:4321/05-red-headline-legend-merge.png",
+    "http://localhost:4321/09-blue-clustered-legend-merge.png",
+    "http://localhost:4321/08-green-annotated-legend-merge.png",
+    "http://localhost:4321/07-red-sampled-legend-merge.png",
+    "http://localhost:4321/015-blue-checkered-legend-merge.png",
+    "http://localhost:4321/012-green-sampled-legend-merge.png",
+    "http://localhost:4321/06-red-annotated-legend-merge.png",
+    "http://localhost:4321/02-blue-checkered-legend-merge.png",
+    "http://localhost:4321/03-green-clustered-legend-merge.png",
+    "http://localhost:4321/013-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "af0d2e11-be39-496a-bfda-953a96d7871c",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6012487a1ffe3cbb8682b0c6"
+  },
+  "imageProg": [
+    "http://localhost:4321/020-green-headline-legend-merge.png",
+    "http://localhost:4321/010-blue-sampled-legend-merge.png",
+    "http://localhost:4321/02-red-clustered-legend-merge.png",
+    "http://localhost:4321/013-green-checkered-legend-merge.png",
+    "http://localhost:4321/014-blue-annotated-legend-merge.png",
+    "http://localhost:4321/018-red-sampled-legend-merge.png",
+    "http://localhost:4321/06-green-clustered-legend-merge.png",
+    "http://localhost:4321/012-blue-checkered-legend-merge.png",
+    "http://localhost:4321/016-red-annotated-legend-merge.png",
+    "http://localhost:4321/021-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "3f877ade-16c6-454c-b214-95e28f2abf68",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60124a9e1ffe3cbb8682b22d"
+  },
+  "imageProg": [
+    "http://localhost:4321/05-red-headline-legend-merge.png",
+    "http://localhost:4321/014-blue-sampled-legend-merge.png",
+    "http://localhost:4321/017-green-checkered-legend-merge.png",
+    "http://localhost:4321/07-red-annotated-legend-merge.png",
+    "http://localhost:4321/04-blue-clustered-legend-merge.png",
+    "http://localhost:4321/012-green-checkered-legend-merge.png",
+    "http://localhost:4321/016-red-sampled-legend-merge.png",
+    "http://localhost:4321/09-blue-clustered-legend-merge.png",
+    "http://localhost:4321/019-green-annotated-legend-merge.png",
+    "http://localhost:4321/01-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-28T01:38:31.663Z"
+  },
+  "uuid": "69a1c05e-4ab0-4fe8-bf84-a40cc7d1fa0b",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60136cdcec2dc63461740ab4"
+  },
+  "imageProg": [
+    "http://localhost:4321/012-red-headline-legend-merge.png",
+    "http://localhost:4321/017-blue-clustered-legend-merge.png",
+    "http://localhost:4321/06-green-checkered-legend-merge.png",
+    "http://localhost:4321/011-red-sampled-legend-merge.png",
+    "http://localhost:4321/03-blue-annotated-legend-merge.png",
+    "http://localhost:4321/015-green-sampled-legend-merge.png",
+    "http://localhost:4321/014-red-clustered-legend-merge.png",
+    "http://localhost:4321/01-blue-annotated-legend-merge.png",
+    "http://localhost:4321/02-green-checkered-legend-merge.png",
+    "http://localhost:4321/013-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-01-29T02:02:12.935Z"
+  },
+  "uuid": "f0e25470-5bf5-4363-b75f-bc9f704dc9b1",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "601e0a30a9ed5dfef7c4bac2"
+  },
+  "imageProg": [
+    "http://localhost:4321/07-green-headline-legend-merge.png",
+    "http://localhost:4321/08-blue-sampled-legend-merge.png",
+    "http://localhost:4321/020-red-checkered-legend-merge.png",
+    "http://localhost:4321/018-green-annotated-legend-merge.png",
+    "http://localhost:4321/09-blue-clustered-legend-merge.png",
+    "http://localhost:4321/014-red-clustered-legend-merge.png",
+    "http://localhost:4321/06-green-annotated-legend-merge.png",
+    "http://localhost:4321/015-blue-sampled-legend-merge.png",
+    "http://localhost:4321/011-red-checkered-legend-merge.png",
+    "http://localhost:4321/01-green-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-02-06T02:00:58.342Z"
+  },
+  "uuid": "9842157e-e265-4dd7-a3c0-e987b02f572d",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "601e0c5ca9ed5dfef7c4bb44"
+  },
+  "imageProg": [
+    "http://localhost:4321/04-red-headline-legend-merge.png",
+    "http://localhost:4321/020-blue-sampled-legend-merge.png",
+    "http://localhost:4321/010-green-checkered-legend-merge.png",
+    "http://localhost:4321/015-red-annotated-legend-merge.png",
+    "http://localhost:4321/03-blue-clustered-legend-merge.png",
+    "http://localhost:4321/021-green-clustered-legend-merge.png",
+    "http://localhost:4321/012-red-sampled-legend-merge.png",
+    "http://localhost:4321/08-blue-annotated-legend-merge.png",
+    "http://localhost:4321/06-green-checkered-legend-merge.png",
+    "http://localhost:4321/016-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-02-06T02:00:58.342Z"
+  },
+  "uuid": "ed273b62-ec36-4fbd-9a4e-ede168c613da",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "601e0e54a9ed5dfef7c4bbd0"
+  },
+  "imageProg": [
+    "http://localhost:4321/018-red-headline-legend-merge.png",
+    "http://localhost:4321/017-green-checkered-legend-merge.png",
+    "http://localhost:4321/02-blue-sampled-legend-merge.png",
+    "http://localhost:4321/011-red-clustered-legend-merge.png",
+    "http://localhost:4321/05-green-annotated-legend-merge.png",
+    "http://localhost:4321/010-blue-annotated-legend-merge.png",
+    "http://localhost:4321/016-red-checkered-legend-merge.png",
+    "http://localhost:4321/03-green-sampled-legend-merge.png",
+    "http://localhost:4321/08-blue-clustered-legend-merge.png",
+    "http://localhost:4321/01-red-headline-legend-merge.png"
+  ],
+  "sessionStart": {
+    "$date": "2021-02-06T02:00:58.342Z"
+  },
+  "uuid": "ad0c8736-88f6-4b33-a9b9-e74ee36c2a6e",
+  "__v": 0
+}]
