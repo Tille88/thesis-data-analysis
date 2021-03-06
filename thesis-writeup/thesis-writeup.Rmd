@@ -106,17 +106,14 @@ As will be discussed in section \ref{background}, legends have been studied, but
 - How are alternative legend design choices received by the subjects (subjective user acceptance testing)?
 
 
-<!-- END WRITING 2020-02-20 -->
-
 
 <!-- # Background -->
 \section{Background} \label{background}
 
+*TODO: INCLUDE MORE MEAT IN LITERATURE SECTION!!!*
 **The background put the study in a wider perspective and gives a summary or ‘state of the art’ of the actual question. This chapter can present the literature study as a base to the problem and posed question. Already here you can present actual literature/references to research in the field of question, but this should be a presentation. Often you can use this summary of the stat of the art again the discussion of your results. Take care that you have the latest publications in the field of research topic included.**
 
 ## Previous related literature
-
-*TODO: INCLUDE MORE MEAT IN LITERATURE SECTION!!!*
 
 The literature review will touch on several areas which intersect this study scope: 
 i) data visualization and perception, low-level and design studies ii) transparency-focused studies iii) cartography and GIS visualization, including colour studies iv) use of legends.
@@ -152,99 +149,122 @@ iv) Legends
 Literature on use of legends seem highly tied to different visualization types. Recent map legend literature found have focused on interactive aspects (Midtbø, 2007) and attempts to provide guidance on the use of map legends in a “dynamic environment” (Dykes et al. 2010).
 No intersection between legends and transparency either in GIS-context or elsewhere have been found in the literature review.
 
-**Note for supervisor: For end thesis could flesh this out more with description of opacity legends in academic journals (sometimes included, not focus of studies in questions).**
+**Could flesh this out more with description of opacity legends in academic journals (sometimes included, not focus of studies in questions).**
 
 
-
+<!-- END WRITING 2020-02-20 -->
 
 # *Methodology*
 
-**Here you present the applied methods for the collection of data, the analysis, and e.g. the study area. Also motivate again why you chose for the methodology**
+**Here you present the applied methods for the collection of data, the analysis*, INCLUDE MOTIVATIONS**
 
 ## *Data Collection*
 
-No appropriate data set is likely to exist, requiring an extensive plan for data set acquisition through a design study using web technologies.
 
-The proposed design study will look at static 2D maps using web technologies for easy distribution. The subjects will be presented with different designs and be asked to estimate the value at the location of a marker. The data will be represented as a spatially distributed phenomenon mapped to opacity in a polygon that is overlaid on a base map, as in the ArcGIS online maps described in background/study area section.
+### *Legend design types*
 
-The spatially generated data can be generated using a (2D) Perlin noise function (base version introduced in Perlin, 1985).
+Due to the narrowness of the reasearch questions, no openly available dataset or examples was likely to exist. This resulted in extensive work to design and create a dataset and a reproducable experiment where legend types was possible to isolate as the only non-randomly changing treatment.  
 
-Different designs are presented below, together with some justifications – where all legends and data mappings are linear in the opacity/alpha channel. 
+The data was limited to static 2D maps and using web technologies for easy distribution. The subjects were presented with different legend designs and were asked to estimate the value at the location of a marker. The data was represented as a spatially distributed phenomenon mapped to opacity in a polygon that is overlaid on a base map, as in the ArcGIS online maps described in section \ref{background}.
 
-Baseline 1 - No legend (Figure 4-1)
-Title indicating range of values. Used to test correctness of visual decoding by subjects without legend.
+Different designs are presented below, together with some justifications – where all legends and data mappings are linear in the opacity/alpha channel. This ought to introduce less complications than colour-mapping of colour due to a linear encoding of the alpha-channel in the RGBA-model:
+
+>  *It’s worth pointing out that unlike the color components which are often encoded using a non-linear transformation, alpha is stored linearly – encoded value of 0.5 corresponds to alpha value of 0.5 (Ciechanowski, 2019)*
+
+For more information on the process of example generations and technology choices see Appendix A.
+
+**Baseline 1 - No legend**
+```{r echo=FALSE}
+figure_number = figure_number + 1 
+```
+
+Only having a title indicating range of values. Used to test correctness of visual decoding by subjects without legend. Presented as first and last example in the progression presented to the subjects.
+
+![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-headline-legend-merge.png){width=50%}
+
+
+**Baseline 2 – ArcGIS Legend Imitation**
+
+```{r echo=FALSE}
+figure_number = figure_number + 1 
+```
+
+The design is used as baseline for models that explore if alternative legend choices are helping in decoding data-values compared to the current "industry standard". 
+
+This, and all following examples imitate the ArcGIS-design in the size of legend (constant for all legends). Legend located in the bottom right corner.
+
+![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-checkered-legend-merge.png){width=50%}
+
+ ```{r echo=FALSE}
+figure_number = figure_number + 1 
+```
  
-Figure 4-1. Opacity data mapping layer without legend
+**Legend with sampled context [Contextualizing] (Figure `r figure_number`)** 
 
+One likely downside making it more difficult for subjects to accurately decode the data values is the lack of context in the legend as it relates to the background of the data in the visualization. The rest of the example types works to provide designs that gives more of the actual map base-layer background information to the legend.
 
-Baseline 2– ArcGIS Legend Imitation (Figure 4-2) – until prototype, here copied from ArcGIS online legend, and all examples following same data variable mapping and values
+The simplest design choice was to sample part of the base layer as background as seen in Figure `r figure_number`. The details on how this was done in practice can be found in Appendix A.
  
-Figure 4-2
+![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-sampled-legend-merge.png){width=50%}
 
+ ```{r echo=FALSE}
+figure_number = figure_number + 1 
+```
 
-Legend with sampled context [Contextualizing] (Figure 4-3)
-One likely downside making it more difficult for subjects to accurately decode the data values is the lack of context in the legend. Sampling the base layer as background (exactly how to choose this, given the likely differences in colors and “frequency” within the polygon is a tradeoff left for later, unknown how central that should be in the pre-study phase).
- 
-Figure 4-3.
+**Legend with clustered colour bands  (Figure `r figure_number`)**
 
-Annotated Outline (Figure 4-4)
+An alternative to sampling a box of the base layer map background, is to use the most common colours of the base layers as a background. In the design tested, the 10 most common colours of the background map was displayed as strips/columns in a vertical manner behind the data representation. This way they are contextualized for the full range of the data in the legend. More details how the common colours were identified are described in Appendix A. 
+
+![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-clustered-legend-merge.png){width=50%}
+
+ ```{r echo=FALSE}
+figure_number = figure_number + 1 
+```
+
+**Annotated Outline  (Figure `r figure_number`)**
+
 The legend placement may heavily affect the users ability to keep the information in near memory while moving the eyes back and fourth between visualized data and the legend.
-In an attempt to move the information closer to the data – an outline legend for the polygon could be used. The legend is also contextualized by having the legend opacity superimposed over the base map layer in the same way as the actual data encoding.
-It is a tough design decision whether to have the outline going around all of the polygon, or to simply have it in some places. If going around the full polygon, then it may be unclear for the user the outlines of the data-area, which probably result in a design with a clear outline of the data-polygon, while having 1-2 annotated outline parts as shown in Figure 4-4 below.
+
+In an attempt to move the information closer to the data – an outline legend placed next to the data-polygon was presented to the respondents. The legend is also contextualized by having the legend opacity superimposed over the base map layer in the same way as the actual data encoding.
+
+In order to remove design choices of how to place this kind of legend around complex polygon shapes, a simple square-data area was chosen for all examples.
+
+![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-annotated-legend-merge.png){width=50%}
  
-Figure 4-4.
 
-Optional - Combined Contextualized Legend and Annotated Outline (Figure 4-5)
-It couldbe worth to include both the contextualized legend and annotated outline in order to see if that results in more clarity or simply confuses the user.
- 
-Figure 4-5.
+### *Data collection presentation and user interface*
 
-UI (user interface) and Presentation Methodology
-The user will be queried for estimations of the value and color at the marker in multiple generated examples. This requires two selection-mechanisms residing next to the map interface in the UI. The subject could likely be asked to repeat the task twice for each design, in order to be able to get within-subject estimations, without being a daunting task.
-The different input mechanisms are:
-1. Number picker – within range of plotted data, likely choice being a slider with the value above.
-2. Colour picker – likely needing to be designed myself in order to allow only alpha channel choices while keeping colour consistent.
+A front-end was developed using front-end web-technologies. In this system, the respondents were presented with a progression of stages:
 
-Map Base Layer
-Base layer using open street map, without license use restrictions – geographic coverage and zoom-level to be decided during the prototype construction phase. The underlying mapped area should also considered – one solution could simply be to choose an area for the base layer that is unlikely to be known to respondents – likely needed discussion prior to study.
+1. Introduction with instructions, introducing the elements of the visualization and tasks to guess/estimate the value of the data layer at the location of a randomly generated marker position making use of the different legend types.
 
-Limitations and some mitigations
-•	The study is focusing on static and non-interactive maps - no tooltips or animations to help the user.
-•	Only one non-opaque layer will be used, eliminating issues such as combined opacity of overlapping layers. The opacity-mapped layer is assumed to be the only data mapping of interest apart from the geographical context.
-•	The study is conducted online – where the user can use a laptop or handheld device. The subjects will be using different browsers, devices will not be calibrated, and external lighting conditions is not controlled. For the different types of devices – information on screen size and similar may be logged to be able to control for any obvious outliers – logging methodology to follow below.
-•	Non-random sampling – for possibility of larger response rate – being able to point people to a URL to be surveyed is distinctively non-random. Trying to rely largely on a within-subject methodology could mitigate somewhat, and I don’t see a specific skew such as having asked e.g. only students at a geography department as being likely.
-•	Learning effects are likely if the subject is asked to repeat similar tasks multiple tasks. This will be mitigated through randomizing the progression, while likely keeping 1 baseline example at start and 1 at end.
+2. Randomly chosen images picked by the back-end server from the 315 example combination images (3 colours * 21 random data and marker location variations * 5 legend types = 315) stored in the back-end and presented to the respondents\footnote{
+The progression of the images started and ended with the **Baseline 1 - No legend** type, and had the remaining 4 design type orders picked at random for the example progression images 2-5 and 6-9 respectively in order to maximize randomization. The colours of the data layer were for all examples available in pure red, green and blue. For the first image in the progression a combination of these three colours was randomly generated and repeated for examples 1-10. The reason for changing the colours between the examples was to reduce the risk of the respondents remembering the colour-to-data mapping between examples.
 
-Colour choice
-Colour is a consideration – but for simplicity, simply choosing a full RGB-channel colours – i.e. either completely red, blue or green, and simply vary only alpha/opacity channel. Which of the three colours to use one could be one of the factors considered after first prototype have been developed.
+As an exmaple: for the progression of images 1-10, three lists are generated: a colour progression ["green", "blue", "red], a random list of numbers from the number of examples (21) [3, 14, 4, 10, 16, 2, 7, 9, 20], and selection of legend types [[first 5: no-legend{fixed}, random order of 4 remaining types], last 5: random order of 4 remaining types, [no-legend{fixed}]], then these were combined as ["3-green-no-legend", "14-sampled-blue", "4-red-clustered", "10-green-annotated", ..., "20-green-no-legend"]
+}. Each response and a number of interactions by the respondents were sent back to the back-end server and persisted in a data base as the respondents went through the task. The response was picked using a number picker covering the range of the data (kept constant to 0-100). The initial value of the slider was random, and the respondents were required to change the response before being able to progress to the next example image.
 
-Prototype Graphics Library Selection
-Modern web browsers support three graphic libraries: SVG, Canvas and WebGL. A more thorough discussion on the likely use of the Canvas library for prototype is discussed in “Appendix A – Web Graphics Library Discussion”.
+3. After progressing through the example images, the respondents were asked about how helpful they considered the different legend types were for their task. This information was also sent back and persisted to the data base together with IDs of the respondents.
 
-Manual blending from background image is likely to be very computationally heavy – making this probably more suitable to be done offline, and generate a number of exported image files that can be sent over to the user, instead of dynamically generated and sent back to the server. ArcGIS online have also used Canvas to display the images to the user – and the calculated image data is likely done server side.
+More information, example images of the user interface and text of the HTML markup can be found in Appendix B.
 
-Due to logging of image exposure for the subjects are of importance, it is of importance to make sure the images are not loaded progressively, but only displayed when the image is fully loaded. This can be done by HTML-attribute data-imageboss-options="progressive:false". It is likely that a widely supported lossless compression image format such as PNG is to be used.
+The survey data was collected between Jan 9th and Feb 6th 2021, using convenience sampling. Many of the 34 respondents are employees at the Volvo Car Corporation Asia Pacific Head Quarter in Shanghai, China.
+
+The inital plan was to put the survey online using cloud-technologies for wider distribution. During the testing stage, it was however clear that there was a need to check that the instructions were understood to reduce the variation in the data. From this a more qualitative methodology was chosen where I was present in the room and asked the respondent if the task was understood after reading the instructions described in stage 1. of the list above. 
+
+This resulted in a more consistent study, where the same laptop was used by all data collection, and the lighting conditions were possible to be kept consistent.
 
 
-*Data Acquisition Strategy*
-Logging of subject behavior to a server in order to
+## *Data Analysis*
 
-Data that needs to be logged, and may be non-conclusive at this point can be found below:
+### *Data and variable description*
 
-1. Session-level logging
-•	Respondent-ID, anonymized (e.g. cookie or token-ID) or IP-address
-•	Metadata – browser, screensize and device, in addition for other metadata to filter out possible multi-respondents.
-•	Self-reported impression after conducted examples – which presentationtypes were intuitive and where the legend designs considered useful 
-•	Subject information (if anything needed – such as experience with web-GIS-systems or age - should be discussed with supervisor)
-2. Event-logging
-•	Timestamp logging at time of image load
-•	Any interactions with input mechanisms with timestamp – e.g. any change of slider values (not just final answer)
-•	Time of submitting answer
-•	Interactions with visualization (mouse movements over image with coordinates and timestamp, as eye movement can not be measured).
+Each of the 34 respondent completed the full survey, resulting in 340 responses to the data-progression (stage 2) and objective acceptance evaluations to all 5 design variations for each user (5*34=170 responses).
 
-Project schedule-section (06), provides further breakdown of likely work needed for data acquisition before the study is conducted.
 
-## Methods
+### *Data modeling*
+
+**NEXT**
 
 Key metrics:
 PerceptionValueError - Data visual estimation delta to actual value
@@ -291,15 +311,52 @@ Baseline without individual fixed effects as baseline model for comparison ought
 ```
 
 
-# Data and variable description
+
 
 # Results
 
 **A presentation and description of your results should appear in this section. Actually collecting the figures and tables is an important first step before you actually start writing. Determine first what you would like to present and which results give the best answer to your posed question**
 
+## Robustness tests
+
 # Discussion
 
 **Here you discuss the results by putting your findings in relation to what others published on the matter. Present a critical analysis of your own results, and discuss the sources of error.**
+
+
+Limitations and some mitigations
+•	The study is focusing on static and non-interactive maps - no tooltips or animations to help the user.
+•	Only one non-opaque layer will be used, eliminating issues such as combined opacity of overlapping layers. The opacity-mapped layer is assumed to be the only data mapping of interest apart from the geographical context.
+•	Non-random sampling – for possibility of larger response rate – being able to point people to a URL to be surveyed is distinctively non-random. Trying to rely largely on a within-subject methodology could mitigate somewhat, and I don’t see a specific skew such as having asked e.g. only students at a geography department as being likely.
+•	Learning effects are likely if the subject is asked to repeat similar tasks multiple tasks. This will be mitigated through randomizing the progression, while likely keeping 1 baseline example at start and 1 at end.
+
+
+# TO BE ADDED SOMEWHERE
+
+List feedback:
+- Larger legends, but imitated ArcGIS as closely as possible
+- Why not relative error
+- Why not subset of people using interactions: not indicative. Some use arrows to make changes 0.1 at a time, interactions topped at max number… Some hover while talking generally about the problem, some don’t hover when they do careful comparisons using hands on screen
+
+
+FOR REFERENCE LIST: 
+https://ciechanow.ski/alpha-compositing/ + reading list
+Alpha = linear
+https://pudding.cool/2020/10/photo-history/
+Specifications for canvas
+Hierarchical clustering of image
+Perception of color 
+Other literature on Perception with clutter/backgrounds/overlays
+Greenwich as center
+Cluster as concept needs to be described
+
+Delta: 
+Colour picker not used as not core research questions, and could be other way to get image feeling other than legend (if used together, should be very similar part of slider…)
+Trying to isolate to ONLY difference being legend display
+Legend design (not large, only min max actually showed) -> same as ArcGIS as baseline, need to visually interpolate or try to interact with image to get feeling for values in between
+Detailed description of dev choices -> prog start/end with baseline, rest all randomised
+If all visualizations same range, may stop making use of legends after getting used to mapping -> ISSUE BUT OTHERWISE NEED TO !NORMALIZE! ERROR TO % OF RANGE SELECTION? 
+Use of colours to not be able to remember mapping as easy...
 
 
 <!-- TODO: Migrate references!!! -->
@@ -311,6 +368,7 @@ Berry, Lisa (2016) 6 Easy Ways to Improve Your Maps [Online]. Available at: http
 Brehmer, M. Munzner, T (2013) ‘A Multi-Level Typology of Abstract Visualization Tasks’. IEEE Transactions on Visualization and Computer Graphics, 19(12), p 2376 - 2385
 Brewer, Cynthia (2006). ’ Basic Mapping Principles for Visualizing Cancer Data Using Geographic Information Systems (GIS)’. American Journal of Preventive Medicine, 30(2S).
 Cairo, Alberto (2016) The Truthful Art:Data, Charts, and Maps for Communication. Berkeley, CA: New Riders.
+Ciechanowski, Bartosz (2019). Alpha Compositing [Online]. Available at: https://ciechanow.ski/alpha-compositing/ (Accessed: 20 Feb 2021)  
 Chan, MY, Wu, YC, Mak, WH, Chen, W (2009). ‘Perception-Based Transparency Optimization for Direct Volume Rendering’. IEEE Transactions on Visualization and Computer Graphics, 15(6).
 Cleveland, WS, McGill, R (1985) ‘Graphical Perception and Graphical Methods for Analyzing Scientific Data’. Science, 229(4716), p828-833.
 Correa, Carlos D, Ma Kwan-Liu (2008). ‘Size-based Transfer Functions: A New Volume Exploration Technique’.  IEEE Transactions on Visualization and Computer Graphics, 14(6).
@@ -333,10 +391,74 @@ Ware, Colin (2020) Information Visualization – Perception for Design. 4th edit
 -->
 
 <!-- # Appendices -->
+\newpage
+
+\section{Appendices} \label{appendices}
+
+
+## Appendix A - example generations and technology choices
+
+*TECH CHOICES*
+*- Example Generation*
+  *- Dev environment*
+  *- Canvas*
+  *- Perlin noise, The spatially generated data can be generated using a (2D) Perlin noise function (base version introduced in Perlin, 1985).*
+  *- Randomization colour*
+  *- Number of examples*
+  *- All combinations using Node, exposed as png*
+  
+  - Design choices
+    - Area of baselayer
+- Elements
+- Technology choices
+- For ease to vary the legend choices, generated within an area, (within a range to leave space for legends) and simple data layer in a square
+- How to generate sampled background 
+- How to generate clustered background
+- Range 0-100
+
+Map Base Layer
+Base layer using open street map, without license use restrictions – geographic coverage and zoom-level to be decided during the prototype construction phase. The underlying mapped area should also considered – one solution could simply be to choose an area for the base layer that is unlikely to be known to respondents – likely needed discussion prior to study.
+
+
+Colour choice
+Colour is a consideration – but for simplicity, simply choosing a full RGB-channel colours – i.e. either completely red, blue or green, and simply vary only alpha/opacity channel. Which of the three colours to use one could be one of the factors considered after first prototype have been developed.
+
+Prototype Graphics Library Selection
+Modern web browsers support three graphic libraries: SVG, Canvas and WebGL. A more thorough discussion on the likely use of the Canvas library for prototype is discussed in “Appendix A – Web Graphics Library Discussion”.
+
+Manual blending from background image is likely to be very computationally heavy – making this probably more suitable to be done offline, and generate a number of exported image files that can be sent over to the user, instead of dynamically generated and sent back to the server. ArcGIS online have also used Canvas to display the images to the user – and the calculated image data is likely done server side.
 
 
 
 
+\newpage
+
+## Appendix B - User interface and data serving setup
+
+*- UI + Backend*
+*- Example - intro-page, screeenshots full interface, acceptance content and similar...*
+*- Progression*
+
+
+UI - introduction page
+Pictures of progression
+HTML markup
+Backend
+UUID generation
+
+
+1. Session-level logging
+•	Respondent-ID, UUID4 generated by the server
+•	Self-reported impression after conducted examples – which presentation types were intuitive and where the legend designs considered useful 
+2. Event-logging
+•	Timestamp logging at time of image load
+•	Any interactions with input mechanisms with timestamp – e.g. any change of slider values (not just final answer)
+•	Time of submitting answer
+•	Interactions with visualization (mouse movements over image with coordinates and timestamp, as eye movement can not be measured).
+
+
+
+\newpage
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
