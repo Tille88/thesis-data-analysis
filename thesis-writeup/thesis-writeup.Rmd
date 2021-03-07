@@ -183,7 +183,7 @@ Different designs are presented below, together with some justifications – whe
 
 For more information on the process of example generations and technology choices see Appendix A.
 
-**Baseline 1 - No legend**
+**Baseline 1 - No legend ["Headline" in tables]**
 ```{r echo=FALSE}
 figure_number = figure_number + 1 
 ```
@@ -193,7 +193,7 @@ Only having a title indicating range of values. Used to test correctness of visu
 ![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-headline-legend-merge.png){width=40%}
 
 
-**Baseline 2 – ArcGIS Legend Imitation**
+**Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables]**
 
 ```{r echo=FALSE}
 figure_number = figure_number + 1 
@@ -209,7 +209,7 @@ This, and all following examples imitate the ArcGIS-design in the size of legend
 figure_number = figure_number + 1 
 ```
  
-**Legend with sampled context [Contextualizing] (Figure `r figure_number`)** 
+**Legend with sampled context [Contextualizing] (Figure `r figure_number`) ["Sampled" in tables]** 
 
 One likely downside making it more difficult for subjects to accurately decode the data values is the lack of context in the legend as it relates to the background of the data in the visualization. The rest of the example types works to provide designs that gives more of the actual map base-layer background information to the legend.
 
@@ -221,7 +221,7 @@ The simplest design choice was to sample part of the base layer as background as
 figure_number = figure_number + 1 
 ```
 
-**Legend with clustered colour bands  (Figure `r figure_number`)**
+**Legend with clustered colour bands  (Figure `r figure_number`) ["Clustered" in tables]**
 
 An alternative to sampling a box of the base layer map background, is to use the most common colours of the base layers as a background. In the design tested, the 10 most common colours of the background map was displayed as strips/columns in a vertical manner behind the data representation. This way they are contextualized for the full range of the data in the legend. More details how the common colours were identified are described in Appendix A. 
 
@@ -231,7 +231,7 @@ An alternative to sampling a box of the base layer map background, is to use the
 figure_number = figure_number + 1 
 ```
 
-**Annotated Outline  (Figure `r figure_number`)**
+**Annotated Outline  (Figure `r figure_number`) ["Annotated" in tables]**
 
 The legend placement may heavily affect the users ability to keep the information in near memory while moving the eyes back and fourth between visualized data and the legend.
 
@@ -243,8 +243,9 @@ In order to remove design choices of how to place this kind of legend around com
 
 ![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-annotated-legend-merge.png){width=40%}
  
+<!-- ### *Data collection presentation and user interface* -->
+\subsubsection{Data collection presentation and user interface} \label{data-collection-ui}
 
-### *Data collection presentation and user interface*
 
 A front-end was developed using front-end web-technologies. In this system, the respondents were presented with a progression of stages:
 
@@ -396,52 +397,70 @@ Plots for these variables can be found in Appendix C.
 *COLOUR* - Visualization presented having opacity data layer mapped colour channel as pure red, green or blue. From visual inspection, not any strong difference between the colours (see Appendix C). 
 
 
-### *Data modeling*
+### *Hypothesis testing models*
 
-**NEXT**
+Most of the research questions are centered around how different legend design choices affects errors and acceptance.
 
+For *PERCEPTION ERROR* the average value is centered around 0, but the distribution variance is of interest. Most statistical models are constructed to compare in particular mean values between categories, which would not be able to give any indication of differences between these values. It would be possible to create a non-parametric test using bootstrapping of almost any test statistics (Efron, 1979). However, for simplicity Bartlett's test \footnote{
+See https://en.wikipedia.org/wiki/Bartlett%27s_test and http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r for comparisons of standard statistical test for variance differences
+} allow testing of multiple variance differences between multiple groups. **TODO: REFERNECE**
 
-Evaluation:
-High level modelling should include general one-way ANOVA models, perhaps in combination with a number of consecutive t-tests. **REDIRECT**  This is to identify if statistical differences exists between different groupings, with one Y-variables mean against a single X-variable at the time (groupings, here visualization type).
+The Bartlett test will be conducted for both the full data including the headling/no-legend type as baseline, and a subset to see if variances differs in a statistically significant way between the different legend types, using checkered legend type as a baseline, as the type having the largest variance test statistic of the sample.
 
-**More formal references for later report, but https://en.wikipedia.org/wiki/Analysis_of_variance https://en.wikipedia.org/wiki/One-way_analysis_of_variance and https://www.sheffield.ac.uk/polopoly_fs/1.531211!/file/MASH_Oneway_ANOVA_SPSS.pdf for an introduction.**
+Bartlett's test assumes normality, so the Shapiro-Wilk test **TODO: REFERENCE** are first to be conducted in order to see if the normality-assumption holds. This will be done for all legend types combined, with headline/no-legend removed, as well as for the subsample of each legend type separately.  
 
-For clarity below described by Y and X separately.
-Y’s in separate tests = PerceptionValueError, ColourPerceptionError, TimeToSubmit, DecisionChanges, SelectionRagneDistFromCorrectAnswer, AcceptanceScore
-X in all cases = observations pooled by type – VisualizationType
+For *|PERCEPTION ERROR|*, *ACCEPTANCE* and other questions where a mean-comparison is able to be of relation to the reseach questions \footnote{
+Including *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*, which will have the results presented in Appendix **TODO - APPENDIX LETTER**
+} are examined using regular OLS-techniques (linear regression). Of importance for interpretable results is the baseline for these models (intercept), for ease of understanding p-values and test statistic differences. 
 
-Single evaluation models to estimate effects should be a conducted for the different outcome metrics of interest, similar to an individual fixed effects model **REDIRECT**  used for panel data in econometrics as shown below for PerceptionValueError.
+The baseline OLS-estimates are retained using 
 
-**Introduction found at https://www.aptech.com/blog/panel-data-basics-one-way-individual-effects/#:~:text=In%20the%20fixed%20effects%20model%2C%20the%20individual%20effects,consistent%20estimates%20using%20one%20of%20three%20estimation%20techniques%3A more formal reference for thesis report.**
+\begin{equation*}
+|PERCEPTION ERROR|_{i} = \alpha + \beta_{1} LEGEND_{i} + \varepsilon_{i}
+\end{equation*}
 
-<!-- FORMULA -->
+and
 
-This model the individual error component is dealt with through including an individual specific intercept (above REMOVED – also possible to get to as an individual dummy variable per subject).
+\begin{equation*}
+ACCEPTANCE_{i} = \alpha + \beta_{1} LEGEND_{i} + \varepsilon_{i}
+\end{equation*}
 
-The coefficient(s) of interest will be REMOVED, measuring effects for the dummy variables for VisualizationType.
+To account for individual fixed effects\footnote{Certain respondents are likely to have different average correctness due to within-subject variations}, this is in case of statistically significant findings also tested using individual fixed effects (FE)-models **TODO: REFERENCE**. This can be thought of as including separate intercept-variables for each respondent using dummy variables for each respondent\footnote{The statistical analysis software may choose to estimate this using other techniques, such as entity-demeaned OLS for computational efficiency https://www.econometrics-with-r.org/10-3-fixed-effects-regression.html}.
 
-Testing in user-acceptance phase must be also done for the models to ensure enough degrees of freedom for the planned models, otherwise the number of examples would have to increase.
+\begin{equation*}
+|PERCEPTION ERROR|_{ij} = \alpha + \beta_{1} LEGEND_{i} + \gamma_{2} RESPONDENT2{j} + \gamma_{3} RESPONDENT3{j} + ... + \gamma_{n} RESPONDENTn{j} + \varepsilon_{ij}
+\end{equation*}
 
-Learning-effects not included if no specific progression is fixed for the subjects, this is assumed to elimit any such effects. If clear learning effects are included – but no immediate feedback to the subjects during the study ought to reduce those effects slightly.
-
-Separate analysis of subgroups (e.g. desktop and smartphone using respondents) ought to be included, or if those should be controlled for in some of the of the models that does not use fixed individual effects – but not possible using simple on-way ANOVA testing.
-
-The statistical programming will be conducted in R, and analysis of standard errors conducted and presented in tables in the final thesis report. Graphical representations of the responses and testing of statistical assumptions of models will also be included in appendices.
-
-Baseline without individual fixed effects as baseline model for comparison ought to be included as well. Due to the use of convenience sampling and large variability in the environments where the answers to provided study are submitted, large individual effects are to be expected.
-
-
-
-
+The individual effects observed was not expected to be as significant as before the study was conducted, due to a more controlled environment for data collection as described in section \ref{data-collection-ui}.
 
 
-# Results
+### *Robustness checks*
 
-**A presentation and description of your results should appear in this section. Actually collecting the figures and tables is an important first step before you actually start writing. Determine first what you would like to present and which results give the best answer to your posed question**
+"Time fixed effects", is considered to be added to the models to check for learning and/or fatigue effects as the respondent went through the progression of tasks. In order to see if this is of value to pursue further, first a simple OLS-model is tested to see if there are any indications of
+
+Given that the subjects were given no feedback on the correctness of their responses during the progression, learning effects are likely to be negligible.
+
+\begin{equation*}
+|PERCEPTION ERROR|_{i} = \alpha + \beta_{1} PROGRESSION_{i} + \varepsilon_{i}
+\end{equation*}
+
+An alternative model will be run on the subset of only the first and last example subset (headline/no-legend), to see if these categories differ significantly.
+
+\begin{equation*}
+|PERCEPTION ERROR|_{i} = \alpha + \beta_{1} PROGRESSION LAST_{i} + \varepsilon_{i}
+\end{equation*}
+
+The results from these test will feed into the possible need to do subsample analysis using only e.g. the first 5 responses of each respondent.
+
+Subset analysis using only the respondents that are likely to be the most engaged or skilled, as defined as the respondents with below median average *|PERCEPTION ERROR|* is to be conducted to see if the results differ in a significant way for those respondents.
 
 
-```{r name-of-chunk, echo=FALSE, message = FALSE}
 
+# *Results*
+
+## *PERCEPTION ERROR*
+
+```{r baseline-data-processing, echo=FALSE, message = FALSE}
 ########################################
 # ERROR AND DISPLAY TYPES
 # 1. legends -> opacity mapping perception? baseline = no legend
@@ -456,200 +475,283 @@ checkered_baseline = responses_an
 checkered_baseline = checkered_baseline %>% filter(legend != "headline")
 checkered_baseline$legend = relevel(checkered_baseline$legend, ref = "checkered")
 
-########################################
-# Absolute error: Baselines -> FE
-########################################
-library(plm)
-library(lmtest)
-library(zoo)
-
-library(gplots)
-plotmeans(percept_error_abs ~ legend, main="Heterogeineity across legend types", data=no_legend_baseline)
-plotmeans(percept_error_abs ~ uuid, main="Heterogeineity across respondents", data=no_legend_baseline)
-
-# Absolute error - simple OLS
-## 1. legend useful at all
-### Baseline
-baseline_legend_of_use <- lm(percept_error_abs ~ legend, 
-                     data = no_legend_baseline)
-summary(baseline_legend_of_use)
-### FE = robustness
-fe_legend_of_use <- plm(percept_error_abs ~ legend,
-                          data = no_legend_baseline,
-                          index = c("uuid"),
-                          model = "within")
-# print summary using robust standard errors
-coeftest(fe_legend_of_use, vcov. = vcovHC, type = "HC1")
-# Nonrobust -> summary(fe_legend_of_use)
+```
 
 
-## 2. Legend vs standard = checkered
-## 3. annotated or contextualized also answered
-### Baseline
-standard_baseline_difference <- lm(percept_error_abs ~ legend, 
-                             data = checkered_baseline)
-summary(standard_baseline_difference)
-### FE = robustness
-fe_standard_difference <- plm(percept_error_abs ~ legend,
-                            data = checkered_baseline,
-                            index = c("uuid"),
-                            model = "within")
-# print summary using robust standard errors
-coeftest(fe_standard_difference, vcov. = vcovHC, type = "HC1")
-# Nonrobust -> summary(fe_standard_difference)
+### *Normality tests*
 
-library(stargazer)
-stargazer(
-  baseline_legend_of_use, 
-  fe_legend_of_use, 
-  standard_baseline_difference, 
-  fe_standard_difference, 
-  title="Regression Results", align=TRUE)
+```{r normality-testing, echo=FALSE, message = FALSE}
 
-
-
-########################################
-# Simply error: Variance testing
-########################################
-
-# For relative errors will center around 0
-#  Variance testing (could use bootstrapping, but easier to use statistical test)
 
 test_normality <- function(df, legend_type){
   if(legend_type=="combined"){
     perception_error_only_df = responses_an %>% select(percept_error)
   } else if(legend_type=="headline_removed"){
     perception_error_only_df = responses_an %>% filter(legend!="headline") %>% select(percept_error)
-  } 
+  }
   else{
     perception_error_only_df = responses_an %>% filter(legend==legend_type) %>% select(percept_error)
   }
   normality = shapiro.test(perception_error_only_df$percept_error)
   normality_results = ifelse(normality$p.value > 0.05, paste(legend_type, "NORMALity not rejected"), paste(legend_type, "NON-NORMAL"))
-  print(normality_results)
+  # print(normality_results)
+  return(normality)
 }
 
 # Sensitive to normality
 legend_types = c(
   "combined",
   "headline_removed",
-  "headline", 
-  "sampled", 
-  "clustered", 
-  "checkered", 
+  "headline",
+  "sampled",
+  "clustered",
+  "checkered",
   "annotated"
 )
 
+
+normality_list <- data.frame()
+
 for(legend in legend_types){
-  test_normality(responses_an, legend)
+  normality_results <- test_normality(responses_an, legend)
+  
+  normality_list <- rbind(normality_list, 
+                           data.frame(legend=legend, 
+                             test_statistics = normality_results$statistic[[1]],
+                             p_value = normality_results$p.value[[1]])
+  )
 }
 
+normality_list$legend <- c("Combined", "Headline Removed", "Headline", "Sampled", "Clustered", "Checkered", "Annotated")
 
-# check which cateoy has the highest variance
-no_legend_baseline %>% 
-  group_by(legend) %>% 
+names(normality_list) <- c("Sample", "Shapiro Wilk Test Statistics", "P-Value")
+
+```
+
+As shown in the table below **TODO: TABLE NUMBERING**, all the p-values for the Shapiro-Wilk test is above 0.05, meaning the the null of normality is not rejected for any of the tests run. In otheer words, we can assume that the data is normally distributed. 
+
+```{r normality-testing-table, echo=FALSE, message = FALSE, results='asis'}
+
+library(stargazer)
+stargazer(normality_list,type='latex', summary = FALSE, header = FALSE)
+
+
+```
+
+
+### *Bartlett test of homogeneity of variances*
+
+
+```{r processing-variance-ordering, echo=FALSE, message = FALSE}
+
+# check which category has the highest variance
+varince_ordering <- no_legend_baseline %>%
+  group_by(legend) %>%
   summarize(sd = sd(percept_error)) %>%
   arrange(desc(sd))
 
 
-# F-test two categories at the time: instead:
-# Multiple variances assuming normal -> Bartlett's http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r
+varince_ordering$legend <- plyr::revalue(varince_ordering$legend, c(
+  headline="Headline", 
+  "checkered"="Checkered",
+  "sampled"="Sampled",
+  "clustered"="Clustered",
+  "annotated"="Annotated"
+  ))
+
+
+
+names(varince_ordering) <- c("Legend", "Standard Dev.")
+
+varince_ordering$Legend <- as.character(varince_ordering$Legend)
+varince_ordering$`Standard Dev.` <- round(varince_ordering$`Standard Dev.`, 1)
+```
+
+```{r processing-variance-table, echo=FALSE, message = FALSE, results='asis'}
+stargazer(varince_ordering,type='latex', summary = FALSE, header = FALSE)
+```
+
+Table **TODO: TABLE NUMBERING** shows that the example with no-legend/headling shows largest variance/standard deviation, followed by checkered, sampled, clustered and annotated legend types.
+
+In the statistical tests the headline type is used first as baseline, to see if these differences are statistically significant, then a subset removing all the headline data points from the sample is used, and see if the variance differ significantly.
+
+```{r bartlett-variance-models, echo=FALSE, message = FALSE}
+
 bartlett_model_all = bartlett.test(percept_error ~ legend, data = no_legend_baseline)
-ifelse(
-  bartlett_model_all$p.value < 0.5,
-  "Variance SIGNIFICANT difference",
-  "Variance NO significant difference"
-)
+# ifelse(
+#   bartlett_model_all$p.value < 0.05,
+#   "Variance SIGNIFICANT difference",
+#   "Variance NO significant difference"
+# )
 
 
 bartlett_model_against_checkered = bartlett.test(percept_error ~ legend, data = checkered_baseline)
-ifelse(
-  bartlett_model_against_checkered$p.value < 0.5,
-  "Variance SIGNIFICANT difference",
-  "Variance NO significant difference"
+
+bartlett_model_against_checkered = bartlett.test(percept_error ~ legend, data = checkered_baseline)
+
+bartlett_df <- data.frame(
+  "Sample" = c(
+    "All, including Headline",
+    "Excluding Headline"
+  ),
+  "Test Statistic" = c(
+    bartlett_model_all$statistic,
+    bartlett_model_against_checkered$statistic
+    ),
+  "P Value" = c(
+    bartlett_model_all$p.value,
+    bartlett_model_against_checkered$p.value
+  )
 )
 
+```
+```{r bartlett-table, echo=FALSE, message = FALSE, results='asis'}
+stargazer(bartlett_df,type='latex', summary = FALSE, header = FALSE)
+```
+
+As seen from Table **TODO: TABLE NUMBERING**, there is a statistically significant difference in variance for the sample including the Headline type (p-val < 0.05), but that significance does not remain when excluding the headline/no-legend category. This indicates that there is not much need to look into two-way comparisons between the legend types.
+
+For estimations of size of differences between groups transformation of *PERCEPTION ERROR* to absolute terms is analyzed instead.
+
+## *|PERCEPTION ERROR|*
+
+Visual inspection of whether there are clear difference in heterogenity in *|PERCEPTION ERROR|* for both legend types and between respondents are seen in **TODO: FIGURE NUMBERING** in Appendix C (bars including 95% confidence intervals). The confidence intervals are largely overlapping for all types except when not including any legend (Headline), which is in line with results from variance testing. For respondent variation, there are large variations, but still a large fraction that have overlapping confidence bounds.
+
+```{r abs-perception-error-models, echo=FALSE, message = FALSE}
+library(plm)
+library(lmtest)
+library(zoo)
+
+# Absolute error - simple OLS
+## 1. legend useful at all
+### Baseline
+baseline_legend_of_use <- lm(percept_error_abs ~ legend,
+                     data = no_legend_baseline)
+
+### FE = robustness
+fe_legend_of_use <- plm(percept_error_abs ~ legend,
+                          data = no_legend_baseline,
+                          index = c("uuid"),
+                          model = "within")
+# print summary using robust standard errors
+# coeftest(fe_legend_of_use, vcov. = vcovHC, type = "HC1")
+# Nonrobust -> summary(fe_legend_of_use)
+
+
+## 2. Legend vs standard = checkered
+## 3. annotated or contextualized also answered
+### Baseline
+standard_baseline_difference <- lm(percept_error_abs ~ legend,
+                             data = checkered_baseline)
+
+### FE = robustness
+fe_standard_difference <- plm(percept_error_abs ~ legend,
+                            data = checkered_baseline,
+                            index = c("uuid"),
+                            model = "within")
+# print summary using robust standard errors
+# coeftest(fe_standard_difference, vcov. = vcovHC, type = "HC1")
+# Nonrobust -> summary(fe_standard_difference)
+
+
+```
+
+```{r abs-perception-error-models-table, echo=FALSE, message = FALSE, results='asis'}
+stargazer(
+  baseline_legend_of_use,
+  # fe_legend_of_use,
+  # standard_baseline_difference,
+  # fe_standard_difference,
+  # title="Regression Results"#, 
+  # align=TRUE, 
+  # header = FALSE,
+  type='latex'
+  )
 
 ```
 
 
 
 
-```{r name-of-chunk, echo=FALSE, message = FALSE}
 
-########################################
-# DECISION TYPES
-# legend choices -> user selection behaviour?
-########################################
 
-# As shown earlier - a lot of variance, not a lot of signal
-# Outliers likely affecting, simple OLS only
 
-# Time until submit -> likely because of first interaction as legend
-time_submit_all <- lm(submitTime / 1000 ~ legend, 
-                             data = no_legend_baseline)
-summary(time_submit_all)
-# Between those with legend, no statistically significant difference difference compared to baseline
-time_submit_w_legend <- lm(submitTime / 1000 ~ legend, 
-                  data = checkered_baseline)
-summary(time_submit_w_legend)
 
-# inputChanges - only on first interaction, nothing significant vs. checkered
-summary(lm(inputChanges ~ legend, 
-           data = no_legend_baseline))
-summary(lm(inputChanges ~ legend, 
-           data = checkered_baseline))
 
-# hoverEvents - no significant difference, high std errors, order of baseline category will not matter
-summary(lm(hoverEvents ~ legend, 
-           data = no_legend_baseline))
-summary(lm(hoverEvents ~ legend, 
-           data = checkered_baseline))
+```{r name-of-chunk2, echo=FALSE, message = FALSE}
+
+# ########################################
+# # ACCEPTANCE
+# # legend choices subjective -> how do users percieve these types? Useful/not useful
+# ########################################
+# 
+# # NEED TO USE DATA WITHOUT DUPLICATES
+# 
+# acceptance_data_unique = responses_an %>% 
+#     select(uuid, acceptance, legend) %>% 
+#     distinct()
+# 
+# # Generally by group, which highest
+# acceptance_data_unique %>% 
+#   group_by(legend) %>% 
+#   summarize(mean = mean(acceptance, na.rm = T)) %>%
+#   arrange(desc(mean))
+# # 1 sampled    4.18
+# # 2 annotated  4.06
+# # 3 checkered  3.47
+# # 4 clustered  3.09
+# # 5 headline   2.09
+# 
+# # Checkered over clustered... let's keep still
+# 
+# # Earlier baselines still makes rough sense
+# acceptance_data_unique_legend_baseline = acceptance_data_unique
+# acceptance_data_unique_legend_baseline$legend = relevel(acceptance_data_unique_legend_baseline$legend, ref = "headline")
+# acceptance_data_unique_checkered_baseline = acceptance_data_unique
+# acceptance_data_unique_checkered_baseline = acceptance_data_unique_checkered_baseline %>% filter(legend != "headline")
+# acceptance_data_unique_checkered_baseline$legend = relevel(acceptance_data_unique_checkered_baseline$legend, ref = "checkered")
+# 
+# 
+# # Models- all significant against no-legend (= preferred over)
+# summary(lm(acceptance ~ legend, 
+#            data = acceptance_data_unique_legend_baseline))
+# # Annotated and sampled significantly preferred, clustered lower, but not significantly so
+# summary(lm(acceptance ~ legend, 
+#            data = acceptance_data_unique_checkered_baseline))
+
 
 ```
 
+```{r name-of-chunk3, echo=FALSE, message = FALSE}
 
-```{r name-of-chunk, echo=FALSE, message = FALSE}
-
-########################################
-# ACCEPTANCE
-# legend choices subjective -> how do users percieve these types? Useful/not useful
-########################################
-
-# NEED TO USE DATA WITHOUT DUPLICATES
-
-acceptance_data_unique = responses_an %>% 
-    select(uuid, acceptance, legend) %>% 
-    distinct()
-
-# Generally by group, which highest
-acceptance_data_unique %>% 
-  group_by(legend) %>% 
-  summarize(mean = mean(acceptance, na.rm = T)) %>%
-  arrange(desc(mean))
-# 1 sampled    4.18
-# 2 annotated  4.06
-# 3 checkered  3.47
-# 4 clustered  3.09
-# 5 headline   2.09
-
-# Checkered over clustered... let's keep still
-
-# Earlier baselines still makes rough sense
-acceptance_data_unique_legend_baseline = acceptance_data_unique
-acceptance_data_unique_legend_baseline$legend = relevel(acceptance_data_unique_legend_baseline$legend, ref = "headline")
-acceptance_data_unique_checkered_baseline = acceptance_data_unique
-acceptance_data_unique_checkered_baseline = acceptance_data_unique_checkered_baseline %>% filter(legend != "headline")
-acceptance_data_unique_checkered_baseline$legend = relevel(acceptance_data_unique_checkered_baseline$legend, ref = "checkered")
-
-
-# Models- all significant against no-legend (= preferred over)
-summary(lm(acceptance ~ legend, 
-           data = acceptance_data_unique_legend_baseline))
-# Annotated and sampled significantly preferred, clustered lower, but not significantly so
-summary(lm(acceptance ~ legend, 
-           data = acceptance_data_unique_checkered_baseline))
-
+# ########################################
+# # DECISION TYPES
+# # legend choices -> user selection behaviour?
+# ########################################
+# 
+# # As shown earlier - a lot of variance, not a lot of signal
+# # Outliers likely affecting, simple OLS only
+# 
+# # Time until submit -> likely because of first interaction as legend
+# time_submit_all <- lm(submitTime / 1000 ~ legend, 
+#                              data = no_legend_baseline)
+# summary(time_submit_all)
+# # Between those with legend, no statistically significant difference difference compared to baseline
+# time_submit_w_legend <- lm(submitTime / 1000 ~ legend, 
+#                   data = checkered_baseline)
+# summary(time_submit_w_legend)
+# 
+# # inputChanges - only on first interaction, nothing significant vs. checkered
+# summary(lm(inputChanges ~ legend, 
+#            data = no_legend_baseline))
+# summary(lm(inputChanges ~ legend, 
+#            data = checkered_baseline))
+# 
+# # hoverEvents - no significant difference, high std errors, order of baseline category will not matter
+# summary(lm(hoverEvents ~ legend, 
+#            data = no_legend_baseline))
+# summary(lm(hoverEvents ~ legend, 
+#            data = checkered_baseline))
 
 ```
 
@@ -657,113 +759,81 @@ summary(lm(acceptance ~ legend,
 ## Robustness tests
 
 
-```{r name-of-chunk, echo=FALSE, message = FALSE}
+```{r name-of-chunk4, echo=FALSE, message = FALSE}
 
-########################################
-# SUBSET ANALYSIS - ROBUSTNESS
-########################################
-
-
-########
-# Correlation error with progression 
-# learning effects as progression or getting tired of task... (INDIVIDUAL+PROGNUM)
-progression_effect_mod <- lm(percept_error_abs ~ prog, 
-                             data = responses_an)
-summary(progression_effect_mod)
-# Nothing significant, not going to take this into account - or do analysis using e.g. first 5 images only
-
-# TODO: Baseline 1 vs baseline 10 - difference?
-
-########
-# Respondents with smaller average errors (outlier removal) - top 50th percentile
-
-num_respondents_chosen = (responses_an$uuid %>% unique() %>% length())/2
-
-arranged_respondents_by_error = responses_an %>% group_by(uuid) %>%
-  summarize(mean_abs_error = mean(percept_error_abs)) %>%
-  arrange(mean_abs_error) 
-
-resp_low_errors = arranged_respondents_by_error[1:num_respondents_chosen,] %>% select(uuid)
-
-resp_low_errors_df = responses_an %>% filter(uuid %in% resp_low_errors$uuid)
-
-# Absolute
-# Not really anything that sticks out
-ggplot(resp_low_errors_df, aes(legend, percept_error_abs, color=legend)) + 
-  geom_boxplot()  +
-  stat_summary(fun="mean", geom="point", color="black")
-
-# For completeness
-no_legend_baseline_accurate = resp_low_errors_df
-no_legend_baseline_accurate$legend = relevel(no_legend_baseline_accurate$legend, ref = "headline")
-checkered_baseline_accurate = no_legend_baseline_accurate
-checkered_baseline_accurate = checkered_baseline_accurate %>% filter(legend != "headline")
-checkered_baseline_accurate$legend = relevel(checkered_baseline_accurate$legend, ref = "checkered")
-
-# Absolute error - simple OLS
-## 1. legend useful at all
-### Baseline
-baseline_legend_of_use_accurate <- lm(percept_error_abs ~ legend, 
-                             data = no_legend_baseline_accurate)
-summary(baseline_legend_of_use_accurate)
-### FE = robustness
-fe_legend_of_use_accurate <- plm(percept_error_abs ~ legend,
-                        data = no_legend_baseline_accurate,
-                        index = c("uuid"),
-                        model = "within")
-# print summary using robust standard errors
-coeftest(fe_legend_of_use_accurate, vcov. = vcovHC, type = "HC1")
-# Nonrobust -> summary(fe_legend_of_use)
-
-
-## 2. Legend vs standard = checkered
-## 3. annotated or contextualized also answered
-### Baseline
-standard_baseline_difference_accurate <- lm(percept_error_abs ~ legend, 
-                                   data = checkered_baseline_accurate)
-summary(standard_baseline_difference_accurate)
-### FE = robustness
-fe_standard_difference_accurate <- plm(percept_error_abs ~ legend,
-                              data = checkered_baseline_accurate,
-                              index = c("uuid"),
-                              model = "within")
-# print summary using robust standard errors
-coeftest(fe_standard_difference_accurate, vcov. = vcovHC, type = "HC1")
-# Nonrobust -> summary(fe_standard_difference)
-
-
-
-########################################
-# Additional
-########################################
-
-# Acceptance and performance correlation?
-# Is subjective preference correlated with errors
-summary(lm(percept_error_abs ~ acceptance, 
-   data = responses_an))
-# Low level of correlation and significant, likely pushed by low scores of no-legend
-# When filtering out non-legend types, no significance
-summary(lm(percept_error_abs ~ acceptance, 
-           data = responses_an %>% filter(legend!="headline")))
-
-# ###################
-# For "later studies"
-
-# Colour -> nothing significant against blue (highest average error)
-summary(lm(percept_error_abs ~ colour, 
-           data = responses_an ))
+# ########################################
+# # SUBSET ANALYSIS - ROBUSTNESS
+# ########################################
+# 
+# 
+# ########
+# # Correlation error with progression 
+# # learning effects as progression or getting tired of task... (INDIVIDUAL+PROGNUM)
+# progression_effect_mod <- lm(percept_error_abs ~ prog, 
+#                              data = responses_an)
+# summary(progression_effect_mod)
+# # Nothing significant, not going to take this into account - or do analysis using e.g. first 5 images only
+# 
+# # TODO: Baseline 1 vs baseline 10 - difference? - SUBSAMPLE ONLY 1st and 10th!!!
+# 
+# ########
+# # Respondents with smaller average errors (outlier removal) - top 50th percentile
+# 
+# num_respondents_chosen = (responses_an$uuid %>% unique() %>% length())/2
+# 
+# arranged_respondents_by_error = responses_an %>% group_by(uuid) %>%
+#   summarize(mean_abs_error = mean(percept_error_abs)) %>%
+#   arrange(mean_abs_error) 
+# 
+# resp_low_errors = arranged_respondents_by_error[1:num_respondents_chosen,] %>% select(uuid)
+# 
+# resp_low_errors_df = responses_an %>% filter(uuid %in% resp_low_errors$uuid)
+# 
+# # Absolute
+# # Not really anything that sticks out
+# ggplot(resp_low_errors_df, aes(legend, percept_error_abs, color=legend)) + 
+#   geom_boxplot()  +
+#   stat_summary(fun="mean", geom="point", color="black")
+# 
+# # For completeness
+# no_legend_baseline_accurate = resp_low_errors_df
+# no_legend_baseline_accurate$legend = relevel(no_legend_baseline_accurate$legend, ref = "headline")
+# checkered_baseline_accurate = no_legend_baseline_accurate
+# checkered_baseline_accurate = checkered_baseline_accurate %>% filter(legend != "headline")
+# checkered_baseline_accurate$legend = relevel(checkered_baseline_accurate$legend, ref = "checkered")
+# 
+# # Absolute error - simple OLS
+# ## 1. legend useful at all
+# ### Baseline
+# baseline_legend_of_use_accurate <- lm(percept_error_abs ~ legend, 
+#                              data = no_legend_baseline_accurate)
+# summary(baseline_legend_of_use_accurate)
+# ### FE = robustness
+# fe_legend_of_use_accurate <- plm(percept_error_abs ~ legend,
+#                         data = no_legend_baseline_accurate,
+#                         index = c("uuid"),
+#                         model = "within")
+# # print summary using robust standard errors
+# coeftest(fe_legend_of_use_accurate, vcov. = vcovHC, type = "HC1")
+# # Nonrobust -> summary(fe_legend_of_use)
+# 
+# 
+# ## 2. Legend vs standard = checkered
+# ## 3. annotated or contextualized also answered
+# ### Baseline
+# standard_baseline_difference_accurate <- lm(percept_error_abs ~ legend, 
+#                                    data = checkered_baseline_accurate)
+# summary(standard_baseline_difference_accurate)
+# ### FE = robustness
+# fe_standard_difference_accurate <- plm(percept_error_abs ~ legend,
+#                               data = checkered_baseline_accurate,
+#                               index = c("uuid"),
+#                               model = "within")
+# # print summary using robust standard errors
+# coeftest(fe_standard_difference_accurate, vcov. = vcovHC, type = "HC1")
+# # Nonrobust -> summary(fe_standard_difference)
 
 
-# Error distribution different parts of scale of correctVal?
-# Can mention, but nothing of interest here...
-plot(responses_an$correctVal, responses_an$percept_error)
-abline(0, 0)
-
-
-plot(responses_an$correctVal, responses_an$percept_error_abs)
-error_over_ranges = lm(responses_an$correctVal ~ responses_an$percept_error_abs)
-abline(error_over_ranges)
-summary(error_over_ranges)
 
 
 ```
@@ -820,7 +890,10 @@ Correa, Carlos D, Ma Kwan-Liu (2008). ‘Size-based Transfer Functions: A New Vo
 
 Dykes, J., Wood, J. and Slingsby, A. (2010). ’Rethinking Map Legends with Visualization’. IEEE Transactions on Visualization and Computer Graphics, 16(6), p.890-899.
 
-Ee, Shaun (2020) Back to school with Tencent and friends - Health surveillance goes into schools as some classes resume [Online]. Available at: https://technode.com/2020/04/28/health-code-back-to-school-with-tencent-and-friends/ (Accessed: 13 Sept 2020)
+Ee, Shaun (2020). Back to school with Tencent and friends - Health surveillance goes into schools as some classes resume [Online]. Available at: https://technode.com/2020/04/28/health-code-back-to-school-with-tencent-and-friends/ (Accessed: 13 Sept 2020)
+
+Efron, Bradley. (1979). Bootstrap methods: Another look at the jackknife. The Annals of Statistics. 7 (1): 1–26. doi:10.1214/aos/1176344552.
+
 Grant, Robert (2019) Data Visualization – Charts, Maps and Interactive Graphics. Boca Raton, FL: CRC Press.
 Jaemin Jo, Frédéric Vernier, Pierre Dragicevic, Jean-Daniel Fekete. ’A Declarative Rendering Model for Multiclass Density Maps’. IEEE Transactions on Visualization and Computer Graphics, Institute of Electrical and Electronics Engineers, 2019, 25 (1), pp.470-480.
 Kim, YS, Walls ,LA, Krafft , P, Hullman, J (2017a). A Bayesian Cognition Approach to Improve Data Visualization. ACM Conference (Conference’17). ACM, New York, NY, USA.
@@ -932,7 +1005,7 @@ ggplot(responses_an_viz, aes(legend, inputChanges, color=legend)) +
 ```
 
 
-```{r input-changes-visualization, fig.cap = "Hover events", echo=FALSE}
+```{r hover-events-visualization, fig.cap = "Hover events", echo=FALSE}
 
 # Input changes
 ggplot(responses_an_viz, aes(legend, hoverEvents, color=legend)) +
@@ -961,9 +1034,13 @@ ggplot(responses_an_viz, aes(colour, percept_error_abs, color=colour)) +
 ```
 
 
+
+
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
-
+library(gplots)
+plotmeans(percept_error_abs ~ legend, main="Heterogeineity across legend types", data=no_legend_baseline)
+plotmeans(percept_error_abs ~ uuid, main="Heterogeineity across respondents", data=no_legend_baseline, connect = F, n.label = F)
 
 
 # PLOTS
