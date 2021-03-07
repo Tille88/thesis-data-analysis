@@ -659,21 +659,28 @@ fe_standard_difference <- plm(percept_error_abs ~ legend,
 ```{r abs-perception-error-models-table, echo=FALSE, message = FALSE, results='asis'}
 stargazer(
   baseline_legend_of_use,
-  # fe_legend_of_use,
-  # standard_baseline_difference,
-  # fe_standard_difference,
-  # title="Regression Results"#, 
-  # align=TRUE, 
-  # header = FALSE,
-  type='latex'
+  fe_legend_of_use,
+  standard_baseline_difference,
+  fe_standard_difference,
+  title="Regression Results",
+  header = FALSE,
+  type='latex',
+  covariate.labels=c("Annotated","Checkered","Clustered",
+  "Sampled","Constant/Reference"),
+  column.labels = c("Headline Reference", "Checkered Reference"),
+  column.separate = c(2,2),
+  dep.var.labels = c("**|PERCEPTION ERROR|**")
   )
+
 
 ```
 
 
+The regression results shown in Table **TODO: TABLE NUMBERING** show that the results are consistent with the variance tests, where model (1) and (2) estimates are relative to the reference category of no-legend/headline. All other legend types display lower errors, and are all statistically significantly lower than the errors for headline, with the annotated type being having the lowest average error of `r round(fe_legend_of_use$coefficients[[1]], 2)` lower errors than headline type on the range that is between 0-100.
 
+Where checkered is used as reference category, all estimates are as done when choosing that as reference due to both the research question formulation and the data distribution are showing lower estimated errors, but none of those results are statistically significant.
 
-
+The individual effects have not affected the estimates, but have some higher standard errors. Everything that is significant for simple OLS is also significant to roughly the same extent for the FE models.
 
 
 
