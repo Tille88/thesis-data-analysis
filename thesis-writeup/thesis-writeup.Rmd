@@ -920,48 +920,48 @@ stargazer(
 
 # Discussion
 
-**Here you discuss the results by putting your findings in relation to what others published on the matter.**
-
-**MAIN FINDINGS, INCLUSION OF LEGEND HELPS, COMPARED TO CHECKERED, NO STATISTICALLY SIGNIFICANT RESULTS, **
-
-**SOURCES OF ERROR? QUITE LARGE NATURAL VARIATIONS, GIVEN RESPONDENT FEEDBACK, MAYBE LARGER LEGENDS COULD HAVE SOME OTHER RESULTS, MORE IN PARTS OF LOW OPACITY, IN IDEAL SETTING, EACH RESPONDENT WOULD ONLY GET ONE TREATMENT**
-
-**LESS AND LESS RELIANT ON STATIC VISUALIZATION TYPES WITHOUT POSSIBILITY FOR INTERACTION**
-
-**SOMEWHAT CONTRIVED EXAMPLES - ALL SQUARES, ONLY ONE DATA LAYER, IF MULTIPLE NON-OPAQUE LAYERS ARE USED THERE ARE ADDITIONAL COMPLEXITIES DUE TO HAVING POTENTIALLY OVERLAPPING OPACITY LAYERS**
-
-**GEODATA PRACTICALLY ONLY IN EXAMPLES TO GIVE A MORE VARIED AND CLUTTERED BACKGROUND, RESULTS MAY DIFFER IN BACKGROUND HAVING LESS OR NO COLOURS, AS WELL AS FOR MORE COMPLEX BACKGROUNDS SUCH AS AERIAL/SATELLITE IMAGERY**
-
-**SAMPLING: NON-RANDOM, DUE TO CONVENIENCE, AND FEASIBILITY OF DATA COLLECTION IN COVID. LARGE OVERSAMPLING OF ENGINEERS, SKEW FROM THIS DIFFICULT TO REASON ABOUT**
-
-**NOT INCLUDED YET: COMPARISON TO OTHER PARTS OF LITERATURE, CAN SAY, LITTLE PUBLISHED ON THIS PARTICULAR QUESTION...**
+**TODO: NOT INCLUDED YET - COMPARISON TO OTHER PARTS OF LITERATURE, CAN SAY, LITTLE PUBLISHED ON THIS PARTICULAR QUESTION...**
 
 
+The results shows that in this type of visualization types, there is an influence of legend choices - as to if legends are included or not. We see both a lower variance and more accurate results when there is a legend compared to when no legend is present. 
+
+However, there were no clear results indicating differences in response accuracy depending on the type of legend, and there was quite a large variation in response accuracies in the sample overall. Notably as well was that user selection and other proxy variables were not well-suited to act as a proxy for respondent-confidence or uncertainty.
+
+There was a worry if keeping the data in the same range between examples would lead the respondents to stop using the legends after getting used to/internalizing the data mapping. Without this the errors would not be on the same scale, so it was deemed more suitable, and instead a post-collection testing of progression results was to be relied on in addition to changing the colours between each example. Given that there was a consistently higher error for the Headline/no-legend examples, and actually slighltly higher errors for the last example compared to the first, this was unlikely to have affected the validity of the study.
+
+The strongest results were perhaps from the user preferences/acceptance of the different legend types, where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the "industry standard" as in the imitation of the Checkered legend type.
+
+A common feedback given by respondents was that it would be useful to have larger legends. The current legend size was chosen to imitate ArcGIS opacity legend as closely as possible, and to be identical in size between legend types.
+
+In order to control the setting for data collections, the examples were somewhat contrived. 
+
+\begin{enumerate}
+  \item Today, rather few data complex visualizations are lacking annotation or possibilities for interaction.
+  \item All data area mappings were strictly rectangular in shape to allow for easy automated placement of the Annotated legend types.
+  \item Only one opacity data layer is included. Multiple and possibly overlapping opacity layers would result in compounding opaqueness. This seems like a good design choice for data encoding to avoid more than one data opacity layer.
+  \item The map data as base layer served more as a context, and realistic use case in terms of how data is viewed in common map applications. This layer was kept constant, and may not be representative of many other areas, and it is not clear how opacity mapping and legend are working for less complex (e.g. maps/backgrounds with less/no colours) or more complex backgrounds (e.g. aerial/satellite imagery).
+\end{enumerate}
+
+None of these factors, except from the last, ought to have strong implications for the external validity of the study, but ought to still be noted.
+
+The sampling was non-random convenience sampling. This was as earlier discussed in order to keep other factors as consistent as possible. The number of engineers was high among the respondents, but it seems difficult to speculate if this would skew the results in any meaningful way.  
 
 
-List feedback:
-- Larger legends, but imitated ArcGIS as closely as possible
-- Why not relative error
-- Why not subset of people using interactions: not indicative. Some use arrows to make changes 0.1 at a time, interactions topped at max number… Some hover while talking generally about the problem, some don’t hover when they do careful comparisons using hands on screen
 
 
-FOR REFERENCE LIST: 
-Specifications for canvas
-Hierarchical clustering of image
-Perception of color 
-Other literature on Perception with clutter/backgrounds/overlays
-Greenwich as center
-Cluster as concept needs to be described
 
-Delta: 
-Trying to isolate to ONLY difference being legend display
-Legend design (not large, only min max actually showed) -> same as ArcGIS as baseline, need to visually interpolate or try to interact with image to get feeling for values in between
-Detailed description of dev choices -> prog start/end with baseline, rest all randomised
-If all visualizations same range, may stop making use of legends after getting used to mapping -> ISSUE BUT OTHERWISE NEED TO !NORMALIZE! ERROR TO % OF RANGE SELECTION? 
-Use of colours to not be able to remember mapping as easy...
+
+
+
+
+
+
+
 
 
 <!-- TODO: Migrate references!!! -->
+<!-- Other literature on Perception with clutter/backgrounds/overlays -->
+<!-- Other literature on legends... -->
 <!-- # References
 
 Adelson, Edward (1993). ‘Perceptual Organization and the Judgment of Brightness’. Science, 262, p2042-2044
