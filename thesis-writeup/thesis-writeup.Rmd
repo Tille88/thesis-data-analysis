@@ -948,17 +948,6 @@ The sampling was non-random convenience sampling. This was as earlier discussed 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- TODO: Migrate references!!! -->
 <!-- Other literature on Perception with clutter/backgrounds/overlays -->
 <!-- Other literature on legends... -->
@@ -1001,71 +990,125 @@ Ware, Colin (2020) Information Visualization – Perception for Design. 4th edit
 \section{Appendices} \label{appendices}
 
 
-## Appendix A - example generations and technology choices
+\subsection{Appendix A - example generations and technology choices}\footnote{All code available at https://github.com/Tille88/thesis-map-generation}
 
-*TECH CHOICES*
-*- Example Generation*
-  *- Dev environment*
-  *- Canvas*
-  *- Perlin noise, The spatially generated data can be generated using a (2D) Perlin noise function (base version introduced in Perlin, 1985).*
-  *- Randomization colour*
-  *- Number of examples*
-  *- All combinations using Node, exposed as png*
-  
-  - Design choices
-    - Area of baselayer
-- Elements
-- Technology choices
-- For ease to vary the legend choices, generated within an area, (within a range to leave space for legends) and simple data layer in a square
-- How to generate sampled background 
-- How to generate clustered background
-- Range 0-100
+A number of layers was produced for the sample images and extracted programmatically as PNG-files. The choices made can easily be described in combination with these layer types.
 
-Map Base Layer
-Base layer using open street map, without license use restrictions – geographic coverage and zoom-level to be decided during the prototype construction phase. The underlying mapped area should also considered – one solution could simply be to choose an area for the base layer that is unlikely to be known to respondents – likely needed discussion prior to study.
+\subsubsection{Element description}
+
+*Base Map*
+
+The javascript library OpenLayers\footnote{https://openlayers.org/} was used to pull down a background map to a large\footnote{larger than 1,600*1,600 pixels, and later downsampled due to not knowing usage at the data generation stage.} HTML5 Canvas element (web-browser raster-API). The area was chosen arbitrarily as Greenwich, London - and the zoom-level was chosen manually to get an area with diverse set of background colours representing water, buildings and other infrastructure. The default OpenStreetMap visualisation type was used.
+
+This image data was then extracted and stored locally in order to be able to work with ease without internet connection, and when adding other layers it was pulled into the HTML5-Canvas from disk. 
+
+*Opacity Data Layer*
+
+In order not to have respondents making use of pre-existing knowledge or assumptions to the data given the common background of London, continuous data was generated using Perlin-noise (Perlin, 1985)\footnote{The implementation used to generate the noise was https://github.com/p5py/p5/blob/master/p5/pmath/rand.py }.
+
+All generated data was normalized to have the lowest value to be 0.0, and highest being 1.0 - mapping to the linear data mapping for examples shown to respondents as being between 0 and 100.
+
+Two different types were generated: one with-out falloff to the edges of the data area, only using pure Perlin noise within the area (see figure No falloff), and the other one making sure there was a more centralized higher data area, with decreasing values towards the edges of the rectangular data area (figure falloff).
 
 
-Colour choice
-Colour is a consideration – but for simplicity, simply choosing a full RGB-channel colours – i.e. either completely red, blue or green, and simply vary only alpha/opacity channel. Which of the three colours to use one could be one of the factors considered after first prototype have been developed.
+![No falloff](./img/no-falloff.png){width=40%}
 
-Prototype Graphics Library Selection
-Modern web browsers support three graphic libraries: SVG, Canvas and WebGL. A more thorough discussion on the likely use of the Canvas library for prototype is discussed in “Appendix A – Web Graphics Library Discussion”.
+![No falloff](./img/falloff.png){width=40%}
 
-Manual blending from background image is likely to be very computationally heavy – making this probably more suitable to be done offline, and generate a number of exported image files that can be sent over to the user, instead of dynamically generated and sent back to the server. ArcGIS online have also used Canvas to display the images to the user – and the calculated image data is likely done server side.
+The noise data was put into the opacity value for a canvas image-element, with 1 of the 3 RGB-colour channels set to the max value (e.g. for red, canvas per that pixel was rgba(255, 0, 0, opacityValue)).
+
+In the following step, the base layer and map data layer was merged using the ctx.drawImage() of the HTML5 Canvas-API\footnote{This was also tested manually iterating over both the raster values of the base map and the data layer and combining them according to the Canvas opacity specification, but after seeng the results being identical, the simpler API was used}.
+
+*Marker*
+
+A marker was designed using SVG and overlayed at a randomized location within the data-extent. This was merged into the Canvas raster representation, and the value of the data later at the location was stored together with other metadata for each visualization to JSON.
+
+![Marker](./img/marker.png){width=40%}
+
+*Legends*
+
+All legends were using the Canvas API, in order to add text, background of legend and merge with data legend in a similar fashion as done between base map and data layer. Some specific points that are non-obvious described below:
+
+**Checkered legend type** - Following the ArcGIS design, a mid-level grey was used to generate a checkered-pattern as background.
+
+**Sampled legend type** - 5 different rectangular parts of the base map data of the size of the legend was extracted and chosen randomly for the sample images.
+
+**Clustered legend type** - Using kMeans clustering algorithm implementation in the base R language, was used to extract 10 "colour centers" representing common colours of the base map. These were then displayed as stripes behind the legend.
+
+
+\subsubsection{Data extraction procedure}
+
+Heavily relying on randomization for size of map area/perlin noise seed and marker location, Node.js and a headless browser was used in order to automatically extract 21 different examples in all combinations of: 
+
+\begin{itemize}
+    \item fully red, green, blue colour channel
+    \item 5 legend types
+\end{itemize}
+
+These Canvas representations were exposed as PNGs and stored to disk together with metadata in JSON. The resulting examples were 21 examples * 3 colour types * 5 legend types = 315 examples.
+
+
 
 
 
 
 \newpage
 
-## Appendix B - User interface and data serving setup
 
-*- UI + Backend*
-*- Example - intro-page, screeenshots full interface, acceptance content and similar...*
-*- Progression*
+\subsection{Appendix B - User interface and data serving setup}\footnote{All code for front- and backend code can be found at https://github.com/Tille88/thesis-front-end and https://github.com/Tille88/thesis-back-end respectively.}
+
+\subsubsection{Backend setup}
+
+The backend logic used was quite simple: for each respondent/session, a identifier for the session is generated through a UUID, and a progression following the logic described in section \ref{data-collection-ui} was sent back to the front-end. Then the front-end requested these images from the equivalent of a file-server that contained the sample images.
+
+The Node.js framework Express was used to make this functioning quickly and the interactions and responses sent back from the front-end was persisted in a MongoDB NoSQL database. Due to not having to run this online, this was done locally on the computer used for data collection.
+
+\subsubsection{Frontend setup}
+
+All front-end UI was created with HTML5, CSS and basic Javascript, shown in a Chrome web browser.
+
+From the user-perspective, the user was first shown an introduction page giving some background and instructions as shown in the images below.
+
+![Introduction page start](./img/intro1.png){width=40%}
+![Elements - base map introduction](./img/intro2.png){width=40%}
+![Elements - data layer introduction](./img/intro3.png){width=40%}
+
+![Elements - legends introduction](./img/intro4.png){width=40%}
+![Elements - marker introduction](./img/intro5.png){width=40%}
+
+![Elements - response element introduction](./img/intro6.png){width=40%}
+
+Following the introduction, and a verbal check on understanding the task, the session was initialized, receiving the progression of examples chosen randomly from the backend.
+
+![Example UI](./img/exampleui.png){width=40%}
 
 
-UI - introduction page
-Pictures of progression
-HTML markup
-Backend
-UUID generation
+At the load of the image, a timer was started, and a number of events (hovering over image, response changes - with the current value of the input, location of hover, time of event, etc.) was logged locally. At the time of submission, all these event data, the time until submission and the final response value was sent back and persisted server-side. This was repeated 10 times.
+
+The user was not able to go back once an answer had been submitted, and the "submit button" was not active until the user had updated the value from the initially random value in the range of 0-100.
+
+![Submit inactive](./img/submit_inactive.png){width=40%}
+
+![Submit active](./img/submit_active.png){width=40%}
+
+Following the full 10 examples, the users were presented with acceptance questions as seen from images below:
 
 
-1. Session-level logging
-•	Respondent-ID, UUID4 generated by the server
-•	Self-reported impression after conducted examples – which presentation types were intuitive and where the legend designs considered useful 
-2. Event-logging
-•	Timestamp logging at time of image load
-•	Any interactions with input mechanisms with timestamp – e.g. any change of slider values (not just final answer)
-•	Time of submitting answer
-•	Interactions with visualization (mouse movements over image with coordinates and timestamp, as eye movement can not be measured).
+![Acceptance top](./img/acceptance1.png){width=40%}
 
+![Acceptance bottom](./img/acceptance2.png){width=40%}
+
+All answers were sent back to the server and persisted.
+
+After final submission a "Thank you screen" including virtual confetti indicated the end of the session and task.
+
+![End of task indication](./img/end_screen.png){width=40%}
 
 
 \newpage
 
-## Appendix C - Plots and Tables
+\subsection{Appendix C - Plots and Tables}\footnote{All analysis code and data for reproducing results can be found at https://github.com/Tille88/thesis-data-analysis}
+
 
 ```{r submit-time-visualization, fig.cap = "Submit time", echo=FALSE}
 
