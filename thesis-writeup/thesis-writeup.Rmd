@@ -126,41 +126,41 @@ As will be discussed in section \ref{background}, legends have been studied, but
 
 ## Previous related literature
 
-The literature review will touch on several areas which intersect this study scope: 
-i) data visualization and perception, low-level and design studies ii) transparency-focused studies iii) cartography and GIS visualization, including colour studies iv) use of legends.
-These areas have certain number of overlap, but this grouping progressively moves towards the focus of this study.
+<!-- The literature review will touch on several areas which intersect this study scope:  -->
+<!-- i) data visualization and perception, low-level and design studies ii) transparency-focused studies iii) cartography and GIS visualization, including colour studies iv) use of legends. -->
+<!-- These areas have certain number of overlap, but this grouping progressively moves towards the focus of this study. -->
 
-i) Data Visualization and Perception
-Brehmer and Munzner (2013) describes a gap between low-level tasks, and high-level tasks in the data visualization literature. 
-Representative for the low-level perception-focused literature is the early studies focusing on measuring the ability of humans to correctly perceive different visual data encodings, such as position, length, angle, circle area, hue, etc. (Cleveland and McGill, 1985).
-Other examples of low-level perception studies are Adelson’s (1982 and 1993) studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas.
-For the higher-level tasks, Tufte (2001) exemplifies attempts to bring these smaller encodings together to more stringently describe good data visualization practices.
-Newer literature in the area commonly attempts to bridge the gap towards other scientific areas (Kim et al. 2017a, Kim et al. 2017b), incorporating mental models, uncertainty and Bayesian prior beliefs of subjects into the perception task.
-
-
-ii) Transparency
-Transparancy models have been used and studied extensively, with early opacity/transparency models by Fabio Metelli (1974) still being in use to this day.
-TODO: rewrite, currently citing Ekroll's Transparency perception: the key to understanding simultaneous color contrast
-Mitelli’s well-established additive model of perceptual transparency, a transparent layer of color L in front of a background region of color B produces a proximal color signal P which is simply a weighted mixture
-
-<!-- P = \alpha·B+(1−\alpha)*L -->
-
-Current transparency literature is heavily focused on computational rendering in a 3D/volume rendering context (e.g. Chan et al. 2009 and Correra & Ma, 2008).
+<!-- i) Data Visualization and Perception -->
+<!-- Brehmer and Munzner (2013) describes a gap between low-level tasks, and high-level tasks in the data visualization literature.  -->
+<!-- Representative for the low-level perception-focused literature is the early studies focusing on measuring the ability of humans to correctly perceive different visual data encodings, such as position, length, angle, circle area, hue, etc. (Cleveland and McGill, 1985). -->
+<!-- Other examples of low-level perception studies are Adelson’s (1982 and 1993) studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas. -->
+<!-- For the higher-level tasks, Tufte (2001) exemplifies attempts to bring these smaller encodings together to more stringently describe good data visualization practices. -->
+<!-- Newer literature in the area commonly attempts to bridge the gap towards other scientific areas (Kim et al. 2017a, Kim et al. 2017b), incorporating mental models, uncertainty and Bayesian prior beliefs of subjects into the perception task. -->
 
 
-iii) Cartography and GIS
-Colour choices in a cartographic context is a large literature, with Brewer (2006) having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective.
-Studies that cover transparency directly or indirectly are more rare. Jo et al. (2019) briefly covers opacity: "To scale scatterplots, several approaches have been proposed, such as adaptive opacity [15, 30, 32] and aggregation [13, 53]. However, adaptive opacity does not scale well with the number of categories since multiple categorical colors become ambiguous when blended[..]".
-Another use of transparency with geospatial data in a design study setting is the 'value-by-alpha-map' described as: "A value-by-alpha map relates the alpha channel of each displayed enumeration unit to the unit's value in an equalizing variable. The value-by-alpha map solves the dilemma presented by Cartogram3. Shape and topology are both preserved perfectly because geography is maintained." (Roth et al. 2010). "Cartogram3" included as “Figure 3-1” below.
- 
-Figure 3-1. Value-by-alpha map comparison (Roth et al. 2010)
+<!-- ii) Transparency -->
+<!-- Transparancy models have been used and studied extensively, with early opacity/transparency models by Fabio Metelli (1974) still being in use to this day. -->
+<!-- TODO: rewrite, currently citing Ekroll's Transparency perception: the key to understanding simultaneous color contrast -->
+<!-- Mitelli’s well-established additive model of perceptual transparency, a transparent layer of color L in front of a background region of color B produces a proximal color signal P which is simply a weighted mixture -->
+
+<!-- <!-- P = \alpha·B+(1−\alpha)*L --> -->
+
+<!-- Current transparency literature is heavily focused on computational rendering in a 3D/volume rendering context (e.g. Chan et al. 2009 and Correra & Ma, 2008). -->
 
 
-iv) Legends
-Literature on use of legends seem highly tied to different visualization types. Recent map legend literature found have focused on interactive aspects (Midtbø, 2007) and attempts to provide guidance on the use of map legends in a “dynamic environment” (Dykes et al. 2010).
-No intersection between legends and transparency either in GIS-context or elsewhere have been found in the literature review.
+<!-- iii) Cartography and GIS -->
+<!-- Colour choices in a cartographic context is a large literature, with Brewer (2006) having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective. -->
+<!-- Studies that cover transparency directly or indirectly are more rare. Jo et al. (2019) briefly covers opacity: "To scale scatterplots, several approaches have been proposed, such as adaptive opacity [15, 30, 32] and aggregation [13, 53]. However, adaptive opacity does not scale well with the number of categories since multiple categorical colors become ambiguous when blended[..]". -->
+<!-- Another use of transparency with geospatial data in a design study setting is the 'value-by-alpha-map' described as: "A value-by-alpha map relates the alpha channel of each displayed enumeration unit to the unit's value in an equalizing variable. The value-by-alpha map solves the dilemma presented by Cartogram3. Shape and topology are both preserved perfectly because geography is maintained." (Roth et al. 2010). "Cartogram3" included as “Figure 3-1” below. -->
 
-**Could flesh this out more with description of opacity legends in academic journals (sometimes included, not focus of studies in questions).**
+<!-- Figure 3-1. Value-by-alpha map comparison (Roth et al. 2010) -->
+
+
+<!-- iv) Legends -->
+<!-- Literature on use of legends seem highly tied to different visualization types. Recent map legend literature found have focused on interactive aspects (Midtbø, 2007) and attempts to provide guidance on the use of map legends in a “dynamic environment” (Dykes et al. 2010). -->
+<!-- No intersection between legends and transparency either in GIS-context or elsewhere have been found in the literature review. -->
+
+<!-- **Could flesh this out more with description of opacity legends in academic journals (sometimes included, not focus of studies in questions).** -->
 
 
 # *Methodology*
@@ -382,7 +382,7 @@ Table **TODO-INSERT TABLE NUMBER** indicates that the highest *ACCEPTANCE* score
 
 **Independent/Control Variables Candidates**
 
-*SUBMIT TIME* - time from the rendering of the example until the subject submitting their response. In study design expected to be a proxy for uncertainty.
+*SUBMIT TIME* - time in seconds from the rendering of the example until the subject submitting their response. In study design expected to be a proxy for uncertainty.
 
 *INPUT CHANGES* - Number of times the respondent changes their answer with input-slider before submitting. In study design expected to be a proxy for uncertainty.
 
@@ -432,6 +432,8 @@ To account for individual fixed effects\footnote{Certain respondents are likely 
 \end{equation*}
 
 The individual effects observed was not expected to be as significant as before the study was conducted, due to a more controlled environment for data collection as described in section \ref{data-collection-ui}.
+
+However, the FE models can easily cluster standard errors, to affect statistical significance also for other estimators in the model.
 
 
 ### *Robustness checks*
@@ -571,6 +573,7 @@ varince_ordering$`Standard Dev.` <- round(varince_ordering$`Standard Dev.`, 1)
 stargazer(varince_ordering,type='latex', summary = FALSE, header = FALSE)
 ```
 
+
 Table **TODO: TABLE NUMBERING** shows that the example with no-legend/headling shows largest variance/standard deviation, followed by checkered, sampled, clustered and annotated legend types.
 
 In the statistical tests the headline type is used first as baseline, to see if these differences are statistically significant, then a subset removing all the headline data points from the sample is used, and see if the variance differ significantly.
@@ -605,6 +608,7 @@ bartlett_df <- data.frame(
 )
 
 ```
+
 ```{r bartlett-table, echo=FALSE, message = FALSE, results='asis'}
 stargazer(bartlett_df,type='latex', summary = FALSE, header = FALSE)
 ```
@@ -669,7 +673,7 @@ stargazer(
   "Sampled","Constant/Reference"),
   column.labels = c("Headline Reference", "Checkered Reference"),
   column.separate = c(2,2),
-  dep.var.labels = c("**|PERCEPTION ERROR|**")
+  dep.var.labels = c("|PERCEPTION ERROR|")
   )
 
 
@@ -685,7 +689,7 @@ The individual effects have not affected the estimates, but have some higher sta
 
 ## *ACCEPTANCE*
 
-**TODO, check n-issue if any!!! from subset filtering**
+**TODO, check n-issue if any!!! from subset filtering - seems okay, nrow(acceptance_data_unique)=170**
 
 ```{r processing-acceptance, echo=FALSE, message = FALSE}
 # NEED TO USE DATA WITHOUT DUPLICATES
@@ -698,186 +702,241 @@ acceptance_data_unique = responses_an %>%
 
 ```{r mean-group-, echo=FALSE, message = FALSE}
 # Generally by group, which highest
-acceptance_data_unique %>%
+ordered_acceptance_criterias <- acceptance_data_unique %>%
   group_by(legend) %>%
   summarize(mean = mean(acceptance, na.rm = T)) %>%
   arrange(desc(mean))
-# 1 sampled    4.18
-# 2 annotated  4.06
-# 3 checkered  3.47
-# 4 clustered  3.09
-# 5 headline   2.09
-# TODO: EXPORT AS TABLE
-```
+
+ordered_acceptance_criterias$legend <- plyr::revalue(ordered_acceptance_criterias$legend, c(
+  "headline"="Headline",
+  "checkered"="Checkered",
+  "sampled"="Sampled",
+  "clustered"="Clustered",
+  "annotated"="Annotated"
+  ))
 
 
-```{r name-of-chunk2, echo=FALSE, message = FALSE}
-
-# ########################################
-# # ACCEPTANCE
-# # legend choices subjective -> how do users percieve these types? Useful/not useful
-# ########################################
-# 
-# 
-# # Generally by group, which highest
-# acceptance_data_unique %>% 
-#   group_by(legend) %>% 
-#   summarize(mean = mean(acceptance, na.rm = T)) %>%
-#   arrange(desc(mean))
-# # 1 sampled    4.18
-# # 2 annotated  4.06
-# # 3 checkered  3.47
-# # 4 clustered  3.09
-# # 5 headline   2.09
-# 
-# # Checkered over clustered... let's keep still
-# 
-# # Earlier baselines still makes rough sense
-# acceptance_data_unique_legend_baseline = acceptance_data_unique
-# acceptance_data_unique_legend_baseline$legend = relevel(acceptance_data_unique_legend_baseline$legend, ref = "headline")
-# acceptance_data_unique_checkered_baseline = acceptance_data_unique
-# acceptance_data_unique_checkered_baseline = acceptance_data_unique_checkered_baseline %>% filter(legend != "headline")
-# acceptance_data_unique_checkered_baseline$legend = relevel(acceptance_data_unique_checkered_baseline$legend, ref = "checkered")
-# 
-# 
-# # Models- all significant against no-legend (= preferred over)
-# summary(lm(acceptance ~ legend, 
-#            data = acceptance_data_unique_legend_baseline))
-# # Annotated and sampled significantly preferred, clustered lower, but not significantly so
-# summary(lm(acceptance ~ legend, 
-#            data = acceptance_data_unique_checkered_baseline))
+names(ordered_acceptance_criterias) <- c("Legend", "Mean")
+ordered_acceptance_criterias$Legend <- as.character(ordered_acceptance_criterias$Legend)
+ordered_acceptance_criterias$Mean <- round(ordered_acceptance_criterias$Mean, 2)
 
 
 ```
 
-```{r name-of-chunk3, echo=FALSE, message = FALSE}
+```{r processing-acceptance-out, echo=FALSE, message = FALSE, results='asis'}
+stargazer(ordered_acceptance_criterias,type='latex', summary = FALSE, header = FALSE)
+```
 
-# ########################################
-# # DECISION TYPES
-# # legend choices -> user selection behaviour?
-# ########################################
-# 
-# # As shown earlier - a lot of variance, not a lot of signal
-# # Outliers likely affecting, simple OLS only
-# 
-# # Time until submit -> likely because of first interaction as legend
-# time_submit_all <- lm(submitTime / 1000 ~ legend, 
-#                              data = no_legend_baseline)
-# summary(time_submit_all)
-# # Between those with legend, no statistically significant difference difference compared to baseline
-# time_submit_w_legend <- lm(submitTime / 1000 ~ legend, 
-#                   data = checkered_baseline)
-# summary(time_submit_w_legend)
-# 
-# # inputChanges - only on first interaction, nothing significant vs. checkered
-# summary(lm(inputChanges ~ legend, 
-#            data = no_legend_baseline))
-# summary(lm(inputChanges ~ legend, 
-#            data = checkered_baseline))
-# 
-# # hoverEvents - no significant difference, high std errors, order of baseline category will not matter
-# summary(lm(hoverEvents ~ legend, 
-#            data = no_legend_baseline))
-# summary(lm(hoverEvents ~ legend, 
-#            data = checkered_baseline))
+Table **TODO: LOOK UP TABLE NUMBER** shows the mean for each legend type of the *ACCEPTANCE*-scores. As expected, having no legend at all (Headline) have the lowest acceptance scores, while the sampled and annotated legend types have average acceptance scores above 4 out of a maximum of 5.
+
+Given the previous baseline categories still make sense, to check the statistical significance of these numbers compared to the Headline/no-legend type, as well as against the checkered type which imitates ArcGIS's legend choice.
+
+
+
+
+```{r acceptance-data-processing-and-models, echo=FALSE, message = FALSE}
+
+# Earlier baselines still makes rough sense
+acceptance_data_unique_legend_baseline = acceptance_data_unique
+acceptance_data_unique_legend_baseline$legend = relevel(acceptance_data_unique_legend_baseline$legend, ref = "headline")
+acceptance_data_unique_checkered_baseline = acceptance_data_unique
+acceptance_data_unique_checkered_baseline = acceptance_data_unique_checkered_baseline %>% filter(legend != "headline")
+acceptance_data_unique_checkered_baseline$legend = relevel(acceptance_data_unique_checkered_baseline$legend, ref = "checkered")
+
+# Models- all significant against no-legend (= preferred over)
+acceptance_headline_baseline <- lm(acceptance ~ legend,
+           data = acceptance_data_unique_legend_baseline)
+# Annotated and sampled significantly preferred, clustered lower, but not significantly so
+acceptance_checkered_baseline <- lm(acceptance ~ legend,
+           data = acceptance_data_unique_checkered_baseline)
+
+```
+
+As seen from the regression results in Table **TODO: INSERT TABLE NUMBER**, all acceptance means are statistically higher than Headline category, and in comparison to the checkered legend type, both sampled and annotated legend types are statistically significantly considered more helpful from the respondents. The clustered legend type has a lower acceptance score compared to the checkered legend, but not statistically significantly so.
+
+The results were quite clear, and no strong reasons to believe that there are factors on individually controllable level that would alter the significance levels, no other models seemed necessary to control for these results through FE-models.
+
+
+```{r acceptance-models-table, echo=FALSE, message = FALSE, results='asis'}
+stargazer(
+  acceptance_headline_baseline,
+  acceptance_checkered_baseline,
+  title="Regression Results",
+  header = FALSE,
+  type='latex',
+  covariate.labels=c("Annotated","Checkered","Clustered",
+  "Sampled","Constant/Reference"),
+  column.labels = c("Headline Reference", "Checkered Reference"),
+  column.separate = c(1,1),
+  dep.var.labels = c("ACCEPTANCE")
+  )
 
 ```
 
 
 ## *Robustness tests*
 
+Other variables that were collected as potential proxy variables for uncertainty (*SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*), but exhibited high variability and large outliers to external factors did show some significant results as shown in Tables **TODO: TABLE NUMBERS** in Appendix C. Many variables are significant compared to Headline legend types, but quite likely those outliers are coming from first interaction with the survey responses being for the headline type.
 
-```{r name-of-chunk4, echo=FALSE, message = FALSE}
-
-# ########################################
-# # SUBSET ANALYSIS - ROBUSTNESS
-# ########################################
-# 
-# 
-# ########
-# # Correlation error with progression 
-# # learning effects as progression or getting tired of task... (INDIVIDUAL+PROGNUM)
-# progression_effect_mod <- lm(percept_error_abs ~ prog, 
-#                              data = responses_an)
-# summary(progression_effect_mod)
-# # Nothing significant, not going to take this into account - or do analysis using e.g. first 5 images only
-# 
-# # TODO: Baseline 1 vs baseline 10 - difference? - SUBSAMPLE ONLY 1st and 10th!!!
-# 
-# ########
-# # Respondents with smaller average errors (outlier removal) - top 50th percentile
-# 
-# num_respondents_chosen = (responses_an$uuid %>% unique() %>% length())/2
-# 
-# arranged_respondents_by_error = responses_an %>% group_by(uuid) %>%
-#   summarize(mean_abs_error = mean(percept_error_abs)) %>%
-#   arrange(mean_abs_error) 
-# 
-# resp_low_errors = arranged_respondents_by_error[1:num_respondents_chosen,] %>% select(uuid)
-# 
-# resp_low_errors_df = responses_an %>% filter(uuid %in% resp_low_errors$uuid)
-# 
-# # Absolute
-# # Not really anything that sticks out
-# ggplot(resp_low_errors_df, aes(legend, percept_error_abs, color=legend)) + 
-#   geom_boxplot()  +
-#   stat_summary(fun="mean", geom="point", color="black")
-# 
-# # For completeness
-# no_legend_baseline_accurate = resp_low_errors_df
-# no_legend_baseline_accurate$legend = relevel(no_legend_baseline_accurate$legend, ref = "headline")
-# checkered_baseline_accurate = no_legend_baseline_accurate
-# checkered_baseline_accurate = checkered_baseline_accurate %>% filter(legend != "headline")
-# checkered_baseline_accurate$legend = relevel(checkered_baseline_accurate$legend, ref = "checkered")
-# 
-# # Absolute error - simple OLS
-# ## 1. legend useful at all
-# ### Baseline
-# baseline_legend_of_use_accurate <- lm(percept_error_abs ~ legend, 
-#                              data = no_legend_baseline_accurate)
-# summary(baseline_legend_of_use_accurate)
-# ### FE = robustness
-# fe_legend_of_use_accurate <- plm(percept_error_abs ~ legend,
-#                         data = no_legend_baseline_accurate,
-#                         index = c("uuid"),
-#                         model = "within")
-# # print summary using robust standard errors
-# coeftest(fe_legend_of_use_accurate, vcov. = vcovHC, type = "HC1")
-# # Nonrobust -> summary(fe_legend_of_use)
-# 
-# 
-# ## 2. Legend vs standard = checkered
-# ## 3. annotated or contextualized also answered
-# ### Baseline
-# standard_baseline_difference_accurate <- lm(percept_error_abs ~ legend, 
-#                                    data = checkered_baseline_accurate)
-# summary(standard_baseline_difference_accurate)
-# ### FE = robustness
-# fe_standard_difference_accurate <- plm(percept_error_abs ~ legend,
-#                               data = checkered_baseline_accurate,
-#                               index = c("uuid"),
-#                               model = "within")
-# # print summary using robust standard errors
-# coeftest(fe_standard_difference_accurate, vcov. = vcovHC, type = "HC1")
-# # Nonrobust -> summary(fe_standard_difference)
+To check for clear learning or fatigue effects that would merit subsample analysis, an OLS model was run on *|PERCEPTION ERROR|* against the linear progression variable (discrete values expressed as integers 1-10). Another model using only the subsample of the first and last images, both of Headline type, to check if the respondents learned to memorize the opacity data mapping without use of legends was also included.
 
 
+```{r progression-model-checks, echo=FALSE, message = FALSE}
+
+# Correlation error with progression
+# learning effects as progression or getting tired of task... (INDIVIDUAL+PROGNUM)
+progression_effect_mod <- lm(percept_error_abs ~ prog,
+                             data = responses_an)
+# Nothing significant, not going to take this into account - or do analysis using e.g. first 5 images only
+
+
+
+# Baseline 1 vs baseline 10 - difference? - SUBSAMPLE ONLY 1st and 10th!!!
+progression_effect_mod_baseline_check <- lm(percept_error_abs ~ factor(prog),
+                             data = responses_an %>% filter(prog %in% c(1, 10)))
 
 
 ```
 
 
+The results can be found in Table **TODO: TABLE NUMBER**. As seen, neither the linear trend variable, nor the categorical variable for the last image in the progression were statistically significant. The estimate is even showing a slightly higher error for the last example on average compared to the first for the gathered sample of 68 (34 respondents, 2 examples per respondent).
+
+These results indicates that not much ought to differ from reducing the sample to e.g. a subsample of the first 5 examples in the progression for each respondent.
+
+```{r progression-models-table, echo=FALSE, message = FALSE, results='asis'}
+stargazer(
+  progression_effect_mod,
+  progression_effect_mod_baseline_check,
+  title="Regression Results",
+  header = FALSE,
+  type='latex',
+  covariate.labels=c("ProgressionLinear","Progression Last","Constant/Reference"),
+  column.labels = c("Linear trend", "Subsample fist/last, Reference=First"),
+  column.separate = c(1,1),
+  dep.var.labels = c("|PERCEPTION ERROR|")
+  )
+
+```
+
+Another robustness-test was introduced to see if there could be clear differing results between the samples with legends in the responses that were on average more accurate in their task - i.e. removing outliers.
+
+A subsample of the 50th percentile on average more accurate respondents were created, and the same models as for the full sample using **|PERCEPTION ERROR|** as dependent variable was run. 
+
+
+
+```{r models-outlier-removal-preprocessing, echo=FALSE, message = FALSE}
+
+# Respondents with smaller average errors (outlier removal) - top 50th percentile
+
+num_respondents_chosen = (responses_an$uuid %>% unique() %>% length())/2
+
+arranged_respondents_by_error = responses_an %>% group_by(uuid) %>%
+  summarize(mean_abs_error = mean(percept_error_abs)) %>%
+  arrange(mean_abs_error)
+
+resp_low_errors = arranged_respondents_by_error[1:num_respondents_chosen,] %>% select(uuid)
+
+resp_low_errors_df = responses_an %>% filter(uuid %in% resp_low_errors$uuid)
+responses_an_accurate_viz = responses_an_viz %>% filter(uuid %in% resp_low_errors$uuid)
+
+```
+
+Visual inspection as can be found in Figure **TODO: INCLUDE FIGURE NUM**, there is still a wide distribution of values, where headline and clustered legend types have the higher average absolute error, while the other types both have  a number of high error outliers.
+
+```{r models-outlier-removal-plot, echo=FALSE, message = FALSE}
+# Absolute
+# Not really anything that sticks out
+ggplot(responses_an_accurate_viz, aes(legend, percept_error_abs, color=legend)) +
+  geom_boxplot()  +
+  stat_summary(fun="mean", geom="point", color="black")
+
+```
+
+
+```{r models-outlier-removal-model-definition, echo=FALSE, message = FALSE}
+
+# For completeness
+no_legend_baseline_accurate = resp_low_errors_df
+no_legend_baseline_accurate$legend = relevel(no_legend_baseline_accurate$legend, ref = "headline")
+checkered_baseline_accurate = no_legend_baseline_accurate
+checkered_baseline_accurate = checkered_baseline_accurate %>% filter(legend != "headline")
+checkered_baseline_accurate$legend = relevel(checkered_baseline_accurate$legend, ref = "checkered")
+
+# Absolute error - simple OLS
+## 1. legend useful at all
+### Baseline
+baseline_legend_of_use_accurate <- lm(percept_error_abs ~ legend,
+                             data = no_legend_baseline_accurate)
+# summary(baseline_legend_of_use_accurate)
+### FE = robustness
+fe_legend_of_use_accurate <- plm(percept_error_abs ~ legend,
+                        data = no_legend_baseline_accurate,
+                        index = c("uuid"),
+                        model = "within")
+# print summary using robust standard errors
+# coeftest(fe_legend_of_use_accurate, vcov. = vcovHC, type = "HC1")
+# Nonrobust -> summary(fe_legend_of_use)
+
+
+## 2. Legend vs standard = checkered
+## 3. annotated or contextualized also answered
+### Baseline
+standard_baseline_difference_accurate <- lm(percept_error_abs ~ legend,
+                                   data = checkered_baseline_accurate)
+# summary(standard_baseline_difference_accurate)
+### FE = robustness
+fe_standard_difference_accurate <- plm(percept_error_abs ~ legend,
+                              data = checkered_baseline_accurate,
+                              index = c("uuid"),
+                              model = "within")
+# print summary using robust standard errors
+# coeftest(fe_standard_difference_accurate, vcov. = vcovHC, type = "HC1")
+# Nonrobust -> summary(fe_standard_difference)
+
+```
+
+As seen in Table **TODO: TABLE NUMBER**, which is corresponding to Table **TODO: TABLE NUMBER** for this subsample, all estimates are showing statistically lower absolute errors compared to Headline category, except Clustered legend type, which is not any longer statistically significant. Checkered is still kept as reference category in the models where Headline types have been excluded, even though it is not the category with the lowest **|PERCEPTION ERROR|**. Here there is no difference in the significance after removing the less accurate respondents, with no statistically signficant results.
+
+
+```{r models-outlier-removal-models-table, echo=FALSE, message = FALSE, results='asis'}
+stargazer(
+  baseline_legend_of_use_accurate,
+  fe_legend_of_use_accurate,
+  standard_baseline_difference_accurate,
+  fe_standard_difference_accurate,
+  title="Regression Results - above 50th percentile accuracy",
+  header = FALSE,
+  type='latex',
+  covariate.labels=c("Annotated","Checkered","Clustered",
+  "Sampled","Constant/Reference"),
+  column.labels = c("Headline Reference", "Checkered Reference"),
+  column.separate = c(2,2),
+  dep.var.labels = c("|PERCEPTION ERROR|")
+  )
+
+
+```
+
 
 # Discussion
 
-**Here you discuss the results by putting your findings in relation to what others published on the matter. Present a critical analysis of your own results, and discuss the sources of error.**
+**Here you discuss the results by putting your findings in relation to what others published on the matter.**
+
+**MAIN FINDINGS, INCLUSION OF LEGEND HELPS, COMPARED TO CHECKERED, NO STATISTICALLY SIGNIFICANT RESULTS, **
+
+**SOURCES OF ERROR? QUITE LARGE NATURAL VARIATIONS, GIVEN RESPONDENT FEEDBACK, MAYBE LARGER LEGENDS COULD HAVE SOME OTHER RESULTS, MORE IN PARTS OF LOW OPACITY, IN IDEAL SETTING, EACH RESPONDENT WOULD ONLY GET ONE TREATMENT**
+
+**LESS AND LESS RELIANT ON STATIC VISUALIZATION TYPES WITHOUT POSSIBILITY FOR INTERACTION**
+
+**SOMEWHAT CONTRIVED EXAMPLES - ALL SQUARES, ONLY ONE DATA LAYER, IF MULTIPLE NON-OPAQUE LAYERS ARE USED THERE ARE ADDITIONAL COMPLEXITIES DUE TO HAVING POTENTIALLY OVERLAPPING OPACITY LAYERS**
+
+**GEODATA PRACTICALLY ONLY IN EXAMPLES TO GIVE A MORE VARIED AND CLUTTERED BACKGROUND, RESULTS MAY DIFFER IN BACKGROUND HAVING LESS OR NO COLOURS, AS WELL AS FOR MORE COMPLEX BACKGROUNDS SUCH AS AERIAL/SATELLITE IMAGERY**
+
+**SAMPLING: NON-RANDOM, DUE TO CONVENIENCE, AND FEASIBILITY OF DATA COLLECTION IN COVID. LARGE OVERSAMPLING OF ENGINEERS, SKEW FROM THIS DIFFICULT TO REASON ABOUT**
+
+**NOT INCLUDED YET: COMPARISON TO OTHER PARTS OF LITERATURE, CAN SAY, LITTLE PUBLISHED ON THIS PARTICULAR QUESTION...**
 
 
-Limitations and some mitigations
-•	The study is focusing on static and non-interactive maps - no tooltips or animations to help the user.
-•	Only one non-opaque layer will be used, eliminating issues such as combined opacity of overlapping layers. The opacity-mapped layer is assumed to be the only data mapping of interest apart from the geographical context.
-•	Non-random sampling – for possibility of larger response rate – being able to point people to a URL to be surveyed is distinctively non-random. Trying to rely largely on a within-subject methodology could mitigate somewhat, and I don’t see a specific skew such as having asked e.g. only students at a geography department as being likely.
-•	Learning effects are likely if the subject is asked to repeat similar tasks multiple tasks. This will be mitigated through randomizing the progression, while likely keeping 1 baseline example at start and 1 at end.
 
 
 List feedback:
@@ -1011,12 +1070,13 @@ UUID generation
 ```{r submit-time-visualization, fig.cap = "Submit time", echo=FALSE}
 
 # Submit time
-ggplot(responses_an_viz, aes(legend, submitTime, color=legend)) +
+ggplot(responses_an_viz, aes(legend, submitTime / 1000, color=legend)) +
   geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.3) +
   theme(legend.position="none") +
   theme_minimal() +
   theme(legend.position="none") +
-  ylab("Time to Submit")
+  ylab("Seconds until Submit") +
+  xlab("Legend")
 
 ```
 
@@ -1078,6 +1138,81 @@ plotmeans(percept_error_abs ~ uuid, main="Heterogeineity across respondents", da
 
 
 
+```{r interaction-variable-modelling, echo=FALSE, message = FALSE}
+
+# As shown earlier - a lot of variance, not a lot of signal
+# Outliers likely affecting, simple OLS only
+
+# Time until submit -> likely because of first interaction as legend
+time_submit_all <- lm(submitTime / 1000 ~ legend,
+                             data = no_legend_baseline)
+# Between those with legend, no statistically significant difference difference compared to baseline
+time_submit_w_legend <- lm(submitTime / 1000 ~ legend,
+                  data = checkered_baseline)
+
+
+# inputChanges - only on first interaction, nothing significant vs. checkered
+input_changes_all <- lm(inputChanges ~ legend,
+           data = no_legend_baseline)
+input_changes_w_legend <- lm(inputChanges ~ legend,
+           data = checkered_baseline)
+
+# hoverEvents - no significant difference, high std errors, order of baseline category will not matter
+hover_events_all <- lm(hoverEvents ~ legend,
+           data = no_legend_baseline)
+hover_events_w_legend <- lm(hoverEvents ~ legend,
+           data = checkered_baseline)
+
+```
+
+```{r time-submit-table, echo=FALSE, message = FALSE, results='asis'}
+stargazer(
+  time_submit_all,
+  time_submit_w_legend,
+  title="Regression Results - Time to submit",
+  header = FALSE,
+  type='latex',
+  covariate.labels=c("Annotated","Checkered","Clustered",
+  "Sampled","Constant/Reference"),
+  column.labels = c("Headline Reference", "Checkered Reference"),
+  column.separate = c(1,1),
+  dep.var.labels = c("SUBMIT TIME")
+  )
+
+```
+
+
+```{r input-changes-table, echo=FALSE, message = FALSE, results='asis'}
+stargazer(
+  input_changes_all,
+  input_changes_w_legend,
+  title="Regression Results - Input changes",
+  header = FALSE,
+  type='latex',
+  covariate.labels=c("Annotated","Checkered","Clustered",
+  "Sampled","Constant/Reference"),
+  column.labels = c("Headline Reference", "Checkered Reference"),
+  column.separate = c(1,1),
+  dep.var.labels = c("INPUT CHANGES")
+  )
+
+```
+
+```{r hover-events-table, echo=FALSE, message = FALSE, results='asis'}
+stargazer(
+  hover_events_all,
+  hover_events_w_legend,
+  title="Regression Results - Hover events",
+  header = FALSE,
+  type='latex',
+  covariate.labels=c("Annotated","Checkered","Clustered",
+  "Sampled","Constant/Reference"),
+  column.labels = c("Headline Reference", "Checkered Reference"),
+  column.separate = c(1,1),
+  dep.var.labels = c("HOVER EVENTS")
+  )
+
+```
 
 
 
