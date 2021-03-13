@@ -680,9 +680,35 @@ The regression results shown in Table **TODO: TABLE NUMBERING** show that the re
 
 Where checkered is used as reference category, all estimates are as done when choosing that as reference due to both the research question formulation and the data distribution are showing lower estimated errors, but none of those results are statistically significant.
 
-The individual effects have not affected the estimates, but have some higher standard errors. Everything that is significant for simple OLS is also significant to roughly the same extent for the FE models.
+The individual effects have not affected the estimates, but have some higher standard errors. Everything that is significant for simple OLS is also significant to roughly the same extent for the FE models. **CHECK ALTERNATIVES -> SAY AND MAKE SURE ROBUST STANDARD ERRORS ARE INCLUDED**
 
 
+## *ACCEPTANCE*
+
+**TODO, check n-issue if any!!! from subset filtering**
+
+```{r processing-acceptance, echo=FALSE, message = FALSE}
+# NEED TO USE DATA WITHOUT DUPLICATES
+
+acceptance_data_unique = responses_an %>%
+    select(uuid, acceptance, legend) %>%
+    distinct()
+
+```
+
+```{r mean-group-, echo=FALSE, message = FALSE}
+# Generally by group, which highest
+acceptance_data_unique %>%
+  group_by(legend) %>%
+  summarize(mean = mean(acceptance, na.rm = T)) %>%
+  arrange(desc(mean))
+# 1 sampled    4.18
+# 2 annotated  4.06
+# 3 checkered  3.47
+# 4 clustered  3.09
+# 5 headline   2.09
+# TODO: EXPORT AS TABLE
+```
 
 
 ```{r name-of-chunk2, echo=FALSE, message = FALSE}
@@ -692,11 +718,6 @@ The individual effects have not affected the estimates, but have some higher sta
 # # legend choices subjective -> how do users percieve these types? Useful/not useful
 # ########################################
 # 
-# # NEED TO USE DATA WITHOUT DUPLICATES
-# 
-# acceptance_data_unique = responses_an %>% 
-#     select(uuid, acceptance, legend) %>% 
-#     distinct()
 # 
 # # Generally by group, which highest
 # acceptance_data_unique %>% 
@@ -763,7 +784,7 @@ The individual effects have not affected the estimates, but have some higher sta
 ```
 
 
-## Robustness tests
+## *Robustness tests*
 
 
 ```{r name-of-chunk4, echo=FALSE, message = FALSE}
