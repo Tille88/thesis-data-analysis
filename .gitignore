@@ -2,3 +2,6 @@
 secrets.*
 *.pdf
 .Rhistory
+0_TBR
+*/*_cache
+*.log
