@@ -7,7 +7,8 @@ output:
     latex_engine: pdflatex
     number_sections: true  
 header-includes:
-  -  \usepackage{hyperref}
+  - \usepackage{hyperref}
+  - \pagenumbering{gobble}
 title: "Opacity data perception support using legends when overlaid on complex map backgrounds"
 ---
 
@@ -17,9 +18,17 @@ title: "Opacity data perception support using legends when overlaid on complex m
 
 
 \newpage
+\pagenumbering{roman}
 \tableofcontents 
 \newpage
 
+\listoffigures
+
+\listoftables
+
+<!-- TODO: LIST OF ABBREVIATIONS -->
+
+\newpage
 
 ```{r, setup, include=FALSE}
 # knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
@@ -36,7 +45,9 @@ library(gtsummary)
 figure_number = 0 
 ```
 
+\pagenumbering{arabic} 
 
+<!-- TODO: CHECK THAT page should start on an uneven page number on the right side of your open report. -->
 
 \section{Introduction} \label{introduction}
 
