@@ -1,24 +1,34 @@
 ---
 output: 
-  pdf_document:
+  # pdf_document:
+  bookdown::pdf_document2:
+    # includes:
+    #   before_body: frontpage.tex
     citation_package: natbib
     # keep_tex: true
+    toc: false
     fig_caption: true
-    latex_engine: pdflatex
+    latex_engine: xelatex
     number_sections: true  
 header-includes:
   - \usepackage{hyperref}
   - \pagenumbering{gobble}
-title: "Opacity data perception support using legends when overlaid on complex map backgrounds"
+  - \usepackage{pdfpages}
+  - \usepackage{caption}
+  - \usepackage{subcaption}
+  - \usepackage{rotating}
+mainfont: Times New Roman
+font-family: Times New Roman
+linestretch: 1.5
+fontsize: 12pt
+papersize: a4
+
 ---
-
-<!-- TODO : MATCH WITH EXPECTATIONS FROM FORMATTING AND CONTENT OF START PAGE -->
-<!-- TODO : **ABSTRACT** -->
-
 
 
 \newpage
 \pagenumbering{roman}
+\setcounter{page}{6}
 \tableofcontents 
 \newpage
 
@@ -39,6 +49,7 @@ library(ggplot2)
 library(GGally)
 library(corrplot)
 library(gtsummary)
+library(stargazer)
 ```
 
 ```{r echo=FALSE}
@@ -79,7 +90,7 @@ figure_number = figure_number + 1
 
 The increased accessibility and ease to create maps for online usage makes different data mappings available, there are a lot of maps that make liberal use of a mix of mapping techniques, such as colour and opacity (Figure `r figure_number`) without taking into account the end-users ability to easily decode the data being visualized.
  
- ![Figure `r figure_number`. Liberal web-GIS use of multiple encodings without clear data mapping clarifications for end-user (Ee, 2020).](./img/picture2.png)
+ ![Liberal web-GIS use of multiple encodings without clear data mapping clarifications for end-user (Ee, 2020).](./img/picture2.png)
 
 
 ```{r echo=FALSE}
@@ -97,7 +108,7 @@ The availability and ease of using opacity mappings and other techniques are als
 } 
 ESRI/ArcGIS examples and tutorials for their products, such as “ArcGIS online” and “ArcGIS Enterprise Map Viewer” are shown by the blog-entry “6 Easy Ways to Improve Your Maps”, where “4) Utilize Transparency” is included. The ways the transparency tool works is included as well (Figure `r opacity_picker`) does not give the user much information or consider underlying layer colors and effects on perception.
 
- ![Figure `r opacity_picker`. Transparency data mapping/encoding for ArcGIS products (Berry, 2016)](./img/picture3.png)
+ ![Transparency data mapping/encoding for ArcGIS products (Berry, 2016)](./img/picture3.png)
 
 ```{r echo=FALSE}
 figure_number = figure_number + 1 
@@ -109,9 +120,9 @@ bright_background_example = figure_number
 
 This mapping has a similar visual representation to the end user of the maps as shown in the usage examples from the “ArcGIS Online” API documentation ArcGIS website (Figure `r dark_background_example` and `r bright_background_example`). Figure `r dark_background_example` includes colour mapping, but the legend maps transparency into the same checkered grey/white background as for the tool shown in Figure `r opacity_picker`, making it very difficult to decode the visual values. Figure `r bright_background_example` has a single colour and a background layer corresponding roughly to the constant mid-grey and white checkered pattern.  
 
- ![Figure `r dark_background_example`. Opacity data mapping and legend with colour scale (ArcGIS, 2020a)](./img/picture4.png)
+ ![Opacity data mapping and legend with colour scale (ArcGIS, 2020a)](./img/picture4.png)
  
- ![Figure `r bright_background_example`. Opacity data mapping and legend (ArcGIS, 2020b)](./img/picture5.png)
+ ![Opacity data mapping and legend (ArcGIS, 2020b)](./img/picture5.png)
 
 This type of legend representation of opacity is in not context-aware, and remains a checkered mid-grey background no matter the background of the map. 
 
@@ -174,11 +185,11 @@ As will be discussed in section \ref{background}, legends have been studied, but
 <!-- **Could flesh this out more with description of opacity legends in academic journals (sometimes included, not focus of studies in questions).** -->
 
 
-# *Methodology*
+# Methodology
 
 **Here you present the applied methods for the collection of data, the analysis*, INCLUDE MOTIVATIONS**
 
-## *Data Collection*
+## Data Collection
 
 
 \subsubsection{Legend design types} \label{legends}
@@ -194,55 +205,28 @@ Different designs are presented below, together with some justifications – whe
 
 For more information on the process of example generations and technology choices see Appendix A.
 
-**Baseline 1 - No legend ["Headline" in tables]**
-```{r echo=FALSE}
-figure_number = figure_number + 1 
-```
+**Baseline 1 - No legend ["Headline" in tables], (Figure \ref{fig:headline})**
 
 Only having a title indicating range of values. Used to test correctness of visual decoding by subjects without legend. Presented as first and last example in the progression presented to the subjects.
 
-![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-headline-legend-merge.png){width=40%}
-
-
-**Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables]**
-
-```{r echo=FALSE}
-figure_number = figure_number + 1 
-```
+**Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables], (Figure \ref{fig:checkered})**
 
 The design is used as baseline for models that explore if alternative legend choices are helping in decoding data-values compared to the current "industry standard". 
 
 This, and all following examples imitate the ArcGIS-design in the size of legend (constant for all legends). Legend located in the bottom right corner.
 
-![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-checkered-legend-merge.png){width=40%}
-
- ```{r echo=FALSE}
-figure_number = figure_number + 1 
-```
  
-**Legend with sampled context [Contextualizing] (Figure `r figure_number`) ["Sampled" in tables]** 
+**Legend with sampled context ["Sampled" in tables], (Figure \ref{fig:sampled})** 
 
 One likely downside making it more difficult for subjects to accurately decode the data values is the lack of context in the legend as it relates to the background of the data in the visualization. The rest of the example types works to provide designs that gives more of the actual map base-layer background information to the legend.
 
 The simplest design choice was to sample part of the base layer as background as seen in Figure `r figure_number`. The details on how this was done in practice can be found in Appendix A.
  
-![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-sampled-legend-merge.png){width=40%}
-
- ```{r echo=FALSE}
-figure_number = figure_number + 1 
-```
-
-**Legend with clustered colour bands  (Figure `r figure_number`) ["Clustered" in tables]**
+**Legend with clustered colour bands ["Clustered" in tables], (Figure \ref{fig:clustered})**
 
 An alternative to sampling a box of the base layer map background, is to use the most common colours of the base layers as a background. In the design tested, the 10 most common colours of the background map was displayed as strips/columns in a vertical manner behind the data representation. This way they are contextualized for the full range of the data in the legend. More details how the common colours were identified are described in Appendix A. 
 
-![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-clustered-legend-merge.png){width=40%}
-
- ```{r echo=FALSE}
-figure_number = figure_number + 1 
-```
-
-**Annotated Outline  (Figure `r figure_number`) ["Annotated" in tables]**
+**Annotated Outline  (Figure `r figure_number`) ["Annotated" in tables], (Figure \ref{fig:annotated})**
 
 The legend placement may heavily affect the users ability to keep the information in near memory while moving the eyes back and fourth between visualized data and the legend.
 
@@ -252,7 +236,57 @@ In order to remove design choices of how to place this kind of legend around com
 
 
 
-![Figure `r figure_number`. Baseline - Opacity data mapping layer without legend](./img/020-red-annotated-legend-merge.png){width=40%}
+
+ \begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \fbox{
+         \includegraphics[width=\textwidth]{img/020-red-headline-legend-merge.png}
+         }
+         \caption{Baseline - No legend ["Headline"]}
+         \label{fig:headline}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \fbox{
+         \includegraphics[width=\textwidth]{img/020-red-checkered-legend-merge.png}
+         }
+         \caption{Baseline2 – ArcGIS Imitation ["Checkered"]}
+         \label{fig:checkered}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \fbox{
+         \includegraphics[width=\textwidth]{img/020-red-sampled-legend-merge.png}
+         }
+         \caption{sampled context ["Sampled"]}
+         \label{fig:sampled}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \fbox{
+         \includegraphics[width=\textwidth]{img/020-red-clustered-legend-merge.png}
+         }
+         \caption{clustered colour bands ["Clustered"]}
+         \label{fig:clustered}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \fbox{
+         \includegraphics[width=\textwidth]{img/020-red-annotated-legend-merge.png}
+         }
+         \caption{Annotated Outline ["Annotated"]}
+         \label{fig:annotated}
+     \end{subfigure}
+        \caption{Visualization Legend Types}
+        \label{fig:legend-types}
+\end{figure}
+ 
  
 <!-- ### *Data collection presentation and user interface* -->
 \subsubsection{Data collection presentation and user interface} \label{data-collection-ui}
@@ -279,9 +313,9 @@ The inital plan was to put the survey online using cloud-technologies for wider 
 This resulted in a more consistent study, where the same laptop was used by all data collection, and the lighting conditions were possible to be kept consistent.
 
 
-## *Data Analysis*
+## Data Analysis
 
-### *Data and variable description*
+### Data and variable description
 
 
 ```{r import-data-and-clean, cache=TRUE, echo=FALSE}
@@ -408,7 +442,7 @@ Plots for these variables can be found in Appendix C.
 *COLOUR* - Visualization presented having opacity data layer mapped colour channel as pure red, green or blue. From visual inspection, not any strong difference between the colours (see Appendix C). 
 
 
-### *Hypothesis testing models*
+### Hypothesis testing models
 
 Most of the research questions are centered around how different legend design choices affects errors and acceptance.
 
@@ -447,7 +481,7 @@ The individual effects observed was not expected to be as significant as before 
 However, the FE models can easily cluster standard errors, to affect statistical significance also for other estimators in the model.
 
 
-### *Robustness checks*
+### Robustness checks
 
 "Time fixed effects", is considered to be added to the models to check for learning and/or fatigue effects as the respondent went through the progression of tasks. In order to see if this is of value to pursue further, first a simple OLS-model is tested to see if there are any indications of
 
@@ -469,7 +503,7 @@ Subset analysis using only the respondents that are likely to be the most engage
 
 
 
-# *Results*
+# Results
 
 ## *PERCEPTION ERROR*
 
@@ -491,7 +525,7 @@ checkered_baseline$legend = relevel(checkered_baseline$legend, ref = "checkered"
 ```
 
 
-### *Normality tests*
+### Normality tests
 
 ```{r normality-testing, echo=FALSE, message = FALSE}
 
@@ -541,18 +575,23 @@ names(normality_list) <- c("Sample", "Shapiro Wilk Test Statistics", "P-Value")
 
 ```
 
-As shown in the table below **TODO: TABLE NUMBERING**, all the p-values for the Shapiro-Wilk test is above 0.05, meaning the the null of normality is not rejected for any of the tests run. In otheer words, we can assume that the data is normally distributed. 
+As shown in the Table \@ref(tab:normality-test), all the p-values for the Shapiro-Wilk test is above 0.05, meaning the the null of normality is not rejected for any of the tests run. In otheer words, we can assume that the data is normally distributed. 
 
 ```{r normality-testing-table, echo=FALSE, message = FALSE, results='asis'}
 
-library(stargazer)
-stargazer(normality_list,type='latex', summary = FALSE, header = FALSE)
+stargazer(
+  normality_list,
+  type='latex', 
+  summary = FALSE, header = FALSE, 
+  label = "tab:normality-test",
+  title="Shapiro-Wilk Normality Tests"
+  )
 
 
 ```
 
 
-### *Bartlett test of homogeneity of variances*
+### Bartlett test of homogeneity of variances
 
 
 ```{r processing-variance-ordering, echo=FALSE, message = FALSE}
@@ -581,11 +620,17 @@ varince_ordering$`Standard Dev.` <- round(varince_ordering$`Standard Dev.`, 1)
 ```
 
 ```{r processing-variance-table, echo=FALSE, message = FALSE, results='asis'}
-stargazer(varince_ordering,type='latex', summary = FALSE, header = FALSE)
+stargazer(
+  varince_ordering,type='latex', 
+  summary = FALSE, 
+  header = FALSE,
+  label = "tab:std-dev-by-cat",
+  title="Standard Deviation by Legend Type"
+)
 ```
 
 
-Table **TODO: TABLE NUMBERING** shows that the example with no-legend/headling shows largest variance/standard deviation, followed by checkered, sampled, clustered and annotated legend types.
+Table \@ref(tab:std-dev-by-cat) shows that the example with no-legend/headline shows largest variance/standard deviation, followed by checkered, sampled, clustered and annotated legend types.
 
 In the statistical tests the headline type is used first as baseline, to see if these differences are statistically significant, then a subset removing all the headline data points from the sample is used, and see if the variance differ significantly.
 
@@ -621,10 +666,16 @@ bartlett_df <- data.frame(
 ```
 
 ```{r bartlett-table, echo=FALSE, message = FALSE, results='asis'}
-stargazer(bartlett_df,type='latex', summary = FALSE, header = FALSE)
+stargazer(
+  bartlett_df,
+  type='latex', 
+  summary = FALSE, header = FALSE,
+  label = "tab:bartlett-test",
+  title="Bartlett test results"
+  )
 ```
 
-As seen from Table **TODO: TABLE NUMBERING**, there is a statistically significant difference in variance for the sample including the Headline type (p-val < 0.05), but that significance does not remain when excluding the headline/no-legend category. This indicates that there is not much need to look into two-way comparisons between the legend types.
+As seen from Table \@ref(tab:bartlett-test), there is a statistically significant difference in variance for the sample including the Headline type (p-val < 0.05), but that significance does not remain when excluding the headline/no-legend category. This indicates that there is not much need to look into two-way comparisons between the legend types.
 
 For estimations of size of differences between groups transformation of *PERCEPTION ERROR* to absolute terms is analyzed instead.
 
@@ -677,21 +728,23 @@ stargazer(
   fe_legend_of_use,
   standard_baseline_difference,
   fe_standard_difference,
-  title="Regression Results",
   header = FALSE,
   type='latex',
   covariate.labels=c("Annotated","Checkered","Clustered",
   "Sampled","Constant/Reference"),
   column.labels = c("Headline Reference", "Checkered Reference"),
   column.separate = c(2,2),
-  dep.var.labels = c("|PERCEPTION ERROR|")
+  dep.var.labels = c("|PERCEPTION ERROR|"),
+  label = "tab:abs-perception-errors",
+  title="Absolute Perception Error Models",
+  float.env = "sidewaystable"
   )
 
 
 ```
 
 
-The regression results shown in Table **TODO: TABLE NUMBERING** show that the results are consistent with the variance tests, where model (1) and (2) estimates are relative to the reference category of no-legend/headline. All other legend types display lower errors, and are all statistically significantly lower than the errors for headline, with the annotated type being having the lowest average error of `r round(fe_legend_of_use$coefficients[[1]], 2)` lower errors than headline type on the range that is between 0-100.
+The regression results shown in Table \@ref(tab:abs-perception-errors) show that the results are consistent with the variance tests, where model (1) and (2) estimates are relative to the reference category of no-legend/headline. All other legend types display lower errors, and are all statistically significantly lower than the errors for headline, with the annotated type being having the lowest average error of `r round(fe_legend_of_use$coefficients[[1]], 2)` lower errors than headline type on the range that is between 0-100.
 
 Where checkered is used as reference category, all estimates are as done when choosing that as reference due to both the research question formulation and the data distribution are showing lower estimated errors, but none of those results are statistically significant.
 
@@ -735,10 +788,16 @@ ordered_acceptance_criterias$Mean <- round(ordered_acceptance_criterias$Mean, 2)
 ```
 
 ```{r processing-acceptance-out, echo=FALSE, message = FALSE, results='asis'}
-stargazer(ordered_acceptance_criterias,type='latex', summary = FALSE, header = FALSE)
+stargazer(
+  ordered_acceptance_criterias,
+  type='latex', 
+  summary = FALSE, header = FALSE,
+  label = "tab:ordered-acceptance",
+  title="Average acceptance scores by legend type"
+  )
 ```
 
-Table **TODO: LOOK UP TABLE NUMBER** shows the mean for each legend type of the *ACCEPTANCE*-scores. As expected, having no legend at all (Headline) have the lowest acceptance scores, while the sampled and annotated legend types have average acceptance scores above 4 out of a maximum of 5.
+Table Table \@ref(tab:ordered-acceptance) shows the mean for each legend type of the *ACCEPTANCE*-scores. As expected, having no legend at all (Headline) have the lowest acceptance scores, while the sampled and annotated legend types have average acceptance scores above 4 out of a maximum of 5.
 
 Given the previous baseline categories still make sense, to check the statistical significance of these numbers compared to the Headline/no-legend type, as well as against the checkered type which imitates ArcGIS's legend choice.
 
@@ -763,7 +822,7 @@ acceptance_checkered_baseline <- lm(acceptance ~ legend,
 
 ```
 
-As seen from the regression results in Table **TODO: INSERT TABLE NUMBER**, all acceptance means are statistically higher than Headline category, and in comparison to the checkered legend type, both sampled and annotated legend types are statistically significantly considered more helpful from the respondents. The clustered legend type has a lower acceptance score compared to the checkered legend, but not statistically significantly so.
+As seen from the regression results in Table \@ref(tab:acceptance-models), all acceptance means are statistically higher than Headline category, and in comparison to the checkered legend type, both sampled and annotated legend types are statistically significantly considered more helpful from the respondents. The clustered legend type has a lower acceptance score compared to the checkered legend, but not statistically significantly so.
 
 The results were quite clear, and no strong reasons to believe that there are factors on individually controllable level that would alter the significance levels, no other models seemed necessary to control for these results through FE-models.
 
@@ -772,22 +831,23 @@ The results were quite clear, and no strong reasons to believe that there are fa
 stargazer(
   acceptance_headline_baseline,
   acceptance_checkered_baseline,
-  title="Regression Results",
   header = FALSE,
   type='latex',
   covariate.labels=c("Annotated","Checkered","Clustered",
   "Sampled","Constant/Reference"),
   column.labels = c("Headline Reference", "Checkered Reference"),
   column.separate = c(1,1),
-  dep.var.labels = c("ACCEPTANCE")
+  dep.var.labels = c("ACCEPTANCE"),
+  label = "tab:acceptance-models",
+  title="Acceptance-score Models"
   )
 
 ```
 
 
-## *Robustness tests*
+## Robustness tests
 
-Other variables that were collected as potential proxy variables for uncertainty (*SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*), but exhibited high variability and large outliers to external factors did show some significant results as shown in Tables **TODO: TABLE NUMBERS** in Appendix C. Many variables are significant compared to Headline legend types, but quite likely those outliers are coming from first interaction with the survey responses being for the headline type.
+Other variables that were collected as potential proxy variables for uncertainty (*SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*), but exhibited high variability and large outliers to external factors did show some significant results as shown in Tables Table \@ref(tab:models-time-to-submit), \@ref(tab:models-input-changes) and  \@ref(tab:models-hover-events) in Appendix C. Many variables are significant compared to Headline legend types, but quite likely those outliers are coming from first interaction with the survey responses being for the headline type.
 
 To check for clear learning or fatigue effects that would merit subsample analysis, an OLS model was run on *|PERCEPTION ERROR|* against the linear progression variable (discrete values expressed as integers 1-10). Another model using only the subsample of the first and last images, both of Headline type, to check if the respondents learned to memorize the opacity data mapping without use of legends was also included.
 
@@ -810,7 +870,7 @@ progression_effect_mod_baseline_check <- lm(percept_error_abs ~ factor(prog),
 ```
 
 
-The results can be found in Table **TODO: TABLE NUMBER**. As seen, neither the linear trend variable, nor the categorical variable for the last image in the progression were statistically significant. The estimate is even showing a slightly higher error for the last example on average compared to the first for the gathered sample of 68 (34 respondents, 2 examples per respondent).
+The results can be found in Table \@ref(tab:progression-models). As seen, neither the linear trend variable, nor the categorical variable for the last image in the progression were statistically significant. The estimate is even showing a slightly higher error for the last example on average compared to the first for the gathered sample of 68 (34 respondents, 2 examples per respondent).
 
 These results indicates that not much ought to differ from reducing the sample to e.g. a subsample of the first 5 examples in the progression for each respondent.
 
@@ -818,13 +878,14 @@ These results indicates that not much ought to differ from reducing the sample t
 stargazer(
   progression_effect_mod,
   progression_effect_mod_baseline_check,
-  title="Regression Results",
   header = FALSE,
   type='latex',
   covariate.labels=c("ProgressionLinear","Progression Last","Constant/Reference"),
   column.labels = c("Linear trend", "Subsample fist/last, Reference=First"),
   column.separate = c(1,1),
-  dep.var.labels = c("|PERCEPTION ERROR|")
+  dep.var.labels = c("|PERCEPTION ERROR|"),
+  label = "tab:progression-models",
+  title="Progression effects regression results"
   )
 
 ```
@@ -852,14 +913,15 @@ responses_an_accurate_viz = responses_an_viz %>% filter(uuid %in% resp_low_error
 
 ```
 
-Visual inspection as can be found in Figure **TODO: INCLUDE FIGURE NUM**, there is still a wide distribution of values, where headline and clustered legend types have the higher average absolute error, while the other types both have  a number of high error outliers.
+Visual inspection as can be found in Figure \@ref(fig:models-outlier-removal-plot), there is still a wide distribution of values, where headline and clustered legend types have the higher average absolute error, while the other types both have  a number of high error outliers.
 
-```{r models-outlier-removal-plot, echo=FALSE, message = FALSE}
+```{r models-outlier-removal-plot, fig.cap = "Box plot above 50th percentile most accurate respondent subset", echo=FALSE, message = FALSE}
 # Absolute
 # Not really anything that sticks out
 ggplot(responses_an_accurate_viz, aes(legend, percept_error_abs, color=legend)) +
   geom_boxplot()  +
-  stat_summary(fun="mean", geom="point", color="black")
+  stat_summary(fun="mean", geom="point", color="black") +
+  theme_minimal()
 
 ```
 
@@ -906,7 +968,7 @@ fe_standard_difference_accurate <- plm(percept_error_abs ~ legend,
 
 ```
 
-As seen in Table **TODO: TABLE NUMBER**, which is corresponding to Table **TODO: TABLE NUMBER** for this subsample, all estimates are showing statistically lower absolute errors compared to Headline category, except Clustered legend type, which is not any longer statistically significant. Checkered is still kept as reference category in the models where Headline types have been excluded, even though it is not the category with the lowest **|PERCEPTION ERROR|**. Here there is no difference in the significance after removing the less accurate respondents, with no statistically signficant results.
+As seen in Table \@ref(tab:abs-perception-errors-accurate), which is corresponding to Table \@ref(tab:abs-perception-errors) for this subsample, all estimates are showing statistically lower absolute errors compared to Headline category, except Clustered legend type, which is not any longer statistically significant. Checkered is still kept as reference category in the models where Headline types have been excluded, even though it is not the category with the lowest **|PERCEPTION ERROR|**. Here there is no difference in the significance after removing the less accurate respondents, with no statistically signficant results.
 
 
 ```{r models-outlier-removal-models-table, echo=FALSE, message = FALSE, results='asis'}
@@ -915,14 +977,16 @@ stargazer(
   fe_legend_of_use_accurate,
   standard_baseline_difference_accurate,
   fe_standard_difference_accurate,
-  title="Regression Results - above 50th percentile accuracy",
   header = FALSE,
   type='latex',
   covariate.labels=c("Annotated","Checkered","Clustered",
   "Sampled","Constant/Reference"),
   column.labels = c("Headline Reference", "Checkered Reference"),
   column.separate = c(2,2),
-  dep.var.labels = c("|PERCEPTION ERROR|")
+  dep.var.labels = c("|PERCEPTION ERROR|"),
+  label = "tab:abs-perception-errors-accurate",
+  title="Absolute perception error models - above 50th percentile accuracy subsample",
+  float.env = "sidewaystable"
   )
 
 
@@ -1019,12 +1083,34 @@ In order not to have respondents making use of pre-existing knowledge or assumpt
 
 All generated data was normalized to have the lowest value to be 0.0, and highest being 1.0 - mapping to the linear data mapping for examples shown to respondents as being between 0 and 100.
 
-Two different types were generated: one with-out falloff to the edges of the data area, only using pure Perlin noise within the area (see figure No falloff), and the other one making sure there was a more centralized higher data area, with decreasing values towards the edges of the rectangular data area (figure falloff).
+Two different types were generated: one with-out falloff to the edges of the data area, only using pure Perlin noise within the area (see Figure Figure \ref{fig:no-falloff}), and the other one making sure there was a more centralized higher data area, with decreasing values towards the edges of the rectangular data area (Figure \ref{fig:falloff}).
 
 
-![No falloff](./img/no-falloff.png){width=40%}
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/no-falloff.png}
+         \caption{No falloff}
+         \label{fig:no-falloff}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/falloff.png}
+         \caption{With falloff}
+         \label{fig:falloff}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/marker.png}
+         \caption{Marker}
+         \label{fig:marker}
+     \end{subfigure}
+        \caption{Map elements}
+        \label{fig:map-element-discussion}
+\end{figure}
 
-![No falloff](./img/falloff.png){width=40%}
+
 
 The noise data was put into the opacity value for a canvas image-element, with 1 of the 3 RGB-colour channels set to the max value (e.g. for red, canvas per that pixel was rgba(255, 0, 0, opacityValue)).
 
@@ -1032,9 +1118,9 @@ In the following step, the base layer and map data layer was merged using the ct
 
 *Marker*
 
-A marker was designed using SVG and overlayed at a randomized location within the data-extent. This was merged into the Canvas raster representation, and the value of the data later at the location was stored together with other metadata for each visualization to JSON.
+A marker was designed using SVG and overlayed at a randomized location within the data-extent. This was merged into the Canvas raster representation, and the value of the data later at the location was stored together with other metadata for each visualization to JSON (see Figure \ref{fig:marker}).
 
-![Marker](./img/marker.png){width=40%}
+
 
 *Legends*
 
@@ -1078,42 +1164,112 @@ The Node.js framework Express was used to make this functioning quickly and the 
 
 All front-end UI was created with HTML5, CSS and basic Javascript, shown in a Chrome web browser.
 
-From the user-perspective, the user was first shown an introduction page giving some background and instructions as shown in the images below.
+From the user-perspective, the user was first shown an introduction page giving some background and instructions as shown in the images in Figure \ref{fig:intro-page}.
 
-![Introduction page start](./img/intro1.png){width=40%}
-![Elements - base map introduction](./img/intro2.png){width=40%}
-![Elements - data layer introduction](./img/intro3.png){width=40%}
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro1.png}
+         \caption{Introduction page start}
+         \label{fig:elem-introduction}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro2.png}
+         \caption{Elements - base map introduction}
+         \label{fig:elem-basemap}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro3.png}
+         \caption{Elements - data layer introduction}
+         \label{fig:elem-data}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro4.png}
+         \caption{Elements - legends introduction}
+         \label{fig:elem-legends}
+     \end{subfigure} 
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro5.png}
+         \caption{Elements - marker introduction}
+         \label{fig:elem-marker}
+     \end{subfigure} 
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro6.png}
+         \caption{Elements - response element introduction}
+         \label{fig:elem-response}
+     \end{subfigure} 
+        \caption{Introduction page progression}
+        \label{fig:intro-page}
+\end{figure}
 
-![Elements - legends introduction](./img/intro4.png){width=40%}
-![Elements - marker introduction](./img/intro5.png){width=40%}
 
-![Elements - response element introduction](./img/intro6.png){width=40%}
 
-Following the introduction, and a verbal check on understanding the task, the session was initialized, receiving the progression of examples chosen randomly from the backend.
-
-![Example UI](./img/exampleui.png){width=40%}
-
+Following the introduction, and a verbal check on understanding the task, the session was initialized, receiving the progression of examples chosen randomly from the backend (UI example shown in Figure \ref{fig:progression-ui}).
 
 At the load of the image, a timer was started, and a number of events (hovering over image, response changes - with the current value of the input, location of hover, time of event, etc.) was logged locally. At the time of submission, all these event data, the time until submission and the final response value was sent back and persisted server-side. This was repeated 10 times.
 
-The user was not able to go back once an answer had been submitted, and the "submit button" was not active until the user had updated the value from the initially random value in the range of 0-100.
+The user was not able to go back once an answer had been submitted, and the "submit button" was not active until the user had updated the value from the initially random value in the range of 0-100 (see Figure \ref{fig:submit-inactive} and \ref{fig:submit-active}).
 
-![Submit inactive](./img/submit_inactive.png){width=40%}
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.6\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/exampleui.png}
+         \caption{Progression UI}
+         \label{fig:progression-ui}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/submit_inactive.png}
+         \caption{Submit inactive}
+         \label{fig:submit-inactive}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/submit_active.png}
+         \caption{Submit active}
+         \label{fig:submit-active}
+     \end{subfigure}
+        \caption{Progression UI}
+        \label{fig:pregression-ui-combined}
+\end{figure}
 
-![Submit active](./img/submit_active.png){width=40%}
 
-Following the full 10 examples, the users were presented with acceptance questions as seen from images below:
+Following the full 10 examples, the users were presented with acceptance questions as seen from images in Figure \ref{fig:acceptance-ui}.
 
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/acceptance1.png}
+         \caption{Acceptance UI top}
+         \label{fig:acceptance-top}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/acceptance2.png}
+         \caption{Acceptance UI bottom}
+         \label{fig:acceptance-bottom}
+     \end{subfigure}
+        \caption{Acceptance UI}
+        \label{fig:acceptance-ui}
+\end{figure}
 
-![Acceptance top](./img/acceptance1.png){width=40%}
-
-![Acceptance bottom](./img/acceptance2.png){width=40%}
 
 All answers were sent back to the server and persisted.
 
-After final submission a "Thank you screen" including virtual confetti indicated the end of the session and task.
+After final submission a "Thank you screen" including virtual confetti indicated the end of the session and task (Figure \@ref(fig:thank-you)).
 
-![End of task indication](./img/end_screen.png){width=40%}
+![(#fig:thank-you) End of task indication](./img/end_screen.png){width=80%}
 
 
 \newpage
@@ -1160,7 +1316,7 @@ ggplot(responses_an_viz, aes(legend, hoverEvents, color=legend)) +
 ```
 
 
-```{r colour-visualization, fig.cap = "Hover events", echo=FALSE}
+```{r colour-visualization, fig.cap = "|PERCEPTION ERROR| for Colour Types", echo=FALSE}
 
 
 ggplot(responses_an_viz, aes(colour, percept_error_abs, color=colour)) +
@@ -1223,14 +1379,15 @@ hover_events_w_legend <- lm(hoverEvents ~ legend,
 stargazer(
   time_submit_all,
   time_submit_w_legend,
-  title="Regression Results - Time to submit",
   header = FALSE,
   type='latex',
   covariate.labels=c("Annotated","Checkered","Clustered",
   "Sampled","Constant/Reference"),
   column.labels = c("Headline Reference", "Checkered Reference"),
   column.separate = c(1,1),
-  dep.var.labels = c("SUBMIT TIME")
+  dep.var.labels = c("SUBMIT TIME"),
+  label = "tab:models-time-to-submit",
+  title="Time to submit regression results"
   )
 
 ```
@@ -1240,14 +1397,15 @@ stargazer(
 stargazer(
   input_changes_all,
   input_changes_w_legend,
-  title="Regression Results - Input changes",
   header = FALSE,
   type='latex',
   covariate.labels=c("Annotated","Checkered","Clustered",
   "Sampled","Constant/Reference"),
   column.labels = c("Headline Reference", "Checkered Reference"),
   column.separate = c(1,1),
-  dep.var.labels = c("INPUT CHANGES")
+  dep.var.labels = c("INPUT CHANGES"),
+  label = "tab:models-input-changes",
+  title="Input changes regression results"
   )
 
 ```
@@ -1256,14 +1414,15 @@ stargazer(
 stargazer(
   hover_events_all,
   hover_events_w_legend,
-  title="Regression Results - Hover events",
   header = FALSE,
   type='latex',
   covariate.labels=c("Annotated","Checkered","Clustered",
   "Sampled","Constant/Reference"),
   column.labels = c("Headline Reference", "Checkered Reference"),
   column.separate = c(1,1),
-  dep.var.labels = c("HOVER EVENTS")
+  dep.var.labels = c("HOVER EVENTS"),
+  label = "tab:models-hover-events",
+  title="Hover events regression results"
   )
 
 ```
