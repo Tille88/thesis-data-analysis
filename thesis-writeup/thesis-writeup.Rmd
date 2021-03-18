@@ -23,6 +23,10 @@ linestretch: 1.5
 fontsize: 12pt
 papersize: a4
 
+bibliography: citation/references.bib
+csl: citation/ambio.csl
+
+
 ---
 
 
@@ -50,11 +54,32 @@ library(GGally)
 library(corrplot)
 library(gtsummary)
 library(stargazer)
+# library(Hmisc)
 ```
 
 ```{r echo=FALSE}
 figure_number = 0 
 ```
+
+
+<!-- TODO: Migrate references!!! -->
+<!-- Other literature on Perception with clutter/backgrounds/overlays -->
+<!-- Other literature on legends... -->
+
+<!-- ArcGIS (2020a) Create a custom visualization using Arcade [Online]. Available at: https://developers.arcgis.com/javascript/latest/sample-code/visualization-arcade/index.html (Accessed: 13 Sept 2020) -->
+
+<!-- Berry, Lisa (2016) 6 Easy Ways to Improve Your Maps [Online]. Available at: https://www.esri.com/arcgis-blog/products/mapping/mapping/6-easy-ways-to-improve-your-maps/#:~:text=%206%20Easy%20Ways%20to%20Improve%20Your%20Maps,sometimes%20become%20distracting%20and%20tear%20your...%20More%20 (Accessed: 13 Sept 2020) -->
+
+<!-- Ciechanowski, Bartosz (2019). Alpha Compositing [Online]. Available at: https://ciechanow.ski/alpha-compositing/ (Accessed: 20 Feb 2021)   -->
+
+
+<!-- Ee, Shaun (2020). Back to school with Tencent and friends - Health surveillance goes into schools as some classes resume [Online]. Available at: https://technode.com/2020/04/28/health-code-back-to-school-with-tencent-and-friends/ (Accessed: 13 Sept 2020) -->
+
+
+
+
+
+
 
 \pagenumbering{arabic} 
 
@@ -64,23 +89,23 @@ figure_number = 0
 
 ## Data Visualization and GIS
 
-There are clear overlapping goals between the area of data visualization - with the target visually encoding data attributes in a way that is visually pleasing, and easy for the target audience to decode - and visual representation of data on a map in a GIS-system. It may also be possible to consider visual representation of data for an end user in a GIS-system as a subfield of data visualization, and related fields such as the study of human perception, where most textbooks in these fields contains a section on geographic mapping of data (see e.g. Munzner, 2015, p. 181; Grant, 2019; Cairo 2016; Ware, 2020, p. 105, 125, 128ff).
+There are clear overlapping goals between the area of data visualization - with the target visually encoding data attributes in a way that is visually pleasing, and easy for the target audience to decode - and visual representation of data on a map in a GIS-system. It may also be possible to consider visual representation of data for an end user in a GIS-system as a subfield of data visualization, and related fields such as the study of human perception, where most textbooks in these fields contains a section on geographic mapping of data [see e.g. @Munzner15, p. 181; @Grant19; @Cairo16; @Ware20, p. 105, 125, 128ff].
 
 
 ## Opacity/transparency in GIS visualizations
 
-Colin Ware (2020) highlights this relation between the fields of Data Visualization and GIS in his seminal work on information visualization in relation to the use of transparency as a technique to the use of transparency (alpha channel mapping/encoding) in information visualization:
+Colin Ware [-@Ware20] highlights this relation between the fields of Data Visualization and GIS in his seminal work on information visualization in relation to the use of transparency as a technique to the use of transparency (alpha channel mapping/encoding) in information visualization:
 
-> *In many visualization problems, it is desirable to present data in a layered form. This is especially common in geographic information systems (GISs). So that the contents of different layers are simultaneously visible, a useful technique is to present one layer of data transparently over another; however, there are many perceptual pitfalls in doing this. The contents of the different layers will always interfere with each other to some extent, and sometimes the two layers will fuse perceptually so that it is impossible to determine to which layer a given object belongs (ibid. p. 217).*
+> *In many visualization problems, it is desirable to present data in a layered form. This is especially common in geographic information systems (GISs). So that the contents of different layers are simultaneously visible, a useful technique is to present one layer of data transparently over another; however, there are many perceptual pitfalls in doing this. The contents of the different layers will always interfere with each other to some extent, and sometimes the two layers will fuse perceptually so that it is impossible to determine to which layer a given object belongs [@Ware20, p. 217] (ibid. p. 217).* **TODO: DOES BIBTEX RESULT IN IBID?**
 
 ```{r echo=FALSE}
 figure_number = figure_number + 1 
 ```
 
 
-Ware (ibid, p. 357) also includes a figure which shows a fully opaque data encoding on top of a map layer (Figure `r figure_number`) – which depending on need can make it difficult for the end user to know the demarcations of the different categories due to occlusion.
+Ware [@Ware20, p. 357] **TODO: DOES BIBTEX RESULT IN IBID?** also includes a figure which shows a fully opaque data encoding on top of a map layer (Figure `r figure_number`) – which depending on need can make it difficult for the end user to know the demarcations of the different categories due to occlusion.
 
- ![Figure `r figure_number`. Fully opaque data encoding resulting in lower layers not being visible, possible resulting in the end user having difficulties knowing the exact underlying geography.](./img/picture1.png)
+ ![Fully opaque data encoding resulting in lower layers not being visible, possible resulting in the end user having difficulties knowing the exact underlying geography.](./img/picture1.png)
 
 
 ```{r echo=FALSE}
@@ -89,6 +114,8 @@ figure_number = figure_number + 1
 
 
 The increased accessibility and ease to create maps for online usage makes different data mappings available, there are a lot of maps that make liberal use of a mix of mapping techniques, such as colour and opacity (Figure `r figure_number`) without taking into account the end-users ability to easily decode the data being visualized.
+ 
+ **TODO: CITATION**
  
  ![Liberal web-GIS use of multiple encodings without clear data mapping clarifications for end-user (Ee, 2020).](./img/picture2.png)
 
@@ -104,9 +131,12 @@ The availability and ease of using opacity mappings and other techniques are als
 ”Esri builds the leading mapping and spatial analytics software for desktop, software as a service (SaaS), and enterprise applications. Esri ArcGIS products are designed to deliver location intelligence and meet digital transformation needs for organizations of all sizes. Here you can explore Esri software, apps, content, solutions, and developer tools.” - https://www.esri.com/en-us/arcgis/products/index Accessed 13 Sept 2020
 
 ”[…]our market-leading Enterprise GIS mapping software will support your work and deliver results” - https://www.esri.com/en-us/arcgis/products/arcgis-enterprise/overview Accessed 13 Sept 2020
+**TODO: CITATION**
 
 } 
 ESRI/ArcGIS examples and tutorials for their products, such as “ArcGIS online” and “ArcGIS Enterprise Map Viewer” are shown by the blog-entry “6 Easy Ways to Improve Your Maps”, where “4) Utilize Transparency” is included. The ways the transparency tool works is included as well (Figure `r opacity_picker`) does not give the user much information or consider underlying layer colors and effects on perception.
+
+**TODO: CITATION**
 
  ![Transparency data mapping/encoding for ArcGIS products (Berry, 2016)](./img/picture3.png)
 
@@ -120,7 +150,11 @@ bright_background_example = figure_number
 
 This mapping has a similar visual representation to the end user of the maps as shown in the usage examples from the “ArcGIS Online” API documentation ArcGIS website (Figure `r dark_background_example` and `r bright_background_example`). Figure `r dark_background_example` includes colour mapping, but the legend maps transparency into the same checkered grey/white background as for the tool shown in Figure `r opacity_picker`, making it very difficult to decode the visual values. Figure `r bright_background_example` has a single colour and a background layer corresponding roughly to the constant mid-grey and white checkered pattern.  
 
+**TODO: CITATION**
+
  ![Opacity data mapping and legend with colour scale (ArcGIS, 2020a)](./img/picture4.png)
+
+**TODO: CITATION**
  
  ![Opacity data mapping and legend (ArcGIS, 2020b)](./img/picture5.png)
 
@@ -146,48 +180,62 @@ As will be discussed in section \ref{background}, legends have been studied, but
 *TODO: INCLUDE MORE MEAT IN LITERATURE SECTION!!!*
 **The background put the study in a wider perspective and gives a summary or ‘state of the art’ of the actual question. This chapter can present the literature study as a base to the problem and posed question. Already here you can present actual literature/references to research in the field of question, but this should be a presentation. Often you can use this summary of the stat of the art again the discussion of your results. Take care that you have the latest publications in the field of research topic included.**
 
-## Previous related literature
+## Previous related literature **TODO: IMPROVE**
 
-<!-- The literature review will touch on several areas which intersect this study scope:  -->
-<!-- i) data visualization and perception, low-level and design studies ii) transparency-focused studies iii) cartography and GIS visualization, including colour studies iv) use of legends. -->
-<!-- These areas have certain number of overlap, but this grouping progressively moves towards the focus of this study. -->
+The literature review will touch on several areas which intersect this study scope:
+i) data visualization and perception, low-level and design studies ii) transparency-focused studies iii) cartography and GIS visualization, including colour studies iv) use of legends.
+These areas have certain number of overlap, but this grouping progressively moves towards the focus of this study.
 
-<!-- i) Data Visualization and Perception -->
-<!-- Brehmer and Munzner (2013) describes a gap between low-level tasks, and high-level tasks in the data visualization literature.  -->
-<!-- Representative for the low-level perception-focused literature is the early studies focusing on measuring the ability of humans to correctly perceive different visual data encodings, such as position, length, angle, circle area, hue, etc. (Cleveland and McGill, 1985). -->
-<!-- Other examples of low-level perception studies are Adelson’s (1982 and 1993) studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas. -->
-<!-- For the higher-level tasks, Tufte (2001) exemplifies attempts to bring these smaller encodings together to more stringently describe good data visualization practices. -->
-<!-- Newer literature in the area commonly attempts to bridge the gap towards other scientific areas (Kim et al. 2017a, Kim et al. 2017b), incorporating mental models, uncertainty and Bayesian prior beliefs of subjects into the perception task. -->
+i) Data Visualization and Perception
+
+@brehmermuzner13 describes a gap between low-level tasks, and high-level tasks in the data visualization literature.
 
 
-<!-- ii) Transparency -->
-<!-- Transparancy models have been used and studied extensively, with early opacity/transparency models by Fabio Metelli (1974) still being in use to this day. -->
-<!-- TODO: rewrite, currently citing Ekroll's Transparency perception: the key to understanding simultaneous color contrast -->
-<!-- Mitelli’s well-established additive model of perceptual transparency, a transparent layer of color L in front of a background region of color B produces a proximal color signal P which is simply a weighted mixture -->
 
-<!-- <!-- P = \alpha·B+(1−\alpha)*L --> -->
-
-<!-- Current transparency literature is heavily focused on computational rendering in a 3D/volume rendering context (e.g. Chan et al. 2009 and Correra & Ma, 2008). -->
+Representative for the low-level perception-focused literature is the early studies focusing on measuring the ability of humans to correctly perceive different visual data encodings, such as position, length, angle, circle area, hue, etc. [@Cleveland828].
 
 
-<!-- iii) Cartography and GIS -->
-<!-- Colour choices in a cartographic context is a large literature, with Brewer (2006) having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective. -->
-<!-- Studies that cover transparency directly or indirectly are more rare. Jo et al. (2019) briefly covers opacity: "To scale scatterplots, several approaches have been proposed, such as adaptive opacity [15, 30, 32] and aggregation [13, 53]. However, adaptive opacity does not scale well with the number of categories since multiple categorical colors become ambiguous when blended[..]". -->
-<!-- Another use of transparency with geospatial data in a design study setting is the 'value-by-alpha-map' described as: "A value-by-alpha map relates the alpha channel of each displayed enumeration unit to the unit's value in an equalizing variable. The value-by-alpha map solves the dilemma presented by Cartogram3. Shape and topology are both preserved perfectly because geography is maintained." (Roth et al. 2010). "Cartogram3" included as “Figure 3-1” below. -->
+Other examples of low-level perception studies are Adelson’s [-@Adelson2042] studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas.
 
-<!-- Figure 3-1. Value-by-alpha map comparison (Roth et al. 2010) -->
+For the higher-level tasks, Tufte [-@Tufte01] exemplifies attempts to bring these smaller encodings together to more stringently describe good data visualization practices.
+
+Newer literature in the area commonly attempts to bridge the gap towards other scientific areas [@Kim17; @Kim19], incorporating mental models, uncertainty and Bayesian prior beliefs of subjects into the perception task.
 
 
-<!-- iv) Legends -->
-<!-- Literature on use of legends seem highly tied to different visualization types. Recent map legend literature found have focused on interactive aspects (Midtbø, 2007) and attempts to provide guidance on the use of map legends in a “dynamic environment” (Dykes et al. 2010). -->
-<!-- No intersection between legends and transparency either in GIS-context or elsewhere have been found in the literature review. -->
+ii) Transparency
 
-<!-- **Could flesh this out more with description of opacity legends in academic journals (sometimes included, not focus of studies in questions).** -->
+Transparancy models have been used and studied extensively, with early opacity/transparency models by Fabio Metelli [-@Metelli74] still being in use to this day.
+
+**TODO: rewrite, currently citing Ekroll's Transparency perception: the key to understanding simultaneous color contrast**
+
+Mitelli’s well-established additive model of perceptual transparency, a transparent layer of color L in front of a background region of color B produces a proximal color signal P which is simply a weighted mixture
+
+$P = \alpha·B+(1−\alpha)*L$
+
+Current transparency literature is heavily focused on computational rendering in a 3D/volume rendering context [e.g. @Chan09; and @Correa08].
+
+
+iii) Cartography and GIS
+
+Colour choices in a cartographic context is a large literature, with Brewer [-@Brewer06] having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective.
+
+Studies that cover transparency directly or indirectly are more rare. Jo et al. [-@Jo19] briefly covers opacity: "*To scale scatterplots, several approaches have been proposed, such as adaptive opacity [15, 30, 32] and aggregation [13, 53]. However, adaptive opacity does not scale well with the number of categories since multiple categorical colors become ambiguous when blended[..]"*.
+
+
+Another use of transparency with geospatial data in a design study setting is the 'value-by-alpha-map' described as: *"A value-by-alpha map relates the alpha channel of each displayed enumeration unit to the unit's value in an equalizing variable. The value-by-alpha map solves the dilemma presented by Cartogram3. Shape and topology are both preserved perfectly because geography is maintained."* [@Roth10]. 
+
+
+iv) Legends
+
+Literature on use of legends seem highly tied to different visualization types. Recent map legend literature found have focused on interactive aspects [@Mitbo07] and attempts to provide guidance on the use of map legends in a “dynamic environment” [@Dykes10].
+
+No intersection between legends and transparency either in GIS-context or elsewhere have been found in the literature review.
+
+**Could flesh this out more with description of opacity legends in academic journals (sometimes included, not focus of studies in questions).**
 
 
 # Methodology
 
-**Here you present the applied methods for the collection of data, the analysis*, INCLUDE MOTIVATIONS**
 
 ## Data Collection
 
@@ -200,6 +248,8 @@ Due to the narrowness of the reasearch questions, no openly available dataset or
 The data was limited to static 2D maps and using web technologies for easy distribution. The subjects were presented with different legend designs and were asked to estimate the value at the location of a marker. The data was represented as a spatially distributed phenomenon mapped to opacity in a polygon that is overlaid on a base map, as in the ArcGIS online maps described in section \ref{background}.
 
 Different designs are presented below, together with some justifications – where all legends and data mappings are linear in the opacity/alpha channel. This ought to introduce less complications than colour-mapping of colour due to a linear encoding of the alpha-channel in the RGBA-model:
+
+**TODO: CITATION**
 
 >  *It’s worth pointing out that unlike the color components which are often encoded using a non-linear transformation, alpha is stored linearly – encoded value of 0.5 corresponds to alpha value of 0.5 (Ciechanowski, 2019)*
 
@@ -446,7 +496,7 @@ Plots for these variables can be found in Appendix C.
 
 Most of the research questions are centered around how different legend design choices affects errors and acceptance.
 
-For *PERCEPTION ERROR* the average value is centered around 0, but the distribution variance is of interest. Most statistical models are constructed to compare in particular mean values between categories, which would not be able to give any indication of differences between these values. It would be possible to create a non-parametric test using bootstrapping of almost any test statistics (Efron, 1979). However, for simplicity Bartlett's test \footnote{
+For *PERCEPTION ERROR* the average value is centered around 0, but the distribution variance is of interest. Most statistical models are constructed to compare in particular mean values between categories, which would not be able to give any indication of differences between these values. It would be possible to create a non-parametric test using bootstrapping of almost any test statistics [@Efron79]. However, for simplicity Bartlett's test \footnote{
 See https://en.wikipedia.org/wiki/Bartlett%27s_test and http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r for comparisons of standard statistical test for variance differences
 } allow testing of multiple variance differences between multiple groups. **TODO: REFERNECE**
 
@@ -1023,43 +1073,9 @@ The sampling was non-random convenience sampling. This was as earlier discussed 
 
 
 
-<!-- TODO: Migrate references!!! -->
-<!-- Other literature on Perception with clutter/backgrounds/overlays -->
-<!-- Other literature on legends... -->
-<!-- # References
 
-Adelson, Edward (1993). ‘Perceptual Organization and the Judgment of Brightness’. Science, 262, p2042-2044
-ArcGIS (2020a) Create a custom visualization using Arcade [Online]. Available at: https://developers.arcgis.com/javascript/latest/sample-code/visualization-arcade/index.html (Accessed: 13 Sept 2020)
-Berry, Lisa (2016) 6 Easy Ways to Improve Your Maps [Online]. Available at: https://www.esri.com/arcgis-blog/products/mapping/mapping/6-easy-ways-to-improve-your-maps/#:~:text=%206%20Easy%20Ways%20to%20Improve%20Your%20Maps,sometimes%20become%20distracting%20and%20tear%20your...%20More%20 (Accessed: 13 Sept 2020)
-Brehmer, M. Munzner, T (2013) ‘A Multi-Level Typology of Abstract Visualization Tasks’. IEEE Transactions on Visualization and Computer Graphics, 19(12), p 2376 - 2385
-Brewer, Cynthia (2006). ’ Basic Mapping Principles for Visualizing Cancer Data Using Geographic Information Systems (GIS)’. American Journal of Preventive Medicine, 30(2S).
-Cairo, Alberto (2016) The Truthful Art:Data, Charts, and Maps for Communication. Berkeley, CA: New Riders.
-Ciechanowski, Bartosz (2019). Alpha Compositing [Online]. Available at: https://ciechanow.ski/alpha-compositing/ (Accessed: 20 Feb 2021)  
-Chan, MY, Wu, YC, Mak, WH, Chen, W (2009). ‘Perception-Based Transparency Optimization for Direct Volume Rendering’. IEEE Transactions on Visualization and Computer Graphics, 15(6).
-Cleveland, WS, McGill, R (1985) ‘Graphical Perception and Graphical Methods for Analyzing Scientific Data’. Science, 229(4716), p828-833.
-Correa, Carlos D, Ma Kwan-Liu (2008). ‘Size-based Transfer Functions: A New Volume Exploration Technique’.  IEEE Transactions on Visualization and Computer Graphics, 14(6).
 
-Dykes, J., Wood, J. and Slingsby, A. (2010). ’Rethinking Map Legends with Visualization’. IEEE Transactions on Visualization and Computer Graphics, 16(6), p.890-899.
 
-Ee, Shaun (2020). Back to school with Tencent and friends - Health surveillance goes into schools as some classes resume [Online]. Available at: https://technode.com/2020/04/28/health-code-back-to-school-with-tencent-and-friends/ (Accessed: 13 Sept 2020)
-
-Efron, Bradley. (1979). Bootstrap methods: Another look at the jackknife. The Annals of Statistics. 7 (1): 1–26. doi:10.1214/aos/1176344552.
-
-Grant, Robert (2019) Data Visualization – Charts, Maps and Interactive Graphics. Boca Raton, FL: CRC Press.
-Jaemin Jo, Frédéric Vernier, Pierre Dragicevic, Jean-Daniel Fekete. ’A Declarative Rendering Model for Multiclass Density Maps’. IEEE Transactions on Visualization and Computer Graphics, Institute of Electrical and Electronics Engineers, 2019, 25 (1), pp.470-480.
-Kim, YS, Walls ,LA, Krafft , P, Hullman, J (2017a). A Bayesian Cognition Approach to Improve Data Visualization. ACM Conference (Conference’17). ACM, New York, NY, USA.
-Kim, YS, Reinecke, K, Hullman, J (2017b). Explaining the Gap: Visualizing One’s Predictions Improves Recall and Comprehension of Data. 2017 CHI Conference on Human Factors in Computing SystemsMay 2017 Pages 1375–1386
-Metelli, Fabio (1974) ‘The Perception of Transparency’. Scientific American, 230(4), p90-99.
-Midtbø, Terje (2007). ‘Advanced Legends for Interactive Dynamic Maps’. 23rd International Cartographic Conference, Moscow
-Munzner, Tamara (2015) Visualization Analysis and Design. Boca Raton, FL: CRC Press.
-Perlin, Ken (1985) ‘An Image Synthesizer´. Computer Graphics, 19(3), p287-296
-Roth, RE, Woodruff AW, Johnson, ZF (2010). ’Value-by-alpha maps: An alternative technique to the cartogram’. The Cartographic Journal, 47(2) p130–140.
-Tufte, Edward (2001). The Visual Display of Quantitative Information. 2nd edition. Cheshire, CO: Graphics Press.
-Ware, Colin (2020) Information Visualization – Perception for Design. 4th edition. Camebridge, MA: Elsevier.
-
--->
-
-<!-- # Appendices -->
 \newpage
 
 \section{Appendices} \label{appendices}
@@ -1079,7 +1095,7 @@ This image data was then extracted and stored locally in order to be able to wor
 
 *Opacity Data Layer*
 
-In order not to have respondents making use of pre-existing knowledge or assumptions to the data given the common background of London, continuous data was generated using Perlin-noise (Perlin, 1985)\footnote{The implementation used to generate the noise was https://github.com/p5py/p5/blob/master/p5/pmath/rand.py }.
+In order not to have respondents making use of pre-existing knowledge or assumptions to the data given the common background of London, continuous data was generated using Perlin-noise [@Perlin85]\footnote{The implementation used to generate the noise was https://github.com/p5py/p5/blob/master/p5/pmath/rand.py }.
 
 All generated data was normalized to have the lowest value to be 0.0, and highest being 1.0 - mapping to the linear data mapping for examples shown to respondents as being between 0 and 100.
 
@@ -1265,11 +1281,7 @@ Following the full 10 examples, the users were presented with acceptance questio
 \end{figure}
 
 
-All answers were sent back to the server and persisted.
-
-After final submission a "Thank you screen" including virtual confetti indicated the end of the session and task (Figure \@ref(fig:thank-you)).
-
-![(#fig:thank-you) End of task indication](./img/end_screen.png){width=80%}
+All answers were sent back to the server and persisted. After final submission a message indicated the end of the session and task.
 
 
 \newpage
