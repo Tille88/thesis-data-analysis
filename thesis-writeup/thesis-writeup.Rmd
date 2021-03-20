@@ -168,15 +168,7 @@ As will be discussed in section \ref{background}, legends have been studied, but
 <!-- # Background -->
 \section{Background} \label{background}
 
-*TODO: INCLUDE MORE MEAT IN LITERATURE SECTION!!!*
-**The background put the study in a wider perspective and gives a summary or ‘state of the art’ of the actual question. This chapter can present the literature study as a base to the problem and posed question. Already here you can present actual literature/references to research in the field of question, but this should be a presentation. Often you can use this summary of the stat of the art again the discussion of your results. Take care that you have the latest publications in the field of research topic included.**
-
 ## Previous related literature 
-
-<!-- Other literature on Perception with clutter/backgrounds/overlays -->
-<!-- Other literature on legends... -->
-
-
 
 Related literature can be found in many different research areas which intersects with the scope of this study.
 
@@ -194,19 +186,15 @@ For map and perception studies, colour choices in a cartographic context is a la
 
 Combining explicit studies on transparency/opacity are rare. Some design of cartographic representations over as alternatives to choropleth maps have been making use of the alpha channel in order to preserve shape and topology in maps by using the alpha channel, instead of alternatives such as nonconuonous cartograms that can alter shape/topology [@Roth10].
 
-Targeted literature on legends are likewise scarce, and are commonly highly tied to different visualization types. In a walk-through of proper data visualization practices, Evergreen and Metzner suggests that there is a clear importance of data-proximity of legend usage and placement *Because human eyesight has only a narrow range of focus, graphics should be placed very near their associated text (Malamed, 2009; Ware, 2012). [...] if a legend is required in the visualization, it should be so near the corresponding data points that no eye movements are needed to relate the two.* Direct labeling is seemed as preforrable to legends altogether [-@Evergreen13]. 
+Targeted literature on legends are likewise scarce, and are commonly highly tied to different visualization types. In a walk-through of proper data visualization practices, Evergreen and Metzner suggests that there is a clear importance of data-proximity of legend usage and placement *Because human eyesight has only a narrow range of focus, graphics should be placed very near their associated text (Malamed, 2009; Ware, 2012). [...] if a legend is required in the visualization, it should be so near the corresponding data points that no eye movements are needed to relate the two.* Direct labeling is seemed as preferable to legends altogether [-@Evergreen13]. 
 
+General legend design studies have been looking at legends that have are possible to interact with [@Riche10], but much of the literature is in the context of maps.
 
+Recent map legend literature similarly have a clear design focus, where some have focused on designs that allow increasing interactivity with the legend [@Mitbo07: @Peterson99], adapting legends and placements to where users are gazing/looking [@Gobel18] and attempts to provide guidance on the use of map legends in a “dynamic environment” [@Dykes10]. More focused design studies have looked at more narrow questions related to legend designs for maps> "cumulative frequency legends and diagrams" as a supplement to choropleth maps [@Cromley09; Cromley06; @Chien19], and using a "frequency histogram legend" as a substitute to traditional legends for classed and unclassed choropleth maps [@Kumar04].
 
+In a more holistic view on legend within web GIS, Cybulski [-@Cybulski16] analyzed if animated maps that are published on the internet designed with guidelines that are given by cartographers, finding that they do follow the guidelines in general, but also that they are adapting to new technological and user circumstances.
 
-**CURRENT**
-
- Recent map legend literature found have focused on interactive aspects [@Mitbo07] and attempts to provide guidance on the use of map legends in a “dynamic environment” [@Dykes10].
-
-No intersection between legends and transparency either in GIS-context or elsewhere have been found in the literature review.
-
-**END CURRENT**
-
+No intersection between legends and transparency either in GIS-context or elsewhere have been found in the literature review. This is largely supported in a literature study that aimed to find whether there were cartographic rules for effective legend designs *"[...]it is found that only one study was dedicated to the building of cartographic rules for effective legend design"* [@Zhe17].
 
 # Methodology
 
@@ -1087,7 +1075,7 @@ However, there were no clear results indicating differences in response accuracy
 
 There was a worry if keeping the data in the same range between examples would lead the respondents to stop using the legends after getting used to/internalizing the data mapping. Without this the errors would not be on the same scale, so it was deemed more suitable, and instead a post-collection testing of progression results was to be relied on in addition to changing the colours between each example. Given that there was a consistently higher error for the Headline/no-legend examples, and actually slighltly higher errors for the last example compared to the first, this was unlikely to have affected the validity of the study.
 
-The strongest results were perhaps from the user preferences/acceptance of the different legend types, where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the "industry standard" as in the imitation of the Checkered legend type.
+The strongest results were perhaps from the user preferences/acceptance of the different legend types, where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the "industry standard" as in the imitation of the Checkered legend type. For the proximity type, this may be due to the reduced need for "attention switching" [@Kern10] due to higher proximity to the data and marker.
 
 A common feedback given by respondents was that it would be useful to have larger legends. The current legend size was chosen to imitate ArcGIS opacity legend as closely as possible, and to be identical in size between legend types.
 
