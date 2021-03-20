@@ -40,8 +40,6 @@ csl: citation/ambio.csl
 
 \listoftables
 
-<!-- TODO: LIST OF ABBREVIATIONS -->
-
 \newpage
 
 ```{r, setup, include=FALSE}
@@ -54,18 +52,11 @@ library(GGally)
 library(corrplot)
 library(gtsummary)
 library(stargazer)
+library(tidyr)
+library(gplots)
+
 # library(Hmisc)
 ```
-
-
-<!-- Other literature on Perception with clutter/backgrounds/overlays -->
-<!-- Other literature on legends... -->
-
-
-
-
-
-
 
 
 
@@ -74,10 +65,11 @@ library(stargazer)
 \pagenumbering{arabic} 
 
 <!-- TODO: CHECK THAT page should start on an uneven page number on the right side of your open report. -->
+<!-- TODO: MAKE SURE PROGRESSION/TIME AND UUID(INDIVIDUAL) FE AS ROBUSTNESS, DO MANUALLY IF NEEDED, MOVE IN METHOD SECTION TO ROBUSTNESS NOT PART OF MAIN, CREATE OLS-REFERENCE INSTEAD -->
 
 \section{Introduction} \label{introduction}
 
-## Data Visualization and GIS
+## Data visualization and geographic information systems (GIS)
 
 There are clear overlapping goals between the area of data visualization - with the target visually encoding data attributes in a way that is visually pleasing, and easy for the target audience to decode - and visual representation of data on a map in a GIS-system. It may also be possible to consider visual representation of data for an end user in a GIS-system as a subfield of data visualization, and related fields such as the study of human perception, where most textbooks in these fields contains a section on geographic mapping of data [see e.g. @Munzner15, p. 181; @Grant19; @Cairo16; @Ware20, p. 105, 125, 128ff].
 
@@ -86,11 +78,11 @@ There are clear overlapping goals between the area of data visualization - with 
 
 Colin Ware [-@Ware20] highlights this relation between the fields of Data Visualization and GIS in his seminal work on information visualization in relation to the use of transparency as a technique to the use of transparency (alpha channel mapping/encoding) in information visualization:
 
-> *In many visualization problems, it is desirable to present data in a layered form. This is especially common in geographic information systems (GISs). So that the contents of different layers are simultaneously visible, a useful technique is to present one layer of data transparently over another; however, there are many perceptual pitfalls in doing this. The contents of the different layers will always interfere with each other to some extent, and sometimes the two layers will fuse perceptually so that it is impossible to determine to which layer a given object belongs [@Ware20, p. 217] (ibid. p. 217).* **TODO: DOES BIBTEX RESULT IN IBID?**
+> *In many visualization problems, it is desirable to present data in a layered form. This is especially common in geographic information systems (GISs). So that the contents of different layers are simultaneously visible, a useful technique is to present one layer of data transparently over another; however, there are many perceptual pitfalls in doing this. The contents of the different layers will always interfere with each other to some extent, and sometimes the two layers will fuse perceptually so that it is impossible to determine to which layer a given object belongs [@Ware20, p. 217] (ibid. p. 217).*
 
 
 
-Ware [@Ware20, p. 357] **TODO: DOES BIBTEX RESULT IN IBID?** also includes a figure which shows a fully opaque data encoding on top of a map layer (Figure \ref{opaque-data}) – which depending on need can make it difficult for the end user to know the demarcations of the different categories due to occlusion. In other words - fully opaque data encoding resulting in lower layers not being visible, resulting in the end user having difficulties referencing the underlying geography.
+Ware [@Ware20, p. 357] also includes a figure which shows a fully opaque data encoding on top of a map layer (Figure \ref{opaque-data}) – which depending on need can make it difficult for the end user to know the demarcations of the different categories due to occlusion. In other words - fully opaque data encoding resulting in lower layers not being visible, resulting in the end user having difficulties referencing the underlying geography.
 
  ![Opaque data layer covering geographic information \label{opaque-data}](./img/picture1.png)
 
@@ -99,17 +91,16 @@ Ware [@Ware20, p. 357] **TODO: DOES BIBTEX RESULT IN IBID?** also includes a fig
 
 The increased accessibility and ease to create maps for online usage makes different data mappings available, there are a lot of maps that make liberal use of a mix of mapping techniques, such as colour and opacity (Figure \ref{multiple-encodings} [@Ee20]) without taking into account the end-users ability to easily decode the data being visualized.
  
- ![Liberal web-GIS use of multiple encodings without clear data mapping clarifications for end-user \label{multiple-encodings}](./img/picture2.png)
+ ![Example Web-GIS with multiple encodings channels without data mapping clarifications \label{multiple-encodings}](./img/picture2.png)
 
 
 
 
 The availability and ease of using opacity mappings and other techniques are also shown by the market leader
 \footnote{
-”Esri builds the leading mapping and spatial analytics software for desktop, software as a service (SaaS), and enterprise applications. Esri ArcGIS products are designed to deliver location intelligence and meet digital transformation needs for organizations of all sizes. Here you can explore Esri software, apps, content, solutions, and developer tools.” - https://www.esri.com/en-us/arcgis/products/index Accessed 13 Sept 2020
+”Esri builds the leading mapping and spatial analytics software for desktop, software as a service (SaaS), and enterprise applications. Esri ArcGIS products are designed to deliver location intelligence and meet digital transformation needs for organizations of all sizes. Here you can explore Esri software, apps, content, solutions, and developer tools.” [@ArcgisIndex]
 
-”[…]our market-leading Enterprise GIS mapping software will support your work and deliver results” - https://www.esri.com/en-us/arcgis/products/arcgis-enterprise/overview Accessed 13 Sept 2020
-**TODO: CITATION**
+”[…]our market-leading Enterprise GIS mapping software will support your work and deliver results” [@ArcgisPlatform]
 
 } 
 ESRI/ArcGIS examples and tutorials for their products, such as “ArcGIS online” and “ArcGIS Enterprise Map Viewer” are shown by the blog-entry “6 Easy Ways to Improve Your Maps”, where “4) Utilize Transparency” is included. The ways the transparency tool works is included as well (Figure \ref{fig:opacity-picker}) [@Berry2016] does not give the user much information or consider underlying layer colors and effects on perception.
@@ -179,7 +170,15 @@ As will be discussed in section \ref{background}, legends have been studied, but
 *TODO: INCLUDE MORE MEAT IN LITERATURE SECTION!!!*
 **The background put the study in a wider perspective and gives a summary or ‘state of the art’ of the actual question. This chapter can present the literature study as a base to the problem and posed question. Already here you can present actual literature/references to research in the field of question, but this should be a presentation. Often you can use this summary of the stat of the art again the discussion of your results. Take care that you have the latest publications in the field of research topic included.**
 
-## Previous related literature **TODO: IMPROVE**
+## Previous related literature 
+
+<!-- Other literature on Perception with clutter/backgrounds/overlays -->
+<!-- Other literature on legends... -->
+
+**Could flesh this out more with description of opacity legends in academic journals (sometimes included, not focus of studies in questions).**
+
+**rewrite, currently citing Ekroll's Transparency perception: the key to understanding simultaneous color contrast**
+
 
 The literature review will touch on several areas which intersect this study scope:
 i) data visualization and perception, low-level and design studies ii) transparency-focused studies iii) cartography and GIS visualization, including colour studies iv) use of legends.
@@ -205,8 +204,6 @@ ii) Transparency
 
 Transparancy models have been used and studied extensively, with early opacity/transparency models by Fabio Metelli [-@Metelli74] still being in use to this day.
 
-**TODO: rewrite, currently citing Ekroll's Transparency perception: the key to understanding simultaneous color contrast**
-
 Mitelli’s well-established additive model of perceptual transparency, a transparent layer of color L in front of a background region of color B produces a proximal color signal P which is simply a weighted mixture
 
 $P = \alpha·B+(1−\alpha)*L$
@@ -230,7 +227,6 @@ Literature on use of legends seem highly tied to different visualization types. 
 
 No intersection between legends and transparency either in GIS-context or elsewhere have been found in the literature review.
 
-**Could flesh this out more with description of opacity legends in academic journals (sometimes included, not focus of studies in questions).**
 
 
 # Methodology
@@ -400,15 +396,47 @@ responses_an_viz$legend <- factor(responses_an_viz$legend, levels = c("headline"
 
 ```{r response-error-table, echo=FALSE, message = FALSE}
 
-tbl_summary(
-  responses_an %>%
-    select(legend)
-) %>%
-  modify_header(label = "*Total*") 
+error_tbl_summary <- responses_an %>%
+  select(legend) %>%
+  group_by(legend) %>%
+  summarize(N=n())
+
+
+error_tbl_summary$legend <- plyr::revalue(error_tbl_summary$legend, c(
+  "headline"="Headline", 
+  "checkered"="Checkered",
+  "sampled"="Sampled",
+  "clustered"="Clustered",
+  "annotated"="Annotated"
+  ))
+
+error_tbl_summary <- rbind(
+  error_tbl_summary,
+  data.frame(legend=c("Total"), N=sum(error_tbl_summary$N))
+)
+
+
+names(error_tbl_summary) <- c("Legend", "N")
+
+error_tbl_summary$Legend <- as.character(error_tbl_summary$Legend)
 
 ```
 
-Each of the 34 respondent completed the full survey, resulting in 340 responses to the data-progression, and as seen they are distributed equally among the legend types.
+```{r response_tbl_summary_output, echo=FALSE, message = FALSE, results='asis'}
+
+stargazer(
+  error_tbl_summary,
+  type='latex',
+  rownames = FALSE,
+  summary = FALSE, header = FALSE,
+  label = "tab:responses-summary",
+  title="Responses by Legend Type"
+  )
+
+
+```
+
+Each of the 34 respondent completed the full survey, resulting in 340 responses to the data-progression, and as seen they are distributed equally among the legend types (see Table \ref{tab:responses-summary}).
 
 
 **Dependent Variables**
@@ -436,7 +464,7 @@ defined for box plots as 1.5 times the interquartile  range [the height of the b
 } , except for headline/no legend, where the variance of the data is as quite large.
 
 
-```{r abs-response-error-visualization, fig.cap = "Box plot - absolute error by visualization category", echo=FALSE}
+```{r abs-response-error-visualization, fig.cap = "Absolute error by visualization category", echo=FALSE}
 
 ggplot(responses_an_viz, aes(legend, percept_error_abs, color=legend)) +
   geom_boxplot()  +
@@ -449,21 +477,38 @@ ggplot(responses_an_viz, aes(legend, percept_error_abs, color=legend)) +
 
 *ACCEPTANCE* - objective valuation by participants on the usefulness of each legend type. On the scale 1-5, with responses of "No opinion" treated as missing values/Unknown. 
 
-```{r acceptance-table, echo=FALSE, message = FALSE}
-tbl_summary(
-  responses_an_viz %>%
-    select(uuid, acceptance, legend) %>%
-    distinct() %>% select(-c(uuid)),
-  by = legend
-) %>%
-  add_n() %>% # add column with total number of non-missing observations
-  modify_header(label = "**Legend**") %>% # update the column header
-  bold_labels()
+```{r acceptance-table-process, echo=FALSE, message = FALSE}
 
+
+acceptance_unique_df <- responses_an_viz %>%
+    select(uuid, acceptance, legend) %>%
+    distinct() %>% select(-c(uuid))
+
+acceptance_spread_df <- acceptance_unique_df %>%
+  group_by(acceptance, legend) %>%
+  summarise(n=n()) %>%
+  spread(legend, n, fill=0)
+
+names(acceptance_spread_df) <- c("Acceptance", "Headline", "Checkered", "Sampled", "Clustered", "Annotated")
+
+
+acceptance_spread_df <- acceptance_spread_df %>% replace_na(list(Acceptance = "No Opinion"))
 
 ```
-Table **TODO-INSERT TABLE NUMBER** indicates that the highest *ACCEPTANCE* scores are for annotated and sampled legend types. More statistical comparison to follow in the results section. 
-**TODO: WHY 164, if 33 would respond = 165, also for all 34, would be 170 + comment on this!!!**
+```{r acceptance-table, echo=FALSE, message = FALSE, results='asis'}
+
+stargazer(
+  acceptance_spread_df,
+  type='latex',
+  rownames = FALSE,
+  summary = FALSE, header = FALSE,
+  label = "tab:acceptancy-tally",
+  title="Acceptance response count cross-tab"
+  )
+
+```
+
+Table \ref{tab:acceptancy-tally} indicates that the highest *ACCEPTANCE* scores are for annotated and sampled legend types. More statistical comparison to follow in the results section. 
 
 **Independent/Control Variables Candidates**
 
@@ -488,14 +533,14 @@ Most of the research questions are centered around how different legend design c
 
 For *PERCEPTION ERROR* the average value is centered around 0, but the distribution variance is of interest. Most statistical models are constructed to compare in particular mean values between categories, which would not be able to give any indication of differences between these values. It would be possible to create a non-parametric test using bootstrapping of almost any test statistics [@Efron79]. However, for simplicity Bartlett's test \footnote{
 See https://en.wikipedia.org/wiki/Bartlett%27s_test and http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r for comparisons of standard statistical test for variance differences
-} allow testing of multiple variance differences between multiple groups. **TODO: REFERNECE**
+} allow testing of multiple variance differences between multiple groups.
 
 The Bartlett test will be conducted for both the full data including the headling/no-legend type as baseline, and a subset to see if variances differs in a statistically significant way between the different legend types, using checkered legend type as a baseline, as the type having the largest variance test statistic of the sample.
 
-Bartlett's test assumes normality, so the Shapiro-Wilk test **TODO: REFERENCE** are first to be conducted in order to see if the normality-assumption holds. This will be done for all legend types combined, with headline/no-legend removed, as well as for the subsample of each legend type separately.  
+Bartlett's test assumes normality, so the Shapiro-Wilk test [@Shapiro65] are first to be conducted in order to see if the normality-assumption holds. This will be done for all legend types combined, with headline/no-legend removed, as well as for the subsample of each legend type separately.  
 
 For *|PERCEPTION ERROR|*, *ACCEPTANCE* and other questions where a mean-comparison is able to be of relation to the reseach questions \footnote{
-Including *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*, which will have the results presented in Appendix **TODO - APPENDIX LETTER**
+Including *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*, which will have the results presented in Appendix C
 } are examined using regular OLS-techniques (linear regression). Of importance for interpretable results is the baseline for these models (intercept), for ease of understanding p-values and test statistic differences. 
 
 The baseline OLS-estimates are retained using 
@@ -510,11 +555,13 @@ and
 ACCEPTANCE_{i} = \alpha + \beta_{1} LEGEND_{i} + \varepsilon_{i}
 \end{equation*}
 
-To account for individual fixed effects\footnote{Certain respondents are likely to have different average correctness due to within-subject variations}, this is in case of statistically significant findings also tested using individual fixed effects (FE)-models **TODO: REFERENCE**. This can be thought of as including separate intercept-variables for each respondent using dummy variables for each respondent\footnote{The statistical analysis software may choose to estimate this using other techniques, such as entity-demeaned OLS for computational efficiency https://www.econometrics-with-r.org/10-3-fixed-effects-regression.html}.
+To account for individual fixed effects\footnote{Certain respondents are likely to have different average correctness due to within-subject variations}, this is in case of statistically significant findings also tested using individual fixed effects (FE)-models. This can be thought of as including separate intercept-variables for each respondent using dummy variables for each respondent\footnote{The statistical analysis software may choose to estimate this using other techniques, such as entity-demeaned OLS for computational efficiency} [@Hanck20].
 
 \begin{equation*}
-|PERCEPTION ERROR|_{ij} = \alpha + \beta_{1} LEGEND_{i} + \gamma_{2} RESPONDENT2{j} + \gamma_{3} RESPONDENT3{j} + ... + \gamma_{n} RESPONDENTn{j} + \varepsilon_{ij}
+|PERCEPTION ERROR|_{ij} = \alpha + \beta_{1} LEGEND_{i} + \gamma_{2} RES2{j} + \gamma_{3} RES3{j} + ... + \gamma_{n} RESn{j} + \varepsilon_{ij}
 \end{equation*}
+
+Where $RESn =$ RESPONDENTn 
 
 The individual effects observed was not expected to be as significant as before the study was conducted, due to a more controlled environment for data collection as described in section \ref{data-collection-ui}.
 
@@ -721,7 +768,7 @@ For estimations of size of differences between groups transformation of *PERCEPT
 
 ## *|PERCEPTION ERROR|*
 
-Visual inspection of whether there are clear difference in heterogenity in *|PERCEPTION ERROR|* for both legend types and between respondents are seen in **TODO: FIGURE NUMBERING** in Appendix C (bars including 95% confidence intervals). The confidence intervals are largely overlapping for all types except when not including any legend (Headline), which is in line with results from variance testing. For respondent variation, there are large variations, but still a large fraction that have overlapping confidence bounds.
+Visual inspection of whether there are clear difference in heterogenity in *|PERCEPTION ERROR|* for both legend types is seen in Figure \@ref(fig:figure-heterogenity-legends) in Appendix C (bars including 95% confidence intervals). The confidence intervals are largely overlapping for all types except when not including any legend (Headline), which is in line with results from variance testing. 
 
 ```{r abs-perception-error-models, echo=FALSE, message = FALSE}
 library(plm)
@@ -734,11 +781,22 @@ library(zoo)
 baseline_legend_of_use <- lm(percept_error_abs ~ legend,
                      data = no_legend_baseline)
 
+# TODO: CLEAN UP -> ONLY OLS, ROBUSTNESS CHECK WITH TIME AND UUID DUMMIES...
+# TBR <- with(no_legend_baseline,
+#           data.frame(percept_error_abs = percept_error_abs - ave(percept_error_abs, uuid),
+#                     legend = legend, uuid=uuid))
+# summary(lm(percept_error_abs ~ legend - 1 + uuid, data = TBR))
+# summary(TBR)
+
 ### FE = robustness
 fe_legend_of_use <- plm(percept_error_abs ~ legend,
                           data = no_legend_baseline,
                           index = c("uuid"),
                           model = "within")
+# fe_legend_of_use <- plm(percept_error_abs ~ legend,
+#                           data = no_legend_baseline,
+#                           index = c("uuid", "prog"),
+#                           model = "within")
 # print summary using robust standard errors
 # coeftest(fe_legend_of_use, vcov. = vcovHC, type = "HC1")
 # Nonrobust -> summary(fe_legend_of_use)
@@ -751,9 +809,13 @@ standard_baseline_difference <- lm(percept_error_abs ~ legend,
                              data = checkered_baseline)
 
 ### FE = robustness
+# fe_standard_difference <- plm(percept_error_abs ~ legend,
+#                             data = checkered_baseline,
+#                             index = c("uuid"),
+#                             model = "within")
 fe_standard_difference <- plm(percept_error_abs ~ legend,
                             data = checkered_baseline,
-                            index = c("uuid"),
+                            index = c("uuid", "prog"),
                             model = "within")
 # print summary using robust standard errors
 # coeftest(fe_standard_difference, vcov. = vcovHC, type = "HC1")
@@ -792,8 +854,6 @@ The individual effects have not affected the estimates, but have some higher sta
 
 
 ## *ACCEPTANCE*
-
-**TODO, check n-issue if any!!! from subset filtering - seems okay, nrow(acceptance_data_unique)=170**
 
 ```{r processing-acceptance, echo=FALSE, message = FALSE}
 # NEED TO USE DATA WITHOUT DUPLICATES
@@ -955,7 +1015,7 @@ responses_an_accurate_viz = responses_an_viz %>% filter(uuid %in% resp_low_error
 
 Visual inspection as can be found in Figure \@ref(fig:models-outlier-removal-plot), there is still a wide distribution of values, where headline and clustered legend types have the higher average absolute error, while the other types both have  a number of high error outliers.
 
-```{r models-outlier-removal-plot, fig.cap = "Box plot above 50th percentile most accurate respondent subset", echo=FALSE, message = FALSE}
+```{r models-outlier-removal-plot, fig.cap = "Absolute error - 50th percentile most accurate respondent subset", echo=FALSE, message = FALSE}
 # Absolute
 # Not really anything that sticks out
 ggplot(responses_an_accurate_viz, aes(legend, percept_error_abs, color=legend)) +
@@ -1318,6 +1378,8 @@ ggplot(responses_an_viz, aes(legend, hoverEvents, color=legend)) +
 ```
 
 
+
+
 ```{r colour-visualization, fig.cap = "|PERCEPTION ERROR| for Colour Types", echo=FALSE}
 
 
@@ -1333,22 +1395,10 @@ ggplot(responses_an_viz, aes(colour, percept_error_abs, color=colour)) +
 
 ```
 
+```{r figure-heterogenity-legends, echo=FALSE, fig.cap = "Heterogeineity across legend types"}
 
-
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-
-library(gplots)
 plotmeans(percept_error_abs ~ legend, main="Heterogeineity across legend types", data=no_legend_baseline)
-plotmeans(percept_error_abs ~ uuid, main="Heterogeineity across respondents", data=no_legend_baseline, connect = F, n.label = F)
-
-
-# PLOTS
-# TABLE
-# https://thatdatatho.com/2018/08/20/easily-create-descriptive-summary-statistic-tables-r-studio/
 ```
-
-
 
 ```{r interaction-variable-modelling, echo=FALSE, message = FALSE}
 
@@ -1428,6 +1478,11 @@ stargazer(
   )
 
 ```
+
+
+\newpage
+
+
 
 
 
