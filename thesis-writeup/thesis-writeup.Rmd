@@ -5,7 +5,7 @@ output:
     # includes:
     #   before_body: frontpage.tex
     citation_package: natbib
-    # keep_tex: true
+    keep_tex: true
     toc: false
     fig_caption: true
     latex_engine: xelatex
@@ -57,23 +57,13 @@ library(stargazer)
 # library(Hmisc)
 ```
 
-```{r echo=FALSE}
-figure_number = 0 
-```
 
-
-<!-- TODO: Migrate references!!! -->
 <!-- Other literature on Perception with clutter/backgrounds/overlays -->
 <!-- Other literature on legends... -->
 
-<!-- ArcGIS (2020a) Create a custom visualization using Arcade [Online]. Available at: https://developers.arcgis.com/javascript/latest/sample-code/visualization-arcade/index.html (Accessed: 13 Sept 2020) -->
-
-<!-- Berry, Lisa (2016) 6 Easy Ways to Improve Your Maps [Online]. Available at: https://www.esri.com/arcgis-blog/products/mapping/mapping/6-easy-ways-to-improve-your-maps/#:~:text=%206%20Easy%20Ways%20to%20Improve%20Your%20Maps,sometimes%20become%20distracting%20and%20tear%20your...%20More%20 (Accessed: 13 Sept 2020) -->
-
-<!-- Ciechanowski, Bartosz (2019). Alpha Compositing [Online]. Available at: https://ciechanow.ski/alpha-compositing/ (Accessed: 20 Feb 2021)   -->
 
 
-<!-- Ee, Shaun (2020). Back to school with Tencent and friends - Health surveillance goes into schools as some classes resume [Online]. Available at: https://technode.com/2020/04/28/health-code-back-to-school-with-tencent-and-friends/ (Accessed: 13 Sept 2020) -->
+
 
 
 
@@ -98,32 +88,20 @@ Colin Ware [-@Ware20] highlights this relation between the fields of Data Visual
 
 > *In many visualization problems, it is desirable to present data in a layered form. This is especially common in geographic information systems (GISs). So that the contents of different layers are simultaneously visible, a useful technique is to present one layer of data transparently over another; however, there are many perceptual pitfalls in doing this. The contents of the different layers will always interfere with each other to some extent, and sometimes the two layers will fuse perceptually so that it is impossible to determine to which layer a given object belongs [@Ware20, p. 217] (ibid. p. 217).* **TODO: DOES BIBTEX RESULT IN IBID?**
 
-```{r echo=FALSE}
-figure_number = figure_number + 1 
-```
 
 
-Ware [@Ware20, p. 357] **TODO: DOES BIBTEX RESULT IN IBID?** also includes a figure which shows a fully opaque data encoding on top of a map layer (Figure `r figure_number`) – which depending on need can make it difficult for the end user to know the demarcations of the different categories due to occlusion.
+Ware [@Ware20, p. 357] **TODO: DOES BIBTEX RESULT IN IBID?** also includes a figure which shows a fully opaque data encoding on top of a map layer (Figure \ref{opaque-data}) – which depending on need can make it difficult for the end user to know the demarcations of the different categories due to occlusion. In other words - fully opaque data encoding resulting in lower layers not being visible, resulting in the end user having difficulties referencing the underlying geography.
 
- ![Fully opaque data encoding resulting in lower layers not being visible, possible resulting in the end user having difficulties knowing the exact underlying geography.](./img/picture1.png)
-
-
-```{r echo=FALSE}
-figure_number = figure_number + 1 
-```
+ ![Opaque data layer covering geographic information \label{opaque-data}](./img/picture1.png)
 
 
-The increased accessibility and ease to create maps for online usage makes different data mappings available, there are a lot of maps that make liberal use of a mix of mapping techniques, such as colour and opacity (Figure `r figure_number`) without taking into account the end-users ability to easily decode the data being visualized.
+
+
+The increased accessibility and ease to create maps for online usage makes different data mappings available, there are a lot of maps that make liberal use of a mix of mapping techniques, such as colour and opacity (Figure \ref{multiple-encodings} [@Ee20]) without taking into account the end-users ability to easily decode the data being visualized.
  
- **TODO: CITATION**
- 
- ![Liberal web-GIS use of multiple encodings without clear data mapping clarifications for end-user (Ee, 2020).](./img/picture2.png)
+ ![Liberal web-GIS use of multiple encodings without clear data mapping clarifications for end-user \label{multiple-encodings}](./img/picture2.png)
 
 
-```{r echo=FALSE}
-figure_number = figure_number + 1 
-opacity_picker = figure_number
-```
 
 
 The availability and ease of using opacity mappings and other techniques are also shown by the market leader
@@ -134,29 +112,50 @@ The availability and ease of using opacity mappings and other techniques are als
 **TODO: CITATION**
 
 } 
-ESRI/ArcGIS examples and tutorials for their products, such as “ArcGIS online” and “ArcGIS Enterprise Map Viewer” are shown by the blog-entry “6 Easy Ways to Improve Your Maps”, where “4) Utilize Transparency” is included. The ways the transparency tool works is included as well (Figure `r opacity_picker`) does not give the user much information or consider underlying layer colors and effects on perception.
-
-**TODO: CITATION**
-
- ![Transparency data mapping/encoding for ArcGIS products (Berry, 2016)](./img/picture3.png)
-
-```{r echo=FALSE}
-figure_number = figure_number + 1 
-dark_background_example = figure_number
-figure_number = figure_number + 1 
-bright_background_example = figure_number
-```
+ESRI/ArcGIS examples and tutorials for their products, such as “ArcGIS online” and “ArcGIS Enterprise Map Viewer” are shown by the blog-entry “6 Easy Ways to Improve Your Maps”, where “4) Utilize Transparency” is included. The ways the transparency tool works is included as well (Figure \ref{fig:opacity-picker}) [@Berry2016] does not give the user much information or consider underlying layer colors and effects on perception.
 
 
-This mapping has a similar visual representation to the end user of the maps as shown in the usage examples from the “ArcGIS Online” API documentation ArcGIS website (Figure `r dark_background_example` and `r bright_background_example`). Figure `r dark_background_example` includes colour mapping, but the legend maps transparency into the same checkered grey/white background as for the tool shown in Figure `r opacity_picker`, making it very difficult to decode the visual values. Figure `r bright_background_example` has a single colour and a background layer corresponding roughly to the constant mid-grey and white checkered pattern.  
 
-**TODO: CITATION**
+This mapping has a similar visual representation to the end user of the maps as shown in the usage examples from the “ArcGIS Online” API documentation ArcGIS website (Figure \ref{fig:opacity-dark-background} [@ArcgisDarkOnline] and \ref{fig:opacity-bright-background} [@ArcgisBrightOnline]). Figure \ref{fig:opacity-dark-background} includes colour mapping, but the legend maps transparency into the same checkered grey/white background as for the tool shown in Figure \ref{fig:opacity-picker}, making it very difficult to decode the visual values. Figure \ref{fig:opacity-bright-background} has a single colour and a background layer corresponding roughly to the constant mid-grey and white checkered pattern.  
 
- ![Opacity data mapping and legend with colour scale (ArcGIS, 2020a)](./img/picture4.png)
 
-**TODO: CITATION**
+
+
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.25\textwidth}
+         \centering
+         \fbox{
+         \includegraphics[width=\textwidth]{img/picture3.png}
+         }
+         \caption{Transparency data mapping/encoding for ArcGIS products}
+         \label{fig:opacity-picker}
+     \end{subfigure}
+     
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \fbox{
+         \includegraphics[width=\textwidth]{img/picture4.png}
+         }
+         \caption{Opacity data mapping and legend with colour scale}
+         \label{fig:opacity-dark-background}
+     \end{subfigure}
+
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \fbox{
+         \includegraphics[width=\textwidth]{img/picture5.png}
+         }
+         \caption{Opacity data mapping and legend}
+         \label{fig:opacity-bright-background}
+     \end{subfigure}
+        \caption{ArcGIS Opacity Legend and Mapping}
+        \label{fig:arc-gis-opacity-legend-and-mapping}
+\end{figure}
  
- ![Opacity data mapping and legend (ArcGIS, 2020b)](./img/picture5.png)
+
+
+
 
 This type of legend representation of opacity is in not context-aware, and remains a checkered mid-grey background no matter the background of the map. 
 
@@ -249,9 +248,7 @@ The data was limited to static 2D maps and using web technologies for easy distr
 
 Different designs are presented below, together with some justifications – where all legends and data mappings are linear in the opacity/alpha channel. This ought to introduce less complications than colour-mapping of colour due to a linear encoding of the alpha-channel in the RGBA-model:
 
-**TODO: CITATION**
-
->  *It’s worth pointing out that unlike the color components which are often encoded using a non-linear transformation, alpha is stored linearly – encoded value of 0.5 corresponds to alpha value of 0.5 (Ciechanowski, 2019)*
+>  *It’s worth pointing out that unlike the color components which are often encoded using a non-linear transformation, alpha is stored linearly – encoded value of 0.5 corresponds to alpha value of 0.5 [@Ciechanowski19]*
 
 For more information on the process of example generations and technology choices see Appendix A.
 
@@ -270,13 +267,13 @@ This, and all following examples imitate the ArcGIS-design in the size of legend
 
 One likely downside making it more difficult for subjects to accurately decode the data values is the lack of context in the legend as it relates to the background of the data in the visualization. The rest of the example types works to provide designs that gives more of the actual map base-layer background information to the legend.
 
-The simplest design choice was to sample part of the base layer as background as seen in Figure `r figure_number`. The details on how this was done in practice can be found in Appendix A.
+The simplest design choice was to sample part of the base layer as background as seen in Figure \ref{fig:sampled}. The details on how this was done in practice can be found in Appendix A.
  
 **Legend with clustered colour bands ["Clustered" in tables], (Figure \ref{fig:clustered})**
 
 An alternative to sampling a box of the base layer map background, is to use the most common colours of the base layers as a background. In the design tested, the 10 most common colours of the background map was displayed as strips/columns in a vertical manner behind the data representation. This way they are contextualized for the full range of the data in the legend. More details how the common colours were identified are described in Appendix A. 
 
-**Annotated Outline  (Figure `r figure_number`) ["Annotated" in tables], (Figure \ref{fig:annotated})**
+**Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})**
 
 The legend placement may heavily affect the users ability to keep the information in near memory while moving the eyes back and fourth between visualized data and the legend.
 
@@ -418,9 +415,6 @@ Each of the 34 respondent completed the full survey, resulting in 340 responses 
 
 *PERCEPTION ERROR* distance (delta) between the response value to the actual value of the location of the marker per visualization. 
 
- ```{r echo=FALSE}
-figure_number = figure_number + 1 
-```
 
 ```{r response-error-visualization, fig.pos = "h", fig.cap = "Perception error by visualization category", echo=FALSE}
 ggplot(responses_an_viz, aes(legend, percept_error, color=legend)) + 
@@ -432,16 +426,12 @@ ggplot(responses_an_viz, aes(legend, percept_error, color=legend)) +
   ylab("Perception Error")
 ```
 
-As seen in Figure `r figure_number`, the mean is centered around 0, with some visually differences in distribution between the headline (no legend) category having the largest variance and more outliers. The figure has the mean indicated by a black dot, with 1 standard deviation in each direction shown by a range for each category.
+As seen in Figure \@ref(fig:response-error-visualization), the mean is centered around 0, with some visually differences in distribution between the headline (no legend) category having the largest variance and more outliers. The figure has the mean indicated by a black dot, with 1 standard deviation in each direction shown by a range for each category.
 
 
 *|PERCEPTION ERROR|* Absolute perception error - for linear modeling there is a need to look at mean-differences between categories, as simply using the error will result in all categorical differences being statistically insignificant.
 
- ```{r echo=FALSE}
-figure_number = figure_number + 1 
-```
-
-As seen by Figure `r figure_number`, the same data visualized as boxplots with an absolute transformation of the perception error, shows the mean (visualized as a black point) differeing between the categories - highest for no legend, and lowest for annotated legend. As can also be seeen there are some outliers (visualized as dots outside above the "whiskers") for almost all categories \footnote {
+As seen by Figure \@ref(fig:abs-response-error-visualization), the same data visualized as boxplots with an absolute transformation of the perception error, shows the mean (visualized as a black point) differeing between the categories - highest for no legend, and lowest for annotated legend. As can also be seeen there are some outliers (visualized as dots outside above the "whiskers") for almost all categories \footnote {
 defined for box plots as 1.5 times the interquartile  range [the height of the boxes] outside the interquartile range
 } , except for headline/no legend, where the variance of the data is as quite large.
 
