@@ -66,6 +66,7 @@ library(gplots)
 
 <!-- TODO: CHECK THAT page should start on an uneven page number on the right side of your open report. -->
 <!-- TODO: MAKE SURE PROGRESSION/TIME AND UUID(INDIVIDUAL) FE AS ROBUSTNESS, DO MANUALLY IF NEEDED, MOVE IN METHOD SECTION TO ROBUSTNESS NOT PART OF MAIN, CREATE OLS-REFERENCE INSTEAD -->
+<!-- TODO: DEFINE OPACITY/TRANSPARENCY, INCLUDE REFERENCE TO MDN  -->
 
 \section{Introduction} \label{introduction}
 
@@ -175,58 +176,36 @@ As will be discussed in section \ref{background}, legends have been studied, but
 <!-- Other literature on Perception with clutter/backgrounds/overlays -->
 <!-- Other literature on legends... -->
 
-**Could flesh this out more with description of opacity legends in academic journals (sometimes included, not focus of studies in questions).**
-
-**rewrite, currently citing Ekroll's Transparency perception: the key to understanding simultaneous color contrast**
 
 
-The literature review will touch on several areas which intersect this study scope:
-i) data visualization and perception, low-level and design studies ii) transparency-focused studies iii) cartography and GIS visualization, including colour studies iv) use of legends.
-These areas have certain number of overlap, but this grouping progressively moves towards the focus of this study.
+Related literature can be found in many different research areas which intersects with the scope of this study.
 
-i) Data Visualization and Perception
+In the field of perception and data visualization studies is a long history on low-level studies measuring the ability of humans to correctly perceive different visual data encodings, such as position, length, angle, circle area, hue, etc. [@Cleveland828] and studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas [@Adelson2042]. A more recent example of low-level perception focus can be found in Rosenholtz [-Rosenholtz07] attempt to find quantitative measurements of clutter in visual mediums.
 
-@brehmermuzner13 describes a gap between low-level tasks, and high-level tasks in the data visualization literature.
+For the higher-level tasks, Tufte [-@Tufte01] exemplifies attempts to bring these smaller encodings together to more stringently describe good data visualization practices. Muzner [-@brehmermuzner13] describes a gap between these low-level tasks, and high-level tasks in the data visualization literature.
 
+In recent years, researches commonly attempts to bridge the gap towards other scientific areas [@Kim17; @Kim19], incorporating mental models, uncertainty and Bayesian prior beliefs of subjects into the perception task and to bridge the combination of the lower-level tasks and relate them to efficient user experiences through e.g. preattentive processing - meaning differentiating objects of interest to the viewer [@Treisman85; @Findlay98; @Wolfe04].
 
+Transparency, and it's opposite (opacity) have been studied in the creation of mathematical transparency models [-@Metelli74] and recent literature heavily focused on computational rendering in a 3D/volume rendering context [e.g. @Chan09; and @Correa08].
 
-Representative for the low-level perception-focused literature is the early studies focusing on measuring the ability of humans to correctly perceive different visual data encodings, such as position, length, angle, circle area, hue, etc. [@Cleveland828].
+Studies that cover transparency directly or indirectly for data visualization are more rare. Jo et al. [-@Jo19] briefly mentions opacity: "*To scale scatterplots, several approaches have been proposed, such as adaptive opacity [15, 30, 32] and aggregation [13, 53]. However, adaptive opacity does not scale well with the number of categories since multiple categorical colors become ambiguous when blended[..]"*.
 
+For map and perception studies, colour choices in a cartographic context is a large literature, with Brewer [-@Brewer06] having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective.
 
-Other examples of low-level perception studies are Adelson’s [-@Adelson2042] studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas.
+Combining explicit studies on transparency/opacity are rare. Some design of cartographic representations over as alternatives to choropleth maps have been making use of the alpha channel in order to preserve shape and topology in maps by using the alpha channel, instead of alternatives such as nonconuonous cartograms that can alter shape/topology [@Roth10].
 
-For the higher-level tasks, Tufte [-@Tufte01] exemplifies attempts to bring these smaller encodings together to more stringently describe good data visualization practices.
-
-Newer literature in the area commonly attempts to bridge the gap towards other scientific areas [@Kim17; @Kim19], incorporating mental models, uncertainty and Bayesian prior beliefs of subjects into the perception task.
-
-
-ii) Transparency
-
-Transparancy models have been used and studied extensively, with early opacity/transparency models by Fabio Metelli [-@Metelli74] still being in use to this day.
-
-Mitelli’s well-established additive model of perceptual transparency, a transparent layer of color L in front of a background region of color B produces a proximal color signal P which is simply a weighted mixture
-
-$P = \alpha·B+(1−\alpha)*L$
-
-Current transparency literature is heavily focused on computational rendering in a 3D/volume rendering context [e.g. @Chan09; and @Correa08].
+Targeted literature on legends are likewise scarce, and are commonly highly tied to different visualization types. In a walk-through of proper data visualization practices, Evergreen and Metzner suggests that there is a clear importance of data-proximity of legend usage and placement *Because human eyesight has only a narrow range of focus, graphics should be placed very near their associated text (Malamed, 2009; Ware, 2012). [...] if a legend is required in the visualization, it should be so near the corresponding data points that no eye movements are needed to relate the two.* Direct labeling is seemed as preforrable to legends altogether [-@Evergreen13]. 
 
 
-iii) Cartography and GIS
-
-Colour choices in a cartographic context is a large literature, with Brewer [-@Brewer06] having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective.
-
-Studies that cover transparency directly or indirectly are more rare. Jo et al. [-@Jo19] briefly covers opacity: "*To scale scatterplots, several approaches have been proposed, such as adaptive opacity [15, 30, 32] and aggregation [13, 53]. However, adaptive opacity does not scale well with the number of categories since multiple categorical colors become ambiguous when blended[..]"*.
 
 
-Another use of transparency with geospatial data in a design study setting is the 'value-by-alpha-map' described as: *"A value-by-alpha map relates the alpha channel of each displayed enumeration unit to the unit's value in an equalizing variable. The value-by-alpha map solves the dilemma presented by Cartogram3. Shape and topology are both preserved perfectly because geography is maintained."* [@Roth10]. 
+**CURRENT**
 
-
-iv) Legends
-
-Literature on use of legends seem highly tied to different visualization types. Recent map legend literature found have focused on interactive aspects [@Mitbo07] and attempts to provide guidance on the use of map legends in a “dynamic environment” [@Dykes10].
+ Recent map legend literature found have focused on interactive aspects [@Mitbo07] and attempts to provide guidance on the use of map legends in a “dynamic environment” [@Dykes10].
 
 No intersection between legends and transparency either in GIS-context or elsewhere have been found in the literature review.
 
+**END CURRENT**
 
 
 # Methodology
@@ -236,7 +215,6 @@ No intersection between legends and transparency either in GIS-context or elsewh
 
 
 \subsubsection{Legend design types} \label{legends}
-<!-- ### *Legend design types* -->
 
 Due to the narrowness of the reasearch questions, no openly available dataset or examples was likely to exist. This resulted in extensive work to design and create a dataset and a reproducable experiment where legend types was possible to isolate as the only non-randomly changing treatment.  
 
@@ -451,7 +429,8 @@ ggplot(responses_an_viz, aes(legend, percept_error, color=legend)) +
                geom="pointrange", color="black") + 
   theme_minimal() +
   theme(legend.position="none") + 
-  ylab("Perception Error")
+  ylab("Perception Error") +
+  xlab("Legend")
 ```
 
 As seen in Figure \@ref(fig:response-error-visualization), the mean is centered around 0, with some visually differences in distribution between the headline (no legend) category having the largest variance and more outliers. The figure has the mean indicated by a black dot, with 1 standard deviation in each direction shown by a range for each category.
@@ -471,7 +450,8 @@ ggplot(responses_an_viz, aes(legend, percept_error_abs, color=legend)) +
   stat_summary(fun="mean", geom="point", color="black") + 
   theme_minimal() +
   theme(legend.position="none") +
-  ylab("Absolute Perception Error")
+  ylab("Absolute Perception Error") +
+  xlab("Legend")
 
 ```
 
@@ -1021,7 +1001,10 @@ Visual inspection as can be found in Figure \@ref(fig:models-outlier-removal-plo
 ggplot(responses_an_accurate_viz, aes(legend, percept_error_abs, color=legend)) +
   geom_boxplot()  +
   stat_summary(fun="mean", geom="point", color="black") +
-  theme_minimal()
+  theme_minimal() +
+  theme(legend.position="none") +
+  ylab("Absolute Perception Error") +
+  xlab("Legend")
 
 ```
 
@@ -1360,7 +1343,8 @@ ggplot(responses_an_viz, aes(legend, inputChanges, color=legend)) +
   theme(legend.position="none") +
   theme_minimal() +
   theme(legend.position="none") +
-  ylab("Number of Input Changes before Submit")
+  ylab("Number of Input Changes before Submit") +
+  xlab("Legend")
 
 ```
 
@@ -1373,7 +1357,8 @@ ggplot(responses_an_viz, aes(legend, hoverEvents, color=legend)) +
   theme(legend.position="none") +
   theme_minimal() +
   theme(legend.position="none") +
-  ylab("Number of Hover Events before Submit")
+  ylab("Number of Hover Events before Submit") +
+  xlab("Legend")
 
 ```
 
@@ -1397,7 +1382,7 @@ ggplot(responses_an_viz, aes(colour, percept_error_abs, color=colour)) +
 
 ```{r figure-heterogenity-legends, echo=FALSE, fig.cap = "Heterogeineity across legend types"}
 
-plotmeans(percept_error_abs ~ legend, main="Heterogeineity across legend types", data=no_legend_baseline)
+plotmeans(percept_error_abs ~ legend, main="Heterogeineity across legend types", data=no_legend_baseline, xlab = "Legend", ylab = "Absolute Perception Error")
 ```
 
 ```{r interaction-variable-modelling, echo=FALSE, message = FALSE}
