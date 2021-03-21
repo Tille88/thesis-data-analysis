@@ -4,7 +4,7 @@ output:
   bookdown::pdf_document2:
     # includes:
     #   before_body: frontpage.tex
-    citation_package: natbib
+    # citation_package: natbib
     keep_tex: true
     toc: false
     fig_caption: true
@@ -24,7 +24,7 @@ fontsize: 12pt
 papersize: a4
 
 bibliography: citation/references.bib
-csl: citation/ambio.csl
+csl: citation/elsevier-harvard.csl
 
 
 ---
@@ -65,7 +65,6 @@ library(gplots)
 \pagenumbering{arabic} 
 
 <!-- TODO: CHECK THAT page should start on an uneven page number on the right side of your open report. -->
-<!-- TODO: MAKE SURE PROGRESSION/TIME AND UUID(INDIVIDUAL) FE AS ROBUSTNESS, DO MANUALLY IF NEEDED, MOVE IN METHOD SECTION TO ROBUSTNESS NOT PART OF MAIN, CREATE OLS-REFERENCE INSTEAD -->
 <!-- TODO: DEFINE OPACITY/TRANSPARENCY, INCLUDE REFERENCE TO MDN  -->
 
 \section{Introduction} \label{introduction}
@@ -77,13 +76,13 @@ There are clear overlapping goals between the area of data visualization - with 
 
 ## Opacity/transparency in GIS visualizations
 
-Colin Ware [-@Ware20] highlights this relation between the fields of Data Visualization and GIS in his seminal work on information visualization in relation to the use of transparency as a technique to the use of transparency (alpha channel mapping/encoding) in information visualization:
+@Ware20 highlights this relation between the fields of Data Visualization and GIS in his seminal work on information visualization in relation to the use of transparency as a technique to the use of transparency (alpha channel mapping/encoding) in information visualization:
 
-> *In many visualization problems, it is desirable to present data in a layered form. This is especially common in geographic information systems (GISs). So that the contents of different layers are simultaneously visible, a useful technique is to present one layer of data transparently over another; however, there are many perceptual pitfalls in doing this. The contents of the different layers will always interfere with each other to some extent, and sometimes the two layers will fuse perceptually so that it is impossible to determine to which layer a given object belongs [@Ware20, p. 217] (ibid. p. 217).*
+> *In many visualization problems, it is desirable to present data in a layered form. This is especially common in geographic information systems (GISs). So that the contents of different layers are simultaneously visible, a useful technique is to present one layer of data transparently over another; however, there are many perceptual pitfalls in doing this. The contents of the different layers will always interfere with each other to some extent, and sometimes the two layers will fuse perceptually so that it is impossible to determine to which layer a given object belongs [@Ware20, p. 217].*
 
 
 
-Ware [@Ware20, p. 357] also includes a figure which shows a fully opaque data encoding on top of a map layer (Figure \ref{opaque-data}) – which depending on need can make it difficult for the end user to know the demarcations of the different categories due to occlusion. In other words - fully opaque data encoding resulting in lower layers not being visible, resulting in the end user having difficulties referencing the underlying geography.
+@Ware20 [p. 357] also includes a figure which shows a fully opaque data encoding on top of a map layer (Figure \ref{opaque-data}) – which depending on need can make it difficult for the end user to know the demarcations of the different categories due to occlusion. In other words - fully opaque data encoding resulting in lower layers not being visible, resulting in the end user having difficulties referencing the underlying geography.
 
  ![Opaque data layer covering geographic information \label{opaque-data}](./img/picture1.png)
 
@@ -172,17 +171,17 @@ As will be discussed in section \ref{background}, legends have been studied, but
 
 Related literature can be found in many different research areas which intersects with the scope of this study.
 
-In the field of perception and data visualization studies is a long history on low-level studies measuring the ability of humans to correctly perceive different visual data encodings, such as position, length, angle, circle area, hue, etc. [@Cleveland828] and studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas [@Adelson2042]. A more recent example of low-level perception focus can be found in Rosenholtz [-Rosenholtz07] attempt to find quantitative measurements of clutter in visual mediums.
+In the field of perception and data visualization studies is a long history on low-level studies measuring the ability of humans to correctly perceive different visual data encodings, such as position, length, angle, circle area, hue, etc. [@Cleveland828] and studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas [@Adelson2042]. A more recent example of low-level perception focus can be found in @Rosenholtz07 attempt to find quantitative measurements of clutter in visual mediums.
 
-For the higher-level tasks, Tufte [-@Tufte01] exemplifies attempts to bring these smaller encodings together to more stringently describe good data visualization practices. Muzner [-@brehmermuzner13] describes a gap between these low-level tasks, and high-level tasks in the data visualization literature.
+For the higher-level tasks, @Tufte01 exemplifies attempts to bring these smaller encodings together to more stringently describe good data visualization practices. Muzner [-@brehmermuzner13] describes a gap between these low-level tasks, and high-level tasks in the data visualization literature.
 
 In recent years, researches commonly attempts to bridge the gap towards other scientific areas [@Kim17; @Kim19], incorporating mental models, uncertainty and Bayesian prior beliefs of subjects into the perception task and to bridge the combination of the lower-level tasks and relate them to efficient user experiences through e.g. preattentive processing - meaning differentiating objects of interest to the viewer [@Treisman85; @Findlay98; @Wolfe04].
 
 Transparency, and it's opposite (opacity) have been studied in the creation of mathematical transparency models [-@Metelli74] and recent literature heavily focused on computational rendering in a 3D/volume rendering context [e.g. @Chan09; and @Correa08].
 
-Studies that cover transparency directly or indirectly for data visualization are more rare. Jo et al. [-@Jo19] briefly mentions opacity: "*To scale scatterplots, several approaches have been proposed, such as adaptive opacity [15, 30, 32] and aggregation [13, 53]. However, adaptive opacity does not scale well with the number of categories since multiple categorical colors become ambiguous when blended[..]"*.
+Studies that cover transparency directly or indirectly for data visualization are more rare. @Jo19 briefly mentions opacity: "*To scale scatterplots, several approaches have been proposed, such as adaptive opacity [15, 30, 32] and aggregation [13, 53]. However, adaptive opacity does not scale well with the number of categories since multiple categorical colors become ambiguous when blended[..]"*.
 
-For map and perception studies, colour choices in a cartographic context is a large literature, with Brewer [-@Brewer06] having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective.
+For map and perception studies, colour choices in a cartographic context is a large literature, with @Brewer06 having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective.
 
 Combining explicit studies on transparency/opacity are rare. Some design of cartographic representations over as alternatives to choropleth maps have been making use of the alpha channel in order to preserve shape and topology in maps by using the alpha channel, instead of alternatives such as non-continuous cartograms that can alter shape/topology [@Roth10].
 
@@ -192,7 +191,7 @@ General legend design studies have been looking at legends that have are possibl
 
 Recent map legend literature similarly have a clear design focus, where some have focused on designs that allow increasing interactivity with the legend [@Mitbo07: @Peterson99], adapting legends and placements to where users are gazing/looking [@Gobel18] and attempts to provide guidance on the use of map legends in a “dynamic environment” [@Dykes10]. More focused design studies have looked at more narrow questions related to legend designs for maps> "cumulative frequency legends and diagrams" as a supplement to choropleth maps [@Cromley09; Cromley06; @Chien19], and using a "frequency histogram legend" as a substitute to traditional legends for classed and un-classed choropleth maps [@Kumar04].
 
-In a more holistic view on legend within web GIS, Cybulski [-@Cybulski16] analyzed if animated maps that are published on the internet designed with guidelines that are given by cartographers, finding that they do follow the guidelines in general, but also that they are adapting to new technological and user circumstances.
+In a more holistic view on legend within web GIS, @Cybulski16 analyzed if animated maps that are published on the internet designed with guidelines that are given by cartographers, finding that they do follow the guidelines in general, but also that they are adapting to new technological and user circumstances.
 
 No intersection between legends and transparency either in GIS-context or elsewhere have been found in the literature review. This is largely supported in a literature study that aimed to find whether there were cartographic rules for effective legend designs *"[...]it is found that only one study was dedicated to the building of cartographic rules for effective legend design"* [@Zhe17].
 
@@ -492,8 +491,7 @@ Plots for these variables (Figures \@ref(fig:submit-time-visualization), \@ref(f
 
 *PROGRESSION* - For each respondents, numbering of the examples they were shown from 1-10. Later to be used to check for learning and/or fatigue effects.
 
-*COLOUR* - Visualization presented having opacity data layer mapped colour channel as pure red, green or blue. From visual inspection, not any strong difference between the colours (see Appendix C). 
-
+*COLOUR* - Visualization presented having opacity data layer mapped colour channel as pure red, green or blue. From visual inspection, not any strong difference between the colours (see Figure \@ref(fig:colour-visualization) in Appendix C). 
 
 ### Hypothesis testing models
 
@@ -523,22 +521,10 @@ and
 ACCEPTANCE_{i} = \alpha + \beta_{1} LEGEND_{i} + \varepsilon_{i}
 \end{equation*}
 
-To account for individual fixed effects\footnote{Certain respondents are likely to have different average correctness due to within-subject variations}, this is in case of statistically significant findings also tested using individual fixed effects (FE)-models. This can be thought of as including separate intercept-variables for each respondent using dummy variables for each respondent\footnote{The statistical analysis software may choose to estimate this using other techniques, such as entity-demeaned OLS for computational efficiency} [@Hanck20].
-
-\begin{equation*}
-|PERCEPTION ERROR|_{ij} = \alpha + \beta_{1} LEGEND_{i} + \gamma_{2} RES2{j} + \gamma_{3} RES3{j} + ... + \gamma_{n} RESn{j} + \varepsilon_{ij}
-\end{equation*}
-
-Where $RESn =$ RESPONDENTn 
-
-The individual effects observed was not expected to be as significant as before the study was conducted, due to a more controlled environment for data collection as described in section \ref{data-collection-ui}.
-
-However, the FE models can easily cluster standard errors, to affect statistical significance also for other estimators in the model.
-
 
 ### Robustness checks
 
-"Time fixed effects", is considered to be added to the models to check for learning and/or fatigue effects as the respondent went through the progression of tasks. In order to see if this is of value to pursue further, first a simple OLS-model is tested to see if there are any indications of
+Controlling for time effects, is considered to be added to the models to check for learning and/or fatigue effects as the respondent went through the progression of tasks. In order to see if this is of value to pursue further, first simple OLS-models are estimated to see if there are any indications of time effects.
 
 Given that the subjects were given no feedback on the correctness of their responses during the progression, learning effects are likely to be negligible.
 
@@ -552,7 +538,7 @@ An alternative model will be run on the subset of only the first and last exampl
 |PERCEPTION ERROR|_{i} = \alpha + \beta_{1} PROGRESSION LAST_{i} + \varepsilon_{i}
 \end{equation*}
 
-The results from these test will feed into the possible need to do subsample analysis using only e.g. the first 5 responses of each respondent.
+The results from these test also feed into the possible need to do subsample analysis using only e.g. the first 5 responses of each respondent.
 
 Subset analysis using only the respondents that are likely to be the most engaged or skilled, as defined as the respondents with below median average *|PERCEPTION ERROR|* is to be conducted to see if the results differ in a significant way for those respondents.
 
@@ -749,76 +735,37 @@ library(zoo)
 baseline_legend_of_use <- lm(percept_error_abs ~ legend,
                      data = no_legend_baseline)
 
-# TODO: CLEAN UP -> ONLY OLS, ROBUSTNESS CHECK WITH TIME AND UUID DUMMIES...
-# TBR <- with(no_legend_baseline,
-#           data.frame(percept_error_abs = percept_error_abs - ave(percept_error_abs, uuid),
-#                     legend = legend, uuid=uuid))
-# summary(lm(percept_error_abs ~ legend - 1 + uuid, data = TBR))
-# summary(TBR)
-
-### FE = robustness
-fe_legend_of_use <- plm(percept_error_abs ~ legend,
-                          data = no_legend_baseline,
-                          index = c("uuid"),
-                          model = "within")
-# fe_legend_of_use <- plm(percept_error_abs ~ legend,
-#                           data = no_legend_baseline,
-#                           index = c("uuid", "prog"),
-#                           model = "within")
-# print summary using robust standard errors
-# coeftest(fe_legend_of_use, vcov. = vcovHC, type = "HC1")
-# Nonrobust -> summary(fe_legend_of_use)
-
-
 ## 2. Legend vs standard = checkered
 ## 3. annotated or contextualized also answered
 ### Baseline
 standard_baseline_difference <- lm(percept_error_abs ~ legend,
                              data = checkered_baseline)
 
-### FE = robustness
-# fe_standard_difference <- plm(percept_error_abs ~ legend,
-#                             data = checkered_baseline,
-#                             index = c("uuid"),
-#                             model = "within")
-fe_standard_difference <- plm(percept_error_abs ~ legend,
-                            data = checkered_baseline,
-                            index = c("uuid", "prog"),
-                            model = "within")
-# print summary using robust standard errors
-# coeftest(fe_standard_difference, vcov. = vcovHC, type = "HC1")
-# Nonrobust -> summary(fe_standard_difference)
-
-
 ```
 
 ```{r abs-perception-error-models-table, echo=FALSE, message = FALSE, results='asis'}
 stargazer(
   baseline_legend_of_use,
-  fe_legend_of_use,
   standard_baseline_difference,
-  fe_standard_difference,
   header = FALSE,
   type='latex',
   covariate.labels=c("Annotated","Checkered","Clustered",
   "Sampled","Constant/Reference"),
   column.labels = c("Headline Reference", "Checkered Reference"),
-  column.separate = c(2,2),
+  column.separate = c(1,1),
   dep.var.labels = c("|PERCEPTION ERROR|"),
   label = "tab:abs-perception-errors",
-  title="Absolute Perception Error Models",
-  float.env = "sidewaystable"
+  title="Absolute Perception Error Models"#,
+  # float.env = "sidewaystable"
   )
 
 
 ```
 
 
-The regression results shown in Table \@ref(tab:abs-perception-errors) show that the results are consistent with the variance tests, where model (1) and (2) estimates are relative to the reference category of no-legend/headline. All other legend types display lower errors, and are all statistically significantly lower than the errors for headline, with the annotated type being having the lowest average error of `r round(fe_legend_of_use$coefficients[[1]], 2)` lower errors than headline type on the range that is between 0-100.
+The regression results shown in Table \@ref(tab:abs-perception-errors) show that the results are consistent with the variance tests, where model (1) and (2) estimates are relative to the reference category of no-legend/headline. All other legend types display lower errors, and are all statistically significantly lower than the errors for headline, with the annotated type being having the lowest average error of `r round(baseline_legend_of_use$coefficients[[2]], 2)` lower errors than headline type on the range that is between 0-100.
 
 Where checkered is used as reference category, all estimates are as done when choosing that as reference due to both the research question formulation and the data distribution are showing lower estimated errors, but none of those results are statistically significant.
-
-The individual effects have not affected the estimates, but have some higher standard errors. Everything that is significant for simple OLS is also significant to roughly the same extent for the FE models. **CHECK ALTERNATIVES -> SAY AND MAKE SURE ROBUST STANDARD ERRORS ARE INCLUDED**
 
 
 ## *ACCEPTANCE*
@@ -930,7 +877,7 @@ progression_effect_mod <- lm(percept_error_abs ~ prog,
 
 
 
-# Baseline 1 vs baseline 10 - difference? - SUBSAMPLE ONLY 1st and 10th!!!
+# Baseline 1 vs baseline 10 - difference? - SUBSAMPLE ONLY 1st and 10th
 progression_effect_mod_baseline_check <- lm(percept_error_abs ~ factor(prog),
                              data = responses_an %>% filter(prog %in% c(1, 10)))
 
@@ -958,10 +905,13 @@ stargazer(
 
 ```
 
+For completeness, Table \@ref(tab:time-control-model) in Appendix C shows regression results for a model with Checkered reference category, with a linear progression variable included. The results of generally lower errors for other categories, but no statistically significant results remains.
+
+It is not of use to control for this with headline-comparison models, as the headling/no-legend type was always the first and last example shown for each respondent by design.
+
 Another robustness-test was introduced to see if there could be clear differing results between the samples with legends in the responses that were on average more accurate in their task - i.e. removing outliers.
 
 A subsample of the 50th percentile on average more accurate respondents were created, and the same models as for the full sample using **|PERCEPTION ERROR|** as dependent variable was run. 
-
 
 
 ```{r models-outlier-removal-preprocessing, echo=FALSE, message = FALSE}
@@ -1012,14 +962,6 @@ checkered_baseline_accurate$legend = relevel(checkered_baseline_accurate$legend,
 baseline_legend_of_use_accurate <- lm(percept_error_abs ~ legend,
                              data = no_legend_baseline_accurate)
 # summary(baseline_legend_of_use_accurate)
-### FE = robustness
-fe_legend_of_use_accurate <- plm(percept_error_abs ~ legend,
-                        data = no_legend_baseline_accurate,
-                        index = c("uuid"),
-                        model = "within")
-# print summary using robust standard errors
-# coeftest(fe_legend_of_use_accurate, vcov. = vcovHC, type = "HC1")
-# Nonrobust -> summary(fe_legend_of_use)
 
 
 ## 2. Legend vs standard = checkered
@@ -1027,15 +969,6 @@ fe_legend_of_use_accurate <- plm(percept_error_abs ~ legend,
 ### Baseline
 standard_baseline_difference_accurate <- lm(percept_error_abs ~ legend,
                                    data = checkered_baseline_accurate)
-# summary(standard_baseline_difference_accurate)
-### FE = robustness
-fe_standard_difference_accurate <- plm(percept_error_abs ~ legend,
-                              data = checkered_baseline_accurate,
-                              index = c("uuid"),
-                              model = "within")
-# print summary using robust standard errors
-# coeftest(fe_standard_difference_accurate, vcov. = vcovHC, type = "HC1")
-# Nonrobust -> summary(fe_standard_difference)
 
 ```
 
@@ -1045,19 +978,17 @@ As seen in Table \@ref(tab:abs-perception-errors-accurate), which is correspondi
 ```{r models-outlier-removal-models-table, echo=FALSE, message = FALSE, results='asis'}
 stargazer(
   baseline_legend_of_use_accurate,
-  fe_legend_of_use_accurate,
   standard_baseline_difference_accurate,
-  fe_standard_difference_accurate,
   header = FALSE,
   type='latex',
   covariate.labels=c("Annotated","Checkered","Clustered",
   "Sampled","Constant/Reference"),
   column.labels = c("Headline Reference", "Checkered Reference"),
-  column.separate = c(2,2),
+  column.separate = c(1,1),
   dep.var.labels = c("|PERCEPTION ERROR|"),
   label = "tab:abs-perception-errors-accurate",
-  title="Absolute perception error models - above 50th percentile accuracy subsample",
-  float.env = "sidewaystable"
+  title="Absolute perception error models - above 50th percentile accuracy subsample"#,
+  # float.env = "sidewaystable"
   )
 
 
@@ -1445,6 +1376,28 @@ stargazer(
   dep.var.labels = c("HOVER EVENTS"),
   label = "tab:models-hover-events",
   title="Hover events regression results"
+  )
+
+```
+
+
+```{r time-controlled-regression, echo=FALSE, message = FALSE}
+time_controlled_reg <- lm(percept_error_abs ~ legend + prog,
+                             data = checkered_baseline)
+
+```
+
+```{r time-controlled-regression-table, echo=FALSE, message = FALSE, results='asis'}
+stargazer(
+  time_controlled_reg,
+  header = FALSE,
+  type='latex',
+  covariate.labels=c("Annotated","Clustered","Sampled", "Linear Progression", "Intercept/Checkered"),
+  column.labels = c("Chekered Reference"),
+  column.separate = c(1),
+  dep.var.labels = c("|PERCEPTION ERROR|"),
+  label = "tab:time-control-model",
+  title="Absolute error progression linear trend with clustered reference"
   )
 
 ```
