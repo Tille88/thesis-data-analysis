@@ -104,7 +104,7 @@ The availability and ease of using opacity mappings and other techniques are als
 ”[…]our market-leading Enterprise GIS mapping software will support your work and deliver results” [@ArcgisPlatform]
 
 } 
-ESRI/ArcGIS examples and tutorials for their products, such as “ArcGIS online” and “ArcGIS Enterprise Map Viewer” are shown by the blog-entry “6 Easy Ways to Improve Your Maps”, where “4) Utilize Transparency” is included. The ways the transparency tool works is included as well (Figure \ref{fig:opacity-picker}) [@Berry2016] does not give the user much information or consider underlying layer colors and effects on perception.
+ESRI/ArcGIS examples and tutorials for their products, such as “ArcGIS online” and “ArcGIS Enterprise Map Viewer” are shown by the blog-entry “6 Easy Ways to Improve Your Maps”, where “4) Utilize Transparency” is included. The ways the transparency tool works is included as well (Figure \ref{fig:opacity-picker}) [@Berry2016] does not give the user much information or consider underlying layer colours and effects on perception.
 
 
 
@@ -184,13 +184,13 @@ Studies that cover transparency directly or indirectly for data visualization ar
 
 For map and perception studies, colour choices in a cartographic context is a large literature, with Brewer [-@Brewer06] having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective.
 
-Combining explicit studies on transparency/opacity are rare. Some design of cartographic representations over as alternatives to choropleth maps have been making use of the alpha channel in order to preserve shape and topology in maps by using the alpha channel, instead of alternatives such as nonconuonous cartograms that can alter shape/topology [@Roth10].
+Combining explicit studies on transparency/opacity are rare. Some design of cartographic representations over as alternatives to choropleth maps have been making use of the alpha channel in order to preserve shape and topology in maps by using the alpha channel, instead of alternatives such as non-continuous cartograms that can alter shape/topology [@Roth10].
 
-Targeted literature on legends are likewise scarce, and are commonly highly tied to different visualization types. In a walk-through of proper data visualization practices, Evergreen and Metzner suggests that there is a clear importance of data-proximity of legend usage and placement *Because human eyesight has only a narrow range of focus, graphics should be placed very near their associated text (Malamed, 2009; Ware, 2012). [...] if a legend is required in the visualization, it should be so near the corresponding data points that no eye movements are needed to relate the two.* Direct labeling is seemed as preferable to legends altogether [-@Evergreen13]. 
+Targeted literature on legends are likewise scarce, and are commonly highly tied to different visualization types. In a walk-through of proper data visualization practices, Evergreen and Metzner suggests that there is a clear importance of data-proximity of legend usage and placement *Because human eyesight has only a narrow range of focus, graphics should be placed very near their associated text (Malamed, 2009; Ware, 2012). [...] if a legend is required in the visualization, it should be so near the corresponding data points that no eye movements are needed to relate the two.* Direct labelling is seemed as preferable to legends altogether [-@Evergreen13]. 
 
 General legend design studies have been looking at legends that have are possible to interact with [@Riche10], but much of the literature is in the context of maps.
 
-Recent map legend literature similarly have a clear design focus, where some have focused on designs that allow increasing interactivity with the legend [@Mitbo07: @Peterson99], adapting legends and placements to where users are gazing/looking [@Gobel18] and attempts to provide guidance on the use of map legends in a “dynamic environment” [@Dykes10]. More focused design studies have looked at more narrow questions related to legend designs for maps> "cumulative frequency legends and diagrams" as a supplement to choropleth maps [@Cromley09; Cromley06; @Chien19], and using a "frequency histogram legend" as a substitute to traditional legends for classed and unclassed choropleth maps [@Kumar04].
+Recent map legend literature similarly have a clear design focus, where some have focused on designs that allow increasing interactivity with the legend [@Mitbo07: @Peterson99], adapting legends and placements to where users are gazing/looking [@Gobel18] and attempts to provide guidance on the use of map legends in a “dynamic environment” [@Dykes10]. More focused design studies have looked at more narrow questions related to legend designs for maps> "cumulative frequency legends and diagrams" as a supplement to choropleth maps [@Cromley09; Cromley06; @Chien19], and using a "frequency histogram legend" as a substitute to traditional legends for classed and un-classed choropleth maps [@Kumar04].
 
 In a more holistic view on legend within web GIS, Cybulski [-@Cybulski16] analyzed if animated maps that are published on the internet designed with guidelines that are given by cartographers, finding that they do follow the guidelines in general, but also that they are adapting to new technological and user circumstances.
 
@@ -204,7 +204,7 @@ No intersection between legends and transparency either in GIS-context or elsewh
 
 \subsubsection{Legend design types} \label{legends}
 
-Due to the narrowness of the reasearch questions, no openly available dataset or examples was likely to exist. This resulted in extensive work to design and create a dataset and a reproducable experiment where legend types was possible to isolate as the only non-randomly changing treatment.  
+Due to the narrowness of the research questions, no openly available dataset or examples was likely to exist. This resulted in extensive work to design and create a dataset and a reproducible experiment where legend types was possible to isolate as the only non-randomly changing treatment.  
 
 The data was limited to static 2D maps and using web technologies for easy distribution. The subjects were presented with different legend designs and were asked to estimate the value at the location of a marker. The data was represented as a spatially distributed phenomenon mapped to opacity in a polygon that is overlaid on a base map, as in the ArcGIS online maps described in section \ref{background}.
 
@@ -233,7 +233,7 @@ The simplest design choice was to sample part of the base layer as background as
  
 **Legend with clustered colour bands ["Clustered" in tables], (Figure \ref{fig:clustered})**
 
-An alternative to sampling a box of the base layer map background, is to use the most common colours of the base layers as a background. In the design tested, the 10 most common colours of the background map was displayed as strips/columns in a vertical manner behind the data representation. This way they are contextualized for the full range of the data in the legend. More details how the common colours were identified are described in Appendix A. 
+An alternative to sampling a box of the base layer map background, is to use the most common colours in the base layers as a background. In the design tested, the 10 most common colours of the background map was displayed as strips/columns in a vertical manner behind the data representation. This way they are contextualized for the full range of the data in the legend. More details how the common colours were identified are described in Appendix A. 
 
 **Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})**
 
@@ -308,7 +308,7 @@ A front-end was developed using front-end web-technologies. In this system, the 
 2. Randomly chosen images picked by the back-end server from the 315 example combination images (3 colours * 21 random data and marker location variations * 5 legend types = 315) stored in the back-end and presented to the respondents\footnote{
 The progression of the images started and ended with the **Baseline 1 - No legend** type, and had the remaining 4 design type orders picked at random for the example progression images 2-5 and 6-9 respectively in order to maximize randomization. The colours of the data layer were for all examples available in pure red, green and blue. For the first image in the progression a combination of these three colours was randomly generated and repeated for examples 1-10. The reason for changing the colours between the examples was to reduce the risk of the respondents remembering the colour-to-data mapping between examples.
 
-As an exmaple: for the progression of images 1-10, three lists are generated: a colour progression ["green", "blue", "red], a random list of numbers from the number of examples (21) [3, 14, 4, 10, 16, 2, 7, 9, 20], and selection of legend types [[first 5: no-legend{fixed}, random order of 4 remaining types], last 5: random order of 4 remaining types, [no-legend{fixed}]], then these were combined as ["3-green-no-legend", "14-sampled-blue", "4-red-clustered", "10-green-annotated", ..., "20-green-no-legend"]
+As an example: for the progression of images 1-10, three lists are generated: a colour progression ["green", "blue", "red], a random list of numbers from the number of examples (21) [3, 14, 4, 10, 16, 2, 7, 9, 20], and selection of legend types [[first 5: no-legend{fixed}, random order of 4 remaining types], last 5: random order of 4 remaining types, [no-legend{fixed}]], then these were combined as ["3-green-no-legend", "14-sampled-blue", "4-red-clustered", "10-green-annotated", ..., "20-green-no-legend"]
 }. Each response and a number of interactions by the respondents were sent back to the back-end server and persisted in a data base as the respondents went through the task. The response was picked using a number picker covering the range of the data (kept constant to 0-100). The initial value of the slider was random, and the respondents were required to change the response before being able to progress to the next example image.
 
 3. After progressing through the example images, the respondents were asked about how helpful they considered the different legend types were for their task. This information was also sent back and persisted to the data base together with IDs of the respondents.
@@ -317,7 +317,7 @@ More information, example images of the user interface and text of the HTML mark
 
 The survey data was collected between Jan 9th and Feb 6th 2021, using convenience sampling. Many of the 34 respondents are employees at the Volvo Car Corporation Asia Pacific Head Quarter in Shanghai, China.
 
-The inital plan was to put the survey online using cloud-technologies for wider distribution. During the testing stage, it was however clear that there was a need to check that the instructions were understood to reduce the variation in the data. From this a more qualitative methodology was chosen where I was present in the room and asked the respondent if the task was understood after reading the instructions described in stage 1. of the list above. 
+The initial plan was to put the survey online using cloud-technologies for wider distribution. During the testing stage, it was however clear that there was a need to check that the instructions were understood to reduce the variation in the data. From this a more qualitative methodology was chosen where I was present in the room and asked the respondent if the task was understood after reading the instructions described in stage 1. of the list above. 
 
 This resulted in a more consistent study, where the same laptop was used by all data collection, and the lighting conditions were possible to be kept consistent.
 
@@ -358,7 +358,7 @@ responses_an_viz$legend <- factor(responses_an_viz$legend, levels = c("headline"
 
 **Treatment**
 
-*LEGEND* - Each of the legend types, as the only part of visualisaion that is not randomized. Have values of no legend (headline), checkered, clustered, sampled and annotated corresponding to section \ref{legends}.
+*LEGEND* - Each of the legend types, as the only part of visualization that is not randomized. Have values of no legend (headline), checkered, clustered, sampled and annotated corresponding to section \ref{legends}.
 
 ```{r response-error-table, echo=FALSE, message = FALSE}
 
@@ -426,7 +426,7 @@ As seen in Figure \@ref(fig:response-error-visualization), the mean is centered 
 
 *|PERCEPTION ERROR|* Absolute perception error - for linear modeling there is a need to look at mean-differences between categories, as simply using the error will result in all categorical differences being statistically insignificant.
 
-As seen by Figure \@ref(fig:abs-response-error-visualization), the same data visualized as boxplots with an absolute transformation of the perception error, shows the mean (visualized as a black point) differeing between the categories - highest for no legend, and lowest for annotated legend. As can also be seeen there are some outliers (visualized as dots outside above the "whiskers") for almost all categories \footnote {
+As seen by Figure \@ref(fig:abs-response-error-visualization), the same data visualized as boxplots with an absolute transformation of the perception error, shows the mean (visualized as a black point) differing between the categories - highest for no legend, and lowest for annotated legend. As can also be seen there are some outliers (visualized as dots outside above the "whiskers") for almost all categories \footnote {
 defined for box plots as 1.5 times the interquartile  range [the height of the boxes] outside the interquartile range
 } , except for headline/no legend, where the variance of the data is as quite large.
 
@@ -488,7 +488,7 @@ Table \ref{tab:acceptancy-tally} indicates that the highest *ACCEPTANCE* scores 
 
 Due to the more quantitative study design where the experiment designer was present in the room, it became clear that all these uncertainty-proxy variables would be likely to contain limited amount of signal. *SUBMIT TIME* varied because of incoming phone calls, the need to ask questions about the design types and many other external factors, *INPUT CHANGES* varied due to how the respondents chose to input their responses and work with the slider generally, and *HOVER EVENTS* did not vary much within-subjects, and wasn't consistently used as a visual guide.
 
-Plots for these variables can be found in Appendix C.
+Plots for these variables (Figures \@ref(fig:submit-time-visualization), \@ref(fig:input-changes-visualization) and \@ref(fig:hover-events-visualization)) can be found in Appendix C.
 
 *PROGRESSION* - For each respondents, numbering of the examples they were shown from 1-10. Later to be used to check for learning and/or fatigue effects.
 
@@ -503,11 +503,11 @@ For *PERCEPTION ERROR* the average value is centered around 0, but the distribut
 See https://en.wikipedia.org/wiki/Bartlett%27s_test and http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r for comparisons of standard statistical test for variance differences
 } allow testing of multiple variance differences between multiple groups.
 
-The Bartlett test will be conducted for both the full data including the headling/no-legend type as baseline, and a subset to see if variances differs in a statistically significant way between the different legend types, using checkered legend type as a baseline, as the type having the largest variance test statistic of the sample.
+The Bartlett test will be conducted for both the full data including the headline/no-legend type as baseline, and a subset to see if variances differs in a statistically significant way between the different legend types, using checkered legend type as a baseline, as the type having the largest variance test statistic of the sample.
 
 Bartlett's test assumes normality, so the Shapiro-Wilk test [@Shapiro65] are first to be conducted in order to see if the normality-assumption holds. This will be done for all legend types combined, with headline/no-legend removed, as well as for the subsample of each legend type separately.  
 
-For *|PERCEPTION ERROR|*, *ACCEPTANCE* and other questions where a mean-comparison is able to be of relation to the reseach questions \footnote{
+For *|PERCEPTION ERROR|*, *ACCEPTANCE* and other questions where a mean-comparison is able to be of relation to the research questions \footnote{
 Including *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*, which will have the results presented in Appendix C
 } are examined using regular OLS-techniques (linear regression). Of importance for interpretable results is the baseline for these models (intercept), for ease of understanding p-values and test statistic differences. 
 
@@ -630,7 +630,7 @@ names(normality_list) <- c("Sample", "Shapiro Wilk Test Statistics", "P-Value")
 
 ```
 
-As shown in the Table \@ref(tab:normality-test), all the p-values for the Shapiro-Wilk test is above 0.05, meaning the the null of normality is not rejected for any of the tests run. In otheer words, we can assume that the data is normally distributed. 
+As shown in the Table \@ref(tab:normality-test), all the p-values for the Shapiro-Wilk test is above 0.05, meaning the the null of normality is not rejected for any of the tests run. In other words, we can assume that the data is normally distributed. 
 
 ```{r normality-testing-table, echo=FALSE, message = FALSE, results='asis'}
 
@@ -1039,7 +1039,7 @@ fe_standard_difference_accurate <- plm(percept_error_abs ~ legend,
 
 ```
 
-As seen in Table \@ref(tab:abs-perception-errors-accurate), which is corresponding to Table \@ref(tab:abs-perception-errors) for this subsample, all estimates are showing statistically lower absolute errors compared to Headline category, except Clustered legend type, which is not any longer statistically significant. Checkered is still kept as reference category in the models where Headline types have been excluded, even though it is not the category with the lowest **|PERCEPTION ERROR|**. Here there is no difference in the significance after removing the less accurate respondents, with no statistically signficant results.
+As seen in Table \@ref(tab:abs-perception-errors-accurate), which is corresponding to Table \@ref(tab:abs-perception-errors) for this subsample, all estimates are showing statistically lower absolute errors compared to Headline category, except Clustered legend type, which is not any longer statistically significant. Checkered is still kept as reference category in the models where Headline types have been excluded, even though it is not the category with the lowest **|PERCEPTION ERROR|**. Here there is no difference in the significance after removing the less accurate respondents, with no statistically significant results.
 
 
 ```{r models-outlier-removal-models-table, echo=FALSE, message = FALSE, results='asis'}
@@ -1066,14 +1066,11 @@ stargazer(
 
 # Discussion
 
-**TODO: NOT INCLUDED YET - COMPARISON TO OTHER PARTS OF LITERATURE, CAN SAY, LITTLE PUBLISHED ON THIS PARTICULAR QUESTION...**
+The results shows that in this type of visualization types, there is an influence of legend choices - as to if legends are included or not. We see both a lower variance and more accurate results when there is a legend compared to when no legend is present. As @Evergreen13 have pointed out there are other alternatives to legends for visualization such as simplicifaction of visualization, direct labeling of data, colour choices, altering visual weight and make use of motion. However, legends is such a common element for map visualization as shown by the relative prevalence of legend discussions in the map/GIS literature compared to the general data visualization literature.
 
+There were no clear results indicating differences in response accuracy depending on the type of legend, and there was quite a large variation in response accuracies in the sample overall. Notably as well was that user selection and other proxy variables were not well-suited to act as a proxy for respondent-confidence or uncertainty.
 
-The results shows that in this type of visualization types, there is an influence of legend choices - as to if legends are included or not. We see both a lower variance and more accurate results when there is a legend compared to when no legend is present. 
-
-However, there were no clear results indicating differences in response accuracy depending on the type of legend, and there was quite a large variation in response accuracies in the sample overall. Notably as well was that user selection and other proxy variables were not well-suited to act as a proxy for respondent-confidence or uncertainty.
-
-There was a worry if keeping the data in the same range between examples would lead the respondents to stop using the legends after getting used to/internalizing the data mapping. Without this the errors would not be on the same scale, so it was deemed more suitable, and instead a post-collection testing of progression results was to be relied on in addition to changing the colours between each example. Given that there was a consistently higher error for the Headline/no-legend examples, and actually slighltly higher errors for the last example compared to the first, this was unlikely to have affected the validity of the study.
+There was a worry if keeping the data in the same range between examples would lead the respondents to stop using the legends after getting used to/internalizing the data mapping. Without this the errors would not be on the same scale, so it was deemed more suitable, and instead a post-collection testing of progression results was to be relied on in addition to changing the colours between each example. Given that there was a consistently higher error for the Headline/no-legend examples, and actually slightly higher errors for the last example compared to the first, this was unlikely to have affected the validity of the study.
 
 The strongest results were perhaps from the user preferences/acceptance of the different legend types, where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the "industry standard" as in the imitation of the Checkered legend type. For the proximity type, this may be due to the reduced need for "attention switching" [@Kern10] due to higher proximity to the data and marker.
 
@@ -1155,19 +1152,19 @@ In the following step, the base layer and map data layer was merged using the ct
 
 *Marker*
 
-A marker was designed using SVG and overlayed at a randomized location within the data-extent. This was merged into the Canvas raster representation, and the value of the data later at the location was stored together with other metadata for each visualization to JSON (see Figure \ref{fig:marker}).
+A marker was designed using SVG and overlaid at a randomized location within the data-extent. This was merged into the Canvas raster representation, and the value of the data later at the location was stored together with other metadata for each visualization to JSON (see Figure \ref{fig:marker}).
 
 
 
 *Legends*
 
-All legends were using the Canvas API, in order to add text, background of legend and merge with data legend in a similar fashion as done between base map and data layer. Some specific points that are non-obvious described below:
+All legends were created using the Canvas API, in order to add text, background of legend and merge with data legend in a similar fashion as done between base map and data layer. Some specific points that are non-obvious described below:
 
 **Checkered legend type** - Following the ArcGIS design, a mid-level grey was used to generate a checkered-pattern as background.
 
 **Sampled legend type** - 5 different rectangular parts of the base map data of the size of the legend was extracted and chosen randomly for the sample images.
 
-**Clustered legend type** - Using kMeans clustering algorithm implementation in the base R language, was used to extract 10 "colour centers" representing common colours of the base map. These were then displayed as stripes behind the legend.
+**Clustered legend type** - Using kMeans clustering algorithm implementation in the base R language, was used to extract 10 "colour centers" representing common colours in the base map. These were then displayed as stripes behind the legend.
 
 
 \subsubsection{Data extraction procedure}
