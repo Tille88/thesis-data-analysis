@@ -1,0 +1,1 @@
+In this folder the automated PDF-output should end up!
