@@ -35,14 +35,9 @@ DOCKERFILE AT THIS POINT
 #START
 FROM rocker/verse:4.0.4
 ARG RSTUDIO_PATH=/home/rstudio
-ARG WORKDIR_PATH=/home/rstudio/working
-
-WORKDIR ${WORKDIR_PATH}
-COPY thesis-writeup/ ${WORKDIR_PATH}
-COPY docker-baseimage/init.R ${WORKDIR_PATH}/
-COPY data_read_in.R /${RSTUDIO_PATH}/
-COPY data/2021-02-06-11-45-27.RData /${RSTUDIO_PATH}/data/
-RUN Rscript ./init.R
+COPY . ${RSTUDIO_PATH}
+WORKDIR ${RSTUDIO_PATH}
+RUN Rscript ./docker-baseimage/init.R
 #END
 
 After building
@@ -171,6 +166,7 @@ Default in dockerfile = To run command to generate output, can also be done manu
 If you want to open up and run through code block-by-block:
 
 `$ docker run -e PASSWORD=test -p 8787:8787 tillman-thesis`
+`$ docker run -e --rm -v $PWD/pdf-output:/home/rstudio/working/pdf-output -p 8787:8787 tillman-thesis`
 
 Open http://localhost:8787/ in browser
 
@@ -184,3 +180,7 @@ Or open in Rstudio by clicking to file... load_data_for_interactive.R
 
 Run file, then you have a list of data frames with raw and processed data:
 "acceptancessdf"      "acceptancessdf_long" "clean_df"            "hover_df"            "progressiondf"      "respondentdf"        "responsesdf"         "slider_df"          
+
+IMAGE AS A SNAPSHOT
+
+THEN M1....

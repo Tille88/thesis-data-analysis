@@ -3,9 +3,9 @@ If needing to update base image (e.g. after updated R-markdown file, new Latex p
 1. From root of repo run
 `$ docker build -t <name of image> -f docker-baseimage/Dockerfile .`
 2. OPTIONAL: Maaaaaybe check interactively if working in Rstudio session on localhost:8787, standard username=rstudio, password same as input in `docker run...` below 
-`$ docker run -e PASSWORD=test -p 8787:8787 <name of image>`
+`$ docker run --rm --name <name of container> -p 8787:8787 -e DISABLE_AUTH=true <name of image>`
 3. Get into running container (if 2 run)
-`$ docker exec -it <container ID> /bin/sh`
+`$ docker exec -it <container ID, name of container> /bin/sh`
 OR get into new container directly WITHOUT checking interactive session
 `$ docker run -it <name of image> bash`
 4. Get those bloody fonts in there, getting through the interactive reading and agree by writing [yes]
