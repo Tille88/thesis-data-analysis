@@ -31,6 +31,51 @@ Want to hide base image setup in subfolder:
 When debugging directory and similar
 `docker run -it --rm test-rmarkdown bash`
 
+DOCKERFILE AT THIS POINT
+#START
+FROM rocker/verse:4.0.4
+ARG RSTUDIO_PATH=/home/rstudio
+ARG WORKDIR_PATH=/home/rstudio/working
+
+WORKDIR ${WORKDIR_PATH}
+COPY thesis-writeup/ ${WORKDIR_PATH}
+COPY docker-baseimage/init.R ${WORKDIR_PATH}/
+COPY data_read_in.R /${RSTUDIO_PATH}/
+COPY data/2021-02-06-11-45-27.RData /${RSTUDIO_PATH}/data/
+RUN Rscript ./init.R
+#END
+
+After building
+`$ docker build -t test-rmarkdown -f docker-baseimage/Dockerfile .`
+Opening interactive mode to see if it will work...
+`$ docker run --rm -p 8787:8787 -e DISABLE_AUTH=true test-rmarkdown`
+
+
+`docker run --rm --platform linux/amd64 -e PASSWORD=test -p 8787:8787 test-rmarkdown` 
+
+IMAGE
+Nope, need a password in there it seems.. let's add it
+
+NOTE: FOR NEW MAC... SEEMS LIKE NEEDING TO RUN FOR ARM
+See https://docs.docker.com/docker-for-mac/apple-m1/
+
+Also... -e DISABLE_AUTH=true ought to be a good flag for building
+
+
+`$ docker run -e PASSWORD=test -p 8787:8787 test-rmarkdown`
+Oh sweet, get a Rstudio session in a browser window - super cool!
+Clicking Knitr button hoping for the best...
+
+IMAGE....
+
+If not working with tex out of the box... let's get a smaller image and get what we need, I know theres plenty of Latex-package stuff in there...
+
+Opening this time recognized some missing things, adding them to init-script (bookdown, tinytex, xfun)
+**Check which R Packages really needed, read in externally...**
+
+///////////////
+
+
 Commenting out last line of Dockerfile 
 <!-- RUN Rscript -e "rmarkdown::render('thesis-writeup.Rmd')"  -->
 Then can open in interactive mode (installing images)
@@ -108,6 +153,7 @@ WORKS!!!
 - Make sure cachable order... And if loading package script doesn't cache... then bring into Dockerfile
 - File ADD to docker not default behavior for end-build - instead in dockerfile...
 - Default start of image... should be?
+- NEW DOCKERFILE
 
 NOW ALL PROVEN:
 - Push new committed tested image
