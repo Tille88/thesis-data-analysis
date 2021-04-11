@@ -44,17 +44,21 @@ csl: citation/elsevier-harvard.csl
 
 ```{r, setup, include=FALSE}
 # knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
-library(mongolite)
-library(stringr)
 library(dplyr)
 library(ggplot2)
-library(GGally)
-library(corrplot)
-library(gtsummary)
 library(stargazer)
 library(tidyr)
 library(gplots)
+library(plm)
+library(zoo)
 
+
+# library(lmtest)
+# library(GGally)
+# library(corrplot)
+# library(gtsummary)
+# library(mongolite)
+# library(stringr)
 # library(Hmisc)
 ```
 
@@ -720,9 +724,6 @@ For estimations of size of differences between groups transformation of *PERCEPT
 Visual inspection of whether there are clear difference in heterogenity in *|PERCEPTION ERROR|* for both legend types is seen in Figure \@ref(fig:figure-heterogenity-legends) in Appendix C (bars including 95% confidence intervals). The confidence intervals are largely overlapping for all types except when not including any legend (Headline), which is in line with results from variance testing. 
 
 ```{r abs-perception-error-models, echo=FALSE, message = FALSE}
-library(plm)
-library(lmtest)
-library(zoo)
 
 # Absolute error - simple OLS
 ## 1. legend useful at all

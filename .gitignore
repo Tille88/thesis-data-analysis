@@ -6,3 +6,4 @@ secrets.*
 */*_cache
 *.log
 backup_pre_methodology_update
+thesis-writeup/thesis-writeup.tex
