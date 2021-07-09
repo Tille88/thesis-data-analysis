@@ -68,7 +68,7 @@ library(zoo)
 
 \pagenumbering{arabic} 
 
-<!-- TODO: CHECK THAT page should start on an uneven page number on the right side of your open report. -->
+<!-- TODO-FINAL-SUB: CHECK THAT page should start on an uneven page number on the right side of your open report. -->
 
 \section{Introduction} \label{introduction}
 
@@ -237,38 +237,6 @@ Different designs are presented below, together with some justifications – whe
 
 For more information on the process of example generations and technology choices see Appendix A.
 
-**Baseline 1 - No legend ["Headline" in tables], (Figure \ref{fig:headline})**
-
-Only having a title indicating range of values. Used to test correctness of visual decoding by subjects without legend. Presented as first and last example in the progression presented to the subjects.
-
-**Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables], (Figure \ref{fig:checkered})**
-
-The design is used as baseline for models that explore if alternative legend choices are helping in decoding data-values compared to the current "industry standard". 
-
-This, and all following examples imitate the ArcGIS-design in the size of legend (constant for all legends). All legends except Annotated legend type were located in the bottom right corner.
-
- 
-**Legend with sampled context ["Sampled" in tables], (Figure \ref{fig:sampled})** 
-
-One likely downside making it more difficult for subjects to accurately decode the data values is the lack of context in the legend as it relates to the background of the data in the visualization. The rest of the example types works to provide designs that gives more of the actual map base-layer background information to the legend.
-
-The simplest design choice was to sample part of the base layer as background as seen in Figure \ref{fig:sampled}. The details on how this was done in practice can be found in Appendix A.
- 
-**Legend with clustered colour bands ["Clustered" in tables], (Figure \ref{fig:clustered})**
-
-An alternative to sampling a rectangular section of the base layer map background, is to use the most common colours in the base layers as a background. In the design tested, the 10 most common colours of the background map was displayed as strips/columns in a vertical manner behind the data representation. This way they are contextualized for the full range of the data in the legend. More details how the common colours were identified are described in Appendix A. 
-
-**Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})**
-
-The legend placement may heavily affect the users ability to keep the information in near memory while moving the eyes back and fourth between visualized data and the legend.
-
-In an attempt to move the information closer to the data – an outline legend placed next to the data-polygon was presented to the respondents. The legend is also contextualized by having the legend opacity superimposed over the base map layer in the same way as the actual data encoding.
-
-In order to remove design choices of how to place this kind of legend around complex polygon shapes, a simple square-data area was chosen for all examples.
-
-
-
-
  \begin{figure}
      \centering
      \begin{subfigure}[b]{0.42\textwidth}
@@ -319,6 +287,40 @@ In order to remove design choices of how to place this kind of legend around com
         \label{fig:legend-types}
 \end{figure}
  
+
+**Baseline 1 - No legend ["Headline" in tables], (Figure \ref{fig:headline})**
+
+Only having a title indicating range of values. Used to test correctness of visual decoding by subjects without legend. Presented as first and last example in the progression presented to the subjects.
+
+**Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables], (Figure \ref{fig:checkered})**
+
+The design is used as baseline for models that explore if alternative legend choices are helping in decoding data-values compared to the current "industry standard". 
+
+This, and all following examples imitate the ArcGIS-design in the size of legend (constant for all legends). All legends except Annotated legend type were located in the bottom right corner.
+
+ 
+**Legend with sampled context ["Sampled" in tables], (Figure \ref{fig:sampled})** 
+
+One likely downside making it more difficult for subjects to accurately decode the data values is the lack of context in the legend as it relates to the background of the data in the visualization. The rest of the example types works to provide designs that gives more of the actual map base-layer background information to the legend.
+
+The simplest design choice was to sample part of the base layer as background as seen in Figure \ref{fig:sampled}. The details on how this was done in practice can be found in Appendix A.
+ 
+**Legend with clustered colour bands ["Clustered" in tables], (Figure \ref{fig:clustered})**
+
+An alternative to sampling a rectangular section of the base layer map background, is to use the most common colours in the base layers as a background. In the design tested, the 10 most common colours of the background map was displayed as strips/columns in a vertical manner behind the data representation. This way they are contextualized for the full range of the data in the legend. More details how the common colours were identified are described in Appendix A. 
+
+**Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})**
+
+The legend placement may heavily affect the users ability to keep the information in near memory while moving the eyes back and fourth between visualized data and the legend.
+
+In an attempt to move the information closer to the data – an outline legend placed next to the data-polygon was presented to the respondents. The legend is also contextualized by having the legend opacity superimposed over the base map layer in the same way as the actual data encoding.
+
+In order to remove design choices of how to place this kind of legend around complex polygon shapes, a simple square-data area was chosen for all examples.
+
+
+
+
+
  
 <!-- ### *Data collection presentation and user interface* -->
 \subsubsection{Data collection presentation and user interface} \label{data-collection-ui}

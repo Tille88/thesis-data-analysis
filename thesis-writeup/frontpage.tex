@@ -1,6 +1,6 @@
 
    
-\includepdf[fitpaper=true, pages=-]{pdf/FrontPageGISthesis.pdf}
+% \includepdf[fitpaper=true, pages=-]{pdf/FrontPageGISthesis.pdf}
 
 
 \pagenumbering{roman}
@@ -8,7 +8,9 @@
 
 % TODO: ENSURE THIS PAGE START NUMBERING AS (ii)
 
-\textbf{Jonas Tillman (2021). Legend design perception effects and user acceptance for opacity data mapping over GIS backgrounds}
+\textbf{Jonas Tillman (2021). Perception accuracy effects and user acceptance of legend design choices}
+
+\emph{A study of legend designs in the context of opacity data mapping in GIS}
 
 Master degree thesis, 30 credits in Geographical Information Systems (GIS) 
 
@@ -22,8 +24,10 @@ Department of Physical Geography and Ecosystem Science, Lund University
     \vspace*{1cm}
         
     \Huge
-    \textbf{Legend design perception effects and user acceptance for opacity data mapping over GIS backgrounds}
-        
+    \textbf{Perception accuracy effects and user acceptance of legend design choices}
+    
+    \Large
+    \emph{A study of legend designs in the context of opacity data mapping in GIS}
         
     \vspace{5cm}
         
@@ -49,28 +53,31 @@ Department of Physical Geography and Ecosystem Science, Lund University
 \newpage
 
 \abstract{
-\noindent Data visualisation and GIS have clear overlapping goals in ensuring that the users can decode visual data encodings to understand viewed data. This study looks at visual encoding using opacity/transparency of data encoded using the alpha channel and overlaid on a map background. The focus is on if different legend design types support in decoding of the data in the opacity layer, and the objective reception of the different legend types among the respondents. 
-The study design presented 5 different legend types to respondents, with the intention of the only non-random variation being the legend types. Baseline categories were (I) no legend, only having the range of the data values being expressed in text and (II) a legend design imitating the ArcGIS default legend for opacity data mapping.
+\noindent In a GIS system, the need to encode non-cartographic geospatial data on top of a map is common. This can be done with an overlay-layer on top of a base map, with the effect that the base map is partially or fully hidden. Reducing the opacity (or it's equivalent - increasing the transparency) of this overlay data layer is a common solution to show the geographic context. With the colours of the base map being combined with and affecting the end color, the resulting visualization can become difficult to interpret for the end user.
 
 \vspace{0.4cm}
 
-\noindent The remaining legend designs attempted to introduce more contextualisation from the map background to the background of the legend, and reducing the distance from the legend to the data. This was done using (I) a sample of the map, (II) having the most prevalent colours of the map as background through running a clustering algorithm over the map background data and (III) attaching a legend to the data area - which both would add contextualisation since the background is the map, and reducing distance to the data.
+In order to help the user decode the values, legends are a common tool for non-interactive maps and data visualizations. This study investigates the decoding accuracy of different legend designs for opacity-mapped data overlayed on a static base map. A secondary objective is to measure the objective respondents of users of these different legend designs.
 
 \vspace{0.4cm}
 
-\noindent A back-end and front-end system was developed to choose progressions of examples to respondents in a semi-random manner, and the users were requested to visually estimate the value of the location of a marker within the data area.
+The study design presented 5 different legend types to respondents. Baseline categories for comparison were (i) no legend - only having the range of the data values being expressed in text and (ii) a legend design imitating the ArcGIS default legend for opacity data mapping.
 
 \vspace{0.4cm}
 
-\noindent In statistical analysis of the results there was a clear statistical effects in reduced errors when having a legend compared to when no legend was included. There were, however, no statistically significant difference in estimation/perception errors between legend types. 
+\noindent The remaining legend designs attempted to introduce more contextualisation from the map background to the background of the legend, and reducing the distance from the legend to the data. This was done using (a) a sample of the map as background for the legend (b) having the most prevalent colours of the map as the legend background (c) attaching a legend to the outline of the overlay data area.
 
 \vspace{0.4cm}
 
-\noindent The acceptance of respondents as to how useful they considered the legend types did have statistically higher acceptance estimates compared to the default ArcGIS design for when sampling the map background and when attaching the legend to the data area. These results indicates that there may be reasons for considering alternative legend design to create a better user experience when having complex GIS data visualisations.
+\noindent Using a web interface the users were requested to visually estimate the value of the location of a marker within the data area. In statistical analysis of the results there was a clear statistical effects in reduced errors when having a legend compared to when no legend was included. There were, however, no statistically significant difference in estimation/perception errors between legend types. 
 
 \vspace{0.4cm}
 
-\noindent \textbf{Keywords:} Geography, GIS, Data Visualisation, Legends, Opacity, Transparency, Visual Data Encoding, Perception
+\noindent The acceptance of respondents as to how useful they considered the legend types did have statistically higher acceptance estimates compared to the default ArcGIS design for when sampling the map background and when attaching the legend to the data area. 
+
+\vspace{0.4cm}
+
+\noindent \textbf{Keywords:} GIS, Data Visualisation, Legends, Opacity, Transparency, Visual Data Encoding, Perception
 }
 
 % \includepdf[fitpaper=true, pages=-, pagecommand={}]{pdf/abstract_scientific_summary.pdf}
