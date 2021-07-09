@@ -70,25 +70,29 @@ And clean data for start of thesis analysis in
 - clean_df
 
 ## TODOs
+- [x] Remove POP-abstract & change standard Abstract PDF -> generated
+- [x] Fig 1 & 2 not adding much, change for own picture with different degrees of transparency
+- [x] Fig 3, more clear pictures as now very small
+- [x] Fig 5 onwards
+    - [x] Add frame
+    - [x] Slightly smaller
+
+
 - [ ] Simplify title
     - [ ] How is perception influenced by different display choices
 - [ ] Read through and simplify text, better reading flow
+    - [ ] Inline notes in thesis PDF (40309401_giv15jti_GISM01_2900-28.pdf)
 - [ ] Perception is focus, start many sections with highlighting that, simplify discussion of what has been studied
 - [ ] Abstract update: things on top hiding things, opacity change one of the ways to do that (problem-description)
 - [ ] Section 1.1-1.2
     - [ ] Opacity/transparency definition could be included 
     - [ ] Don't start with Ware reference, describe focus in 1.1
-- [ ] Fig 1 & 2 not adding much, change for own picture with different degrees of transparency
-- [ ] Fig 3, more clear pictures as now very small
 - [ ] Section 3, more clarity
 - [ ] Fig 4, before legend design types, say multiple variants that have been tested
     - [ ] Like intro to methodology, testing 5, task basically guessing value at a specific location
 - [ ] Data collection
     - [ ] Better chapter overview, describe how forms and colours generated and represented (move from Appendix), highlight not representing a physical variable but generated
 - [ ] More things in methodology that can be described, could be combined(?) to 1-5 roman fig. 5. (with possibly more focus on data area)
-- [ ] Fig 5 onwards
-    - [ ] Add frame
-    - [ ] Support lines for 0, -25, 25
 - [ ] Intro text for Background-section 
 - [ ] Fig 5 & table 2 (also describing text) -> Results, only methodology saying what will be done 
 - [ ] Research questions more concrete (tighten up slightly)
@@ -105,5 +109,4 @@ And clean data for start of thesis analysis in
 - [ ] "Magnitude" of estimates discussion, statistically significant to (degree 95% and similar)
 - [ ] Color graphs for BW print
 - [ ] Last TODOs in Rmarkdown file
-- [ ] Remove POP-abstract & change standard Abstract PDF -> generated
 - [ ] AGAIN: Read through and simplify text

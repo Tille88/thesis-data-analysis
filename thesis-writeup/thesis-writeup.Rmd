@@ -85,18 +85,42 @@ There are clear overlapping goals between the area of data visualization - with 
 
 
 
-@Ware20 [p. 357] also includes a figure which shows a fully opaque data encoding on top of a map layer (Figure \ref{opaque-data}) – which depending on need can make it difficult for the end user to know the demarcations of the different categories due to occlusion. In other words - fully opaque data encoding resulting in lower layers not being visible, resulting in the end user having difficulties referencing the underlying geography.
+@Ware20 [p. 357] also includes a figure which shows a fully opaque data encoding on top of a map layer 
+<!-- (Figure \ref{opaque-data}) -->
+– which depending on need can make it difficult for the end user to know the demarcations of the different categories due to occlusion. In other words - fully opaque data encoding resulting in lower layers not being visible, resulting in the end user having difficulties referencing the underlying geography.
 
- ![Opaque data layer covering geographic information \label{opaque-data}](./img/picture1.png)
 
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.6\textwidth}
+         \centering
+         \fbox{
+         \includegraphics[width=\textwidth]{img/opacity_0_2_to_0_6.png}
+         }
+         \caption{Opacity mapping 0.2-0.6}
+         \label{fig:low-opacity-example}
+     \end{subfigure}
+     
+     \vspace{0.4cm}
+     
+     \begin{subfigure}[b]{0.6\textwidth}
+         \centering
+         \fbox{
+         \includegraphics[width=\textwidth]{img/opacity_0_6_to_1.png}
+         }
+         \caption{Opacity mapping 0.6-1.0 (fully opaque)}
+         \label{fig:high-opacity-example}
+     \end{subfigure}
+     
+     \caption{Low and high opacity overlay examples}
+      \label{fig:low-high-opacity-example}
+
+\end{figure}
+ 
 
 
 
 The increased accessibility and ease to create maps for online usage makes different data mappings openly available for a larger audience. There are a lot of maps that make liberal use of a mix of mapping techniques, such as colour and opacity [see Figure \ref{multiple-encodings}, @Ee20] without taking into account the end-users ability to easily decode the data being visualized.
- 
- ![Example Web-GIS with multiple encodings channels without data mapping clarifications \label{multiple-encodings}](./img/picture2.png)
-
-
 
 
 The availability and ease of using opacity mappings and other techniques are also shown by the market leader
@@ -106,41 +130,38 @@ The availability and ease of using opacity mappings and other techniques are als
 ”[…]our market-leading Enterprise GIS mapping software will support your work and deliver results” [@ArcgisPlatform] **TODO, WHY NOT CITATION?**
 
 } 
-ESRI/ArcGIS examples and tutorials for their products, such as “ArcGIS online” and “ArcGIS Enterprise Map Viewer” are shown by the blog-entry “6 Easy Ways to Improve Your Maps”, explicitly listing the use of transparency. The way in which the transparency tool works is included as well [Figure \ref{fig:opacity-picker}, @Berry2016] does not give the user much information or consider underlying layer colours and effects on perception.
+ESRI/ArcGIS examples and tutorials for their products, such as “ArcGIS online” and “ArcGIS Enterprise Map Viewer” are shown by the blog-entry “6 Easy Ways to Improve Your Maps”, explicitly listing the use of transparency. The way in which the transparency tool works is included as well 
+<!-- [Figure \ref{fig:opacity-picker} -->
+, @Berry2016] does not give the user much information or consider underlying layer colours and effects on perception.
 
 
 
-This mapping has a similar visual representation to the end user of the maps as shown in the usage examples from the “ArcGIS Online” API documentation ArcGIS website (Figure \ref{fig:opacity-dark-background} [@ArcgisDarkOnline] and \ref{fig:opacity-bright-background} [@ArcgisBrightOnline]). Figure \ref{fig:opacity-dark-background} includes colour mapping, but the legend maps transparency into the same checkered grey/white background as for the tool shown in Figure \ref{fig:opacity-picker}, making it very difficult to decode the visual values. Figure \ref{fig:opacity-bright-background} has a single colour and a background layer corresponding roughly to the constant mid-grey and white checkered pattern.  
+This mapping has a similar visual representation to the end user of the maps as shown in the usage examples from the “ArcGIS Online” API documentation ArcGIS website (Figure \ref{fig:opacity-dark-background} [@ArcgisDarkOnline] and \ref{fig:opacity-bright-background} [@ArcgisBrightOnline]). Figure \ref{fig:opacity-dark-background} includes colour mapping, but the legend maps transparency into a checkered grey/white background, making it very difficult to decode the visual values. Figure \ref{fig:opacity-bright-background} has a single colour and a background layer corresponding roughly to the constant mid-grey and white checkered pattern.  
 
 
 
 
 \begin{figure}
      \centering
-     \begin{subfigure}[b]{0.25\textwidth}
-         \centering
-         \fbox{
-         \includegraphics[width=\textwidth]{img/picture3.png}
-         }
-         \caption{Transparency data mapping/encoding for ArcGIS products}
-         \label{fig:opacity-picker}
-     \end{subfigure}
      
-     \begin{subfigure}[b]{0.8\textwidth}
+     \begin{subfigure}[b]{1.0\textwidth}
          \centering
          \fbox{
-         \includegraphics[width=\textwidth]{img/picture4.png}
+         \includegraphics[width=\textwidth]{img/online_example_1.png}
          }
-         \caption{Opacity data mapping and legend with colour scale}
+         \caption{Opacity data mapping and legend with colour scale, highlighted with a red bounding box}
          \label{fig:opacity-dark-background}
      \end{subfigure}
 
-     \begin{subfigure}[b]{0.8\textwidth}
+    
+    \vspace{0.4cm}
+    
+     \begin{subfigure}[b]{1.0\textwidth}
          \centering
          \fbox{
-         \includegraphics[width=\textwidth]{img/picture5.png}
+         \includegraphics[width=\textwidth]{img/online_example_2.png}
          }
-         \caption{Opacity data mapping and legend}
+         \caption{Opacity data mapping and legend, highlighted with a red bounding box}
          \label{fig:opacity-bright-background}
      \end{subfigure}
         \caption{ArcGIS opacity legend and data mapping}
@@ -408,13 +429,16 @@ Each of the 34 respondent completed the full survey, resulting in 340 responses 
 *PERCEPTION ERROR* distance (delta) between the response value to the actual value of the location of the marker per visualization. 
 
 
-```{r response-error-visualization, fig.pos = "h", fig.cap = "Perception error by visualization category", echo=FALSE}
+```{r response-error-visualization, fig.pos = "h", out.width = '75%', fig.align = "center", fig.cap = "Perception error by visualization category", echo=FALSE}
 ggplot(responses_an_viz, aes(legend, percept_error, color=legend)) + 
   geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.3) +
   stat_summary(fun.data="mean_sdl", fun.args = list(mult = 1), 
                geom="pointrange", color="black") + 
   theme_minimal() +
-  theme(legend.position="none") + 
+  theme(
+    legend.position="none",
+    plot.background = element_rect(colour = "black", fill=NA, size=1)
+  ) + 
   ylab("Perception Error") +
   xlab("Legend")
 ```
@@ -429,13 +453,16 @@ defined for box plots as 1.5 times the interquartile  range [the height of the b
 } (visualized as dots outside above the "whiskers") for almost all categories, except for Headline, where the variance of the data is as quite large.
 
 
-```{r abs-response-error-visualization, fig.cap = "Absolute error by visualization category", echo=FALSE}
+```{r abs-response-error-visualization, out.width = '75%', fig.align = "center", fig.cap = "Absolute error by visualization category", echo=FALSE}
 
 ggplot(responses_an_viz, aes(legend, percept_error_abs, color=legend)) +
   geom_boxplot()  +
   stat_summary(fun="mean", geom="point", color="black") + 
   theme_minimal() +
-  theme(legend.position="none") +
+  theme(
+    legend.position="none",
+    plot.background = element_rect(colour = "black", fill=NA, size=1)
+  ) +
   ylab("Absolute Perception Error") +
   xlab("Legend")
 
@@ -929,14 +956,17 @@ responses_an_accurate_viz = responses_an_viz %>% filter(uuid %in% resp_low_error
 
 Visual inspection based on Figure \@ref(fig:models-outlier-removal-plot) shows that there is still a wide distribution of values, where Headline and Clustered legend types have the higher average absolute error, while the other types both have  a number of high error outliers.
 
-```{r models-outlier-removal-plot, fig.cap = "Absolute error - 50th percentile most accurate respondent subset", echo=FALSE, message = FALSE}
+```{r models-outlier-removal-plot, out.width = '75%', fig.align = "center", fig.cap = "Absolute error - 50th percentile most accurate respondent subset", echo=FALSE, message = FALSE}
 # Absolute
 # Not really anything that sticks out
 ggplot(responses_an_accurate_viz, aes(legend, percept_error_abs, color=legend)) +
   geom_boxplot()  +
   stat_summary(fun="mean", geom="point", color="black") +
   theme_minimal() +
-  theme(legend.position="none") +
+  theme(
+    legend.position="none",
+    plot.background = element_rect(colour = "black", fill=NA, size=1)
+  ) +
   ylab("Absolute Perception Error") +
   xlab("Legend")
 
@@ -1257,7 +1287,10 @@ ggplot(responses_an_viz, aes(legend, submitTime / 1000, color=legend)) +
   geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.3) +
   theme(legend.position="none") +
   theme_minimal() +
-  theme(legend.position="none") +
+  theme(
+    legend.position="none",
+    plot.background = element_rect(colour = "black", fill=NA, size=1)
+  ) +
   ylab("Seconds until Submit") +
   xlab("Legend")
 
@@ -1270,7 +1303,10 @@ ggplot(responses_an_viz, aes(legend, inputChanges, color=legend)) +
   geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.3) +
   theme(legend.position="none") +
   theme_minimal() +
-  theme(legend.position="none") +
+  theme(
+    legend.position="none",
+    plot.background = element_rect(colour = "black", fill=NA, size=1)
+  ) +
   ylab("Number of Input Changes before Submit") +
   xlab("Legend")
 
@@ -1284,7 +1320,10 @@ ggplot(responses_an_viz, aes(legend, hoverEvents, color=legend)) +
   geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.3) +
   theme(legend.position="none") +
   theme_minimal() +
-  theme(legend.position="none") +
+  theme(
+    legend.position="none",
+    plot.background = element_rect(colour = "black", fill=NA, size=1)
+  ) +
   ylab("Number of Hover Events before Submit") +
   xlab("Legend")
 
@@ -1303,7 +1342,10 @@ ggplot(responses_an_viz, aes(colour, percept_error_abs, color=colour)) +
   ylab("Absolute Perception Error")+
   xlab("Colour") +
   theme_minimal() +
-  theme(legend.position="none")
+  theme(
+    legend.position="none",
+    plot.background = element_rect(colour = "black", fill=NA, size=1)
+  )
   
 
 ```
