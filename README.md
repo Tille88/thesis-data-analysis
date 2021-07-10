@@ -88,16 +88,15 @@ And clean data for start of thesis analysis in
     - [x] Don't start with Ware reference, describe focus in 1.1
 - [x] Research questions more concrete (tighten up slightly)
     - [x] web based investigation
+- [x] Discussion section, start with introduction sentences as some may not have seen results but skipping sections
+    - [x] “This type” = transparency types
+    - [x] We see => it is evident
+    - [x] Lower variance of what…
+    - [x] "Strongest" = significance? Most robust no matter how results and subsetting done
+    - [x] More difficult to estimate value from the colour if value only in tittle, no comparison possible.
+    - [x] Can highlight what makes people use web interface a bit unexpected
 
 
-- [ ] Discussion section, start with introduction sentences as some may not have seen results but skipping sections
-    - [ ] “This type” = transparency types
-    - [ ] We see => it is evident
-    - [ ] Lower variance of what…
-    - [ ] "Strongest" = significance? Most robust no matter how results and subsetting done
-    - [ ] More difficult to estimate value from the colour if value only in tittle, no comparison possible.
-    - [ ] Can highlight what makes people use web interface a bit unexpected
-- [ ] "Magnitude" of estimates discussion, statistically significant to (degree 95% and similar)
 
 <!-- SUNDAY -->
 
@@ -112,9 +111,11 @@ And clean data for start of thesis analysis in
 - [ ] More things in methodology that can be described, could be combined(?) to 1-5 roman fig. 4.
 - [ ] Intro text for Background-section 
 - [ ] Fig 5 & table 2 (also describing text) -> Results, only methodology saying what will be done 
+- [ ] "Magnitude" of estimates discussion, statistically significant to (degree 95% and similar)
+
+<!-- Pre secondary draft -->
+- [ ] Ask for review by collegue
 - [ ] AGAIN: Read through and simplify text
-
-
 
 <!-- PRE FINAL SUBMIT -->
 - [ ] Last TODOs in Rmarkdown file, inserted PDFs updated title and similar

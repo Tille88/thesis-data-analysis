@@ -1000,24 +1000,28 @@ stargazer(
 
 # Discussion
 
-The results shows that in this type of visualizations, there is an influence of legend choices - as to if legends are included or not. We see both a lower variance and more accurate results when there is a legend compared to when no legend (Headline type) is present. As @Evergreen13 have pointed out there are other alternatives to legends for visualization such as simplicifaction of visualization, direct labeling of data, colour choices, altering visual weight and make use of motion. However, legends is such a common element for map visualization as shown by the relative prevalence of legend discussions in the map/GIS literature compared to the general data visualization literature.
+In this study it has been investigated whether different legend design types can help in decoding transparency-mapped data in a web GIS visualization. A alternative focus has been on acceptance testing of the respondents to the different legend designs.
 
-There were no clear results indicating differences in response accuracy depending on the type of legend, and there was quite a large variation in response accuracies in the sample overall. Notably as well was that user selection and other proxy variables were not well-suited to act as a proxy for respondent-confidence or uncertainty.
+The results shows that in visualizations using transparency mapped overlays on top of a static base map, there is an influence of legend choices - as to if legends are included or not. It is evident that there is both a lower variance of errors in estimations from the respondents and more accurate results when there is a legend compared to when no legend (Headline type) is present. In other words, a legend makes visual comparisons possible and reduces estimation errors. 
 
-There was a worry if keeping the data in the same range between examples would lead the respondents to stop using the legends after getting used to/internalizing the data mapping. Without this the errors would not be on the same scale, so it was deemed more suitable, and instead a post-collection testing of the possible prevalence of progression effects was to be relied on in addition to changing the colours between each example. Given that there was a consistently higher error for the Headline examples, and actually slightly higher errors for the last example compared to the first, this was unlikely to have affected the validity of the study.
+As @Evergreen13 have pointed out there are other alternatives to legends for visualization such as simplicifaction of visualization, direct labeling of data, colour choices, altering visual weight and make use of motion. However, legends is such a common element for map visualization as shown by the relative prevalence of legend discussions in the map/GIS literature compared to the general data visualization literature.
 
-The strongest results were perhaps from the user preferences/acceptance of the different legend types, where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the "industry standard" as in the imitation of the Checkered legend type. For the proximity type, this may be due to the reduced need for "attention switching" [@Kern10] due to higher proximity to the data and marker.
+There were no clear results indicating differences in response accuracy depending on the type of legend, and there was quite a large variation in response accuracies in the sample overall. Notably as well was that the number of times the user changed there resposne before submitting a response, or time until the user submitted the response from the visualization rendering were not well-suited to act as a proxy variables for respondent-confidence or uncertainty. During the data collection this may have been due to different respondents making use of the computer and UI-input elements in wastly different ways, and sometimes being distracted from the task or asking clarifying questions. 
+
+If keeping the data in the same range between examples would lead the respondents to stop using the legends after getting used to/internalizing the data mapping. Without this the errors would not be on the same scale, so it was deemed more suitable, and instead a post-collection testing of the possible prevalence of progression effects was to be relied on in addition to changing the colours between each example. Given that there was a consistently higher error for the Headline examples, and actually slightly higher errors for the last example compared to the first, this was unlikely to have affected the validity of the study.
+
+The most robust results were from the user preferences/acceptance of the different legend types, where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the "industry standard" as in the imitation of the Checkered legend type. For the proximity type, this may be due to the reduced need for "attention switching" [@Kern10] due to higher proximity to the data and marker.
 
 A common feedback given by respondents was that it would be useful to have larger legends. The current legend size was chosen to imitate ArcGIS opacity legend as closely as possible, and to be identical in size between legend types.
 
 In order to control the setting for data collections, the examples were somewhat contrived. 
 
-\begin{enumerate}
-  \item Today, rather few data complex visualizations are lacking annotation or possibilities for interaction.
+\begin{itemize}
+  \item Today, rather few complex data visualizations are lacking annotation or possibilities for interaction.
   \item All data area mappings were strictly rectangular in shape to allow for easy automated placement of the Annotated legend types.
   \item Only one opacity data layer is included. Multiple and possibly overlapping opacity layers would result in compounding opaqueness. However, this seems like a good design choice for data encoding to avoid more than one data opacity layer.
   \item The map data as base layer served more as a context, and realistic use case in terms of how data is viewed in common map applications. This layer was kept constant, and may not be representative of many other areas, and it is not clear how opacity mapping and legend are working for less complex (e.g. maps/backgrounds with less/no colours) or more complex backgrounds (e.g. aerial/satellite imagery).
-\end{enumerate}
+\end{itemize}
 
 None of these factors, except from the last, ought to have strong implications for the external validity of the study, but ought to still be noted.
 
