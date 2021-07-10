@@ -239,54 +239,59 @@ For more information on the process of example generations and technology choice
 
  \begin{figure}
      \centering
-     \begin{subfigure}[b]{0.42\textwidth}
+     \begin{subfigure}[b]{0.58\textwidth}
          \centering
          \fbox{
-         \includegraphics[width=\textwidth]{img/020-red-headline-legend-merge.png}
+         \includegraphics[width=\textwidth]{img/cropped_headline_highlight.png}
          }
-         \caption{Baseline - No legend ["Headline"]}
+         \caption{Baseline - No legend ["Headline"], highlighted in blue}
          \label{fig:headline}
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.42\textwidth}
+     \begin{subfigure}[b]{0.58\textwidth}
          \centering
          \fbox{
-         \includegraphics[width=\textwidth]{img/020-red-checkered-legend-merge.png}
+         \includegraphics[width=\textwidth]{img/cropped_checkered_highlight.png}
          }
-         \caption{Baseline2 – ArcGIS Imitation ["Checkered"]}
+         \caption{Baseline2 – ArcGIS Imitation ["Checkered"], highlighted in blue}
          \label{fig:checkered}
      \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.42\textwidth}
+    \caption{Visualization baseline legend types}
+    \label{fig:legend-types-baseline}
+\end{figure}
+ 
+ 
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.58\textwidth}
          \centering
          \fbox{
-         \includegraphics[width=\textwidth]{img/020-red-sampled-legend-merge.png}
+         \includegraphics[width=\textwidth]{img/cropped_sampled_highlight.png}
          }
-         \caption{sampled context ["Sampled"]}
+         \caption{sampled context ["Sampled"], highlighted in blue}
          \label{fig:sampled}
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.42\textwidth}
+     \begin{subfigure}[b]{0.58\textwidth}
          \centering
          \fbox{
-         \includegraphics[width=\textwidth]{img/020-red-clustered-legend-merge.png}
+         \includegraphics[width=\textwidth]{img/cropped_clustered_highlight.png}
          }
-         \caption{clustered colour bands ["Clustered"]}
+         \caption{clustered colour bands ["Clustered"], highlighted in blue}
          \label{fig:clustered}
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.42\textwidth}
+     \begin{subfigure}[b]{0.58\textwidth}
          \centering
          \fbox{
-         \includegraphics[width=\textwidth]{img/020-red-annotated-legend-merge.png}
+         \includegraphics[width=\textwidth]{img/cropped_annotated_highlight.png}
          }
-         \caption{Annotated Outline ["Annotated"]}
+         \caption{Annotated Outline ["Annotated"], highlighted in blue}
          \label{fig:annotated}
      \end{subfigure}
-        \caption{Visualization legend types}
-        \label{fig:legend-types}
-\end{figure}
- 
+        \caption{Visualization non-baseline legend types}
+        \label{fig:legend-types-non-baseline}
+\end{figure} 
 
 **Baseline 1 - No legend ["Headline" in tables], (Figure \ref{fig:headline})**
 

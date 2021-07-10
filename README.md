@@ -79,12 +79,12 @@ And clean data for start of thesis analysis in
     - [x] Add frame
     - [x] Slightly smaller
 - [x] Abstract update: things on top hiding things, opacity change one of the ways to do that (problem-description)
-
-
-- [ ] Fig 4
-    - [ ] Branch of example generation + make sure runs on local machine
-    - [ ] Make special version showing legend w less empty space (more focus data area)
+- [x] Fig 4
+    - [x] Make special version showing legend w less empty space (more focus data area)
+    - [x] 2 sections (baselines) + alternatives
     - [x] Move before legend design types description
+
+
 
 - [ ] Read through and simplify text, better reading flow
     - [ ] Inline notes in thesis PDF (40309401_giv15jti_GISM01_2900-28.pdf)
