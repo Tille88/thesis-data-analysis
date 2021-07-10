@@ -72,23 +72,15 @@ library(zoo)
 
 \section{Introduction} \label{introduction}
 
-## Data visualization and geographic information systems (GIS)
-
-There are clear overlapping goals between the area of data visualization - with the target visually encoding data attributes in a way that is visually pleasing/easy for the target audience to decode - and visual representation of data on a map in a GIS-system. It may also be possible to consider visual representation of data for an end user in a GIS-system as a subfield of data visualization, and related fields such as the study of human perception, where most textbooks in these fields contains a section on geographic mapping of data [see e.g. @Munzner15, p. 181; @Grant19; @Cairo16; @Ware20, p. 105, 125, 128ff].
-
-
 ## Opacity/transparency in GIS visualizations
 
-@Ware20 highlights this relation between the fields of Data Visualization and GIS in his seminal work on information visualization in relation to the use of transparency (alpha channel mapping/encoding) as a technique in information visualization:
+Having a base map that is needed for geographic context and the need to visualize other geospatial data as an overlay layer on top of that geographic context results in the background being partly or fully concealed. To show part of the geographical context, a common method is to reduce the opacity of the overlay data layer. This is also sometimes referred to as increasing the inverse of opacity; transparency. 
+
+@Ware20 highlights some issues of using low opacity layers in his seminal work on information visualization in relation to the use of transparency (alpha channel mapping/encoding) as a technique in information visualization. In particular, he describes that colours and objects that the user perceives become composites of the merged layers:
 
 > *In many visualization problems, it is desirable to present data in a layered form. This is especially common in geographic information systems (GISs). So that the contents of different layers are simultaneously visible, a useful technique is to present one layer of data transparently over another; however, there are many perceptual pitfalls in doing this. The contents of the different layers will always interfere with each other to some extent, and sometimes the two layers will fuse perceptually so that it is impossible to determine to which layer a given object belongs [@Ware20, p. 217].*
 
-
-
-@Ware20 [p. 357] also includes a figure which shows a fully opaque data encoding on top of a map layer 
-<!-- (Figure \ref{opaque-data}) -->
-– which depending on need can make it difficult for the end user to know the demarcations of the different categories due to occlusion. In other words - fully opaque data encoding resulting in lower layers not being visible, resulting in the end user having difficulties referencing the underlying geography.
-
+An illustrative example of how choosing lower opacity can show more of the base map, while higher opacity can make the geographic context difficult to see can be seen in Figure \ref{low-high-opacity-example}. With the low opacity, there is more of the base layer colour influencing the colour that is rendered, which in turn could make decoding the data more difficult.
 
 \begin{figure}
      \centering
@@ -117,27 +109,13 @@ There are clear overlapping goals between the area of data visualization - with 
 
 \end{figure}
  
+This difficult decoding task can be made easier by interaction in web-based GIS systems. In those systems, a user can interact with the visualization to get values from for example tooltips on hover of the mouse over parts of the map. For static visualizations, that is not possible and on mobile views hovering effects are not possible. A legend is therefore often used both in interactive and static web-GIS visualizations.
 
+This study aims to look at the efficiency of legend designs in decoding tasks. The study also investigates what legend designs presented to them the participants of the study percieve as most useful to the decoding task.
 
+In order to design the study, the design of the enterprise GIS market leader Esri [@ArcgisIndex; @ArcgisPlatform] was together with the absence of a legend used as baselines in order to evaluate alternative legend designs.
 
-The increased accessibility and ease to create maps for online usage makes different data mappings openly available for a larger audience. There are a lot of maps that make liberal use of a mix of mapping techniques, such as colour and opacity [see Figure \ref{multiple-encodings}, @Ee20] without taking into account the end-users ability to easily decode the data being visualized.
-
-
-The availability and ease of using opacity mappings and other techniques are also shown by the market leader
-\footnote{
-”Esri builds the leading mapping and spatial analytics software for desktop, software as a service (SaaS), and enterprise applications. Esri ArcGIS products are designed to deliver location intelligence and meet digital transformation needs for organizations of all sizes. Here you can explore Esri software, apps, content, solutions, and developer tools.” [@ArcgisIndex] **TODO, WHY NOT CITATION?**
-
-”[…]our market-leading Enterprise GIS mapping software will support your work and deliver results” [@ArcgisPlatform] **TODO, WHY NOT CITATION?**
-
-} 
-ESRI/ArcGIS examples and tutorials for their products, such as “ArcGIS online” and “ArcGIS Enterprise Map Viewer” are shown by the blog-entry “6 Easy Ways to Improve Your Maps”, explicitly listing the use of transparency. The way in which the transparency tool works is included as well 
-<!-- [Figure \ref{fig:opacity-picker} -->
-, @Berry2016] does not give the user much information or consider underlying layer colours and effects on perception.
-
-
-
-This mapping has a similar visual representation to the end user of the maps as shown in the usage examples from the “ArcGIS Online” API documentation ArcGIS website (Figure \ref{fig:opacity-dark-background} [@ArcgisDarkOnline] and \ref{fig:opacity-bright-background} [@ArcgisBrightOnline]). Figure \ref{fig:opacity-dark-background} includes colour mapping, but the legend maps transparency into a checkered grey/white background, making it very difficult to decode the visual values. Figure \ref{fig:opacity-bright-background} has a single colour and a background layer corresponding roughly to the constant mid-grey and white checkered pattern.  
-
+ESRI's “ArcGIS Online” examples [@ArcgisBrightOnline; @ArcgisDarkOnline] using transparency are showing a legend that has a checkered background with white and mid-grey values as seen in figures \ref{fig:opacity-dark-background} and \ref{fig:opacity-bright-background}. This legend representation of transparency lacks any context of the visualization, and remains a checkered mid-grey background no matter the background of the base map. 
 
 
 
@@ -149,7 +127,7 @@ This mapping has a similar visual representation to the end user of the maps as 
          \fbox{
          \includegraphics[width=\textwidth]{img/online_example_1.png}
          }
-         \caption{Opacity data mapping and legend with colour scale, highlighted with a red bounding box}
+         \caption{Opacity data mapping and legend with colour scale, highlighted with a red bounding box [@ArcgisDarkOnline]}
          \label{fig:opacity-dark-background}
      \end{subfigure}
 
@@ -161,7 +139,7 @@ This mapping has a similar visual representation to the end user of the maps as 
          \fbox{
          \includegraphics[width=\textwidth]{img/online_example_2.png}
          }
-         \caption{Opacity data mapping and legend, highlighted with a red bounding box}
+         \caption{Opacity data mapping and legend, highlighted with a red bounding box [@ArcgisBrightOnline]}
          \label{fig:opacity-bright-background}
      \end{subfigure}
         \caption{ArcGIS opacity legend and data mapping}
@@ -169,20 +147,12 @@ This mapping has a similar visual representation to the end user of the maps as 
 \end{figure}
  
 
-
-
-
-This type of legend representation of opacity is in not context-aware, and remains a checkered mid-grey background no matter the background of the map. 
-
-In static 2D maps, without interactive tools, such as tooltips – or in areas where hovering effects can not be as easily used (such as when using a tablet or smart phone), the end user have to rely on attempts to decode the visual representations with basic tools such as legends.
-
-As will be discussed in section \ref{background}, legends have been studied, but not with focus on transparency decoding or attempts to use alternative techniques for transparency legends, such as contextualizing the legend or trying to increase the proximity of the to the encoded data. 
+As will be discussed in section \ref{background}, legends have been studied, but not with focus on transparency decoding or attempts to use alternative techniques for transparency legends, such as contextualizing the legend or trying to increase the proximity of the legend to the encoded data. 
 
 ## Research questions
 
-- How is data opacity mapping perception influenced by legend display choices?
-- Does alternative legend methods compared to GIS industry standard’s choice influence errors in perceived data mapping and colour choices?
-- Does legend to data proximity-reduction or contextualised legend design influence perception errors for opacity data mapping?
+- Are legends increasing the accuracy of decoding opacity-mapped values compared to knowing only the range of the data being mapped?
+- Does legends designs that introduces more context from the base map or reduces the distance from legend reduce decoding errors compared to Esri's ArcGIS's transparency legend design?
 - Can decision times and user selection behaviour be affected by legend choices?
 - How are alternative legend design choices received by the subjects (subjective user acceptance testing)?
 

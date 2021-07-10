@@ -83,25 +83,13 @@ And clean data for start of thesis analysis in
     - [x] Make special version showing legend w less empty space (more focus data area)
     - [x] 2 sections (baselines) + alternatives
     - [x] Move before legend design types description
+- [x] Section 1.1-1.2
+    - [x] Opacity/transparency definition could be included 
+    - [x] Don't start with Ware reference, describe focus in 1.1
+- [x] Research questions more concrete (tighten up slightly)
+    - [x] web based investigation
 
 
-
-- [ ] Read through and simplify text, better reading flow
-    - [ ] Inline notes in thesis PDF (40309401_giv15jti_GISM01_2900-28.pdf)
-- [ ] Perception is focus, start many sections with highlighting that, simplify discussion of what has been studied
-- [ ] Section 1.1-1.2
-    - [ ] Opacity/transparency definition could be included 
-    - [ ] Don't start with Ware reference, describe focus in 1.1
-- [ ] Section 3, more clarity
-    - [ ] Say multiple variants that have been tested
-    - [ ] Like intro to methodology, testing 5, task basically guessing value at a specific location
-- [ ] Data collection
-    - [ ] Better chapter overview, describe how forms and colours generated and represented (move from Appendix), highlight not representing a physical variable but generated
-- [ ] More things in methodology that can be described, could be combined(?) to 1-5 roman fig. 4.
-- [ ] Intro text for Background-section 
-- [ ] Fig 5 & table 2 (also describing text) -> Results, only methodology saying what will be done 
-- [ ] Research questions more concrete (tighten up slightly)
-    - [ ] web based investigation
 - [ ] Discussion section, start with introduction sentences as some may not have seen results but skipping sections
     - [ ] “This type” = transparency types
     - [ ] We see => it is evident
@@ -110,6 +98,20 @@ And clean data for start of thesis analysis in
     - [ ] More difficult to estimate value from the colour if value only in tittle, no comparison possible.
     - [ ] Can highlight what makes people use web interface a bit unexpected
 - [ ] "Magnitude" of estimates discussion, statistically significant to (degree 95% and similar)
+
+<!-- SUNDAY -->
+
+- [ ] Read through and simplify text, better reading flow
+    - [ ] Inline notes in thesis PDF (40309401_giv15jti_GISM01_2900-28.pdf)
+- [ ] Perception is focus, start many sections with highlighting that, simplify discussion of what has been studied
+- [ ] Section 3, more clarity
+    - [ ] Say multiple variants that have been tested
+    - [ ] Like intro to methodology, testing 5, task basically guessing value at a specific location
+- [ ] Data collection
+    - [ ] Better chapter overview, describe how forms and colours generated and represented (move from Appendix), highlight not representing a physical variable but generated
+- [ ] More things in methodology that can be described, could be combined(?) to 1-5 roman fig. 4.
+- [ ] Intro text for Background-section 
+- [ ] Fig 5 & table 2 (also describing text) -> Results, only methodology saying what will be done 
 - [ ] AGAIN: Read through and simplify text
 
 
