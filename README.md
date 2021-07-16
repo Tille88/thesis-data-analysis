@@ -98,7 +98,7 @@ And clean data for start of thesis analysis in
 - [x] Intro text for Background-section 
 
 
-- [ ] Section 3 (METHODOLOGY), more clarity
+- [x] Section 3 (METHODOLOGY), more clarity
     - [x] Inline notes in thesis PDF (40309401_giv15jti_GISM01_2900-28.pdf)
     - [x] Say multiple variants that have been tested
         - [x] Like intro to methodology, testing 5, task basically guessing value at a specific location
@@ -106,8 +106,10 @@ And clean data for start of thesis analysis in
     - [x] Data collection
         - [x] Better chapter overview, describe how forms and colours generated and represented (move from Appendix), highlight not representing a physical variable but generated
     - [x] Change references to Appendix A-C....
-    - [ ] Fig 5 & table 2 (also describing text) -> Results, only methodology saying what will be done 
-- [ ] Read through and simplify text, better reading flow
+    - [x] Fig 5 & table 2 (also describing text) -> Results, only methodology saying what will be done 
+
+
+- [ ] PRINT -> Read through and simplify text, better reading flow
     - [ ] Perception is focus, start many sections with highlighting that, simplify discussion of what has been studied
 
 <!-- Pre secondary draft -->

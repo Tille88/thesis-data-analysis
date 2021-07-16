@@ -532,129 +532,15 @@ responses_an_viz$legend <- factor(responses_an_viz$legend, levels = c("headline"
 
 *LEGEND* - Each of the legend types - the only part of visualization that is not randomized. Having values of Headline (no legend), Checkered, Clustered, Sampled and Annotated, corresponding to section \ref{legends}.
 
-```{r response-error-table, echo=FALSE, message = FALSE}
-
-error_tbl_summary <- responses_an %>%
-  select(legend) %>%
-  group_by(legend) %>%
-  summarize(N=n())
-
-
-error_tbl_summary$legend <- plyr::revalue(error_tbl_summary$legend, c(
-  "headline"="Headline", 
-  "checkered"="Checkered",
-  "sampled"="Sampled",
-  "clustered"="Clustered",
-  "annotated"="Annotated"
-  ))
-
-error_tbl_summary <- rbind(
-  error_tbl_summary,
-  data.frame(legend=c("Total"), N=sum(error_tbl_summary$N))
-)
-
-
-names(error_tbl_summary) <- c("Legend", "N")
-
-error_tbl_summary$Legend <- as.character(error_tbl_summary$Legend)
-
-```
-
-```{r response_tbl_summary_output, echo=FALSE, message = FALSE, results='asis'}
-
-stargazer(
-  error_tbl_summary,
-  type='latex',
-  rownames = FALSE,
-  summary = FALSE, header = FALSE,
-  label = "tab:responses-summary",
-  title="Responses by legend type"
-  )
-
-
-```
-
-Each of the 34 respondent completed the full survey, resulting in 340 responses to the data-progression, and as seen they are distributed equally among the legend types (Table \ref{tab:responses-summary}).
 
 
 **Dependent Variables**
 
 *PERCEPTION ERROR* distance (delta) between the response value to the actual value of the location of the marker per visualization. 
 
-
-```{r response-error-visualization, fig.pos = "h", out.width = '75%', fig.align = "center", fig.cap = "Perception error by visualization category", echo=FALSE}
-ggplot(responses_an_viz, aes(legend, percept_error, color=legend)) + 
-  geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.3) +
-  stat_summary(fun.data="mean_sdl", fun.args = list(mult = 1), 
-               geom="pointrange", color="black") + 
-  theme_minimal() +
-  theme(
-    legend.position="none",
-    plot.background = element_rect(colour = "black", fill=NA, size=1)
-  ) + 
-  ylab("Perception Error") +
-  xlab("Legend")
-```
-
-As seen in Figure \@ref(fig:response-error-visualization), the mean is centered around 0, with some visually distinguishable differences in distribution between the Headline (no legend) category having the largest variance and more outliers compared to the examples with legends. The figure has the mean indicated by a black dot, with 1 standard deviation in each direction shown by a range-whisker for each category.
-
-
 *|PERCEPTION ERROR|* Absolute perception error - for linear modeling there is a need to look at mean-differences between categories, as simply using the error will result in all categorical differences being statistically insignificant.
 
-As seen by Figure \@ref(fig:abs-response-error-visualization), the same data visualized as boxplots with an absolute transformation of the perception error, shows the mean (visualized as a black point) differing between the categories - highest for Headline type, and lowest for Annotated legend type. As can also be seen there are some outliers\footnote{
-defined for box plots as 1.5 times the interquartile  range [the height of the boxes] outside the interquartile range
-} (visualized as dots outside above the "whiskers") for almost all categories, except for Headline, where the variance of the data is as quite large.
-
-
-```{r abs-response-error-visualization, out.width = '75%', fig.align = "center", fig.cap = "Absolute error by visualization category", echo=FALSE}
-
-ggplot(responses_an_viz, aes(legend, percept_error_abs, color=legend)) +
-  geom_boxplot()  +
-  stat_summary(fun="mean", geom="point", color="black") + 
-  theme_minimal() +
-  theme(
-    legend.position="none",
-    plot.background = element_rect(colour = "black", fill=NA, size=1)
-  ) +
-  ylab("Absolute Perception Error") +
-  xlab("Legend")
-
-```
-
 *ACCEPTANCE* - objective valuation by participants on the usefulness of each legend type. On the scale 1-5, with responses of "No opinion" also allowed, and treated as missing values in the statistical modeling. 
-
-```{r acceptance-table-process, echo=FALSE, message = FALSE}
-
-
-acceptance_unique_df <- responses_an_viz %>%
-    select(uuid, acceptance, legend) %>%
-    distinct() %>% select(-c(uuid))
-
-acceptance_spread_df <- acceptance_unique_df %>%
-  group_by(acceptance, legend) %>%
-  summarise(n=n()) %>%
-  spread(legend, n, fill=0)
-
-names(acceptance_spread_df) <- c("Acceptance", "Headline", "Checkered", "Sampled", "Clustered", "Annotated")
-
-
-acceptance_spread_df <- acceptance_spread_df %>% replace_na(list(Acceptance = "No Opinion"))
-
-```
-```{r acceptance-table, echo=FALSE, message = FALSE, results='asis'}
-
-stargazer(
-  acceptance_spread_df,
-  type='latex',
-  rownames = FALSE,
-  summary = FALSE, header = FALSE,
-  label = "tab:acceptancy-tally",
-  title="Acceptance response count cross-tab"
-  )
-
-```
-
-Table \ref{tab:acceptancy-tally} indicates that the highest *ACCEPTANCE* scores are for Annotated and Sampled legend types. More statistical comparison to follow in the results section. 
 
 **Independent/Control Variables Candidates**
 
@@ -664,20 +550,16 @@ Table \ref{tab:acceptancy-tally} indicates that the highest *ACCEPTANCE* scores 
 
 *HOVER EVENTS* - Events of hovering the mouse cursor over the example image logged and sent back to back end. In study design expected to be a proxy for uncertainty.
 
-Due to the more quantitative study design where the experiment designer was present in the room, it became clear that all these uncertainty-proxy variables would be likely to contain limited amount of signal. *SUBMIT TIME* varied because of incoming phone calls, the need to ask questions about the design types and many other external factors, *INPUT CHANGES* varied due to how the respondents chose to input their responses and work with the slider generally, and *HOVER EVENTS* did not vary much within-subjects, and wasn't consistently used as a visual guide (some users did not use the mouse cursor, but kept it still while using fingers on the screen to make comparisons).
-
-Plots for *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS* (Figures \@ref(fig:submit-time-visualization), \@ref(fig:input-changes-visualization) and \@ref(fig:hover-events-visualization)) can be found in Appendix A.
-
 *PROGRESSION* - For each respondents, numbering of the examples they were shown from 1-10. Later to be used to check for learning and/or fatigue effects.
 
-*COLOUR* - Visualization presented having opacity data layer mapped colour channel as pure red, green or blue. From visual inspection, not any strong difference between the colours were perceptible (see Figure \@ref(fig:colour-visualization) in Appendix A). 
+*COLOUR* - Visualization presented having opacity data layer mapped colour channel as pure red, green or blue.
 
 ### Hypothesis testing models
 
 Most of the research questions are centered around how different legend design choices affects errors and acceptance.
 
 For *PERCEPTION ERROR* the average value is centered around 0, but the distribution variance is of interest. Most statistical models are constructed to compare in particular mean values between categories, which would not be able to give any indication of differences between these values. It would be possible to create a non-parametric test using bootstrapping of almost any test statistics [@Efron79]. However, for simplicity Bartlett's test \footnote{
-**TODO - To ref and also not all shown** See https://en.wikipedia.org/wiki/Bartlett%27s_test and http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r for comparisons of standard statistical test for variance differences
+See https://en.wikipedia.org/wiki/Bartlett%27s_test and http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r for comparisons of standard statistical test for variance differences
 } allow testing of multiple variance differences between multiple groups.
 
 The Bartlett's test will be conducted for both the full data including the Headline type as baseline, and a subset to see if variances differs in a statistically significant way between the different legend types, using Checkered legend type as a baseline, as the type having the largest variance test statistic of the sample.
@@ -724,6 +606,134 @@ Subset analysis using only the respondents that are likely to be the most engage
 
 
 # Results
+
+## Summary statistics and exploratory graphs
+
+**Treatment**
+
+```{r response-error-table, echo=FALSE, message = FALSE}
+
+error_tbl_summary <- responses_an %>%
+  select(legend) %>%
+  group_by(legend) %>%
+  summarize(N=n())
+
+
+error_tbl_summary$legend <- plyr::revalue(error_tbl_summary$legend, c(
+  "headline"="Headline", 
+  "checkered"="Checkered",
+  "sampled"="Sampled",
+  "clustered"="Clustered",
+  "annotated"="Annotated"
+  ))
+
+error_tbl_summary <- rbind(
+  error_tbl_summary,
+  data.frame(legend=c("Total"), N=sum(error_tbl_summary$N))
+)
+
+
+names(error_tbl_summary) <- c("Legend", "N")
+
+error_tbl_summary$Legend <- as.character(error_tbl_summary$Legend)
+
+```
+
+```{r response_tbl_summary_output, echo=FALSE, message = FALSE, results='asis'}
+
+stargazer(
+  error_tbl_summary,
+  type='latex',
+  rownames = FALSE,
+  summary = FALSE, header = FALSE,
+  label = "tab:responses-summary",
+  title="Responses by legend type"
+  )
+
+
+```
+
+Each of the 34 respondent completed the full survey, resulting in 340 responses to the data-progression, and as seen they are distributed equally among the legend types (Table \ref{tab:responses-summary}).
+
+**Dependent Variables**
+
+*PERCEPTION ERROR* - As seen in Figure \@ref(fig:response-error-visualization), the mean is centered around 0, with some visually distinguishable differences in distribution between the Headline (no legend) category having the largest variance and more outliers compared to the examples with legends. The figure has the mean indicated by a black dot, with 1 standard deviation in each direction shown by a range-whisker for each category.
+
+```{r response-error-visualization, fig.pos = "h", out.width = '75%', fig.align = "center", fig.cap = "Perception error by visualization category", echo=FALSE}
+ggplot(responses_an_viz, aes(legend, percept_error, color=legend)) + 
+  geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.3) +
+  stat_summary(fun.data="mean_sdl", fun.args = list(mult = 1), 
+               geom="pointrange", color="black") + 
+  theme_minimal() +
+  theme(
+    legend.position="none",
+    plot.background = element_rect(colour = "black", fill=NA, size=1)
+  ) + 
+  ylab("Perception Error") +
+  xlab("Legend")
+```
+
+*|PERCEPTION ERROR|* - As seen by Figure \@ref(fig:abs-response-error-visualization), the same data visualized as boxplots with an absolute transformation of the perception error, shows the mean (visualized as a black point) differing between the categories - highest for Headline type, and lowest for Annotated legend type. As can also be seen there are some outliers\footnote{
+defined for box plots as 1.5 times the interquartile  range [the height of the boxes] outside the interquartile range
+} (visualized as dots outside above the "whiskers") for almost all categories, except for Headline, where the variance of the data is as quite large.
+
+
+```{r abs-response-error-visualization, out.width = '75%', fig.align = "center", fig.cap = "Absolute error by visualization category", echo=FALSE}
+
+ggplot(responses_an_viz, aes(legend, percept_error_abs, color=legend)) +
+  geom_boxplot()  +
+  stat_summary(fun="mean", geom="point", color="black") + 
+  theme_minimal() +
+  theme(
+    legend.position="none",
+    plot.background = element_rect(colour = "black", fill=NA, size=1)
+  ) +
+  ylab("Absolute Perception Error") +
+  xlab("Legend")
+
+```
+
+*ACCEPTANCE* - Table \ref{tab:acceptancy-tally} indicates that the highest *ACCEPTANCE* scores are for Annotated and Sampled legend types. More statistical comparison to follow in the results section.
+
+```{r acceptance-table-process, echo=FALSE, message = FALSE}
+
+
+acceptance_unique_df <- responses_an_viz %>%
+    select(uuid, acceptance, legend) %>%
+    distinct() %>% select(-c(uuid))
+
+acceptance_spread_df <- acceptance_unique_df %>%
+  group_by(acceptance, legend) %>%
+  summarise(n=n()) %>%
+  spread(legend, n, fill=0)
+
+names(acceptance_spread_df) <- c("Acceptance", "Headline", "Checkered", "Sampled", "Clustered", "Annotated")
+
+
+acceptance_spread_df <- acceptance_spread_df %>% replace_na(list(Acceptance = "No Opinion"))
+
+```
+```{r acceptance-table, echo=FALSE, message = FALSE, results='asis'}
+
+stargazer(
+  acceptance_spread_df,
+  type='latex',
+  rownames = FALSE,
+  summary = FALSE, header = FALSE,
+  label = "tab:acceptancy-tally",
+  title="Acceptance response count cross-tab"
+  )
+
+```
+
+**Independent/Control Variables Candidates**
+
+Due to the more quantitative study design where the experiment designer was present in the room, it became clear that all these uncertainty-proxy variables would be likely to contain limited amount of signal. *SUBMIT TIME* varied because of incoming phone calls, the need to ask questions about the design types and many other external factors, *INPUT CHANGES* varied due to how the respondents chose to input their responses and work with the slider generally, and *HOVER EVENTS* did not vary much within-subjects, and wasn't consistently used as a visual guide (some users did not use the mouse cursor, but kept it still while using fingers on the screen to make comparisons).
+
+Plots for *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS* (Figures \@ref(fig:submit-time-visualization), \@ref(fig:input-changes-visualization) and \@ref(fig:hover-events-visualization)) can be found in Appendix A.
+
+*COLOUR* -From visual inspection, not any strong difference between the colours red/green/blue examples were perceptible (see Figure \@ref(fig:colour-visualization) in Appendix A). 
+
 
 ## *PERCEPTION ERROR*
 
