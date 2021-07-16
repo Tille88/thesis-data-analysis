@@ -198,21 +198,18 @@ No intersection between legends and transparency, either in GIS-context or elsew
 
 # Methodology
 
+Five different map legend designs were generated and tested through a web user interface. Using this interface, the task for the respondents were to guessing the value of the opacity-mapped overlay at the location of a marker.
 
-## Data collection
+The generation of the examples allowed all other parts of the designs to be kept constant. The data layer used for opacity overlay was randomly generated. 
 
 
-\subsubsection{Legend design types} \label{legends}
-
-Due to the narrowness of the research questions, no openly available dataset or examples was likely to exist. This resulted in extensive work to design and create a dataset and a reproducible experiment where legend types was possible to isolate as the only non-randomly changing treatment.  
+\subsection{Legend design types} \label{legends}
 
 The data was limited to static 2D maps and using web technologies for easy distribution. The subjects were presented with different legend designs and were asked to estimate the value at the location of a marker. The data was represented as a spatially distributed phenomenon mapped to opacity in a polygon that is overlaid on a base map, as in the ArcGIS online maps described in section \ref{background}.
 
 Different designs are presented below, together with some justifications – where all legends and data mappings are linear in the opacity/alpha channel. This ought to introduce less complications than colour-mapping of colour due to a linear encoding of the alpha-channel in the RGBA-model:
 
 >  *It’s worth pointing out that unlike the color components which are often encoded using a non-linear transformation, alpha is stored linearly – encoded value of 0.5 corresponds to alpha value of 0.5 [@Ciechanowski19]*
-
-For more information on the process of example generations and technology choices see Appendix A.
 
  \begin{figure}
      \centering
@@ -285,11 +282,11 @@ This, and all following examples imitate the ArcGIS-design in the size of legend
 
 One likely downside making it more difficult for subjects to accurately decode the data values is the lack of context in the legend as it relates to the background of the data in the visualization. The rest of the example types works to provide designs that gives more of the actual map base-layer background information to the legend.
 
-The simplest design choice was to sample part of the base layer as background as seen in Figure \ref{fig:sampled}. The details on how this was done in practice can be found in Appendix A.
+The simplest design choice was to sample part of the base layer as background as seen in Figure \ref{fig:sampled}. Section \ref{legend-generation} describes more details on the generation of this legend design from a technical perspective.
  
 **Legend with clustered colour bands ["Clustered" in tables], (Figure \ref{fig:clustered})**
 
-An alternative to sampling a rectangular section of the base layer map background, is to use the most common colours in the base layers as a background. In the design tested, the 10 most common colours of the background map was displayed as strips/columns in a vertical manner behind the data representation. This way they are contextualized for the full range of the data in the legend. More details how the common colours were identified are described in Appendix A. 
+An alternative to sampling a rectangular section of the base layer map background, is to use the most common colours in the base layers as a background. In the design tested, the 10 most common colours of the background map was displayed as strips/columns in a vertical manner behind the data representation. This way they are contextualized for the full range of the data in the legend. Section \ref{legend-generation} describes more details on the generation of this legend design from a technical perspective. 
 
 **Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})**
 
@@ -301,22 +298,194 @@ In order to remove design choices of how to place this kind of legend around com
 
 
 
+\subsection{Legend design generation} \label{legend-generation}
+
+A number of layers was produced for the sample images and extracted programmatically as PNG-files. The choices made can easily be described in combination with these layer types\footnote{All code available at https://github.com/Tille88/thesis-map-generation}.
 
 
- 
-<!-- ### *Data collection presentation and user interface* -->
-\subsubsection{Data collection presentation and user interface} \label{data-collection-ui}
+*Base Map*
+
+The Javascript library OpenLayers\footnote{https://openlayers.org/} was used to pull down a background map to a large\footnote{larger than 1,600*1,600 pixels, and later downsampled due to not knowing usage at the data generation stage.} HTML5 Canvas element (web-browser raster-API). The area was chosen arbitrarily as Greenwich, London. The zoom-level for the map was chosen manually to get an area with diverse set of background colours representing water, buildings and other infrastructure. The default OpenStreetMap visualisation type was used.
+
+This image data was then extracted and stored locally in order to be able to work with ease without internet connection, and when adding other layers it was pulled into the HTML5-Canvas from disk. 
+
+*Opacity Data Layer*
+
+In order not to have respondents making use of pre-existing knowledge or assumptions to the data given the common background of London, continuous data was generated using Perlin-noise [@Perlin85]\footnote{The implementation used to generate the noise was https://github.com/p5py/p5/blob/master/p5/pmath/rand.py }.
+
+All generated data was normalized to have the lowest value to be 0.0, and highest being 1.0 - mapping to the linear data mapping for examples shown to respondents as being between 0 and 100.
+
+Two different types were generated: one with-out falloff to the edges of the data area, only using pure Perlin noise within the area (see Figure Figure \ref{fig:no-falloff}), and the other one making sure there was a more centralized higher data area, with decreasing values towards the edges of the rectangular data area (Figure \ref{fig:falloff}).
 
 
-A front-end was developed using front-end web-technologies. In this system, the respondents were presented with a progression of stages:
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/no-falloff.png}
+         \caption{No falloff}
+         \label{fig:no-falloff}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/falloff.png}
+         \caption{With falloff}
+         \label{fig:falloff}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/marker.png}
+         \caption{Marker}
+         \label{fig:marker}
+     \end{subfigure}
+        \caption{Map elements}
+        \label{fig:map-element-discussion}
+\end{figure}
 
-1. Introduction with instructions, introducing the elements of the visualization and tasks to guess/estimate the value of the data layer at the location of a randomly generated marker position making use of the different legend types.
 
-2. Randomly chosen images picked by the back-end server from the 315 example combination images\footnote{3 colours * 21 random data and marker location variations * 5 legend types = 315} stored in the back-end and presented to the respondents. Each response and a number of interactions by the respondents were sent back to the back-end server and persisted in a data base as the respondents went through the task. The response was picked using a number picker covering the range of the data (kept constant to 0-100). The initial value of the slider was random, and the respondents were required to change the response before being able to progress to the next example image. For more information on how the progression was generated can be found in Appendix B.
 
-3. After progressing through the example images, the respondents were asked about how helpful they considered the different legend types were for their task. This information was also sent back and persisted to the data base together with IDs of the respondents.
+The noise data was put into the opacity value for a canvas image-element, with 1 of the 3 RGB-colour channels set to the max value (e.g. for red, canvas per that pixel was rgba(255, 0, 0, opacityValue)).
 
-More information, example images of the user interface can be found in Appendix B.
+In the following step, the base layer and map data layer was merged using the ctx.drawImage() of the HTML5 Canvas-API\footnote{This was also tested manually iterating over both the raster values of the base map and the data layer and combining them according to the Canvas opacity specification, but after confirming the results to being identical, the simpler API was used}.
+
+*Marker*
+
+A marker was designed using vector-based SVG-API in the browser and overlaid at a randomized location within the data-extent. This was merged into the Canvas raster representation, and the value of the data later at the location was stored together with other metadata for each visualization to JSON (see Figure \ref{fig:marker}).
+
+
+
+*Legends*
+
+All legends were created using the Canvas API, in order to add text, background of legend and merge with data legend in a similar fashion as done between base map and data layer. Some specific points that are non-obvious described below:
+
+**Checkered legend type** - Following the ArcGIS design, a mid-level grey was used to generate a checkered-pattern as background.
+
+**Sampled legend type** - 5 different rectangular parts of the base map data of the size of the legend was extracted and chosen randomly for the sample images.
+
+**Clustered legend type** - Using kMeans clustering algorithm implementation in the base R language, was used to extract 10 "colour centers" representing common colours in the base map. These were then displayed as stripes behind the legend. 
+
+
+\subsection{Data collection presentation and user interface} \label{data-collection-ui}
+
+
+A front-end was developed using with HTML5, CSS and basic Javascript, shown in a Chrome web browser\footnote{All frontend code can be found at https://github.com/Tille88/thesis-front-end}. In this system, the respondents were presented with a progression of stages:
+
+1. Introduction with instructions, introducing the elements of the visualization and tasks to guess/estimate the value of the data layer at the location of a randomly generated marker position making use of the different legend types (see Figure \ref{fig:intro-page}).
+
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro1.png}
+         \caption{Introduction page start}
+         \label{fig:elem-introduction}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro2.png}
+         \caption{Elements - base map introduction}
+         \label{fig:elem-basemap}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro3.png}
+         \caption{Elements - data layer introduction}
+         \label{fig:elem-data}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro4.png}
+         \caption{Elements - legends introduction}
+         \label{fig:elem-legends}
+     \end{subfigure} 
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro5.png}
+         \caption{Elements - marker introduction}
+         \label{fig:elem-marker}
+     \end{subfigure} 
+     \begin{subfigure}[b]{0.55\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/intro6.png}
+         \caption{Elements - response element introduction}
+         \label{fig:elem-response}
+     \end{subfigure} 
+        \caption{Introduction page progression}
+        \label{fig:intro-page}
+\end{figure}
+
+
+2. Following the introduction, and a verbal check on understanding the task, the session was initialized.
+
+Randomly chosen images picked by the back-end server from the 315 example combination images\footnote{3 colours * 21 random data and marker location variations * 5 legend types = 315} stored in the back-end and presented to the respondents. 
+
+The progression of the images started and ended with the baseline of Headline/no-legend type, and had the remaining 4 design type orders picked at random for the example progression images 2-5 and 6-9 respectively in order to maximize randomization. 
+
+The colours of the data layer were for all examples available in pure red, green and blue. For the first image in the progression a combination of these three colours was randomly generated and repeated for examples 1-10. The reason for changing the colours between the examples was to reduce the risk of the respondents remembering the colour-to-data mapping between examples.
+
+As an example: for the progression of images 1-10, three lists are generated: 
+
+1. a colour progression ["green", "blue", "red]
+2. a random list of numbers from the number of examples (21) [3, 14, 4, 10, 16, 2, 7, 9, 20]
+3. a selection of legend types [[first 5: no-legend{fixed}, random order of 4 remaining types], last 5: random order of 4 remaining types, [no-legend{fixed}]]
+
+Then these were combined as ["3-green-no-legend", "14-sampled-blue", "4-red-clustered", "10-green-annotated", ..., "20-green-no-legend"]
+
+Each response and a number of interactions by the respondents were sent back to the back-end server and persisted in a data base as the respondents went through the task. The response was picked using a number picker covering the range of the data (kept constant to 0-100). The initial value of the slider was random, and the respondents were required to change the response before being able to progress to the next example image (UI example shown in Figure \ref{fig:progression-ui}).
+
+At the load of the image, a timer was started, and a number of events (hovering over image, response changes - with the current value of the input, location of hover, time of event, etc.) was logged locally. At the time of submission, all these event data, the time until submission and the final response value was sent back and persisted server-side. This was repeated 10 times.
+
+The user was not able to go back once an answer had been submitted, and the "submit button" was not active until the user had updated the value from the initially random value in the range of 0-100 (see Figure \ref{fig:submit-inactive} and \ref{fig:submit-active}).
+
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.6\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/exampleui.png}
+         \caption{Progression UI}
+         \label{fig:progression-ui}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/submit_inactive.png}
+         \caption{Submit inactive}
+         \label{fig:submit-inactive}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/submit_active.png}
+         \caption{Submit active}
+         \label{fig:submit-active}
+     \end{subfigure}
+        \caption{Progression UI}
+        \label{fig:pregression-ui-combined}
+\end{figure}
+
+
+3. After progressing through the 10 example images, the respondents were asked about how helpful they considered the different legend types were for their task. This information was also sent back and persisted to the data base together with IDs of the respondents \ref{fig:acceptance-ui}.
+
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/acceptance1.png}
+         \caption{Acceptance UI top}
+         \label{fig:acceptance-top}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/acceptance2.png}
+         \caption{Acceptance UI bottom}
+         \label{fig:acceptance-bottom}
+     \end{subfigure}
+        \caption{Acceptance UI}
+        \label{fig:acceptance-ui}
+\end{figure}
+
+\subsection{Data collection} \label{collection-info}
 
 The survey data was collected between Jan 9th and Feb 6th 2021, using convenience sampling. Many of the 34 respondents are employees at the Volvo Car Corporation Asia Pacific Head Quarter in Shanghai, China.
 
@@ -497,11 +666,11 @@ Table \ref{tab:acceptancy-tally} indicates that the highest *ACCEPTANCE* scores 
 
 Due to the more quantitative study design where the experiment designer was present in the room, it became clear that all these uncertainty-proxy variables would be likely to contain limited amount of signal. *SUBMIT TIME* varied because of incoming phone calls, the need to ask questions about the design types and many other external factors, *INPUT CHANGES* varied due to how the respondents chose to input their responses and work with the slider generally, and *HOVER EVENTS* did not vary much within-subjects, and wasn't consistently used as a visual guide (some users did not use the mouse cursor, but kept it still while using fingers on the screen to make comparisons).
 
-Plots for *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS* (Figures \@ref(fig:submit-time-visualization), \@ref(fig:input-changes-visualization) and \@ref(fig:hover-events-visualization)) can be found in Appendix C.
+Plots for *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS* (Figures \@ref(fig:submit-time-visualization), \@ref(fig:input-changes-visualization) and \@ref(fig:hover-events-visualization)) can be found in Appendix A.
 
 *PROGRESSION* - For each respondents, numbering of the examples they were shown from 1-10. Later to be used to check for learning and/or fatigue effects.
 
-*COLOUR* - Visualization presented having opacity data layer mapped colour channel as pure red, green or blue. From visual inspection, not any strong difference between the colours were perceptible (see Figure \@ref(fig:colour-visualization) in Appendix C). 
+*COLOUR* - Visualization presented having opacity data layer mapped colour channel as pure red, green or blue. From visual inspection, not any strong difference between the colours were perceptible (see Figure \@ref(fig:colour-visualization) in Appendix A). 
 
 ### Hypothesis testing models
 
@@ -516,7 +685,7 @@ The Bartlett's test will be conducted for both the full data including the Headl
 Bartlett's test assumes normality, so the Shapiro-Wilk tests [@Shapiro65] are first conducted in order to see if the normality-assumption holds. This will be done for all legend types pooled, with Headline removed from the pooled sample, as well as for the subsample of each legend type separately.  
 
 For *|PERCEPTION ERROR|*, *ACCEPTANCE* and other questions where a mean-comparison is able to be of relation to the research questions \footnote{
-Including SUBMIT TIME, INPUT CHANGES and HOVER EVENTS, which will have the results presented in Appendix C
+Including SUBMIT TIME, INPUT CHANGES and HOVER EVENTS, which will have the results presented in Appendix A
 } are examined using regular OLS-techniques (linear regression). Of importance for interpretable results is the baseline for these models (intercept), for ease of understanding p-values and test statistic differences. 
 
 The baseline OLS-estimates are retained using 
@@ -732,7 +901,7 @@ For estimations of size of differences between groups transformation of *PERCEPT
 
 \subsection{*|PERCEPTION ERROR|*} \label{subsection-perception-error}
 
-Visual inspection of whether there are clear difference in heterogenity in *|PERCEPTION ERROR|* for both legend types is seen in Figure \@ref(fig:figure-heterogenity-legends) in Appendix C (bars including 95% confidence intervals). The confidence intervals are largely overlapping for all types except when not including any legend (Headline), which is in line with results from variance testing. 
+Visual inspection of whether there are clear difference in heterogenity in *|PERCEPTION ERROR|* for both legend types is seen in Figure \@ref(fig:figure-heterogenity-legends) in Appendix A (bars including 95% confidence intervals). The confidence intervals are largely overlapping for all types except when not including any legend (Headline), which is in line with results from variance testing. 
 
 ```{r abs-perception-error-models, echo=FALSE, message = FALSE}
 
@@ -869,7 +1038,7 @@ stargazer(
 
 ## Robustness tests
 
-Other variables that were collected as potential proxy variables for uncertainty (*SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*), but exhibited high variability and large outliers to external factors did show some significant results as shown in Tables Table \@ref(tab:models-time-to-submit), \@ref(tab:models-input-changes) and  \@ref(tab:models-hover-events) in Appendix C. Many variables are significant compared to Headline legend types, but quite likely those outliers are coming from first interaction with the survey responses being for the headline type.
+Other variables that were collected as potential proxy variables for uncertainty (*SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*), but exhibited high variability and large outliers to external factors did show some significant results as shown in Tables Table \@ref(tab:models-time-to-submit), \@ref(tab:models-input-changes) and  \@ref(tab:models-hover-events) in Appendix A. Many variables are significant compared to Headline legend types, but quite likely those outliers are coming from first interaction with the survey responses being for the headline type.
 
 To check for clear learning or fatigue effects that would merit subsample analysis, an OLS model was run on *|PERCEPTION ERROR|* against the linear progression variable (discrete values expressed as integers 1-10). Another model using only the subsample of the first and last images, both of Headline type, to check if the respondents learned to memorize the opacity data mapping without use of legends was also included.
 
@@ -912,7 +1081,7 @@ stargazer(
 
 ```
 
-For completeness, Table \@ref(tab:time-control-model) in Appendix C shows regression results for a model with Checkered reference category, with a linear progression variable included. The results of generally lower errors for other categories, but the earlier results of statistically significant estimates remains.
+For completeness, Table \@ref(tab:time-control-model) in Appendix A shows regression results for a model with Checkered reference category, with a linear progression variable included. The results of generally lower errors for other categories, but the earlier results of statistically significant estimates remains.
 
 It is not of use to control for this with Headline-comparison models, as the Headline type was always the first and last example shown for each respondent by design.
 
@@ -1044,226 +1213,7 @@ The sampling was non-random convenience sampling. This was as earlier discussed 
 \section{Appendices} \label{appendices}
 
 
-\subsection{Appendix A - example generations and technology choices}
-
-A number of layers was produced for the sample images and extracted programmatically as PNG-files. The choices made can easily be described in combination with these layer types\footnote{All code available at https://github.com/Tille88/thesis-map-generation}.
-
-\subsubsection{Element description}
-
-*Base Map*
-
-The Javascript library OpenLayers\footnote{https://openlayers.org/} was used to pull down a background map to a large\footnote{larger than 1,600*1,600 pixels, and later downsampled due to not knowing usage at the data generation stage.} HTML5 Canvas element (web-browser raster-API). The area was chosen arbitrarily as Greenwich, London - and the zoom-level was chosen manually to get an area with diverse set of background colours representing water, buildings and other infrastructure. The default OpenStreetMap visualisation type was used.
-
-This image data was then extracted and stored locally in order to be able to work with ease without internet connection, and when adding other layers it was pulled into the HTML5-Canvas from disk. 
-
-*Opacity Data Layer*
-
-In order not to have respondents making use of pre-existing knowledge or assumptions to the data given the common background of London, continuous data was generated using Perlin-noise [@Perlin85]\footnote{The implementation used to generate the noise was https://github.com/p5py/p5/blob/master/p5/pmath/rand.py }.
-
-All generated data was normalized to have the lowest value to be 0.0, and highest being 1.0 - mapping to the linear data mapping for examples shown to respondents as being between 0 and 100.
-
-Two different types were generated: one with-out falloff to the edges of the data area, only using pure Perlin noise within the area (see Figure Figure \ref{fig:no-falloff}), and the other one making sure there was a more centralized higher data area, with decreasing values towards the edges of the rectangular data area (Figure \ref{fig:falloff}).
-
-
-\begin{figure}
-     \centering
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/no-falloff.png}
-         \caption{No falloff}
-         \label{fig:no-falloff}
-     \end{subfigure}
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/falloff.png}
-         \caption{With falloff}
-         \label{fig:falloff}
-     \end{subfigure}
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/marker.png}
-         \caption{Marker}
-         \label{fig:marker}
-     \end{subfigure}
-        \caption{Map elements}
-        \label{fig:map-element-discussion}
-\end{figure}
-
-
-
-The noise data was put into the opacity value for a canvas image-element, with 1 of the 3 RGB-colour channels set to the max value (e.g. for red, canvas per that pixel was rgba(255, 0, 0, opacityValue)).
-
-In the following step, the base layer and map data layer was merged using the ctx.drawImage() of the HTML5 Canvas-API\footnote{This was also tested manually iterating over both the raster values of the base map and the data layer and combining them according to the Canvas opacity specification, but after seeng the results being identical, the simpler API was used}.
-
-*Marker*
-
-A marker was designed using vector-based SVG-API in the browser and overlaid at a randomized location within the data-extent. This was merged into the Canvas raster representation, and the value of the data later at the location was stored together with other metadata for each visualization to JSON (see Figure \ref{fig:marker}).
-
-
-
-*Legends*
-
-All legends were created using the Canvas API, in order to add text, background of legend and merge with data legend in a similar fashion as done between base map and data layer. Some specific points that are non-obvious described below:
-
-**Checkered legend type** - Following the ArcGIS design, a mid-level grey was used to generate a checkered-pattern as background.
-
-**Sampled legend type** - 5 different rectangular parts of the base map data of the size of the legend was extracted and chosen randomly for the sample images.
-
-**Clustered legend type** - Using kMeans clustering algorithm implementation in the base R language, was used to extract 10 "colour centers" representing common colours in the base map. These were then displayed as stripes behind the legend.
-
-
-\subsubsection{Data extraction procedure}
-
-Heavily relying on randomization for size of map area/perlin noise seed and marker location, Node.js and a headless browser was used in order to automatically extract 21 different examples in all combinations of: 
-
-\begin{itemize}
-    \item fully red, green, blue colour channel
-    \item 5 legend types
-\end{itemize}
-
-These Canvas representations were exposed as PNGs and stored to disk together with metadata in JSON. The resulting examples were 21 examples * 3 colour types * 5 legend types = 315 examples.
-
-
-
-
-
-
-\newpage
-
-
-\subsection{Appendix B - user interface and data serving setup}
-
-\subsubsection{Backend setup}
-
-The backend logic used was quite simple: for each respondent/session, a identifier for the session is generated through a UUID, and a progression following the logic described in section \ref{data-collection-ui} was sent back to the front-end\footnote{All backend code can be found at https://github.com/Tille88/thesis-back-end}. 
-
-The progression of the images started and ended with the Headline/no-legend type, and had the remaining 4 design type orders picked at random for the example progression images 2-5 and 6-9 respectively in order to maximize randomization. 
-
-The colours of the data layer were for all examples available in pure red, green and blue. For the first image in the progression a combination of these three colours was randomly generated and repeated for examples 1-10. The reason for changing the colours between the examples was to reduce the risk of the respondents remembering the colour-to-data mapping between examples.
-
-As an example: for the progression of images 1-10, three lists are generated: 
-
-1. a colour progression ["green", "blue", "red]
-2. a random list of numbers from the number of examples (21) [3, 14, 4, 10, 16, 2, 7, 9, 20]
-3. a selection of legend types [[first 5: no-legend{fixed}, random order of 4 remaining types], last 5: random order of 4 remaining types, [no-legend{fixed}]]
-
-Then these were combined as ["3-green-no-legend", "14-sampled-blue", "4-red-clustered", "10-green-annotated", ..., "20-green-no-legend"]
-
-The front-end receiving the progression requested these images in turn from the equivalent of a file-server that contained the sample images.
-
-The Node.js framework Express was used to make this functioning quickly and the interactions and responses sent back from the front-end was persisted in a MongoDB NoSQL database. Due to not having to run this online, this was done locally on the computer used for data collection.
-
-\subsubsection{Frontend setup}
-
-All front-end UI was created with HTML5, CSS and basic Javascript, shown in a Chrome web browser\footnote{All frontend code can be found at https://github.com/Tille88/thesis-front-end}.
-
-From the user-perspective, the user was first shown an introduction page giving some background and instructions as shown in the images in Figure \ref{fig:intro-page}.
-
-\begin{figure}
-     \centering
-     \begin{subfigure}[b]{0.55\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/intro1.png}
-         \caption{Introduction page start}
-         \label{fig:elem-introduction}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.55\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/intro2.png}
-         \caption{Elements - base map introduction}
-         \label{fig:elem-basemap}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.55\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/intro3.png}
-         \caption{Elements - data layer introduction}
-         \label{fig:elem-data}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.55\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/intro4.png}
-         \caption{Elements - legends introduction}
-         \label{fig:elem-legends}
-     \end{subfigure} 
-     \begin{subfigure}[b]{0.55\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/intro5.png}
-         \caption{Elements - marker introduction}
-         \label{fig:elem-marker}
-     \end{subfigure} 
-     \begin{subfigure}[b]{0.55\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/intro6.png}
-         \caption{Elements - response element introduction}
-         \label{fig:elem-response}
-     \end{subfigure} 
-        \caption{Introduction page progression}
-        \label{fig:intro-page}
-\end{figure}
-
-
-
-Following the introduction, and a verbal check on understanding the task, the session was initialized, receiving the progression of examples chosen randomly from the backend (UI example shown in Figure \ref{fig:progression-ui}).
-
-At the load of the image, a timer was started, and a number of events (hovering over image, response changes - with the current value of the input, location of hover, time of event, etc.) was logged locally. At the time of submission, all these event data, the time until submission and the final response value was sent back and persisted server-side. This was repeated 10 times.
-
-The user was not able to go back once an answer had been submitted, and the "submit button" was not active until the user had updated the value from the initially random value in the range of 0-100 (see Figure \ref{fig:submit-inactive} and \ref{fig:submit-active}).
-
-\begin{figure}
-     \centering
-     \begin{subfigure}[b]{0.6\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/exampleui.png}
-         \caption{Progression UI}
-         \label{fig:progression-ui}
-     \end{subfigure}
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/submit_inactive.png}
-         \caption{Submit inactive}
-         \label{fig:submit-inactive}
-     \end{subfigure}
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/submit_active.png}
-         \caption{Submit active}
-         \label{fig:submit-active}
-     \end{subfigure}
-        \caption{Progression UI}
-        \label{fig:pregression-ui-combined}
-\end{figure}
-
-
-Following the full 10 examples, the users were presented with acceptance questions as seen from images in Figure \ref{fig:acceptance-ui}.
-
-\begin{figure}
-     \centering
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/acceptance1.png}
-         \caption{Acceptance UI top}
-         \label{fig:acceptance-top}
-     \end{subfigure}
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/acceptance2.png}
-         \caption{Acceptance UI bottom}
-         \label{fig:acceptance-bottom}
-     \end{subfigure}
-        \caption{Acceptance UI}
-        \label{fig:acceptance-ui}
-\end{figure}
-
-
-All answers were sent back to the server and persisted. After final submission a message indicated the end of the session and task.
-
-
-\newpage
-
-\subsection{Appendix C - plots and tables}
+\subsection{Appendix A - plots and tables}
 
 Note: All analysis code and data for reproducing results can be found at https://github.com/Tille88/thesis-data-analysis
 
