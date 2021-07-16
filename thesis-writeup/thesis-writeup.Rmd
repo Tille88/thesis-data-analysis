@@ -344,7 +344,33 @@ Two different types were generated: one with-out falloff to the edges of the dat
 
 
 
-The noise data was put into the opacity value for a canvas image-element, with 1 of the 3 RGB-colour channels set to the max value (e.g. for red, canvas per that pixel was rgba(255, 0, 0, opacityValue)).
+The noise data was put into the opacity value for a canvas image-element, with 1 of the 3 RGB-colour channels set to the max value (e.g. for red, canvas per that pixel was rgba(255, 0, 0, opacityValue)). The same data overlay mapped to the different colours are shown in Figure \ref{fig:map-colors}
+
+
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/color_red.png}
+         \caption{Red opacity data layer}
+         \label{fig:color-red}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/color_green.png}
+         \caption{Green opacity data layer}
+         \label{fig:color-green}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{img/color_blue.png}
+         \caption{Blue opacity data layer}
+         \label{fig:color-blue}
+     \end{subfigure}
+        \caption{Identical data and marker positions for all colors}
+        \label{fig:map-colors}
+\end{figure}
+
 
 In the following step, the base layer and map data layer was merged using the ctx.drawImage() of the HTML5 Canvas-API\footnote{This was also tested manually iterating over both the raster values of the base map and the data layer and combining them according to the Canvas opacity specification, but after confirming the results to being identical, the simpler API was used}.
 
@@ -442,22 +468,23 @@ The user was not able to go back once an answer had been submitted, and the "sub
 
 \begin{figure}
      \centering
-     \begin{subfigure}[b]{0.6\textwidth}
+     \begin{subfigure}[b]{1.0\textwidth}
          \centering
          \includegraphics[width=\textwidth]{img/exampleui.png}
          \caption{Progression UI}
          \label{fig:progression-ui}
      \end{subfigure}
+     
      \begin{subfigure}[b]{0.3\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{img/submit_inactive.png}
-         \caption{Submit inactive}
+         \includegraphics[width=\textwidth]{img/submit_inactive_highlight.png}
+         \caption{Submit inactive - highlight in red}
          \label{fig:submit-inactive}
      \end{subfigure}
      \begin{subfigure}[b]{0.3\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{img/submit_active.png}
-         \caption{Submit active}
+         \includegraphics[width=\textwidth]{img/submit_active_highlight.png}
+         \caption{Submit active - highlight in red}
          \label{fig:submit-active}
      \end{subfigure}
         \caption{Progression UI}

@@ -107,6 +107,7 @@ And clean data for start of thesis analysis in
         - [x] Better chapter overview, describe how forms and colours generated and represented (move from Appendix), highlight not representing a physical variable but generated
     - [x] Change references to Appendix A-C....
     - [x] Fig 5 & table 2 (also describing text) -> Results, only methodology saying what will be done 
+- [x] Include examples of blue/red/green figure
 
 
 - [ ] PRINT -> Read through and simplify text, better reading flow
