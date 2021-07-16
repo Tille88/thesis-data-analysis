@@ -95,27 +95,23 @@ And clean data for start of thesis analysis in
     - [x] "Strongest" = significance? Most robust no matter how results and subsetting done
     - [x] More difficult to estimate value from the colour if value only in tittle, no comparison possible.
     - [x] Can highlight what makes people use web interface a bit unexpected
+- [x] Intro text for Background-section 
 
 
-
-<!-- SUNDAY -->
-
-- [ ] Read through and simplify text, better reading flow
+- [ ] Section 3 (METHODOLOGY), more clarity
     - [ ] Inline notes in thesis PDF (40309401_giv15jti_GISM01_2900-28.pdf)
-- [ ] Perception is focus, start many sections with highlighting that, simplify discussion of what has been studied
-- [ ] Section 3, more clarity
     - [ ] Say multiple variants that have been tested
-    - [ ] Like intro to methodology, testing 5, task basically guessing value at a specific location
-- [ ] Data collection
-    - [ ] Better chapter overview, describe how forms and colours generated and represented (move from Appendix), highlight not representing a physical variable but generated
-- [ ] More things in methodology that can be described, could be combined(?) to 1-5 roman fig. 4.
-- [ ] Intro text for Background-section 
-- [ ] Fig 5 & table 2 (also describing text) -> Results, only methodology saying what will be done 
-- [ ] "Magnitude" of estimates discussion, statistically significant to (degree 95% and similar)
+        - [ ] Like intro to methodology, testing 5, task basically guessing value at a specific location
+    - [ ] More things in methodology that can be described, could be combined(?) to 1-5 roman fig. 4.
+    - [ ] Fig 5 & table 2 (also describing text) -> Results, only methodology saying what will be done 
+    - [ ] Data collection
+        - [ ] Better chapter overview, describe how forms and colours generated and represented (move from Appendix), highlight not representing a physical variable but generated
+- [ ] Read through and simplify text, better reading flow
+    - [ ] Perception is focus, start many sections with highlighting that, simplify discussion of what has been studied
 
 <!-- Pre secondary draft -->
+- [ ] AGAIN: Print + read through and simplify text
 - [ ] Ask for review by collegue
-- [ ] AGAIN: Read through and simplify text
 
 <!-- PRE FINAL SUBMIT -->
 - [ ] Last TODOs in Rmarkdown file, inserted PDFs updated title and similar
