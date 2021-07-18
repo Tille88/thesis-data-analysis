@@ -111,7 +111,7 @@ And clean data for start of thesis analysis in
 
 
 - [ ] PRINT -> Read through and simplify text, better reading flow
-    - [ ] Perception is focus, start many sections with highlighting that, simplify discussion of what has been studied
+    - [x] Perception is focus, start many sections with highlighting that, simplify discussion of what has been studied
 
 <!-- Pre secondary draft -->
 - [ ] AGAIN: Print + read through and simplify text
