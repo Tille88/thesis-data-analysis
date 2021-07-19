@@ -170,15 +170,13 @@ This frequent exposure to maps creates a multiplying effect in the exposure of e
 
 \subsection{Previous related literature} \label{literature}
 
-**TODO: NOT YET REWRITTEN AFTER PRINT**
-
 Related literature can be found in a few different research areas which intersects with the scope of this study.
 
-In the field of perception and data visualization studies there is a long history on low-level studies measuring the ability of humans to correctly perceive different visual data encodings, such as position, length, angle, circle area, hue, etc. [@Cleveland828] and studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas [@Adelson2042]. A more recent example of low-level perception focus can be found in @Rosenholtz07 attempt to find quantitative measurements of clutter in visual mediums.
+In the field of perception and data visualization studies there is a long history on low-level studies measuring the ability of humans to correctly perceive different visual data encodings, such as position, length, angle, circle area, hue, etc. [@Cleveland828]. There are also studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas [@Adelson2042]. A more recent example of low-level perception focus can be found in @Rosenholtz07 attempt to find quantitative measurements of clutter in visual mediums. 
 
-For the higher-level tasks, @Tufte01 exemplifies attempts to bring these smaller encodings together to more stringently describe good data visualization practices. Muzner [-@brehmermuzner13] describes a gap between these low-level tasks, and high-level tasks in the data visualization literature.
+For higher-level tasks, @Tufte01 exemplifies attempts to bring these smaller encodings together to more stringently describe good data visualization practices. This corpus of literature usually tries to create design guidelines and best practices for data visualizations. 
 
-In recent years, researches commonly attempts to bridge the gap towards other scientific areas [@Kim17; @Kim19], incorporating mental models, uncertainty and Bayesian prior beliefs of subjects into the perception task and to bridge the combination of the lower-level tasks and relate them to efficient user experiences through e.g. preattentive processing - meaning differentiating objects of interest to the viewer [@Treisman85; @Findlay98; @Wolfe04].
+These efforts to quantify design choices and data encoding methods have been criticized where e.g. Muzner [-@brehmermuzner13] describes a gap between these low-level tasks, and high-level tasks in the data visualization literature. In recent years, researchers commonly attempts to bridge the gap towards other scientific areas [@Kim17; @Kim19], incorporating mental models, uncertainty and Bayesian prior beliefs of subjects into the perception task. The goal in this literature is to bridge the combination of the lower-level tasks and relate them to efficient user experiences through e.g. preattentive processing - meaning differentiating objects of interest to the viewer by giving it different encoding (e.g. giving data points of interest emphasis by encoding them in different colours than the other data points) [@Treisman85; @Findlay98; @Wolfe04].
 
 Transparency, and it's opposite (opacity) have been studied in the creation of mathematical transparency models [-@Metelli74] and recent literature heavily focused on computational rendering in a 3D/volume rendering context [e.g. @Chan09; and @Correa08].
 
@@ -186,15 +184,11 @@ Studies that cover transparency directly or indirectly for data visualization ar
 
 For map and perception studies, colour choices in a cartographic context is a large corpus, with @Brewer06 having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective.
 
-Combining explicit studies on transparency/opacity are rare. Some design of cartographic representations over as alternatives to choropleth maps have been making use of the alpha channel in order to preserve shape and topology in maps by using the alpha channel, instead of alternatives such as non-continuous cartograms that can alter shape/topology [@Roth10].
+Targeted literature on legends are likewise scarce, and are commonly highly tied to different visualization types. In a walk-through of proper data visualization practices, Evergreen and Metzner suggests that there is a clear importance of data-proximity of legend usage and placement *"Because human eyesight has only a narrow range of focus, graphics should be placed very near their associated text (Malamed, 2009; Ware, 2012). [...] if a legend is required in the visualization, it should be so near the corresponding data points that no eye movements are needed to relate the two."* [@Evergreen13]. 
 
-Targeted literature on legends are likewise scarce, and are commonly highly tied to different visualization types. In a walk-through of proper data visualization practices, Evergreen and Metzner suggests that there is a clear importance of data-proximity of legend usage and placement *"Because human eyesight has only a narrow range of focus, graphics should be placed very near their associated text (Malamed, 2009; Ware, 2012). [...] if a legend is required in the visualization, it should be so near the corresponding data points that no eye movements are needed to relate the two."* Direct labelling is seemed as preferable to legends altogether [@Evergreen13]. 
+Large part of the literature studying legends in the context of maps have a clear design focus. @Peterson99 introduced an interactive legend that allowed users to make changes to the map through the legend interactions, finding that users can get better understanding of maps through the interactions. Other design studies have looked at fairly narrow questions related to legend designs for maps using additional diagrams in combination with classic legends as a supplement to choropleth maps [@Cromley09; @Cromley06; @Chien19], and in other cases substituting the legend for a frequency histogram completely [@Kumar04].
 
-General legend design studies have been looking at legends that have are possible to interact with [@Riche10], but much of the literature is in the context of maps.
-
-Recent map legend literature similarly have a clear design focus, where some have focused on designs that allow increasing interactivity with the legend [@Mitbo07: @Peterson99], adapting legends and placements to where users are gazing/looking [@Gobel18] and attempts to provide guidance on the use of map legends in a “dynamic environment” [@Dykes10]. More focused design studies have looked at fairly narrow questions related to legend designs for maps "cumulative frequency legends and diagrams" as a supplement to choropleth maps [@Cromley09; @Cromley06; @Chien19], and using a "frequency histogram legend" as a substitute to traditional legends for classed and un-classed choropleth maps [@Kumar04].
-
-In a more holistic view on legend usage/design within web GIS, @Cybulski16 analyzed if animated maps that are published on the internet have designs that follow long-established guidelines within cartography, finding that they do follow the guidelines in general, but also that they are adapting to new technological and user circumstances.
+In a more holistic view on legend usage/design within web GIS, @Cybulski16 analyzed if animated maps that are published on the internet have designs that follow long-established guidelines within cartography. @Cybulski16 finds that these maps do follow the guidelines in general, but also that they are adapting to new technological and user circumstances.
 
 No intersection between legends and transparency, either in GIS-context or elsewhere, have been found in the literature review. This is largely supported in a literature study that aimed to find whether there were cartographic rules for effective legend designs *"[...]it is found that only one study was dedicated to the building of cartographic rules for effective legend design"* [@Zhe17].
 
@@ -962,6 +956,12 @@ standard_baseline_difference <- lm(percept_error_abs ~ legend,
 
 ```
 
+
+The regression results shown in Table \@ref(tab:abs-perception-errors) show that the results are consistent with the variance tests, where model (1) estimates are relative to the Headline reference category. All other legend types display lower errors, and are all statistically significantly lower than the errors for Headline, with the Annotated type being having the lowest average error of `r round(baseline_legend_of_use$coefficients[[2]], 2)` lower errors than headline type on the range that is between 0-100.
+
+In model (2), where Checkered is used as reference category (chosen due to both the research question formulation and the data distribution) the other designs are showing comparatively lower estimated errors, but none of those results are statistically significant.
+
+
 ```{r abs-perception-error-models-table, echo=FALSE, message = FALSE, results='asis'}
 stargazer(
   baseline_legend_of_use,
@@ -980,11 +980,6 @@ stargazer(
 
 
 ```
-
-The regression results shown in Table \@ref(tab:abs-perception-errors) show that the results are consistent with the variance tests, where model (1) estimates are relative to the Headline reference category. All other legend types display lower errors, and are all statistically significantly lower than the errors for Headline, with the Annotated type being having the lowest average error of `r round(baseline_legend_of_use$coefficients[[2]], 2)` lower errors than headline type on the range that is between 0-100.
-
-In model (2), where Checkered is used as reference category (chosen due to both the research question formulation and the data distribution) the other designs are showing comparatively lower estimated errors, but none of those results are statistically significant.
-
 
 
 ## Dependent variable: ACCEPTANCE
@@ -1120,7 +1115,7 @@ stargazer(
 ```
 
 
-A subsample of the 50th percentile on average more accurate respondents were created, and the same models as for the full sample using *|PERCEPTION ERROR|* as dependent variable was run. 
+A subsample of the 50th percentile on average more accurate respondents was created in order to evaluate if this would remove large error outliers and give more significant estimates. Identical models as in section \ref{subsection-perception-error}, using *|PERCEPTION ERROR|* as dependent variable were estimated. 
 
 
 ```{r models-outlier-removal-preprocessing, echo=FALSE, message = FALSE}
@@ -1140,7 +1135,7 @@ responses_an_accurate_viz = responses_an_viz %>% filter(uuid %in% resp_low_error
 
 ```
 
-Visual inspection based on Figure \@ref(fig:models-outlier-removal-plot) shows that there is still a wide distribution of values, where Headline and Clustered legend types have the higher average absolute error, while the other types both have  a number of high error outliers.
+Visual inspection based on Figure \@ref(fig:models-outlier-removal-plot) shows that there is still a large variance in the distribution. The Headline legend type still have the highest average absolute error. However, the Clustered, and not the Checkered legend design, has the second highest average absolute error for the subsample.
 
 ```{r models-outlier-removal-plot, out.width = '75%', fig.align = "center", fig.cap = "Absolute error - 50th percentile most accurate respondent subset", echo=FALSE, message = FALSE}
 # Absolute
@@ -1184,8 +1179,7 @@ standard_baseline_difference_accurate <- lm(percept_error_abs ~ legend,
 
 ```
 
-As seen in Table \@ref(tab:abs-perception-errors-accurate), which is corresponding to Table \@ref(tab:abs-perception-errors) for this subsample, all estimates are showing statistically lower absolute errors compared to Headline category, except Clustered legend type, which is not any longer statistically significant. Checkered is still kept as reference category in the models where Headline types have been excluded, even though it is not the category with the lowest *|PERCEPTION ERROR|*. In conclusion, there is no difference in the significance after removing the less accurate respondents, with no statistically significant results.
-
+As seen in Table \@ref(tab:abs-perception-errors-accurate), which corresponds to Table \@ref(tab:abs-perception-errors) for the full sample, all estimates except for Clustered still have lower absolute errors compared to Headline category that are statistically significant. For comparison, Checkered is still kept as reference category in the models where Headline types have been excluded from the sample. No statistically significant results were estimated for model (2), as was the case when using the full sample.
 
 ```{r models-outlier-removal-models-table, echo=FALSE, message = FALSE, results='asis'}
 stargazer(
@@ -1209,17 +1203,15 @@ stargazer(
 
 # Discussion
 
-This study investigated whether different legend design types can help in decoding transparency-mapped data in a web GIS visualization. The study also evaluated the responent-acceptance of four different legend designs, and a map without legend.
+This study has investigated whether different legend design types can help in decoding transparency-mapped data in a web GIS visualization. The study also evaluated the responent-acceptance of four different legend designs, and a map without legend.
 
 The results shows that in visualizations using transparency mapped overlays on top of a static base map, there is an influence of legend choices - as to if legends are included or not. It is evident that there is both a lower variance of errors in estimations from the respondents and more accurate results when there is a legend compared to when no legend (Headline type) is present. In other words, a legend makes visual comparisons possible and reduces estimation errors. 
 
 As @Evergreen13 have pointed out there are other alternatives to legends for visualization such as simplicifaction of visualization, direct labeling of data, colour choices, altering visual weight and make use of motion. However, legends is such a common element for map visualization, as shown by the relative prevalence of legend discussions in the map/GIS literature compared to the general data visualization literature.
 
-There were no clear results indicating differences in response accuracy depending on the type of legend, and there was quite a large variation in response accuracies in the sample overall. Notably as well was that the number of times the users changed their responses before submitting a response, or time until the users submitted their responses from the visualization rendering were not well-suited to act as a proxy variables for respondent-confidence or uncertainty. During the data collection this may have been due to different respondents making use of the computer and UI-input elements in wastly different ways, and sometimes being distracted from the task or asking clarifying questions. 
+There were no clear results indicating differences in response accuracy depending on the type of legend, and there was quite a large variation in response accuracies in the sample overall. Notably as well was that the number of times the users changed their responses before submitting a response, or time until the users submitted their responses from the visualization rendering were not well-suited to act as a proxy variables for respondent-confidence or uncertainty. During the data collection this may have been due to different respondents making use of the computer and UI-input elements in vastly different ways, and sometimes being distracted from the task or asking clarifying questions. 
 
-If keeping the data in the same range between examples would lead the respondents to stop using the legends after getting used to/internalizing the data mapping. Without this the errors would not be on the same scale, so it was deemed more suitable, and instead a post-collection testing of the possible prevalence of progression effects was to be relied on in addition to changing the colours between each example. Given that there was a consistently higher error for the Headline examples, and actually slightly higher errors for the last example compared to the first, this was unlikely to have affected the validity of the study.
-
-The most robust results were from the user preferences/acceptance of the different legend types, where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the "industry standard" as in the imitation of the Checkered legend type. For the proximity type, this may be due to the reduced need for "attention switching" [@Kern10] due to higher proximity to the data and marker.
+The most robust results were from the user preferences/acceptance of the different legend types, where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the Checkered legend type ("industry standard" imitation). For the Annotated legend design-type, this may be due to the reduced need for "attention switching" [@Kern10] due to higher proximity to the data and marker.
 
 A common feedback given by respondents was that it would be useful to have larger legends. The current legend size was chosen to imitate ArcGIS opacity legend as closely as possible, and to be identical in size between legend types.
 
@@ -1228,13 +1220,13 @@ In order to control the setting for data collections, the examples were somewhat
 \begin{itemize}
   \item Today, rather few complex data visualizations are lacking annotation or possibilities for interaction.
   \item All data area mappings were strictly rectangular in shape to allow for easy automated placement of the Annotated legend types.
-  \item Only one opacity data layer is included. Multiple and possibly overlapping opacity layers would result in compounding opaqueness. However, this seems like a good design choice for data encoding to avoid more than one data opacity layer.
-  \item The map data as base layer served more as a context, and realistic use case in terms of how data is viewed in common map applications. This layer was kept constant, and may not be representative of many other areas, and it is not clear how opacity mapping and legend are working for less complex (e.g. maps/backgrounds with less/no colours) or more complex backgrounds (e.g. aerial/satellite imagery).
+  \item Only one opacity data layer is included. However, this seems like a good design choice as multiple and possibly overlapping opacity layers would result in compounding opaqueness.
+  \item The base map layer was kept constant, and may not be representative of many other areas. It is not clear how opacity mapping and legend are working for less complex (e.g. maps/backgrounds with less/no colours) or more complex backgrounds (e.g. aerial/satellite imagery).
 \end{itemize}
 
-None of these factors, except from the last, ought to have strong implications for the external validity of the study, but ought to still be noted.
+None of these factors, except from the last, ought to have strong implications for the external validity of the study.
 
-The sampling was non-random convenience sampling. This was as earlier discussed in order to keep other factors as consistent as possible. The number of engineers was high among the respondents, but it seems difficult to speculate if this would skew the results in any meaningful way.  
+The sampling was using non-random convenience sampling. As outlined in section \ref{collection-info}, this was chosen in order to keep external factors, such as screen size and lighting, as consistent as possible. 
 
 
 
