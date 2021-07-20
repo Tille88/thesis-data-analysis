@@ -110,12 +110,14 @@ And clean data for start of thesis analysis in
 - [x] Include examples of blue/red/green figure
 
 
-- [ ] PRINT -> Read through and simplify text, better reading flow
+- [x] PRINT -> Read through and simplify text, better reading flow
     - [x] Perception is focus, start many sections with highlighting that, simplify discussion of what has been studied
 
 <!-- Pre secondary draft -->
-- [ ] AGAIN: Print + read through and simplify text
-- [ ] Ask for review by collegue
+- [x] AGAIN: Print + read through and simplify text
+- [x] Grammarly
 
 <!-- PRE FINAL SUBMIT -->
+- [ ] Ask for review by collegue
+- [ ] Use speech to text-read through full thesis
 - [ ] Last TODOs in Rmarkdown file, inserted PDFs updated title and similar
