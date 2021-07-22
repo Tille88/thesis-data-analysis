@@ -154,8 +154,7 @@ As will be discussed in section \ref{background}, legends have been studied, but
 - Can legends increase the accuracy of decoding opacity-mapped values compared to knowing only the range of the data being mapped?
 - Does legend designs that introduce more context from the base map or reduce the distance from legend to opacity-encoded data decrease decoding errors?
 - How are alternative legend design choices received by the subjects (subjective user acceptance testing)?
-**TO BE DISCUSSED WITH SUPERVISOR: CAN BE ANSWERED WITH THIS DATA -> REMOVE?**
-- Can decision times and user selection behaviour be affected by legend choices?
+- Can decision times and user selection behaviour be affected by legend choices? **TO BE DISCUSSED WITH SUPERVISOR: CAN BE ANSWERED WITH THIS DATA -> REMOVE? OR PERHAPS HIGHLIGHT MORE THAT LARGE OUTLIERS AND TOO NOISY DATA...**
 
 
 
@@ -183,7 +182,7 @@ For map and perception studies, colour choices in a cartographic context is a la
 
 Targeted literature on legends is often highly tied to different visualization types. In a walk-through of proper data visualization practices, Evergreen and Metzner suggest that there is clear importance of data-proximity of legend usage and placement *"Because human eyesight has only a narrow range of focus, graphics should be placed very near their associated text (Malamed, 2009; Ware, 2012). [...] if a legend is required in the visualization, it should be so near the corresponding data points that no eye movements are needed to relate the two."* [@Evergreen13]. 
 
-A large part of the literature studying legends in the context of maps has a clear design focus. @Peterson99 introduced an interactive legend that allowed users to make changes to the map through the legend interactions, finding that users can get a better understanding of maps through the interactions. Other design studies have looked at fairly narrow questions related to legend designs for maps. Examples of this design studies have been using additional diagrams in combination with classic legends as a supplement to choropleth maps [@Cromley09; @Cromley06; @Chien19], and in other cases substituting the legend for a frequency histogram altogether [@Kumar04].
+A large part of the literature studying legends in the context of maps has a clear design focus. @Peterson99 introduced an interactive legend that allowed users to make changes to the map through the legend interactions, finding that users can get a better understanding of maps through the interactions. Other design studies have looked at fairly narrow questions related to legend designs for maps. Examples of such design studies have been using additional diagrams in combination with classic legends as a supplement to choropleth maps [@Cromley09; @Cromley06; @Chien19], and in other cases substituting the legend for a frequency histogram altogether [@Kumar04].
 
 In a more holistic view on legend usage/design within web GIS, @Cybulski16 analyzed if animated maps that are published on the internet have designs that follow long-established guidelines within cartography. @Cybulski16 finds that these maps do follow the guidelines in general, but also that they are adapting to new technologies and user circumstances.
 
@@ -191,7 +190,7 @@ No intersection between legends and transparency, either in GIS-context or elsew
 
 # Methodology
 
-Five different map legend designs were generated and tested through a web user interface. Using this interface, the task for the respondents was to guess the value of the opacity-mapped overlay at the location of a marker.
+Five different map legend designs were generated and then shown to respondents through a web user interface. Using this interface, the task for the respondents was to guess the value of the opacity-mapped overlay at the location of a marker.
 
 The generation of the examples allowed all parts of the designs apart from the legends to be kept constant. This was done to control the exposure to the treatment (different legend designs, or absence of legends). The data layer used for opacity overlay was randomly generated.
 
@@ -330,7 +329,7 @@ Two different types were generated: one using pure Perlin noise within the area 
 
 
 
-The noise data was put into the opacity value for a canvas image element, with 1 of the 3 RGB-colour channels set to the max value, e.g. for red, canvas per that pixel was rgba(255, 0, 0, opacityValue). The same data overlay mapped to the different colours are shown in Figure \ref{fig:map-colors}.
+The Perlin noise data was put into the opacity value for a canvas image element, with 1 of the 3 RGB-colour channels set to the max value, e.g. for red, canvas per that pixel was rgba(255, 0, 0, opacityValue). The same data overlay mapped to the different colours are shown in Figure \ref{fig:map-colors}.
 
 
 \begin{figure}
@@ -933,7 +932,7 @@ stargazer(
   )
 ```
 
-As seen from Table \@ref(tab:bartlett-test), there is a statistically significant difference in the variance for the sample including the Headline type (p-value < 0.05), but that significance does not remain when excluding the Headline category.
+As seen from Table \@ref(tab:bartlett-test), there is a statistically significant difference in the variance for the sample including the Headline type (p-value < 0.05), but that significance does not remain when excluding the Headline category from the sample.
 
 \subsection{Dependent variable: |PERCEPTION ERROR|} \label{subsection-perception-error}
 
@@ -954,7 +953,7 @@ standard_baseline_difference <- lm(percept_error_abs ~ legend,
 ```
 
 
-The regression results in Table \@ref(tab:abs-perception-errors) show that the results are consistent with the variance tests, where model (1) estimates are relative to the Headline reference category. All other legend types display lower errors, and are all statistically significantly lower than the errors for Headline. The Annotated type had the lowest average error of `r round(baseline_legend_of_use$coefficients[[2]], 2)` lower errors than the Headline design on the range that is between 0-100.
+The regression results in Table \@ref(tab:abs-perception-errors) are consistent with the variance tests, where model (1) estimates are relative to the Headline reference category. All other legend types display lower errors, and are all statistically significantly lower than the errors for Headline. The Annotated type had the lowest average error of `r round(baseline_legend_of_use$coefficients[[2]], 2)` lower errors than the Headline design on the range that is between 0-100.
 
 In model (2), where Checkered is used as a reference category (chosen due to both the research question formulation and the data distribution) the other designs are showing comparatively lower estimated errors, but none of those results were statistically significant.
 

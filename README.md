@@ -116,8 +116,10 @@ And clean data for start of thesis analysis in
 <!-- Pre secondary draft -->
 - [x] AGAIN: Print + read through and simplify text
 - [x] Grammarly
+- [x] Use speech to text-read through full thesis
 
 <!-- PRE FINAL SUBMIT -->
 - [ ] Ask for review by collegue
-- [ ] Use speech to text-read through full thesis
+- [ ] Make clear 4 legends and 1 non-legend (minimum information for task) throughout
+- [ ] Numbering of pages check
 - [ ] Last TODOs in Rmarkdown file, inserted PDFs updated title and similar
