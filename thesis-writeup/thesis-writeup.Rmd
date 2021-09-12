@@ -1217,7 +1217,9 @@ stargazer(
   column.separate = c(1,1),
   dep.var.labels = c("|PERCEPTION ERROR|"),
   label = "tab:abs-perception-errors-accurate",
-  title="Absolute perception error models - above 50th percentile accuracy subsample"#,
+  title="Absolute perception error models - above 50th percentile accuracy subsample",
+  no.space = TRUE,
+  single.row = TRUE
   # float.env = "sidewaystable"
   )
 
