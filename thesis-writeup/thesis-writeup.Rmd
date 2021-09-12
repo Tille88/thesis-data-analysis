@@ -417,7 +417,7 @@ The Perlin noise data was put into the opacity value for a canvas image element,
 
 A front-end UI was developed using HTML5, CSS, and Javascript so that it could be displayed using any web browser\footnote{All frontend code can be found at https://github.com/Tille88/thesis-front-end}. In this system, the respondents were taken through three distinct stages:
 
-**View 1 - Introduction of task (Figure \ref{fig:intro-page})**
+**View 1 - Introduction of task (Part shown in figure \ref{fig:intro-page})**
 
 Introduction with instructions of the decoding task and the UI. The elements of the map (base map, data layer, marker, and legend) were shown visually together with the UI elements used to submit responses (slider, submit button). The respondents were explicitly asked to use the legends to guess/estimate the value of the data layer at the location of a randomly generated marker.
 
@@ -425,46 +425,28 @@ Following the introduction, and a verbal check on understanding the task, the se
 
 \begin{figure}
      \centering
-     \begin{subfigure}[b]{0.55\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/intro1.png}
-         \caption{Introduction page start}
-         \label{fig:elem-introduction}
-     \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.55\textwidth}
+     \begin{subfigure}[b]{0.4\textwidth}
          \centering
          \includegraphics[width=\textwidth]{img/intro2.png}
          \caption{Elements - base map introduction}
          \label{fig:elem-basemap}
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.55\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/intro3.png}
-         \caption{Elements - data layer introduction}
-         \label{fig:elem-data}
-     \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.55\textwidth}
+     \begin{subfigure}[b]{0.4\textwidth}
          \centering
          \includegraphics[width=\textwidth]{img/intro4.png}
          \caption{Elements - legends introduction}
          \label{fig:elem-legends}
      \end{subfigure} 
-     \begin{subfigure}[b]{0.55\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{img/intro5.png}
-         \caption{Elements - marker introduction}
-         \label{fig:elem-marker}
-     \end{subfigure} 
-     \begin{subfigure}[b]{0.55\textwidth}
+     \begin{subfigure}[b]{0.4\textwidth}
          \centering
          \includegraphics[width=\textwidth]{img/intro6.png}
          \caption{Elements - response element introduction}
          \label{fig:elem-response}
      \end{subfigure} 
-        \caption{Introduction page progression}
+        \caption{Introduction of task}
         \label{fig:intro-page}
 \end{figure}
 
@@ -507,7 +489,7 @@ The user was not able to go back once an answer had been submitted, and the "sub
 
 \begin{figure}
      \centering
-     \begin{subfigure}[b]{1.0\textwidth}
+     \begin{subfigure}[b]{0.6\textwidth}
          \centering
          \includegraphics[width=\textwidth]{img/exampleui.png}
          \caption{Progression UI}
@@ -536,13 +518,13 @@ After progressing through the 10 example images, the respondents were asked abou
 
 \begin{figure}
      \centering
-     \begin{subfigure}[b]{0.45\textwidth}
+     \begin{subfigure}[b]{0.35\textwidth}
          \centering
          \includegraphics[width=\textwidth]{img/acceptance1.png}
          \caption{Acceptance UI top}
          \label{fig:acceptance-top}
      \end{subfigure}
-     \begin{subfigure}[b]{0.45\textwidth}
+     \begin{subfigure}[b]{0.35\textwidth}
          \centering
          \includegraphics[width=\textwidth]{img/acceptance2.png}
          \caption{Acceptance UI bottom}
