@@ -155,7 +155,7 @@ ESRI's “ArcGIS Online” examples [@ArcgisBrightOnline; @ArcgisDarkOnline] usi
 
 - Do legends increase the accuracy of decoding opacity-mapped values over knowing only the range of the data being mapped (i.e. when no legend is included)?
 - How is decoding accuracy affected by legend designs that introduce more context from the base map or reduce the distance from legend to opacity-encoded data?
-- Do subjects perceive  legend designs with more context from the base map as as more helpful in decoding opacity mapped values?
+- Do subjects perceive  legend designs with more context from the base map as more helpful in decoding opacity mapped values?
 - How are decision times and user selection behaviour affected by legend choices? 
 
 
@@ -315,7 +315,7 @@ The 4 legend designs and the version without legend, are presented below, togeth
 
 <!-- **Baseline 1 - No legend ["Headline" in tables], (Figure \ref{fig:headline})** -->
 
-\emph{Baseline 1 No legend ["Headline" in tables], (Figure \ref{fig:headline})} - Only having a title indicating the range of values. Used to test the correctness of visual decoding by subjects without legend. Presented as the first and last example in the progression presented to the subjects.
+\emph{Baseline 1 No legend ["Headline" in tables], (Figure \ref{fig:headline})} - Only having a title indicating the range of values. Used to test the correctness of visual decoding by subjects without legend. Used as the first and last example in the progression presented to the subjects.
 
 <!-- **Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables], (Figure \ref{fig:checkered})** -->
 
@@ -453,7 +453,7 @@ Following the introduction, and a verbal check on understanding the task, the se
 
 **View 2 - Visual decoding of 10 examples, exposing the legend designs in semi-random order**
 
-Using the web interface of \emph{View 2}, the users visually estimated the value at the location of a marker within the overlay data area, one example at a time.
+Using the web interface of \emph{View 2}, the users visually estimated the value at the location of a marker within the overlay data area.
 
 Ten images picked by the back-end server from the 315 generated example combinations\footnote{3 colours * 21 random data and marker location variations * (5 legend designs + 1 no legend) = 315} were presented to the respondent one example at a time. 
 
@@ -1235,13 +1235,15 @@ This study has investigated whether different legend design types can help in de
 
 The results show that in visualizations using transparency mapped overlays on top of a static base map, there is an influence of legend choices - as to if legends are included or not. It is evident that there is both a lower variance of errors in estimations from the respondents and more accurate results when there is a legend compared to when no legend (Headline type) is present. In other words, a legend makes visual comparisons possible and reduces estimation errors. 
 
-There were no clear results indicating differences in response accuracy depending on the type of legend, and there was quite a large variation in response accuracies in the sample overall. These results, in combination with the significant results in that having a legend included reduces decoding errors, indicate that the decoding support from a legend helps create an reference point for the user, but that it is not very precise. Minor variations in presentation and context does not result in differences that are significant.
+There were no clear results indicating differences in response accuracy depending on the type/design of legend, and there was quite a large variation in response accuracies in the sample overall. These results, indicate that the decoding support from a legend helps create an reference point for the user, but that it is not very precise or sensitive to the design of the legend used. 
 
-The most robust results were from the user preferences/acceptance of the different legend types, where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the Checkered legend type ("industry standard" imitation). For the Annotated legend design type, this may be due to the reduced need for "attention switching" [@Kern10] due to higher proximity to the data and marker.
+The design variations did not alter anything but the legend background and placement. Size of the legends and other elements, such as labels were kept constant. The legend size in the study was chosen to imitate ArcGIS opacity legend as closely as possible and to be identical in size between legend types. Feedback were given by some respondents that it would be useful to have larger legends.
 
-Notably as well was that the number of times the users changed their responses before submitting a response, or the duration until the users submitted their responses from the visualization rendering were not well-suited to act as proxy variables for respondent confidence or uncertainty. During the data collection this may have been due to different respondents making use of the computer and UI-input elements in vastly different ways, and sometimes being distracted from the task or asking clarifying questions. This resulted in that it was not possible to draw conclusions decision times and user selection behaviour for different legend designs. For future studies, extensive user testing prior to data collection may be required to find more useful proxy variables for user uncertainty, or change the ways the users can interact with the interface.
+The most robust results were from the user preferences/acceptance of the different legend types, where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the Checkered legend type ("industry standard" imitation). For the Annotated legend design type, this may be due to the reduced need for "attention switching" [@Kern10] following higher proximity to the data and marker.
 
-Feedback were given by some respondents was that it would be useful to have larger legends. The legend size in the study was chosen to imitate ArcGIS opacity legend as closely as possible and to be identical in size between legend types.
+Notably as well was that the number of times the users changed their responses before submitting a response, or the duration until the users submitted their responses from the visualization rendering were not well-suited to act as proxy variables for respondent confidence or uncertainty. During the data collection this may have been due to different respondents making use of the computer and UI-input elements in vastly different ways, and sometimes being distracted from the task or asking clarifying questions. 
+
+This resulted in that it was not possible to draw conclusions decision times and user selection behaviour for different legend designs. For future studies, extensive user testing prior to data collection may be required to find more useful proxy variables for user uncertainty, or change the ways the users can interact with the interface.
 
 To control the setting for the data collection, the examples were somewhat contrived. 
 
