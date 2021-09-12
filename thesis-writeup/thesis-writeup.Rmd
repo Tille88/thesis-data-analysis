@@ -153,10 +153,10 @@ ESRI's “ArcGIS Online” examples [@ArcgisBrightOnline; @ArcgisDarkOnline] usi
 
 \subsection{Research questions} \label{introduction-res-questions}
 
-- Can legends increase the accuracy of decoding opacity-mapped values compared to knowing only the range of the data being mapped?
-- Does legend designs that introduce more context from the base map or reduce the distance from legend to opacity-encoded data decrease decoding errors?
-- How are alternative legend design choices received by the subjects (subjective user acceptance testing)?
-- Can decision times and user selection behaviour be affected by legend choices? **TO BE DISCUSSED WITH SUPERVISOR: CAN BE ANSWERED WITH THIS DATA -> REMOVE? OR PERHAPS HIGHLIGHT MORE THAT LARGE OUTLIERS AND TOO NOISY DATA...**
+- Do legends increase the accuracy of decoding opacity-mapped values over knowing only the range of the data being mapped (i.e. when no legend is included)?
+- How is decoding accuracy affected by legend designs that introduce more context from the base map or reduce the distance from legend to opacity-encoded data?
+- Do subjects perceive  legend designs with more context from the base map as as more helpful in decoding opacity mapped values?
+- Are decision times and user selection behaviour affected by legend choices? 
 
 
 
