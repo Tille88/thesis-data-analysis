@@ -156,7 +156,7 @@ ESRI's “ArcGIS Online” examples [@ArcgisBrightOnline; @ArcgisDarkOnline] usi
 - Do legends increase the accuracy of decoding opacity-mapped values over knowing only the range of the data being mapped (i.e. when no legend is included)?
 - How is decoding accuracy affected by legend designs that introduce more context from the base map or reduce the distance from legend to opacity-encoded data?
 - Do subjects perceive  legend designs with more context from the base map as as more helpful in decoding opacity mapped values?
-- Are decision times and user selection behaviour affected by legend choices? 
+- How are decision times and user selection behaviour affected by legend choices? 
 
 
 
@@ -419,7 +419,7 @@ A front-end UI was developed using HTML5, CSS, and Javascript so that it could b
 
 **View 1 - Introduction of task (Part shown in figure \ref{fig:intro-page})**
 
-Introduction with instructions of the decoding task and the UI. The elements of the map (base map, data layer, marker, and legend) were shown visually together with the UI elements used to submit responses (slider, submit button). The respondents were explicitly asked to use the legends to guess/estimate the value of the data layer at the location of a randomly generated marker.
+Introduction with instructions of the decoding task and the UI. The elements of the map (base map, data layer, marker, and legend) were shown visually together with the UI elements used to submit responses (slider, submit button). The respondents were explicitly asked to use the legends to estimate the value of the data layer at the location of a randomly generated marker. 
 
 Following the introduction, and a verbal check on understanding the task, the session was initialized by clicking a button in View 1.
 
@@ -453,6 +453,8 @@ Following the introduction, and a verbal check on understanding the task, the se
 
 **View 2 - Visual decoding of 10 examples, exposing the legend designs in semi-random order**
 
+Using the web interface of \emph{View 2}, the users visually estimated the value at the location of a marker within the overlay data area, one example at a time.
+
 Ten images picked by the back-end server from the 315 generated example combinations\footnote{3 colours * 21 random data and marker location variations * (5 legend designs + 1 no legend) = 315} were presented to the respondent one example at a time. 
 
 The progression of the images always started and ended with the baseline of Headline/no-legend type, and had the order of the 4 legend variations picked uniformly random for the example progression images 2-5 and 6-9 respectively. 
@@ -481,7 +483,7 @@ Then these were combined as ["3-green-no-legend", "14-sampled-blue", "4-red-clus
 
 
 
-The response (guess of the value at the marker) and some interactions by the respondents were persisted as the respondents went through the generated progression of 10 examples. The response for each example was picked using a slider in the UI covering the range of the data (0-100). The initial value of the slider was random, and the respondents were required to change the response before being able to progress to the next example image (UI example shown in Figure \ref{fig:progression-ui}).
+The response (estimate of the value at the marker) and some interactions by the respondents were persisted as the respondents went through the generated progression of 10 examples. The response for each example was picked using a slider in the UI covering the range of the data (0-100). The initial value of the slider was random, and the respondents were required to change the response before being able to progress to the next example image (UI example shown in Figure \ref{fig:progression-ui}).
 
 At the load of the image, a timer was started, and some events (mouse hovering over image, response changes of the slider, time of event relative to the example loading, etc.) were stored in the browser's memory. At the time of submission of an example, all event data, the time from load until submission, and the final response value was persisted server-side. This was repeated 10 times.
 
@@ -1233,9 +1235,11 @@ This study has investigated whether different legend design types can help in de
 
 The results show that in visualizations using transparency mapped overlays on top of a static base map, there is an influence of legend choices - as to if legends are included or not. It is evident that there is both a lower variance of errors in estimations from the respondents and more accurate results when there is a legend compared to when no legend (Headline type) is present. In other words, a legend makes visual comparisons possible and reduces estimation errors. 
 
-There were no clear results indicating differences in response accuracy depending on the type of legend, and there was quite a large variation in response accuracies in the sample overall. Notably as well was that the number of times the users changed their responses before submitting a response, or the duration until the users submitted their responses from the visualization rendering were not well-suited to act as proxy variables for respondent confidence or uncertainty. During the data collection this may have been due to different respondents making use of the computer and UI-input elements in vastly different ways, and sometimes being distracted from the task or asking clarifying questions. 
+There were no clear results indicating differences in response accuracy depending on the type of legend, and there was quite a large variation in response accuracies in the sample overall. These results, in combination with the significant results in that having a legend included reduces decoding errors, indicate that the decoding support from a legend helps create an reference point for the user, but that it is not very precise. Minor variations in presentation and context does not result in differences that are significant.
 
 The most robust results were from the user preferences/acceptance of the different legend types, where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the Checkered legend type ("industry standard" imitation). For the Annotated legend design type, this may be due to the reduced need for "attention switching" [@Kern10] due to higher proximity to the data and marker.
+
+Notably as well was that the number of times the users changed their responses before submitting a response, or the duration until the users submitted their responses from the visualization rendering were not well-suited to act as proxy variables for respondent confidence or uncertainty. During the data collection this may have been due to different respondents making use of the computer and UI-input elements in vastly different ways, and sometimes being distracted from the task or asking clarifying questions. This resulted in that it was not possible to draw conclusions decision times and user selection behaviour for different legend designs. For future studies, extensive user testing prior to data collection may be required to find more useful proxy variables for user uncertainty, or change the ways the users can interact with the interface.
 
 Feedback were given by some respondents was that it would be useful to have larger legends. The legend size in the study was chosen to imitate ArcGIS opacity legend as closely as possible and to be identical in size between legend types.
 
