@@ -22,6 +22,7 @@ font-family: Times New Roman
 linestretch: 1.5
 fontsize: 12pt
 papersize: a4
+geometry: margin=2cm
 
 bibliography: citation/references.bib
 csl: citation/elsevier-harvard.csl
@@ -39,6 +40,9 @@ csl: citation/elsevier-harvard.csl
 \listoffigures
 
 \listoftables
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.5cm}
 
 \newpage
 
