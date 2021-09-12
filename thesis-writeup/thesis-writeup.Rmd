@@ -205,61 +205,113 @@ The 4 legend designs and the version without legend, are presented below, togeth
 
 >  *It’s worth pointing out that unlike the color components which are often encoded using a non-linear transformation, alpha is stored linearly – encoded value of 0.5 corresponds to alpha value of 0.5 [@Ciechanowski19]*
 
- \begin{figure}
+
+\begin{figure}
      \centering
-     \begin{subfigure}[b]{0.58\textwidth}
+     \begin{subfigure}[b]{0.48\textwidth}
          \centering
          \fbox{
          \includegraphics[width=\textwidth]{img/cropped_headline_highlight.png}
          }
-         \caption{Baseline 1 - No legend ["Headline"], highlighted in blue}
+         \caption{Baseline 1 - No legend ["Headline"]}
          \label{fig:headline}
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.58\textwidth}
+     \begin{subfigure}[b]{0.48\textwidth}
          \centering
          \fbox{
          \includegraphics[width=\textwidth]{img/cropped_checkered_highlight.png}
          }
-         \caption{Baseline 2 – ArcGIS Imitation ["Checkered"], highlighted in blue}
+         \caption{Baseline 2 – ArcGIS Imitation ["Checkered"]}
          \label{fig:checkered}
      \end{subfigure}
-    \caption{Visualization baseline legend types (enlarged legend for clarity)}
-    \label{fig:legend-types-baseline}
-\end{figure}
- 
- 
-\begin{figure}
-     \centering
-     \begin{subfigure}[b]{0.58\textwidth}
+          \begin{subfigure}[b]{0.48\textwidth}
          \centering
          \fbox{
          \includegraphics[width=\textwidth]{img/cropped_sampled_highlight.png}
          }
-         \caption{sampled context ["Sampled"], highlighted in blue}
+         \caption{sampled context ["Sampled"]}
          \label{fig:sampled}
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.58\textwidth}
+     \begin{subfigure}[b]{0.48\textwidth}
          \centering
          \fbox{
          \includegraphics[width=\textwidth]{img/cropped_clustered_highlight.png}
          }
-         \caption{clustered colour bands ["Clustered"], highlighted in blue}
+         \caption{clustered colour bands ["Clustered"]}
          \label{fig:clustered}
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.58\textwidth}
+     \begin{subfigure}[b]{0.48\textwidth}
          \centering
          \fbox{
          \includegraphics[width=\textwidth]{img/cropped_annotated_highlight.png}
          }
-         \caption{Annotated Outline ["Annotated"], highlighted in blue}
+         \caption{Annotated Outline ["Annotated"]}
          \label{fig:annotated}
      \end{subfigure}
-        \caption{Visualization non-baseline legend types (enlarged legend for clarity)}
-        \label{fig:legend-types-non-baseline}
-\end{figure} 
+    \caption{Visualization legend types and design with no legend (enlarged legend for clarity, highlighted in blue)}
+    \label{fig:legend-types}
+\end{figure}
+ 
+ 
+
+<!--  \begin{figure} -->
+<!--      \centering -->
+<!--      \begin{subfigure}[b]{0.58\textwidth} -->
+<!--          \centering -->
+<!--          \fbox{ -->
+<!--          \includegraphics[width=\textwidth]{img/cropped_headline_highlight.png} -->
+<!--          } -->
+<!--          \caption{Baseline 1 - No legend ["Headline"], highlighted in blue} -->
+<!--          \label{fig:headline} -->
+<!--      \end{subfigure} -->
+<!--      \hfill -->
+<!--      \begin{subfigure}[b]{0.58\textwidth} -->
+<!--          \centering -->
+<!--          \fbox{ -->
+<!--          \includegraphics[width=\textwidth]{img/cropped_checkered_highlight.png} -->
+<!--          } -->
+<!--          \caption{Baseline 2 – ArcGIS Imitation ["Checkered"], highlighted in blue} -->
+<!--          \label{fig:checkered} -->
+<!--      \end{subfigure} -->
+<!--     \caption{Visualization baseline legend types (enlarged legend for clarity)} -->
+<!--     \label{fig:legend-types-baseline} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{figure} -->
+<!--      \centering -->
+<!--      \begin{subfigure}[b]{0.58\textwidth} -->
+<!--          \centering -->
+<!--          \fbox{ -->
+<!--          \includegraphics[width=\textwidth]{img/cropped_sampled_highlight.png} -->
+<!--          } -->
+<!--          \caption{sampled context ["Sampled"], highlighted in blue} -->
+<!--          \label{fig:sampled} -->
+<!--      \end{subfigure} -->
+<!--      \hfill -->
+<!--      \begin{subfigure}[b]{0.58\textwidth} -->
+<!--          \centering -->
+<!--          \fbox{ -->
+<!--          \includegraphics[width=\textwidth]{img/cropped_clustered_highlight.png} -->
+<!--          } -->
+<!--          \caption{clustered colour bands ["Clustered"], highlighted in blue} -->
+<!--          \label{fig:clustered} -->
+<!--      \end{subfigure} -->
+<!--      \hfill -->
+<!--      \begin{subfigure}[b]{0.58\textwidth} -->
+<!--          \centering -->
+<!--          \fbox{ -->
+<!--          \includegraphics[width=\textwidth]{img/cropped_annotated_highlight.png} -->
+<!--          } -->
+<!--          \caption{Annotated Outline ["Annotated"], highlighted in blue} -->
+<!--          \label{fig:annotated} -->
+<!--      \end{subfigure} -->
+<!--         \caption{Visualization non-baseline legend types (enlarged legend for clarity)} -->
+<!--         \label{fig:legend-types-non-baseline} -->
+<!-- \end{figure}  -->
 
 <!-- **Baseline 1 - No legend ["Headline" in tables], (Figure \ref{fig:headline})** -->
 
@@ -285,18 +337,15 @@ One likely downside making it more difficult for subjects to accurately decode t
 
 In an attempt to move the information closer to the data an outline legend was placed next to the data polygon. The legend is contextualized by having the legend opacity viewed directly on top of the base map layer.
 
-\subsubsection{Legend design generation} \label{legend-generation}
+\subsubsection{Map example design and generation} \label{legend-generation}
 
 Several layers and elements were produced for the sample map images\footnote{All code available at https://github.com/Tille88/thesis-map-generation}. These building blocks of the example maps are described below.
 
 
-*Base Map*
+*Base Map* - The Javascript library OpenLayers\footnote{https://openlayers.org/} was used to download a background map to a large\footnote{larger than 1,600*1,600 pixels, and later downsampled due to not knowing usage at the data generation stage.} HTML5 Canvas element (web-browser raster-API). The area was chosen arbitrarily as Greenwich, London. The zoom level for the map was chosen manually to get an area with a diverse set of background colours representing water, buildings, and other infrastructure.
 
-The Javascript library OpenLayers\footnote{https://openlayers.org/} was used to download a background map to a large\footnote{larger than 1,600*1,600 pixels, and later downsampled due to not knowing usage at the data generation stage.} HTML5 Canvas element (web-browser raster-API). The area was chosen arbitrarily as Greenwich, London. The zoom level for the map was chosen manually to get an area with a diverse set of background colours representing water, buildings, and other infrastructure.
 
-*Opacity Data Layer*
-
-In order not to have respondents making use of pre-existing knowledge or assumptions, continuous data was generated using Perlin-noise [@Perlin85]\footnote{The implementation used to generate the noise was https://github.com/p5py/p5/blob/master/p5/pmath/rand.py }.
+*Opacity Data Layer* - In order not to have respondents making use of pre-existing knowledge or assumptions, continuous data was generated using Perlin-noise [@Perlin85]\footnote{The implementation used to generate the noise was https://github.com/p5py/p5/blob/master/p5/pmath/rand.py }.
 
 All generated data were normalized to have the lowest value to be 0, and the highest being 100.
 
@@ -356,13 +405,10 @@ The Perlin noise data was put into the opacity value for a canvas image element,
         \label{fig:map-colors}
 \end{figure}
 
-*Marker*
 
-A marker was designed using the vector-based SVG-API in the browser and overlaid at a randomized location within the data-extent (see Figure \ref{fig:marker}). This was merged into the Canvas raster representation, and the value of the data layer at the location was stored.
+*Marker* - A marker was designed using the vector-based SVG-API in the browser and overlaid at a randomized location within the data-extent (see Figure \ref{fig:marker}). This was merged into the Canvas raster representation, and the value of the data layer at the location was stored.
 
-*Legends*
-
-All legends were created using the Canvas API, similarly as was done for the base map and data layer. The different legend types have been described in detail in section \ref{legends-design}.
+*Legends* - All legends were created using the Canvas API, similarly as was done for the base map and data layer. The different legend types have been described in detail in section \ref{legends-design}.
 
 \subsection{Data collection} \label{data-collection}
 
