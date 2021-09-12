@@ -84,7 +84,7 @@ Having a base map for geographic context and the need to visualize other geospat
 
 > *In many visualization problems, it is desirable to present data in a layered form. This is especially common in geographic information systems (GISs). So that the contents of different layers are simultaneously visible, a useful technique is to present one layer of data transparently over another; however, there are many perceptual pitfalls in doing this. The contents of the different layers will always interfere with each other to some extent, and sometimes the two layers will fuse perceptually so that it is impossible to determine to which layer a given object belongs [@Ware20, p. 217].*
 
-An illustrative example of how choosing lower opacity can show more of the base map, while higher opacity can make the geographic context difficult to see can be seen in Figure \ref{fig:low-high-opacity-example}. With the low opacity, there is more of the base layer colour influencing the colour that is displayed to the user, which in turn could make decoding the data more difficult.
+An illustrative example of how choosing lower opacity can show more of the base map, while higher opacity can make the geographic context difficult to see can be found in Figure \ref{fig:low-high-opacity-example}. In this figure, the same data is mapped to 2 different ranges of opacity values. Figure \ref{fig:low-opacity-example} has the data mapped between opacity values of 0.2-0.6, while Figure \ref{fig:high-opacity-example} starts at 0.6 and ends at fully opaque (0.6-1.0). With the low opacity, there is more of the base layer colour influencing the colour that is displayed to the user, which in turn could make decoding the data more difficult.
 
 \begin{figure}
      \centering
@@ -150,8 +150,6 @@ ESRI's “ArcGIS Online” examples [@ArcgisBrightOnline; @ArcgisDarkOnline] usi
         \label{fig:arc-gis-opacity-legend-and-mapping}
 \end{figure}
  
-
-As will be discussed in section \ref{background}, legends have been studied, but not with a focus on transparency decoding or investigating alternative designs for transparency legends, such as contextualizing the legend or trying to increase the proximity of the legend to the opacity-encoded data. 
 
 \subsection{Research questions} \label{introduction-res-questions}
 
