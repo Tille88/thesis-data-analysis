@@ -115,7 +115,7 @@ An illustrative example of how choosing lower opacity can show more of the base 
  
 This difficult decoding task can be made easier by interaction in web-based GIS systems. In those systems, a user can interact with the visualization to get values from e.g. tooltips on hover of the mouse over parts of the map. For static visualizations and on touch-screen devices (such as smartphones or tablets) mouse-hovering is not possible. A legend is therefore often used both in interactive and static web-GIS visualizations.
 
-This study aims to look at the efficiency of legend designs in visual opacity-to-value decoding tasks. The study also investigates which of 5 legend designs the participants of the study perceive as most helpful in the decoding task.
+This study aims to look at the efficiency of legend designs in visual opacity-to-value decoding tasks. The study also investigates which of 4 legend designs the participants of the study perceive as most helpful in the decoding task.
 
 The legend design of the enterprise GIS market leader Esri [@ArcgisIndex; @ArcgisPlatform] was together with the absence of a legend used as baselines to evaluate alternative legend designs against.
 
@@ -190,9 +190,9 @@ No intersection between legends and transparency, either in GIS-context or elsew
 
 # Methodology
 
-Five different map legend designs were generated and then shown to respondents through a web user interface. Using this interface, the task for the respondents was to guess the value of the opacity-mapped overlay at the location of a marker.
+Four different map legend designs, as well as a version without legend, were generated and then shown to respondents through a web user interface. Using this interface, the task for the respondents was to estimate the value of the opacity-mapped overlay at the location of a marker.
 
-The generation of the examples allowed all parts of the designs apart from the legends to be kept constant. This was done to control the exposure to the treatment (different legend designs, or absence of legends). The data layer used for opacity overlay was randomly generated.
+The generation of the examples allowed all parts of the designs apart from the legends to be kept constant. This was done to control the exposure to the treatment (different legend designs, or absence of legends). 
 
 
 \subsection{Legend design and generation} \label{legends}
@@ -201,7 +201,7 @@ The generation of the examples allowed all parts of the designs apart from the l
 
 The map designs were all static 2D maps shown using web technologies. The subjects were shown different legend designs and were asked to estimate the value at the location of a marker. The data was represented as a spatially distributed phenomenon mapped to opacity in a polygon overlaid on a base map, as in the ArcGIS online maps described in section \ref{introduction-opacity-gis}.
 
-The 5 legend design types are presented below, together with some justifications – where all legends and data mappings are linear in the opacity/alpha channel. This ought to introduce fewer complications than data-encoding using colour channels due to a linear encoding of the alpha/opacity-channel in the RGBA-model\footnote{RGBA = Red, Green, Blue, Alpha}:
+The 4 legend designs and the version without legend, are presented below, together with some justifications – where all legends and data mappings are linear in the opacity/alpha channel. This ought to introduce fewer complications than data-encoding using colour channels due to a linear encoding of the alpha/opacity-channel in the RGBA-model\footnote{RGBA = Red, Green, Blue, Alpha}:
 
 >  *It’s worth pointing out that unlike the color components which are often encoded using a non-linear transformation, alpha is stored linearly – encoded value of 0.5 corresponds to alpha value of 0.5 [@Ciechanowski19]*
 
@@ -212,7 +212,7 @@ The 5 legend design types are presented below, together with some justifications
          \fbox{
          \includegraphics[width=\textwidth]{img/cropped_headline_highlight.png}
          }
-         \caption{Baseline - No legend ["Headline"], highlighted in blue}
+         \caption{Baseline 1 - No legend ["Headline"], highlighted in blue}
          \label{fig:headline}
      \end{subfigure}
      \hfill
@@ -221,7 +221,7 @@ The 5 legend design types are presented below, together with some justifications
          \fbox{
          \includegraphics[width=\textwidth]{img/cropped_checkered_highlight.png}
          }
-         \caption{Baseline2 – ArcGIS Imitation ["Checkered"], highlighted in blue}
+         \caption{Baseline 2 – ArcGIS Imitation ["Checkered"], highlighted in blue}
          \label{fig:checkered}
      \end{subfigure}
     \caption{Visualization baseline legend types (enlarged legend for clarity)}
@@ -261,27 +261,27 @@ The 5 legend design types are presented below, together with some justifications
         \label{fig:legend-types-non-baseline}
 \end{figure} 
 
-**Baseline 1 - No legend ["Headline" in tables], (Figure \ref{fig:headline})**
+<!-- **Baseline 1 - No legend ["Headline" in tables], (Figure \ref{fig:headline})** -->
 
-Only having a title indicating the range of values. Used to test the correctness of visual decoding by subjects without legend. Presented as the first and last example in the progression presented to the subjects.
+\emph{Baseline 1 No legend ["Headline" in tables], (Figure \ref{fig:headline})} - Only having a title indicating the range of values. Used to test the correctness of visual decoding by subjects without legend. Presented as the first and last example in the progression presented to the subjects.
 
-**Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables], (Figure \ref{fig:checkered})**
+<!-- **Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables], (Figure \ref{fig:checkered})** -->
 
-The design is used as a baseline for models that explore if alternative legend choices are helping in decoding values compared to the current "industry standard". 
+\emph{Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables], (Figure \ref{fig:checkered})} - The design is used as a baseline for models that explore if alternative legend choices are helping in decoding values compared to the current "industry standard". 
 
 One likely downside making it more difficult for subjects to accurately decode the data values is the lack of background-context in the legend, i.e. the colours in the legend do not interact with a coloured background as it does in the visualization. The remaining legend design types are all designed to combine the map base-layer background information into the legend.
  
-**Legend with sampled context ["Sampled" in tables], (Figure \ref{fig:sampled})** 
+<!-- **Legend with sampled context ["Sampled" in tables], (Figure \ref{fig:sampled})**  -->
 
-Sampling a rectangular area of the base layer as background to the opacity mapping in the legend.
+\emph{Legend with sampled context ["Sampled" in tables], (Figure \ref{fig:sampled})} - Sampling a rectangular area of the base layer as background to the opacity mapping in the legend.
 
-**Legend with clustered colour bands ["Clustered" in tables], (Figure \ref{fig:clustered})**
+<!-- **Legend with clustered colour bands ["Clustered" in tables], (Figure \ref{fig:clustered})** -->
 
-Using the most common colours in the base layer as a background for the legend. In the Clustered legend design, the 10 most common colours of the background map\footnote{Using kMeans clustering algorithm implementation in the base R language, was used to extract 10 "colour centers" representing common colours in the base map.} were displayed as strips/columns in a vertical manner behind the opacity data mapping. This way the most prevalent colours in the map provide a context for data-encoding in the legend. 
+\emph{Legend with clustered colour bands ["Clustered" in tables], (Figure \ref{fig:clustered})} - Using the most common colours in the base layer as a background for the legend. In the Clustered legend design, the 10 most common colours of the background map\footnote{Using kMeans clustering algorithm implementation in the base R language, was used to extract 10 "colour centers" representing common colours in the base map.} were displayed as strips/columns in a vertical manner behind the opacity data mapping. This way the most prevalent colours in the map provide a context for data-encoding in the legend. 
 
-**Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})**
+<!-- **Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})** -->
 
-The legend placement may heavily affect the users' ability to keep the information in near memory while moving the eyes back and forth between visualized data and the legend.
+\emph{Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})} - The legend placement may heavily affect the users' ability to keep the information in near memory while moving the eyes back and forth between visualized data and the legend.
 
 In an attempt to move the information closer to the data an outline legend was placed next to the data polygon. The legend is contextualized by having the legend opacity viewed directly on top of the base map layer.
 
@@ -425,9 +425,9 @@ Following the introduction, and a verbal check on understanding the task, the se
 
 **View 2 - Visual decoding of 10 examples, exposing the legend designs in semi-random order**
 
-Ten images picked by the back-end server from the 315 generated example combinations\footnote{3 colours * 21 random data and marker location variations * 5 legend types = 315} were presented to the respondent one example at a time. 
+Ten images picked by the back-end server from the 315 generated example combinations\footnote{3 colours * 21 random data and marker location variations * (5 legend designs + 1 no legend) = 315} were presented to the respondent one example at a time. 
 
-The progression of the images always started and ended with the baseline of Headline/no-legend type, and had the remaining 4 design type orders picked uniformly random for the example progression images 2-5 and 6-9 respectively. 
+The progression of the images always started and ended with the baseline of Headline/no-legend type, and had the order of the 4 legend variations picked uniformly random for the example progression images 2-5 and 6-9 respectively. 
 
 The colours of the data layer were available in pure red, green, and blue for all examples. For the first image in the progression, a combination of these three colours (e.g. ["Blue", "Red", "Green]) was randomly generated and repeated for examples 1-10. The reason for changing the colours between the examples was to reduce the risk of the respondents remembering the colour-to-data mapping between examples.
 
@@ -438,13 +438,13 @@ As an example: for the progression of images 1-10, three lists were generated:
 
 2. a random list of numbers from the number of examples (21), e.g. [3, 14, 4, 10, 16, 2, 7, 9, 20]
 
-3. a selection of legend types always starting with Headling/no-legend, e.g. 
+3. a selection of legend types always starting with Headline/no-legend, e.g. 
 
 [
 
-\indent \textbf{first 5:} headline, random order of 4 remaining legend types, 
+\indent \textbf{first 5:} headline, random order of 4 legend types, 
 
-\indent \textbf{last 5:} random order of 4 legend types excluding headline-type, headline
+\indent \textbf{last 5:} random order of 4 legend types, headline
 
 ]
 
@@ -551,7 +551,7 @@ responses_an_viz$legend <- factor(responses_an_viz$legend, levels = c("headline"
 
 **Treatment**
 
-*LEGEND* - categorical variable for each of the 5 legend types. The only part of visualization that is not randomized. Having values of Headline (no legend), Checkered, Clustered, Sampled, and Annotated, corresponding to section \ref{legends}.
+*LEGEND* - categorical variable for each of the 4 legend types and no legend. The only part of visualization that is not randomized. Having values of Headline (no legend), Checkered, Clustered, Sampled, and Annotated, corresponding to section \ref{legends}.
 
 
 
@@ -680,7 +680,7 @@ Each of the 34 respondents completed the full survey, resulting in 340 responses
 
 **Dependent Variables**
 
-*PERCEPTION ERROR* - As seen in Figure \@ref(fig:response-error-visualization), the mean is centered around 0 for all legend designs. There are some visually distinguishable differences in distribution between the Headline (no legend) category having the largest variance and more outliers compared to the examples with legends. The figure has the mean indicated by a black dot, with 1 standard deviation in each direction shown by a range-whisker for each category.
+*PERCEPTION ERROR* - As seen in Figure \@ref(fig:response-error-visualization), the mean is centered around 0 for all categories of *LEGEND*. There are some visually distinguishable differences in distribution between the Headline (no legend) category having the largest variance and more outliers compared to the examples with legends. The figure has the mean indicated by a black dot, with 1 standard deviation in each direction shown by a range-whisker for each category.
 
 ```{r response-error-visualization, fig.pos = "h", out.width = '75%', fig.align = "center", fig.cap = "Perception error by visualization category", echo=FALSE}
 ggplot(responses_an_viz, aes(legend, percept_error, color=legend)) + 
