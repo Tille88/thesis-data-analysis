@@ -126,7 +126,7 @@ And clean data for start of thesis analysis in
 - [x] References before appendix
 - [x] Numbering of pages check
 - [x] Fixes abstract
-- [ ] Footnotes check through
+- [x] Footnotes check through
 - [ ] Discussion/conclusions
 
 Nästa steg:

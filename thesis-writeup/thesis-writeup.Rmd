@@ -475,7 +475,9 @@ Following the introduction, and a verbal check on understanding the task, the se
 
 Using the web interface of \emph{View 2}, the users visually estimated the value at the location of a marker within the overlay data area.
 
-Ten images picked by the back-end server from the 315 generated example combinations\footnote{3 colours * 21 random data and marker location variations * (5 legend designs + 1 no legend) = 315} were presented to the respondent one example at a time. 
+Ten images picked by the back-end server from the a large number of generated example combinations\footnote{
+All possible combinations of colours (3, being red/green/blue), random data and marker location variations (21 examples that were generated through automated scripts) and designs (5, made up from 4 legend designs + 1 no legend), resulting in 3 * 21 * 5 = 315 different examples
+} were presented to the respondent one example at a time. 
 
 The progression of the images always started and ended with the baseline of Headline/no-legend type, and had the order of the 4 legend variations picked uniformly random for the example progression images 2-5 and 6-9 respectively. 
 
