@@ -34,7 +34,7 @@ csl: citation/elsevier-harvard.csl
 
 \newpage
 \pagenumbering{roman}
-\setcounter{page}{6}
+\setcounter{page}{5}
 \tableofcontents 
 \newpage
 
@@ -61,6 +61,11 @@ csl: citation/elsevier-harvard.csl
 \end{acronym}
 
 
+
+<!-- Empty page for print formatting reasons -->
+\newpage 
+\thispagestyle{empty}
+\ 
 
 \newpage
 
@@ -89,7 +94,6 @@ library(zoo)
 
 \pagenumbering{arabic} 
 
-<!-- TODO-FINAL-SUB: CHECK THAT page should start on an uneven page number on the right side of your open report. -->
 
 \section{Introduction} \label{introduction}
 
@@ -1275,14 +1279,16 @@ None of these factors, except the last, ought to have strong implications for th
 The sampling was using non-random convenience sampling. As outlined in section \ref{collection-info}, this was chosen to keep external factors, such as screen size and lighting, as consistent as possible. 
 
 
+\newpage
 
+# References
 
+<div id="refs"></div>
 
 
 \newpage
 
 \section{Appendices} \label{appendices}
-
 
 \subsection{Appendix A - plots and tables}
 
@@ -1442,10 +1448,6 @@ stargazer(
 
 
 
-
-\newpage
-
-# References
 
 
 

@@ -117,8 +117,17 @@ And clean data for start of thesis analysis in
 - [x] AGAIN: Print + read through and simplify text
 - [x] Grammarly
 - [x] Use speech to text-read through full thesis
-
-<!-- PRE FINAL SUBMIT -->
 - [x] Make clear 4 legends and 1 non-legend (minimum information for task) throughout
-- [ ] Numbering of pages check
-- [ ] Last TODOs in Rmarkdown file, inserted PDFs updated title and similar
+
+<!-- Pre third draft -->
+- [x] Add front page
+- [x] Larger fig 6
+- [x] Add abbreviations
+- [x] References before appendix
+- [x] Numbering of pages check
+- [ ] Fixes abstract
+- [ ] Footnotes check through
+- [ ] Discussion/conclusions
+
+Nästa steg:
+- [ ] Check notes application for how to flag to department admin
