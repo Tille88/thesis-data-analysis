@@ -128,6 +128,12 @@ And clean data for start of thesis analysis in
 - [x] Fixes abstract
 - [x] Footnotes check through
 - [ ] Discussion/conclusions
+    - [x] Remove paragraph that should not be part of discussion
+    - [x] Rename to also include conclusions
+    - [x] Research questions explicitly listed (1-4)
+    - [ ] Close of discussion
 
 Nästa steg:
+- [ ] Check all numbering correct, figures/tables in correct place, etc. before submitting
+- [ ] Read through conclusions thoroughly, make sure has a good flow
 - [ ] Check notes application for how to flag to department admin
