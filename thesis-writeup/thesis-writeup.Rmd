@@ -17,6 +17,7 @@ header-includes:
   - \usepackage{caption}
   - \usepackage{subcaption}
   - \usepackage{rotating}
+  - \usepackage{acronym}
 mainfont: Times New Roman
 font-family: Times New Roman
 linestretch: 1.5
@@ -46,6 +47,23 @@ csl: citation/elsevier-harvard.csl
 
 \newpage
 
+\section*{List of abbreviations} 
+
+\begin{acronym}
+  \acro{API}{Application Programming Interface}
+  \acro{CSS}{Cascading Style Sheets}
+  \acro{ESRI}{Environmental Systems Research Institute, Inc.}
+  \acro{GIS}{Geographic Information System}
+  \acro{HTML5}{Hypertext Markup Language, 5th major version}
+  \acro{RGBA}{Red, Green, Blue, Alpha}
+  \acro{SVG}{Scalable Vector Graphics}
+  \acro{UI}{User Interface}
+\end{acronym}
+
+
+
+\newpage
+
 ```{r, setup, include=FALSE}
 # knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
 library(dplyr)
@@ -65,7 +83,6 @@ library(zoo)
 # library(stringr)
 # library(Hmisc)
 ```
-
 
 
 
@@ -425,8 +442,7 @@ Following the introduction, and a verbal check on understanding the task, the se
 
 \begin{figure}
      \centering
-     \hfill
-     \begin{subfigure}[b]{0.4\textwidth}
+     \begin{subfigure}[b]{0.6\textwidth}
          \centering
          \includegraphics[width=\textwidth]{img/intro2.png}
          \caption{Elements - base map introduction}
@@ -434,13 +450,13 @@ Following the introduction, and a verbal check on understanding the task, the se
      \end{subfigure}
      \hfill
      \hfill
-     \begin{subfigure}[b]{0.4\textwidth}
+     \begin{subfigure}[b]{0.6\textwidth}
          \centering
          \includegraphics[width=\textwidth]{img/intro4.png}
          \caption{Elements - legends introduction}
          \label{fig:elem-legends}
      \end{subfigure} 
-     \begin{subfigure}[b]{0.4\textwidth}
+     \begin{subfigure}[b]{0.6\textwidth}
          \centering
          \includegraphics[width=\textwidth]{img/intro6.png}
          \caption{Elements - response element introduction}
