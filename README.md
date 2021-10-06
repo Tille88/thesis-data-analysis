@@ -125,7 +125,7 @@ And clean data for start of thesis analysis in
 - [x] Add abbreviations
 - [x] References before appendix
 - [x] Numbering of pages check
-- [ ] Fixes abstract
+- [x] Fixes abstract
 - [ ] Footnotes check through
 - [ ] Discussion/conclusions
 
