@@ -1279,6 +1279,13 @@ None of these factors, except the last, ought to have strong implications for th
 
 The sampling was using non-random convenience sampling. As outlined in section \ref{collection-info}, this was chosen to keep external factors, such as screen size and lighting, as consistent as possible. 
 
+In the larger literature on data visualization, there has been discussions on the usefulness of legends in general. Alternatives such as simplifying the visualizations, directly labeling the data, altering visual weight and make use of motion to remove the need for legends have been suggested [@Evergreen13]. 
+
+In the field of cartography, legends containing map symbols are commonly listed as one of the essential elements of a map together with title, scale bar, north arrow and a few other elements [@Peterson09, p. 17]. This study showed that legends can effectively increase decoding accuracy  for complex visualizations (**RQ1**), where the the techniques described by @Evergreen13 may not be easy to implement. 
+
+The legend design variations created for this study to investigate a reduced need for "attention switching" through data-proximity from the legend [@Kern10; @Evergreen13] did not result in significantly higher decoding accuracy (**RQ2**), but was one of the designs preferred by the respondents (**RQ3**).
+
+
 
 \newpage
 
