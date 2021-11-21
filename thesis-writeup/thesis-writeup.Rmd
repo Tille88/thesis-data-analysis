@@ -18,6 +18,8 @@ header-includes:
   - \usepackage{subcaption}
   - \usepackage{rotating}
   - \usepackage{acronym}
+  - \usepackage{float}
+  - \floatplacement{figure}{H}
 mainfont: Times New Roman
 font-family: Times New Roman
 linestretch: 1.5
@@ -68,6 +70,7 @@ csl: citation/elsevier-harvard.csl
 \ 
 
 \newpage
+
 
 ```{r, setup, include=FALSE}
 # knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
@@ -714,6 +717,9 @@ error_tbl_summary$Legend <- as.character(error_tbl_summary$Legend)
 
 ```
 
+
+Each of the 34 respondents completed the full survey, resulting in 340 responses to the data-progression, and as seen they are distributed equally among the legend types by design (Table \ref{tab:responses-summary}).
+
 ```{r response_tbl_summary_output, echo=FALSE, message = FALSE, results='asis'}
 
 stargazer(
@@ -728,13 +734,11 @@ stargazer(
 
 ```
 
-Each of the 34 respondents completed the full survey, resulting in 340 responses to the data-progression, and as seen they are distributed equally among the legend types by design (Table \ref{tab:responses-summary}).
-
 **Dependent Variables**
 
 *PERCEPTION ERROR* - As seen in Figure \@ref(fig:response-error-visualization), the mean is centered around 0 for all categories of *LEGEND*. There are some visually distinguishable differences in distribution between the Headline (no legend) category having the largest variance and more outliers compared to the examples with legends. The figure has the mean indicated by a black dot, with 1 standard deviation in each direction shown by a range-whisker for each category.
 
-```{r response-error-visualization, fig.pos = "h", out.width = '75%', fig.align = "center", fig.cap = "Perception error by visualization category", echo=FALSE}
+```{r response-error-visualization, fig.pos = "h", out.width = '55%', fig.align = "center", fig.cap = "Perception error by visualization category", echo=FALSE}
 ggplot(responses_an_viz, aes(legend, percept_error, color=legend)) + 
   geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.3) +
   stat_summary(fun.data="mean_sdl", fun.args = list(mult = 1), 
@@ -753,7 +757,7 @@ defined for box plots as 1.5 times the interquartile  range [the height of the b
 } (visualized as dots outside above the "whiskers") for almost all categories, except for Headline, where the variance of the *|PERCEPTION ERROR|* is quite large.
 
 
-```{r abs-response-error-visualization, out.width = '75%', fig.align = "center", fig.cap = "Absolute error by visualization category", echo=FALSE}
+```{r abs-response-error-visualization, out.width = '55%', fig.align = "center", fig.cap = "Absolute error by visualization category", echo=FALSE}
 
 ggplot(responses_an_viz, aes(legend, percept_error_abs, color=legend)) +
   geom_boxplot()  +
@@ -1064,6 +1068,11 @@ ordered_acceptance_criterias$Mean <- round(ordered_acceptance_criterias$Mean, 2)
 
 ```
 
+
+
+Table \@ref(tab:ordered-acceptance) shows the average *ACCEPTANCE*-score for each legend type. As expected, having no legend at all (Headline) have the lowest acceptance scores, while the Sampled and Annotated legend types have average acceptance scores above 4 out of a maximum of 5.
+
+
 ```{r processing-acceptance-out, echo=FALSE, message = FALSE, results='asis'}
 stargazer(
   ordered_acceptance_criterias,
@@ -1073,9 +1082,6 @@ stargazer(
   title="Average acceptance scores by legend type"
   )
 ```
-
-Table \@ref(tab:ordered-acceptance) shows the average *ACCEPTANCE*-score for each legend type. As expected, having no legend at all (Headline) have the lowest acceptance scores, while the Sampled and Annotated legend types have average acceptance scores above 4 out of a maximum of 5.
-
 
 
 ```{r acceptance-data-processing-and-models, echo=FALSE, message = FALSE}
@@ -1144,8 +1150,6 @@ progression_effect_mod_baseline_check <- lm(percept_error_abs ~ factor(prog),
 
 The results can be found in Table \@ref(tab:progression-models). As seen, neither the linear trend variable nor the categorical variable for the last image in the progression was statistically significant. The estimate is even showing a slightly higher error for the last example on average compared to the first for the gathered sample of 68 (34 respondents, 2 examples per respondent).
 
-These results indicate that conducting further analysis on e.g. a subsample of the first 5 examples in the progression for each respondent is of little value, as it would most likely only result in halving the sample size.
-
 ```{r progression-models-table, echo=FALSE, message = FALSE, results='asis'}
 stargazer(
   progression_effect_mod,
@@ -1161,6 +1165,8 @@ stargazer(
   )
 
 ```
+
+These results indicate that conducting further analysis on e.g. a subsample of the first 5 examples in the progression for each respondent is of little value, as it would most likely only result in halving the sample size.
 
 
 A subsample of the 50th percentile on average more accurate respondents was created to evaluate if this would remove large error outliers and give more significant estimates. Identical models as in section \ref{subsection-perception-error}, using *|PERCEPTION ERROR|* as dependent variable were estimated. 
@@ -1185,7 +1191,7 @@ responses_an_accurate_viz = responses_an_viz %>% filter(uuid %in% resp_low_error
 
 Visual inspection based on Figure \@ref(fig:models-outlier-removal-plot) shows that there is still a large variance in the distribution. The Headline legend type still has the highest average absolute error. However, the Clustered, and not the Checkered legend design, has the second-highest average absolute error for the subsample.
 
-```{r models-outlier-removal-plot, out.width = '75%', fig.align = "center", fig.cap = "Absolute error - 50th percentile most accurate respondent subset", echo=FALSE, message = FALSE}
+```{r models-outlier-removal-plot, out.width = '55%', fig.align = "center", fig.cap = "Absolute error - 50th percentile most accurate respondent subset", echo=FALSE, message = FALSE}
 # Absolute
 # Not really anything that sticks out
 ggplot(responses_an_accurate_viz, aes(legend, percept_error_abs, color=legend)) +
