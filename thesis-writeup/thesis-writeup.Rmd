@@ -57,6 +57,7 @@ csl: citation/elsevier-harvard.csl
   \acro{ESRI}{Environmental Systems Research Institute, Inc.}
   \acro{GIS}{Geographic Information System}
   \acro{HTML5}{Hypertext Markup Language, 5th major version}
+  \acro{OLS}{Ordinary Least Squares}
   \acro{RGBA}{Red, Green, Blue, Alpha}
   \acro{SVG}{Scalable Vector Graphics}
   \acro{UI}{User Interface}
@@ -567,8 +568,13 @@ This resulted in a more consistent study, where the same laptop and Chrome web b
 
 ## Data analysis
 
-### Data and variable description
+Multiple models are estimated to evaluate the effect of the independent categorical variable of legend design. The dependent variables are estimation errors and acceptance scores. A full list of variables are given in section \ref{variable-info}.
 
+Outlined in section \ref{model-info}, Bertlett's statistical test is conducted to evaluate how the variance of the error are differing between the different legends. This is followed by Ordinary Least Squares (OLS) estimation with dependent variables that are not naturally centered around 0 - absolute estimation error and acceptance scores. Each legend design are encoded as separate dummy variables and estimated relative to a reference category that is chosen to answer the research questions.
+
+Section \label{robustness-info} describes the use of control variables and subsamples to be able to test the robustness of the results in section \ref{model-info}. 
+
+\subsubsection{Data and variable description} \label{variable-info}
 
 ```{r import-data-and-clean, cache=TRUE, echo=FALSE}
 source("./../data_read_in.R")
@@ -598,13 +604,6 @@ responses_an_viz$legend <- factor(responses_an_viz$legend, levels = c("headline"
 ```
 
 
-
-**Treatment**
-
-*LEGEND* - categorical variable for each of the 4 legend types and no legend. The only part of visualization that is not randomized. Having values of Headline (no legend), Checkered, Clustered, Sampled, and Annotated, corresponding to section \ref{legends}.
-
-
-
 **Dependent Variables**
 
 *PERCEPTION ERROR* - distance between the response value to the actual value of the location of the marker per visualization. 
@@ -613,7 +612,10 @@ responses_an_viz$legend <- factor(responses_an_viz$legend, levels = c("headline"
 
 *ACCEPTANCE* - objective valuation by participants on the usefulness of each legend type on a scale of 1-5. Opt-out responses of "No opinion" were allowed and treated as missing values in the statistical modeling. 
 
-**Independent/Control Variable Candidates**
+**Independent Variables**
+
+*LEGEND* - categorical variable for each of the 4 legend types and no legend. The only part of visualization that is not randomized, and designed to be the treatment variable for which effects are to be estimated. Having values of Headline (no legend), Checkered, Clustered, Sampled, and Annotated, corresponding to section \ref{legends}.
+
 
 Three variables were collected with the aim to find a good proxy variable for uncertainty:
 
@@ -629,34 +631,35 @@ Two variables were collected as potential control variables:
 
 *COLOUR* - visualization presented having opacity data layer mapped colour channel as pure red, green, or blue.
 
-### Hypothesis testing models
+
+\subsubsection{Hypothesis testing models} \label{model-info}
 
 For *PERCEPTION ERROR* the average value is likely centered around 0. Most statistical models are constructed to compare mean values between categories, which would not be able to give any indication of differences between the *PERCEPTION ERROR* for different legend designs. However, the distribution variance is of interest to estimate. 
 
 The parametric Bartlett's test \footnote{
 See https://en.wikipedia.org/wiki/Bartlett%27s_test and http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r for comparisons of standard statistical test for variance differences
-} is used to test statistical differences between multiple variances for multiple groups. In the study Bartlett's test is used to test if variances differ in a statistically significant way between the different legend types. This is done for both the full data including the Headline/no-legend type as a baseline, as well as a subset excluding the Headline type and using the Checkered design as a baseline.
+} is used to test if multiple categories all have equal variances. In the study Bartlett's test is used to test if variances differ in a statistically significant way between the different legend types. This is done for both the full data including the Headline/no-legend type, as well as a subset excluding the Headline type. Significant results for the tests would indicate that the distribution of errors differs between any of the legend categories included in the sample. 
 
-Due to that Bartlett's test assumes normality, Shapiro-Wilk tests [@Shapiro65] are first conducted to assert if the normality assumption holds. This will be done for all legend types pooled, with Headline removed from the pooled sample, as well as for the subsample of each legend type separately.  
+Due to that Bartlett's test assumes that data is normally distributed, Shapiro-Wilk tests [@Shapiro65] are first conducted to assert if the normality assumption holds. This will be done for all legend types pooled, with Headline removed from the pooled sample, as well as for the subsample of each legend type separately.  
 
-For variables that are not centered around 0, *|PERCEPTION ERROR|*, *ACCEPTANCE*, *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*, are examined using regular OLS-techniques (linear regression).
+For variables that are not centered around 0, *|PERCEPTION ERROR|*, *ACCEPTANCE*, *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*, are examined using regular OLS-techniques. Due to that the treatment variable *LEGEND* is categorical, each category is transformed into a separate dummy variable for each legend type. 
 
 To avoid multicollinearity, the baseline legend categories are interpreted as the intercept $\alpha$-estimate, against which the $\beta$-estimates and corresponding test statistics are compared against.
 
 The baseline OLS models estimated are of the form 
 
 \begin{equation*}
-|PERCEPTION ERROR|_{i} = \alpha + \beta_{1} LEGEND_{i} + \varepsilon_{i}
+|PERCEPTION ERROR|_{i} = \alpha + \beta_{i} LEGEND_{i} + \varepsilon_{i}
 \end{equation*}
 
 and
 
 \begin{equation*}
-ACCEPTANCE_{i} = \alpha + \beta_{1} LEGEND_{i} + \varepsilon_{i}
+ACCEPTANCE_{i} = \alpha + \beta_{i} LEGEND_{i} + \varepsilon_{i}
 \end{equation*}
 
 
-### Robustness checks
+\subsubsection{Robustness checks} \label{robustness-info}
 
 OLS models are estimated to see if there are any indications of time effects as the respondent went through the progression of 10 examples. This could be in either direction due to learning and/or fatigue.
 
@@ -666,7 +669,7 @@ Learning effects are likely to be negligible. This is due to that the subjects w
 |PERCEPTION ERROR|_{i} = \alpha + \beta_{1} PROGRESSION_{i} + \varepsilon_{i}
 \end{equation*}
 
-An alternative model will be run on the subset of only the first and last example (Headline/no-legend), to see if the response accuracy differed between the first and the last examples shown to respondents.
+An alternative model is run on the subset of only the first and last example (Headline/no-legend) encoded as a dummy variable, to see if the response accuracy differed between the first and the last examples shown to respondents.
 
 \begin{equation*}
 |PERCEPTION ERROR|_{i} = \alpha + \beta_{1} PROGRESSION LAST_{i} + \varepsilon_{i}
@@ -983,7 +986,9 @@ stargazer(
   )
 ```
 
-As seen from Table \@ref(tab:bartlett-test), there is a statistically significant difference in the variance for the sample including the Headline type (p-value < 0.05), but that significance does not remain when excluding the Headline category from the sample.
+As seen from Table \@ref(tab:bartlett-test), there is a statistically significant difference in the variance for the sample including the Headline type (p-value < 0.05). This indicates that when including the Headline category, the variance of the *PERCEPTION ERROR* is not the same for all categories.  
+
+The significance does not remain when excluding the Headline category from the sample (P=0.33). The null of that the variance of the legend designs created for the study are the same can not be rejected, i.e. using the Bartlett's test, the legend designs does not show differences in errors.
 
 \subsection{Dependent variable: |PERCEPTION ERROR|} \label{subsection-perception-error}
 
