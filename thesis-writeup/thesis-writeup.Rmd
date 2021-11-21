@@ -141,7 +141,7 @@ This difficult decoding task can be made easier by interaction in web-based GIS 
 
 This study aims to look at the efficiency of legend designs in visual opacity-to-value decoding tasks. The study also investigates which of 4 legend designs the participants of the study perceive as most helpful in the decoding task.
 
-The legend design of the enterprise GIS market leader Esri [@ArcgisIndex; @ArcgisPlatform] was together with the absence of a legend used as baselines to evaluate alternative legend designs against.
+The legend design of the enterprise GIS company Esri's "ArcGIS online" tool [@ArcgisIndex; @ArcgisPlatform] was together with the absence of a legend used as baselines to evaluate alternative legend designs against.
 
 ESRI's “ArcGIS Online” examples [@ArcgisBrightOnline; @ArcgisDarkOnline] using transparency are showing a legend that has a checkered background with white and mid-grey values (Figures \ref{fig:opacity-dark-background} and \ref{fig:opacity-bright-background}). This legend representation of transparency lacks any context of the visualization's base layer/map and is always displayed as a checkered mid-grey background under the opacity mapping. 
 
@@ -180,7 +180,7 @@ ESRI's “ArcGIS Online” examples [@ArcgisBrightOnline; @ArcgisDarkOnline] usi
 - **RQ1** - Do legends increase the accuracy of decoding opacity-mapped values over knowing only the range of the data being mapped (i.e. when no legend is included)?
 - **RQ2** - How is decoding accuracy affected by legend designs that introduce more context from the base map or reduce the distance from legend to opacity-encoded data?
 - **RQ3** - Do subjects perceive  legend designs with more context from the base map as more helpful in decoding opacity mapped values?
-- **RQ4** - How are decision times and user selection behaviour affected by legend choices? 
+- **RQ4** - How are decision times and user selection behaviour affected by legend designs? 
 
 
 
@@ -357,9 +357,7 @@ One likely downside making it more difficult for subjects to accurately decode t
 
 <!-- **Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})** -->
 
-\emph{Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})} - The legend placement may heavily affect the users' ability to keep the information in near memory while moving the eyes back and forth between visualized data and the legend.
-
-In an attempt to move the information closer to the data an outline legend was placed next to the data polygon. The legend is contextualized by having the legend opacity viewed directly on top of the base map layer.
+\emph{Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})} - The legend placement may heavily affect the users' ability to keep the information in near memory while moving the eyes back and forth between visualized data and the legend. In an attempt to move the information closer to the data an outline legend was placed next to the data polygon. The legend is contextualized by having the legend opacity viewed directly on top of the base map layer.
 
 \subsubsection{Map example design and generation} \label{legend-generation}
 
@@ -369,7 +367,7 @@ Several layers and elements were produced for the sample map images\footnote{All
 *Base Map* - The Javascript library OpenLayers\footnote{https://openlayers.org/} was used to download a background map to a large\footnote{larger than 1,600*1,600 pixels, and later downsampled due to not knowing usage at the data generation stage.} HTML5 Canvas element (web-browser raster-API). The area was chosen arbitrarily as Greenwich, London. The zoom level for the map was chosen manually to get an area with a diverse set of background colours representing water, buildings, and other infrastructure.
 
 
-*Opacity Data Layer* - In order not to have respondents making use of pre-existing knowledge or assumptions, continuous data was generated using Perlin-noise [@Perlin85]\footnote{The implementation used to generate the noise was https://github.com/p5py/p5/blob/master/p5/pmath/rand.py }.
+*Opacity Data Layer* - In order not to have respondents making use of pre-existing knowledge or assumptions, continuous data was generated using simulated Perlin-noise [@Perlin85]\footnote{The implementation used to generate the noise was https://github.com/p5py/p5/blob/master/p5/pmath/rand.py }. The Perlin-noise family of algorithms are an alternative to other ways to generate data, such as using random noise, pure trigonometrical functions or statistical distributions. Due to the unpredictable and highly natural look of Perlin-noise it is commonly used in computer-generated imagery (e.g. in computer generated art and in video games). 
 
 All generated data were normalized to have the lowest value to be 0, and the highest being 100.
 
@@ -486,27 +484,24 @@ The progression of the images always started and ended with the baseline of Head
 
 The colours of the data layer were available in pure red, green, and blue for all examples. For the first image in the progression, a combination of these three colours (e.g. ["Blue", "Red", "Green]) was randomly generated and repeated for examples 1-10. The reason for changing the colours between the examples was to reduce the risk of the respondents remembering the colour-to-data mapping between examples.
 
-The progression for each respondent was generated using a combination of colour, data example (data layer and marker location), and legend types using a simple algorithm\footnote{
+The progression for each respondent was generated using a combination of colour, data example (data layer and marker location), and legend types using a simple algorithm.
+
 As an example: for the progression of images 1-10, three lists were generated: 
 
-1. a colour progression, e.g. ["green", "blue", "red] that was circulated: green, blue, red, then starting with green again.
-
-2. a random list of numbers from the number of examples (21), e.g. [3, 14, 4, 10, 16, 2, 7, 9, 20]
-
-3. a selection of legend types always starting with Headline/no-legend, e.g. 
-
-[
-
-\indent \textbf{first 5:} headline, random order of 4 legend types, 
-
-\indent \textbf{last 5:} random order of 4 legend types, headline
-
-]
-
-Then these were combined as ["3-green-no-legend", "14-sampled-blue", "4-red-clustered", "10-green-annotated", ..., "20-green-no-legend"], corresponding to generated example images
-}.
+1. A random list of numbers from the number of examples (21), i.e. between 1-21, where each number could only be picked once per progression. \newline
+Example list of 10 elements (i): [3, 14, 4, 10, 16, 2, 7, 9, 12, 20]
 
 
+2. A colour progression, e.g. ["green", "blue", "red"] that was circulated: green, blue, red, then starting with green again. \newline
+Example list of 10 elements (ii): ["green", "blue", "red", "green", "blue", "red", "green", "blue", "red", "green"]
+
+
+3. A selection of legend types always starting and ending with Headline/no-legend: [\textbf{first 5 elements:} headline, random order of 4 legend types, \textbf{last 5 elements:} random order of 4 legend types, headline]. \newline
+Example list of 10 elements (iii): ["no-legend", "sampled", "clustered", "annotated", "checkered", "clustered", "checkered", "sampled", "annotated", "no-legend"]
+
+
+4. Then these lists (1-3) were combined into a progression, corresponding to the file names for the generated example images \newline
+Example list of of combined lists (i, ii, and iii): ["3-green-no-legend", "14-blue-sampled", "4-red-clustered", "10-green-annotated", "16-blue-checkered", "2-red-clustered", "7-green-checkered", "9-blue-sampled", "12-red-annotated", "20-green-no-legend"]
 
 The response (estimate of the value at the marker) and some interactions by the respondents were persisted as the respondents went through the generated progression of 10 examples. The response for each example was picked using a slider in the UI covering the range of the data (0-100). The initial value of the slider was random, and the respondents were required to change the response before being able to progress to the next example image (UI example shown in Figure \ref{fig:progression-ui}).
 
@@ -620,7 +615,7 @@ responses_an_viz$legend <- factor(responses_an_viz$legend, levels = c("headline"
 
 **Independent/Control Variable Candidates**
 
-Three variables were collected in the hope to find a good proxy variable for uncertainty:
+Three variables were collected with the aim to find a good proxy variable for uncertainty:
 
 *SUBMIT TIME* - time in seconds from the rendering of the example until the subject submitted their response.
 
@@ -752,16 +747,15 @@ ggplot(responses_an_viz, aes(legend, percept_error, color=legend)) +
   xlab("Legend")
 ```
 
-*|PERCEPTION ERROR|* - Figure \@ref(fig:abs-response-error-visualization) shows the same data as in Figure \@ref(fig:response-error-visualization) with an absolute transformation visualized as boxplots. The mean (visualized as a black point) differs between the categories, being highest for Headline type, and lowest for Annotated legend type. As can also be seen there are some outliers\footnote{
-defined for box plots as 1.5 times the interquartile  range [the height of the boxes] outside the interquartile range
-} (visualized as dots outside above the "whiskers") for almost all categories, except for Headline, where the variance of the *|PERCEPTION ERROR|* is quite large.
+*|PERCEPTION ERROR|* - Figure \@ref(fig:abs-response-error-visualization) shows the same data as in Figure \@ref(fig:response-error-visualization) with an absolute transformation. The mean differs between the categories, being highest for Headline type, and lowest for Annotated legend type. The variance of *|PERCEPTION ERROR|* is quite large throughout. The vast majority of categories have absolute errors heavily clustered below 20, but there are outliers above 30 for all categories except Annotated. 
 
 
 ```{r abs-response-error-visualization, out.width = '55%', fig.align = "center", fig.cap = "Absolute error by visualization category", echo=FALSE}
 
 ggplot(responses_an_viz, aes(legend, percept_error_abs, color=legend)) +
-  geom_boxplot()  +
-  stat_summary(fun="mean", geom="point", color="black") + 
+  geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.3) +
+    stat_summary(fun.data="mean_sdl", fun.args = list(mult = 1), 
+               geom="pointrange", color="black") + 
   theme_minimal() +
   theme(
     legend.position="none",
@@ -769,6 +763,7 @@ ggplot(responses_an_viz, aes(legend, percept_error_abs, color=legend)) +
   ) +
   ylab("Absolute Perception Error") +
   xlab("Legend")
+
 
 ```
 
@@ -1009,7 +1004,7 @@ standard_baseline_difference <- lm(percept_error_abs ~ legend,
 ```
 
 
-The regression results in Table \@ref(tab:abs-perception-errors) are consistent with the variance tests, where model (1) estimates are relative to the Headline reference category. All other legend types display lower errors, and are all statistically significantly lower than the errors for Headline. The Annotated type had the lowest average error of `r round(baseline_legend_of_use$coefficients[[2]], 2)` lower errors than the Headline design on the range that is between 0-100.
+The regression results in Table \@ref(tab:abs-perception-errors) are consistent with the variance tests, where model (1) estimates are relative to the Headline reference category. All other legend types display lower errors, and are all statistically significantly lower than the errors for Headline. The Annotated type had the lowest average error of `r round(baseline_legend_of_use$coefficients[[2]], 2)` lower errors than the Headline design.
 
 In model (2), where Checkered is used as a reference category (chosen due to both the research question formulation and the data distribution) the other designs are showing comparatively lower estimated errors, but none of those results were statistically significant.
 
@@ -1195,8 +1190,9 @@ Visual inspection based on Figure \@ref(fig:models-outlier-removal-plot) shows t
 # Absolute
 # Not really anything that sticks out
 ggplot(responses_an_accurate_viz, aes(legend, percept_error_abs, color=legend)) +
-  geom_boxplot()  +
-  stat_summary(fun="mean", geom="point", color="black") +
+  geom_violin() + geom_jitter(height = 0, width = 0.1, alpha=0.3) +
+    stat_summary(fun.data="mean_sdl", fun.args = list(mult = 1), 
+               geom="pointrange", color="black") + 
   theme_minimal() +
   theme(
     legend.position="none",
@@ -1204,6 +1200,7 @@ ggplot(responses_an_accurate_viz, aes(legend, percept_error_abs, color=legend)) 
   ) +
   ylab("Absolute Perception Error") +
   xlab("Legend")
+
 
 ```
 
@@ -1261,9 +1258,9 @@ stargazer(
 
 This study has investigated whether different legend design types can help in decoding transparency-mapped data in a web GIS visualization. The study also evaluated the respondent-acceptance of four different legend designs and a map without legend.
 
-The results show that in visualizations using transparency mapped overlays on top of a static base map, there is an influence of legend choices - as to if legends are included or not. It is evident that there is both a lower variance of errors in estimations from the respondents and more accurate results when there is a legend compared to when no legend (Headline type) is present. In other words, a legend makes visual comparisons possible and reduces estimation errors (answering **RQ1**). 
+The results show that in visualizations using transparency mapped overlays on top of a static base map, there is an influence of legend choices - as to if legends are included or not. It is evident that there is both a lower variance of errors in estimations from the respondents and more accurate results when there is a legend compared to when no legend (Headline type) is present. In other words, a legend improves the ability to make visual comparisons and reduces estimation errors (answering **RQ1**). 
 
-There were no clear results indicating differences in response accuracy depending on the type/design of legend, and there was quite a large variation in response accuracies in the sample overall. These results, indicate that the decoding support from a legend helps create an reference point for the user, but that it is not very precise or sensitive to the design of the legend used  (**RQ2**).
+There are no clear results indicating differences in response accuracy depending on the type/design of legend, and there is quite a large variation in response accuracies in the sample overall. These results, indicate that the decoding support from a legend helps create an reference point for the user, but that it is not very precise or sensitive to the design of the legend used  (**RQ2**).
 
 The most robust results were from the user preferences/acceptance of the different legend types (**RQ3**), where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the Checkered legend type ("industry standard" imitation). For the Annotated legend design type, this may be due to the reduced need for "attention switching" [@Kern10] following higher proximity to the data and marker.
 
@@ -1283,7 +1280,7 @@ To control the setting for the data collection, the examples were somewhat contr
 
 None of these factors, except the last, ought to have strong implications for the external validity of the study.
 
-The sampling was using non-random convenience sampling. As outlined in section \ref{collection-info}, this was chosen to keep external factors, such as screen size and lighting, as consistent as possible. 
+The sampling was performed using non-random convenience sampling. As outlined in section \ref{collection-info}, this was chosen to keep external factors, such as screen size and lighting, as consistent as possible. 
 
 In the larger literature on data visualization, there has been discussions on the usefulness of legends in general. Alternatives such as simplifying the visualizations, directly labeling the data, altering visual weight and make use of motion to remove the need for legends have been suggested [@Evergreen13]. 
 
