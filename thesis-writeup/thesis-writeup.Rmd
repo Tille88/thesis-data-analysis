@@ -1021,7 +1021,8 @@ stargazer(
   column.separate = c(1,1),
   dep.var.labels = c("|PERCEPTION ERROR|"),
   label = "tab:abs-perception-errors",
-  title="Absolute perception error models"#,
+  title="Absolute perception error models",
+  omit.stat = c("adj.rsq", "rsq", "f", "ser")
   # float.env = "sidewaystable"
   )
 
@@ -1112,7 +1113,8 @@ stargazer(
   column.separate = c(1,1),
   dep.var.labels = c("ACCEPTANCE"),
   label = "tab:acceptance-models",
-  title="Acceptance-score models"
+  title="Acceptance-score models",
+  omit.stat = c("adj.rsq", "rsq", "f", "ser")
   )
 
 ```
@@ -1156,7 +1158,8 @@ stargazer(
   column.separate = c(1,1),
   dep.var.labels = c("|PERCEPTION ERROR|"),
   label = "tab:progression-models",
-  title="Progression effects regression results"
+  title="Progression effects regression results",
+  omit.stat = c("adj.rsq", "rsq", "f", "ser")
   )
 
 ```
@@ -1246,7 +1249,8 @@ stargazer(
   label = "tab:abs-perception-errors-accurate",
   title="Absolute perception error models - above 50th percentile accuracy subsample",
   no.space = TRUE,
-  single.row = TRUE
+  single.row = TRUE,
+  omit.stat = c("adj.rsq", "rsq", "f", "ser")
   # float.env = "sidewaystable"
   )
 
@@ -1416,7 +1420,8 @@ stargazer(
   column.separate = c(1,1),
   dep.var.labels = c("SUBMIT TIME"),
   label = "tab:models-time-to-submit",
-  title="Time to submit regression results"
+  title="Time to submit regression results",
+  omit.stat = c("adj.rsq", "rsq", "f", "ser")
   )
 
 ```
@@ -1434,7 +1439,8 @@ stargazer(
   column.separate = c(1,1),
   dep.var.labels = c("INPUT CHANGES"),
   label = "tab:models-input-changes",
-  title="Input changes regression results"
+  title="Input changes regression results",
+  omit.stat = c("adj.rsq", "rsq", "f", "ser")
   )
 
 ```
@@ -1451,7 +1457,8 @@ stargazer(
   column.separate = c(1,1),
   dep.var.labels = c("HOVER EVENTS"),
   label = "tab:models-hover-events",
-  title="Hover events regression results"
+  title="Hover events regression results",
+  omit.stat = c("adj.rsq", "rsq", "f", "ser")
   )
 
 ```
