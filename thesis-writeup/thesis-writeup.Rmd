@@ -541,6 +541,10 @@ The user was not able to go back once an answer had been submitted, and the "sub
         \label{fig:pregression-ui-combined}
 \end{figure}
 
+The reason for choosing 10 examples per respondent was to ensure a large amount of data could be collected with a limited number of respondents. During testing prior to data collection, this amount of examples were established to be possible to complete within less than ten minutes, and not be very tiring for the respondent. 
+
+Having each respondent being able to see each legend design twice, and have Headline/no-legend designs as first and last example, also allows easier testing of learning effects and being able to check if there are any major difference between not having a legend after being exposed to many examples.
+
 **View 3 - User acceptance**
 
 After progressing through the 10 example images, the respondents were asked about how helpful they considered the different legend types were for their task. This information was also sent back and persisted to the database (Figure \ref{fig:acceptance-ui}).
@@ -562,6 +566,8 @@ After progressing through the 10 example images, the respondents were asked abou
         \caption{Acceptance UI}
         \label{fig:acceptance-ui}
 \end{figure}
+
+After having to choose very precise numbers of a continuous scale between 0-100 for the prior step, a common web-form format and only five choices were chosen for user acceptance. These values can not be seen to be fully comparable, as they are more subjective and less precise than estimation errors, that can be measurable to the decimal level. In other words, for each respondent, you get an ordinal scale, but it is not necessarily comparable between respondents. That is also the reason for why each respondent had to give a value for each legend design to have a balanced data set for analysis.
 
 \subsubsection{Paricipants in the study} \label{collection-info}
 
