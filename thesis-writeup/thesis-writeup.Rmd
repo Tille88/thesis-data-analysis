@@ -142,6 +142,12 @@ This difficult decoding task can be made easier by interaction in web-based GIS 
 
 This study aims to look at the efficiency of legend designs in visual opacity-to-value decoding tasks. The study also investigates which of 4 legend designs the participants of the study perceive as most helpful in the decoding task.
 
+This is done using a web-based graphical user interface and having a focus group of people with medium to high previous experience using map services estimate the value of a marker by using different legend designs. 
+
+A user study was chosen due to being able to capture the responses of participants in a controlled environment. It would be possible to spread the responses more widely by publishing it on the Internet. However, to be able to control for if parts of the instructions were unclear to the participants were instrumental in collecting clean data. 
+
+Additionally, with a smaller focus group, you can also easily collect responses on the impressions of the legend designs. In comparison to more qualitative methodologies, such as in-depth interviews, you can get standardized and measurable results.  The choice of a user study does come with some caveats in what population the chosen sample of users is expected to be representative of. For this study, having users with some familiarity of reading maps or at least being heavily exposed to maps through navigation applications were chosen in order to ensure that common map elements and representations were familiar, and the minor design changes could be easily distinguishable.
+
 The legend design of the enterprise GIS company Esri's "ArcGIS online" tool [@ArcgisIndex; @ArcgisPlatform] was together with the absence of a legend used as baselines to evaluate alternative legend designs against.
 
 ESRI's “ArcGIS Online” examples [@ArcgisBrightOnline; @ArcgisDarkOnline] using transparency are showing a legend that has a checkered background with white and mid-grey values (Figures \ref{fig:opacity-dark-background} and \ref{fig:opacity-bright-background}). This legend representation of transparency lacks any context of the visualization's base layer/map and is always displayed as a checkered mid-grey background under the opacity mapping. 
@@ -557,13 +563,21 @@ After progressing through the 10 example images, the respondents were asked abou
         \label{fig:acceptance-ui}
 \end{figure}
 
-\subsubsection{Sample information} \label{collection-info}
+\subsubsection{Paricipants in the study} \label{collection-info}
 
-The survey data was collected between Jan 9th and Feb 6th, 2021, using convenience sampling. Many of the 34 respondents are employees at the Volvo Car Corporation Asia Pacific Head Quarter in Shanghai, China.
+The survey data was collected between Jan 9th and Feb 6th, 2021, using convenience sampling. A sample of participants with moderate to good experience of map reading was considered ideal with a relatively small sample size, and to increase the chance of understanding the task quickly. Participants with a background in software development, UI/UX designers and employees of companies with map services were requested to participate. As the data was collected during a time with COVID-restrictions, most participants were either working or visiting the work place of the author of the study, resulting in most of the 34 respondents being employees at the Volvo Car Corporation Asia Pacific Head Quarter in Shanghai, China, as well as vendors visiting the location.
+
+All participants had at least a bachelor degree. Most hold Master degrees in technical disciplines, and one participant held a doctorate in mathematics.
+
+The sample consisted of 7 women and 26 men. Approximately one third of the participants work with geospatial data on a weekly basis, while most of the remaining participants spend significant time testing vehicles and planning field tests routes using maps similar to the base map of the study. All of the participants were in the age range of 25-50, with most below the age of 35.
+
+The participants are on average expected to have better eyesight than the general population due to their relatively young age, but are more likely to have some variation of colour blindness due to the high proportion of men participating in the study. Colour blindness or eye sight was not asked or tested during the data collection.
 
 The initial plan was to put the survey online using cloud technologies for wider distribution. During the testing stage, it became clear that there was a need to check that the instructions were understood to reduce the variation in the data. Hence, a more qualitative methodology was chosen where the author was present in the room and asked the respondent if the task was understood after reading the instructions described in section \ref{data-collection-ui}. 
 
 This resulted in a more consistent study, where the same laptop and Chrome web browser was used by all data collection, and the lighting conditions were kept consistent. All 34 respondents did therefore see the examples of the same size on an identical screen and using the same rendering software.
+
+Due to each respondent providing responses to 10 example images, the resulting analyzed data sample was quite large. During the collection phase, some base models were estimated repeatedly to evaluate the results of a larger sample. At around 20 participants the results stabilized, but data collection was continued until the pool of suitable participants at the Volvo office was exhausted.
 
 
 ## Data analysis
