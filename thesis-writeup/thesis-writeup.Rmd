@@ -648,15 +648,15 @@ To avoid multicollinearity, the baseline legend categories are interpreted as th
 
 The baseline OLS models estimated are of the form 
 
-\begin{equation*}
+\begin{equation}
 |PERCEPTION ERROR|_{i} = \alpha + \beta_{i} LEGEND_{i} + \varepsilon_{i}
-\end{equation*}
+\end{equation}
 
 and
 
-\begin{equation*}
+\begin{equation}
 ACCEPTANCE_{i} = \alpha + \beta_{i} LEGEND_{i} + \varepsilon_{i}
-\end{equation*}
+\end{equation}
 
 
 \subsubsection{Robustness checks} \label{robustness-info}
@@ -665,15 +665,15 @@ OLS models are estimated to see if there are any indications of time effects as 
 
 Learning effects are likely to be negligible. This is due to that the subjects were not given any feedback on the correctness of their responses during the progression, and that different legend designs and data overlay colour were rotated.
 
-\begin{equation*}
+\begin{equation}
 |PERCEPTION ERROR|_{i} = \alpha + \beta_{1} PROGRESSION_{i} + \varepsilon_{i}
-\end{equation*}
+\end{equation}
 
 An alternative model is run on the subset of only the first and last example (Headline/no-legend) encoded as a dummy variable, to see if the response accuracy differed between the first and the last examples shown to respondents.
 
-\begin{equation*}
+\begin{equation}
 |PERCEPTION ERROR|_{i} = \alpha + \beta_{1} PROGRESSION LAST_{i} + \varepsilon_{i}
-\end{equation*}
+\end{equation}
 
 The results from these tests also feed into the possible need to do subsample analysis using only e.g. the first 5 responses of each respondent.
 
@@ -988,7 +988,7 @@ stargazer(
 
 As seen from Table \@ref(tab:bartlett-test), there is a statistically significant difference in the variance for the sample including the Headline type (p-value < 0.05). This indicates that when including the Headline category, the variance of the *PERCEPTION ERROR* is not the same for all categories.  
 
-The significance does not remain when excluding the Headline category from the sample (P=0.33). The null of that the variance of the legend designs created for the study are the same can not be rejected, i.e. using the Bartlett's test, the legend designs does not show differences in errors.
+The significance does not remain when excluding the Headline category from the sample (p=0.33). The null of that the variance of the legend designs created for the study are the same can not be rejected, i.e. using the Bartlett's test, the legend designs does not show differences in errors.
 
 \subsection{Dependent variable: |PERCEPTION ERROR|} \label{subsection-perception-error}
 
@@ -1009,7 +1009,13 @@ standard_baseline_difference <- lm(percept_error_abs ~ legend,
 ```
 
 
-The regression results in Table \@ref(tab:abs-perception-errors) are consistent with the variance tests, where model (1) estimates are relative to the Headline reference category. All other legend types display lower errors, and are all statistically significantly lower than the errors for Headline. The Annotated type had the lowest average error of `r round(baseline_legend_of_use$coefficients[[2]], 2)` lower errors than the Headline design.
+The way of reading of Table \@ref(tab:abs-perception-errors), as well as Tables \@ref(tab:ordered-acceptance), \@ref(tab:abs-perception-errors-accurate), \@ref(tab:models-time-to-submit), \@ref(tab:models-input-changes), \@ref(tab:models-hover-events) are identical. The dependent variable is displayed at the top corresponding to the variable on the left side of equation (1) in section \ref{model-info}. Two different models columns are listing which variable are used as reference  estimate $\alpha$ in equation (1). For each column the estimate for that category can be found under the "Constant/Reference" column. So for Model (1), the average error for the Headline design is `r round(baseline_legend_of_use$coefficients[[1]], 2)`. This also means that for model (2) where Checkered is the reference category, there is no estimate for the Checkered column.
+
+The estimates for the other rows (Annotated, Checkered, Clustered and Sampled), corresponds the $\beta$-estimates in equation (1), and are relative to the reference category. In Model (1) in Table \@ref(tab:abs-perception-errors), Annotated has an average error relative to the headline category of `r round(baseline_legend_of_use$coefficients[[2]], 2)`, meaning that the actual estimated error is `r round(baseline_legend_of_use$coefficients[[1]], 3)`-`r round(baseline_legend_of_use$coefficients[[2]], 3)`=`r round(baseline_legend_of_use$coefficients[[1]]+baseline_legend_of_use$coefficients[[2]], 3)`.
+
+The regression results in Table \@ref(tab:abs-perception-errors) are consistent with the variance tests, where model (1) estimates are relative to the Headline reference category. 
+
+All other legend types display lower errors, and are all statistically significantly lower than the errors for Headline. The Annotated type had the lowest average error of `r round(baseline_legend_of_use$coefficients[[2]], 2)` lower errors than the Headline design.
 
 In model (2), where Checkered is used as a reference category (chosen due to both the research question formulation and the data distribution) the other designs are showing comparatively lower estimated errors, but none of those results were statistically significant.
 
