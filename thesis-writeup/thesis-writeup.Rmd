@@ -144,9 +144,9 @@ This study aims to look at the efficiency of legend designs in visual opacity-to
 
 This is done using a web-based graphical user interface and having a focus group of people with medium to high previous experience using map services estimate the value of a marker by using different legend designs. 
 
-A user study was chosen due to being able to capture the responses of participants in a controlled environment. It would be possible to spread the responses more widely by publishing it on the Internet. However, to be able to control for if parts of the instructions were unclear to the participants were instrumental in collecting clean data. 
+A user study was chosen due to being able to capture the responses of participants in a controlled environment. It would be possible to get more responses by publishing it on the Internet. However, to be able to control if parts of the instructions were unclear to the participants were instrumental in collecting clean data. 
 
-Additionally, with a smaller focus group, you can also easily collect responses on the impressions of the legend designs. In comparison to more qualitative methodologies, such as in-depth interviews, you can get standardized and measurable results.  The choice of a user study does come with some caveats in what population the chosen sample of users is expected to be representative of. For this study, having users with some familiarity of reading maps or at least being heavily exposed to maps through navigation applications were chosen in order to ensure that common map elements and representations were familiar, and the minor design changes could be easily distinguishable.
+Additionally, with a smaller focus group, you can also easily collect responses on the impressions of the legend designs. In comparison to more qualitative methodologies, such as in-depth interviews, you can get standardized and measurable results.  The choice of a user study does come with some caveats in what population the chosen sample of users is expected to be representative of. For this study, having users with some familiarity with reading maps or at least being heavily exposed to maps through navigation applications were chosen to ensure that common map elements and representations were familiar, and the minor design changes could be easily distinguishable.
 
 The legend design of the enterprise GIS company Esri's "ArcGIS online" tool [@ArcgisIndex; @ArcgisPlatform] was together with the absence of a legend used as baselines to evaluate alternative legend designs against.
 
@@ -186,7 +186,7 @@ ESRI's “ArcGIS Online” examples [@ArcgisBrightOnline; @ArcgisDarkOnline] usi
 
 - **RQ1** - Do legends increase the accuracy of decoding opacity-mapped values over knowing only the range of the data being mapped (i.e. when no legend is included)?
 - **RQ2** - How is decoding accuracy affected by legend designs that introduce more context from the base map or reduce the distance from legend to opacity-encoded data?
-- **RQ3** - Do subjects perceive  legend designs with more context from the base map as more helpful in decoding opacity mapped values?
+- **RQ3** - Do subjects perceive legend designs with more context from the base map as more helpful in decoding opacity mapped values?
 - **RQ4** - How are decision times and user selection behaviour affected by legend designs? 
 
 
@@ -207,28 +207,28 @@ In the area of perception and data visualization studies, there is a long histor
 
 There are also studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas [@Adelson2042]. For higher-level tasks, @Tufte01 exemplifies attempts to bring these smaller encodings together to describe good data visualization practices. This corpus of literature usually tries to create design guidelines and best practices for data visualizations. 
 
-These efforts to quantify design choices and data encoding methods have been criticized, where e.g. Muzner [-@brehmermuzner13] describes a gap between these low-level tasks and high-level tasks in the data visualization literature. In recent years, researchers commonly attempt to bridge the gap towards other scientific areas [@Kim17; @Kim19], incorporating mental models, uncertainty, and Bayesian prior beliefs of subjects into the perception task. The goal in this literature is to bridge the combination of the lower-level tasks and relate them to efficient user experiences through e.g. preattentive processing - meaning differentiating objects of interest to the viewer by giving it different encoding (e.g. giving data points of interest emphasis by encoding them in different colours than the other data points) [@Treisman85; @Findlay98; @Wolfe04].
+These efforts to quantify design choices and data encoding methods have been criticized, where e.g. Muzner [-@brehmermuzner13] describes a gap between these low-level tasks and high-level tasks in the data visualization literature. In recent years, researchers have commonly attempted to bridge the gap towards other scientific areas [@Kim17; @Kim19], incorporating mental models, uncertainty, and Bayesian prior beliefs of subjects into the perception task. The goal in this literature is to bridge the combination of the lower-level tasks and relate them to efficient user experiences through e.g. preattentive processing - meaning differentiating objects of interest to the viewer by giving it different encoding (e.g. giving data points of interest emphasis by encoding them in different colours than the other data points) [@Treisman85; @Findlay98; @Wolfe04].
 
-A similar discourse is also present in the field of map visualizations. Cognitive cartography blends the fields of cognitive methods with how maps are used. This cover perception of e.g. colours, the need for users to keep information in their long term or working memory. The way this has commonly been studied through low level identification and decoding tasks and creating an controlled environment where the subjects don't interact with maps in a natural way have been criticized in a similar way as for the larger literature on data visualization [@Montello02].
+A similar discourse is also present in the field of map visualizations. Cognitive cartography blends the fields of cognitive methods with how maps are used. This cover perception of e.g. colours, the need for users to keep information in their long term or working memory. The way this has commonly been studied through low-level identification and decoding tasks and creating a controlled environment, where subjects may not interact with maps in a similar way they would outside of the experimental setting, has been criticized in, as for the larger literature on data visualization outline above [@Montello02].
 
 
 Studies that cover transparency directly or indirectly for 2D data visualization are rare. @Jo19 briefly mentions opacity: 
 
 > *To scale scatterplots, several approaches have been proposed, such as adaptive opacity [15, 30, 32] and aggregation [13, 53]. However, adaptive opacity does not scale well with the number of categories since multiple categorical colors become ambiguous when blended[..].*
 
-For map and perception studies, colour choices in a cartographic context is a large corpus, with @Brewer06 having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective. These online tools help in creating suitable colour scales taking into consideration factors such as contrast, usability for people with colour blindness, etc. [@Brewer03]. The colour schemes/palettes provided by the tool have been extensively used also in other data visualization fields outside of map making. 
+For map and perception studies, colour choices in a cartographic context is a large corpus, with @Brewer06 having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective. These online tools help in creating suitable colour scales taking into consideration factors such as contrast, usability for people with colour blindness, etc. [@Brewer03]. The colour schemes/palettes provided by the tool have been extensively used also in other data visualization fields outside of map-making. 
 
 @Brewer97 have also studied the use of colour scales, which is an alternative to using only a single colour as in this study. @Brewer97 states that "*Cartographers have long discouraged the use of spectral, or rainbow, color schemes on thematic maps of quantitative geographic data, though such color use is common in GIS and scientific visualization.*, but goes into detail on how spectral schemes can be useful if designed with care. 
 
-This level of care comes when using chosing any multiple of colours to encode data, the distance between different colours is perceptually ordered only for short sections, but not for the full spectrum. @Ware20 examplifies the issue: 
+This level of care comes when using choosing multiple colours to encode data, as the distance between different colours is perceptually ordered only for short sections, but not for the full spectrum. @Ware20 exemplifies the issue: 
 
 > *This can be demonstrated by the following test. Give someone a series of gray paint chips and ask them to place them in order. They will happily comply with either a dark-to-light ordering or a light-to-dark ordering. Give the same person paint chips with the colors red, green, yellow, and blue and ask them to place them in order, and the result will be varied. For most people, the request will not seem particularly meaningful. [@Ware20, p. 128].*
 
-Colour is necessarily one of the most common ways to encode and communicate information in maps and other visualization types, and the design of colour schemes for different use cases is a field where many variations and use cases are studied. In the greater literature on how to represent uncertainty in maps [e.g. @Cheong16; @Leitner00], there are also creation of dedicated colour schemes for as in @Seipel17's study on the colour map design when assessing flood risk using maps.
+Colour is necessarily one of the most common ways to encode and communicate information in maps and other visualization types, and the design of colour schemes for different use cases is a field where many variations and use cases are studied. In the greater literature on how to represent uncertainty in maps [e.g. @Cheong16; @Leitner00], there is also the creation of dedicated colour schemes for as in @Seipel17's study on the colour map design when assessing flood risk using maps.
 
 Colours and transparency interact by definition, as the output per pixel is a calculated composite of the colour of the transparent object and the colour of the items behind [@Porter84]. In the context of 3D models, and the ability to perceive objects clearly this is a major and well-studied problem. @Seipel20 have shown that in this context that distinct colours (evaluated using not only hue, but also perceptual properties) when fully opaque becomes difficult to distinguish when transparency is increased due to colour blending.  
 
-Other studies have looked at transparency/opacity more generally in distinguishing objects, finding that in computer based 3D modeled scenes reducing the transparency number of levels in the scene helps users in identification-tasks  [@Wang17].
+Other studies have looked at transparency/opacity more generally in distinguishing objects, finding that in computer-based 3D modelled scenes reducing the transparency number of levels in the scene helps users in identification tasks  [@Wang17].
 
 
 Targeted literature on legends is often highly tied to different visualization types. In a walk-through of proper data visualization practices, Evergreen and Metzner suggest that there is clear importance of data-proximity of legend usage and placement: 
@@ -241,7 +241,7 @@ In a more holistic view on legend usage/design within web GIS, @Cybulski16 analy
 
 No intersection between legends and transparency, either in GIS-context or elsewhere, has been found in the literature review. This is largely supported in the literature study "Grouping Rules for Effective Legend Design" by @Zhe17 that aimed to find whether there were cartographic rules for effective legend designs *"[...]it is found that only one study was dedicated to the building of cartographic rules for effective legend design"*.
 
-@Kiik17 evaluates some visualization alternatives in cartographic design of polygons, transparency being one of the alternatives, together with outlines/boundaries, hatches (texture within the polygons) and icons. The results with examples of multiple polygons the hatches design was more effective along many of the metrics gathered using eye-tracking technology, but the transparency design was preferred by most of the subjects. This study used multiple overlayed polygons with low opacity, creating a colour blending effect between the polygons.
+@Kiik17 evaluates some visualization alternatives in the cartographic design of polygons, transparency being one of the alternatives, together with outlines/boundaries, hatches (texture within the polygons) and icons. The results with examples of multiple polygons the hatches design was more effective along many of the metrics gathered using eye-tracking technology, but the transparency design was preferred by most of the subjects. This study used multiple overlayed polygons with low opacity, creating a colour blending effect between the polygons.
 
 
 # Methodology
@@ -320,7 +320,7 @@ The 4 legend designs and the version without legend, are presented below, togeth
 
 \emph{Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables], (Figure \ref{fig:checkered})} - The design is used as a baseline for models that explore if alternative legend choices are helping in decoding values compared to the current "industry standard". 
 
-One likely downside making it more difficult for subjects to accurately decode the data values is the lack of background-context in the legend, i.e. the colours in the legend do not interact with a coloured background as it does in the visualization. The remaining legend design types are all designed to combine the map base-layer background information into the legend.
+One likely downside making it more difficult for subjects to accurately decode the data values is the lack of background context in the legend, i.e. the colours in the legend do not interact with a coloured background as it does in the visualization. The remaining legend design types are all designed to combine the map base-layer background information into the legend.
  
 
 \emph{Legend with sampled context ["Sampled" in tables], (Figure \ref{fig:sampled})} - Sampling a rectangular area of the base layer as background to the opacity mapping in the legend.
@@ -339,7 +339,7 @@ Several layers and elements were produced for the sample map images\footnote{All
 *Base Map* - The Javascript library OpenLayers\footnote{https://openlayers.org/} was used to download a background map to a large\footnote{larger than 1,600*1,600 pixels, and later downsampled due to not knowing usage at the data generation stage.} HTML5 Canvas element (web-browser raster-API). The area was chosen arbitrarily as Greenwich, London. The zoom level for the map was chosen manually to get an area with a diverse set of background colours representing water, buildings, and other infrastructure.
 
 
-*Opacity Data Layer* - In order not to have respondents making use of pre-existing knowledge or assumptions, continuous data was generated using simulated Perlin-noise [@Perlin85]\footnote{The implementation used to generate the noise was https://github.com/p5py/p5/blob/master/p5/pmath/rand.py }. The Perlin-noise family of algorithms are an alternative to other ways to generate data, such as using random noise, pure trigonometrical functions or statistical distributions. Due to the unpredictable and highly natural look of Perlin-noise it is commonly used in computer-generated imagery (e.g. in computer generated art and in video games). 
+*Opacity Data Layer* - In order not to have respondents making use of pre-existing knowledge or assumptions, continuous data was generated using simulated Perlin-noise [@Perlin85]\footnote{The implementation used to generate the noise was https://github.com/p5py/p5/blob/master/p5/pmath/rand.py }. The Perlin-noise family of algorithms are an alternative to other ways to generate data, such as using random noise, pure trigonometrical functions or statistical distributions. Due to the unpredictable and highly natural look of Perlin-noise, it is commonly used in computer-generated imagery (e.g. in computer-generated art and in video games). 
 
 All generated data were normalized to have the lowest value to be 0, and the highest being 100.
 
@@ -411,9 +411,9 @@ To control the setting for the data collection, the examples were somewhat contr
 
 \begin{itemize}
   \item Today, rather few complex data visualizations are lacking annotation or possibilities for interaction.
-  \item All data area mappings were strictly rectangular in shape to allow for easy automated placement of the Annotated legend types.
+  \item All data area mappings were strictly rectangular to allow for easy automated placement of the Annotated legend types.
   \item Only one opacity data layer was included. However, this seems like a good design choice as multiple and possibly overlapping opacity layers would result in compounding opaqueness.
-  \item In order to keep the designs similar for the decoding task, the size of the legends were chosen to imitate the ArcGIS design. Verbal feedback was given by one respondent that it would be useful to have larger legends.
+  \item To keep the designs similar for the decoding task, the size of the legends were chosen to imitate the ArcGIS design. Verbal feedback was given by one respondent that it would be useful to have larger legends.
   \item The base map layer was kept constant, and may not be representative of other areas. It is not clear how opacity mapping and legend are working for less complex (e.g. maps/backgrounds with less/no colours) or more complex backgrounds (e.g. aerial/satellite imagery).
 \end{itemize}
 
@@ -464,7 +464,7 @@ Following the introduction, and a verbal check on understanding the task, the se
 
 Using the web interface of \emph{View 2}, the users visually estimated the value at the location of a marker within the overlay data area.
 
-Ten images picked by the back-end server from the a large number of generated example combinations\footnote{
+Ten images picked by the back-end server from a large number of generated example combinations\footnote{
 All possible combinations of colours (3, being red/green/blue), random data and marker location variations (21 examples that were generated through automated scripts) and designs (5, made up from 4 legend designs + 1 no legend), resulting in 3 * 21 * 5 = 315 different examples
 } were presented to the respondent one example at a time. 
 
@@ -524,7 +524,7 @@ The user was not able to go back once an answer had been submitted, and the "sub
 
 The reason for choosing 10 examples per respondent was to ensure a large amount of data could be collected with a limited number of respondents. During testing prior to data collection, this amount of examples were established to be possible to complete within less than ten minutes, and not be very tiring for the respondent. 
 
-Having each respondent being able to see each legend design twice, and have Headline/no-legend designs as first and last example, also allows easier testing of learning effects and being able to check if there are any major difference between not having a legend after being exposed to many examples.
+Having each respondent being able to see each legend design twice, and have Headline/no-legend designs as first and last example, also allows easier testing of learning effects and being able to check if there is any major differences between not having a legend after being exposed to many examples.
 
 **View 3 - User acceptance**
 
@@ -548,30 +548,30 @@ After progressing through the 10 example images, the respondents were asked abou
         \label{fig:acceptance-ui}
 \end{figure}
 
-After having to choose very precise numbers of a continuous scale between 0-100 for the prior step, a common web-form format and only five choices were chosen for user acceptance. These values can not be seen to be fully comparable, as they are more subjective and less precise than estimation errors, that can be measurable to the decimal level. In other words, for each respondent, you get an ordinal scale, but it is not necessarily comparable between respondents. That is also the reason for why each respondent had to give a value for each legend design to have a balanced data set for analysis.
+After having to choose very precise numbers of a continuous scale between 0-100 for the prior step, a common web-form format and only five choices were chosen for user acceptance. These values can not be seen to be fully comparable, as they are more subjective and less precise than estimation errors, which can be measured to the decimal level. In other words, for each respondent, you get an ordinal scale, but it is not necessarily comparable between respondents. That is also the reason why each respondent had to give a value for each legend design to have a balanced data set for analysis.
 
 \subsubsection{Paricipants in the study} \label{collection-info}
 
-The survey data was collected between Jan 9th and Feb 6th, 2021, using convenience sampling. A sample of participants with moderate to good experience of map reading was considered ideal with a relatively small sample size, and to increase the chance of understanding the task quickly. Participants with a background in software development, UI/UX designers and employees of companies with map services were requested to participate. As the data was collected during a time with COVID-restrictions, most participants were either working or visiting the work place of the author of the study, resulting in most of the 34 respondents being employees at the Volvo Car Corporation Asia Pacific Head Quarter in Shanghai, China, as well as vendors visiting the location.
+The survey data was collected between Jan 9th and Feb 6th, 2021, using convenience sampling. A sample of participants with moderate to good experience of map reading was considered ideal for a relatively small sample size, and to increase the chance of understanding the task quickly. Participants with a background in software development, UI/UX designers and employees of companies with map services were requested to participate. As the data was collected during a time with COVID-restrictions, most participants were either working or visiting the workplace of the author of the study, resulting in most of the 34 respondents being employees at the Volvo Car Corporation Asia Pacific Head Quarter in Shanghai, China, as well as vendors visiting the location.
 
 All participants had at least a bachelor degree. Most hold Master degrees in technical disciplines, and one participant held a doctorate in mathematics.
 
-The sample consisted of 7 women and 26 men. Approximately one third of the participants work with geospatial data on a weekly basis, while most of the remaining participants spend significant time testing vehicles and planning field tests routes using maps similar to the base map of the study. All of the participants were in the age range of 25-50, with most below the age of 35.
+The sample consisted of 7 women and 26 men. Approximately one-third of the participants work with geospatial data on a weekly basis, while most of the remaining participants spend significant time testing vehicles and planning field tests routes using maps similar to the base map of the study. All of the participants were in the age range of 25-50, with most below the age of 35.
 
-The participants are on average expected to have better eyesight than the general population due to their relatively young age, but are more likely to have some variation of colour blindness due to the high proportion of men participating in the study. Colour blindness or eye sight was not asked or tested during the data collection.
+The participants are on average expected to have better eyesight than the general population due to their relatively young age but are more likely to have some variation of colour blindness due to the high proportion of men participating in the study. Colour blindness or eyesight was not asked or tested during the data collection.
 
 The initial plan was to put the survey online using cloud technologies for wider distribution. During the testing stage, it became clear that there was a need to check that the instructions were understood to reduce the variation in the data. Hence, a more qualitative methodology was chosen where the author was present in the room and asked the respondent if the task was understood after reading the instructions described in section \ref{data-collection-ui}. 
 
 This resulted in a more consistent study, where the same laptop and Chrome web browser was used by all data collection, and the lighting conditions were kept consistent. All 34 respondents did therefore see the examples of the same size on an identical screen and using the same rendering software.
 
-Due to each respondent providing responses to 10 example images, the resulting analyzed data sample was quite large. During the collection phase, some base models were estimated repeatedly to evaluate the results of a larger sample. At around 20 participants the results stabilized, but data collection was continued until the pool of suitable participants at the Volvo office was exhausted.
+Due to each respondent submitting responses to 10 example images, the resulting analyzed data sample was quite large. During the collection phase, some base models were estimated repeatedly to evaluate the results of a larger sample. At around 20 participants the results stabilized, but data collection was continued until the pool of suitable participants at the Volvo office was exhausted.
 
 
 ## Data analysis
 
-Multiple models are estimated to evaluate the effect of the independent categorical variable of legend design. The dependent variables are estimation errors and acceptance scores. A full list of variables are given in section \ref{variable-info}.
+Multiple models are estimated to evaluate the effect of the independent categorical variable of legend design. The dependent variables are estimation errors and acceptance scores. A full list of variables is given in section \ref{variable-info}.
 
-Outlined in section \ref{model-info}, Bertlett's statistical test is conducted to evaluate how the variance of the error are differing between the different legends. This is followed by Ordinary Least Squares (OLS) estimation with dependent variables that are not naturally centered around 0 - absolute estimation error and acceptance scores. Each legend design are encoded as separate dummy variables and estimated relative to a reference category that is chosen to answer the research questions.
+Outlined in section \ref{model-info}, Bartlett's statistical test is conducted to evaluate how the variance of the error are differing between the different legends. This is followed by Ordinary Least Squares (OLS) estimation with dependent variables that are not naturally centered around 0 - absolute estimation error and acceptance scores. Each legend design is encoded as separate dummy variables and estimated relative to a reference category that is chosen to answer the research questions.
 
 Section \label{robustness-info} describes the use of control variables and subsamples to be able to test the robustness of the results in section \ref{model-info}. 
 
@@ -609,9 +609,9 @@ responses_an_viz$legend <- factor(responses_an_viz$legend, levels = c("headline"
 
 *PERCEPTION ERROR* - distance between the response value to the actual value of the location of the marker per visualization. 
 
-*|PERCEPTION ERROR|* - absolute perception error. For linear modeling, there is a need to look at estimated mean differences between categories. Simply using *PERCEPTION ERROR* would result in all categorical differences being statistically insignificant unless the variance around 0 is heavily skewed.
+*|PERCEPTION ERROR|* - absolute perception error. For linear modelling, there is a need to look at estimated mean differences between categories. Simply using *PERCEPTION ERROR* would result in all categorical differences being statistically insignificant unless the variance around 0 is heavily skewed.
 
-*ACCEPTANCE* - objective valuation by participants on the usefulness of each legend type on a scale of 1-5. Opt-out responses of "No opinion" were allowed and treated as missing values in the statistical modeling. 
+*ACCEPTANCE* - objective valuation by participants on the usefulness of each legend type on a scale of 1-5. Opt-out responses of "No opinion" were allowed and treated as missing values in the statistical modelling. 
 
 **Independent Variables**
 
@@ -637,11 +637,11 @@ Two variables were collected as potential control variables:
 
 For *PERCEPTION ERROR* the average value is likely centered around 0. Most statistical models are constructed to compare mean values between categories, which would not be able to give any indication of differences between the *PERCEPTION ERROR* for different legend designs. However, the distribution variance is of interest to estimate. 
 
-The parametric Bartlett's test [@Snedecor89] is used to test if multiple categories all have equal variances. In the study Bartlett's test is used to test if variances differ in a statistically significant way between the different legend types. This is done for both the full data including the Headline/no-legend type, as well as a subset excluding the Headline type. Significant results for the tests would indicate that the distribution of errors differs between any of the legend categories included in the sample. 
+The parametric Bartlett's test [@Snedecor89] is used to test if multiple categories all have equal variances. In the study, Bartlett's test is used to test if variances differ in a statistically significant way between the different legend types. This is done for both the full data including the Headline/no-legend type, as well as a subset excluding the Headline type. Significant results for the tests would indicate that the distribution of errors differs between any of the legend categories included in the sample. 
 
 Due to that Bartlett's test assumes that data is normally distributed, Shapiro-Wilk tests [@Shapiro65] are first conducted to assert if the normality assumption holds. This will be done for all legend types pooled, with Headline removed from the pooled sample, as well as for the subsample of each legend type separately.  
 
-For variables that are not centered around 0, *|PERCEPTION ERROR|*, *ACCEPTANCE*, *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*, are examined using regular OLS-techniques. Due to that the treatment variable *LEGEND* is categorical, each category is transformed into a separate dummy variable for each legend type. 
+For variables that are not centered around 0, *|PERCEPTION ERROR|*, *ACCEPTANCE*, *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS*, are examined using regular OLS techniques. Due to the treatment variable *LEGEND* is categorical, each category is transformed into a separate dummy variable for each legend type. 
 
 To avoid multicollinearity, the baseline legend categories are interpreted as the intercept $\alpha$-estimate, against which the $\beta$-estimates and corresponding test statistics are compared against.
 
@@ -662,7 +662,7 @@ ACCEPTANCE_{i} = \alpha + \beta_{i} LEGEND_{i} + \varepsilon_{i}
 
 OLS models are estimated to see if there are any indications of time effects as the respondent went through the progression of 10 examples. This could be in either direction due to learning and/or fatigue.
 
-Learning effects are likely to be negligible. This is due to that the subjects were not given any feedback on the correctness of their responses during the progression, and that different legend designs and data overlay colour were rotated.
+Learning effects are likely to be negligible. This is due to that the subjects were not given any feedback on the correctness of their responses during the progression, and that different legend designs and data overlay colours were rotated.
 
 \begin{equation}
 |PERCEPTION ERROR|_{i} = \alpha + \beta_{1} PROGRESSION_{i} + \varepsilon_{i}
@@ -987,7 +987,7 @@ stargazer(
 
 As seen from Table \@ref(tab:bartlett-test), there is a statistically significant difference in the variance for the sample including the Headline type (p-value < 0.05). This indicates that when including the Headline category, the variance of the *PERCEPTION ERROR* is not the same for all categories.  
 
-The significance does not remain when excluding the Headline category from the sample (p=0.33). The null of that the variance of the legend designs created for the study are the same can not be rejected, i.e. using the Bartlett's test, the legend designs does not show differences in errors.
+The significance does not remain when excluding the Headline category from the sample (p=0.33). The null of that the variance of the legend designs created for the study are the same can not be rejected, i.e. using Bartlett's test, the legend designs does not show differences in errors.
 
 \subsection{Dependent variable: |PERCEPTION ERROR|} \label{subsection-perception-error}
 
@@ -1014,9 +1014,9 @@ The estimates for the other rows (Annotated, Checkered, Clustered and Sampled), 
 
 The regression results in Table \@ref(tab:abs-perception-errors) are consistent with the variance tests, where model (1) estimates are relative to the Headline reference category. 
 
-All other legend types display lower errors, and are all statistically significantly lower than the errors for Headline. The Annotated type had the lowest average error of `r round(baseline_legend_of_use$coefficients[[2]], 2)` lower errors than the Headline design.
+All other legend types display lower errors and are all statistically significantly lower than the errors for Headline. The Annotated type had the lowest average error of `r round(baseline_legend_of_use$coefficients[[2]], 2)` lower errors than the Headline design.
 
-In model (2), where Checkered is used as a reference category (chosen due to both the research question formulation and the data distribution) the other designs are showing comparatively lower estimated errors, but none of those results were statistically significant.
+In model (2), where Checkered is used as a reference category (chosen due to both the research question formulation and the data distribution) the other designs are showing comparatively lower estimated errors, but none of those results was statistically significant.
 
 
 ```{r abs-perception-error-models-table, echo=FALSE, message = FALSE, results='asis'}
@@ -1273,7 +1273,7 @@ stargazer(
 
 Both the Bartlett's test results and the dummy-variable OLS models are consistent in establishing that for visualizations using transparency mapped overlays on top of a static base map, there is an influence of legend choices - as to if legends are included or not. It is evident that there is both a lower variance of errors in estimations from the respondents and more accurate results when there is a legend compared to when no legend (Headline type) is present. In other words, a legend improves the ability to make visual comparisons and reduces estimation errors (answering **RQ1**). 
 
-There are no clear results indicating differences in response accuracy depending on the type/design of legend, and there is quite a large variation in response accuracy in the sample overall. These results, indicate that the decoding support from a legend helps create an reference point for the user, but that it is not very precise or sensitive to the design of the legend used  (**RQ2**). These results for **RQ1** and **RQ2** were robust to subsamples of respondents with average lower errors. There are no indications that there are learning effects where the users are able to memorize the opacity to value mappings without making use of the legends, meaning that it ought to be safe to use the full sample.
+There are no clear results indicating differences in response accuracy depending on the type/design of legend, and there is quite a large variation in response accuracy in the sample overall. These results indicate that the decoding support from a legend helps create a reference point for the user, but that it is not very precise or sensitive to the design of the legend used  (**RQ2**). These results for **RQ1** and **RQ2** were robust to subsamples of respondents with average lower errors. There are no indications that there are learning effects where the users are able to memorize the opacity to value mappings without making use of the legends, meaning that it ought to be safe to use the full sample.
 
 **TODO: CONNECT PARAGRAPHS ABOVE TO EARLIER STUDIES OR PARTS OF THE STUDY**
 
@@ -1281,28 +1281,28 @@ The most robust results were from the user preferences/acceptance of the differe
 
 For the Annotated legend design type, this may be due to the reduced need for "attention switching" [@Kern10] following higher proximity to the data and marker. Another factor that is relevant for both Sampled and Annotated designs is that there may be higher familiarity for the user, as they have the background of the map superimposed for both these legend types.
 
-Notably as well was that the number of times the users changed their responses before submitting a response, or the duration until the users submitted their responses from the visualization rendering were not well-suited to act as proxy variables for respondent confidence or uncertainty (not being possible to draw any valid conclusions to in the study to **RQ4**). 
+Notably as well was that the number of times the users changed their responses before submitting a response, or the duration until the users submitted their responses from the visualization rendering was not well-suited to act as proxy variables for respondent confidence or uncertainty (not being possible to draw any valid conclusions to in the study to **RQ4**). 
 
 During the data collection this may have been due to different respondents making use of the computer and UI-input elements in vastly different ways, and sometimes being distracted from the task or asking clarifying questions.
 
-This resulted in that it was not possible to draw conclusions decision times and user selection behaviour for different legend designs. For future studies, this could likely be improved by using eye-tracking technology, where you could track that the duration the user is actively looking at the map, instead of trying to make use of proxy variables. This method has been used extensively in map design research [@Dong14; @Brychtova16; @Çöltekin09].
+This resulted in that it was not possible to draw conclusions from the decision times and user selection behaviour for different legend designs. For future studies, this could likely be improved by using eye-tracking technology, where you could track that the duration the user is actively looking at the map, instead of trying to make use of proxy variables. This method has been used extensively in map design research [@Dong14; @Brychtova16; @Çöltekin09].
 
-Regarding the general design of the study, it would be of interest to see how the results would differ when using different map backgrounds. Another variation that is common in use and has not been tested is having discrete (non-continuous) opacity-mapped data - i.e. where larger regions have the same opacity value. Users ability to perceive the opacity-mapping where they have larger areas with the same value may differ from when there are pixel-level variation. This would also result in legends where the opacity values are binned, not showing the whole linear scale. 
+Regarding the general design of the study, it would be of interest to see how the results would differ when using different map backgrounds. Another variation that is common in use and has not been tested is having discrete (non-continuous) opacity-mapped data - i.e. where larger regions have the same opacity value. Users ability to perceive the opacity mapping where they have larger areas with the same value may differ from when there is pixel-level variation. This would also result in legends where the opacity values are binned, not showing the whole linear scale. 
 
-The sampling was performed using non-random convenience sampling. As outlined in section \ref{collection-info}, this was chosen to keep external factors, such as screen size and lighting, as consistent as possible. Due to access to a suitable group of technically adept map users and practitioners, the results ought to be representative of how adept map users can utilize different legend designs. Future studies could investigate legends for users with less experience of mapping products, as no claims can be made of that certain legend designs are helpful for users that don't have prior exposure to common map elements.
+The sampling was performed using non-random convenience sampling. As outlined in section \ref{collection-info}, this was chosen to keep external factors, such as screen size and lighting, as consistent as possible. Due to access to a suitable group of technically adept map users and practitioners, the results ought to be representative of how adept map users can utilize different legend designs. Future studies could investigate legends for users with less experience of mapping products, as no claims can be made that certain legend designs are helpful for users that don't have prior exposure to common map elements.
 
-In using only one colour for the data opacity layer for each example, the effects of colour scales being somewhat arbitrary, as described by @Ware20 did not need to be investigated. It is, however, common in visualizations with lower opacity to have either a constant opacity for a polygon, but using a colour scale to encode values, and it is also possible to have double encoding and have the same variable displayed using both opacity variations and colour encodings simultanously. For the purposes of this study, it would have been difficult to isolate and measure the effect of transparency variations with those designs.
+In using only one colour for the data opacity layer for each example, the effects of colour scales being somewhat arbitrary, as described by @Ware20 did not need to be investigated. It is, however, common in visualizations with a lower opacity to have either a constant opacity for a polygon, but using a colour scale to encode values, and it is also possible to have double encoding and have the same variable displayed using both opacity variations and colour encodings simultaneously. For this study, it would have been difficult to isolate and measure the effect of transparency variations with those designs.
 
-The different colours used for the examples (red, green and blue) did not result in differing decoding accuracy. It is likely that one or more of the participants were had some kind of colour blindness, as most of the participants were men\footnote{*"Globally, about 1 in 12 men (8%) and 1 in 200 (0.5%) women sees color differently
-from most of the population"* [@Lee2020]}. In this study, it is unclear if that would affect the difficulty of the decoding task, or increase issues with blending for specific colours. The respondents were not asked to distinguish between elements of different colours, but to evaluate opacity on top of a base map, where the combined colour blending results in general trends of contrast. If any systematic biases would exist for any colours, such effects may have become obvious from a accuracy difference for different colours. However, that would likely require a much larger sample.
+The different colours used for the examples (red, green and blue) did not result in differing decoding accuracy. One or more of the participants were likely to have some kind of colour blindness, as most of the participants were men\footnote{*"Globally, about 1 in 12 men (8%) and 1 in 200 (0.5%) women sees color differently
+from most of the population"* [@Lee2020]}. In this study, it is unclear if that would affect the difficulty of the decoding task, or increase issues with blending for specific colours. The respondents were not asked to distinguish between elements of different colours, but to evaluate opacity on top of a base map, where the combined colour blending results in general trends of contrast. If any systematic biases would exist for any colours, such effects may have become obvious from accuracy differences for different colours. However, that would likely require a much larger sample.
 
 Relating to @Seipel20, where the task was to distinguish objects there ought to be less complication from colour blending in this study, due to only one lower opacity data layer on top of a fully opaque base layer. With the data encoded layers, it is possible to distinguish trends over a larger area of the base map. The opacity layer is still blended with the base map. Hence, in lower opacity areas, you would get more blending with the base layer, which may affect precision in the estimation from the respondents. This may have created less precision in some estimations, but is a natural effect of using opacity/transparency as an encoding mechanism. There could be certain colour combinations from the base map that makes the decoding task more difficult, which would be of interest to evaluate in future studies. In this study, those effects ought to have been smoothed out by randomization, and not have biased the results in any particular direction. 
 
 In comparison to @Kiik17, the usage of only a single opacity layer did circumvent the issue of having blending from multiple low opacity layers. 
 
-In the larger literature on data visualization, there has been discussions on the usefulness of legends in general. Alternatives such as simplifying the visualizations, directly labeling the data, altering visual weight and make use of motion to remove the need for legends have been suggested [@Evergreen13]. 
+In the larger literature on data visualization, there have been discussions on the usefulness of legends in general. Alternatives such as simplifying the visualizations, directly labelling the data, altering visual weight and making use of motion to remove the need for legends have been suggested [@Evergreen13]. 
 
-In the field of cartography, legends containing map symbols are commonly listed as one of the essential elements of a map together with title, scale bar, north arrow and a few other elements [@Peterson09, p. 17]. This study showed that legends can effectively increase decoding accuracy  for complex visualizations (**RQ1**), where the the techniques described by @Evergreen13 may not be easy to implement. 
+In the field of cartography, legends containing map symbols are commonly listed as one of the essential elements of a map together with title, scale bar, north arrow and a few other elements [@Peterson09, p. 17]. This study showed that legends can effectively increase decoding accuracy for complex visualizations (**RQ1**), where the techniques described by @Evergreen13 may not be easy to implement. 
 
 The legend design variations created for this study to investigate a reduced need for "attention switching" through data-proximity from the legend [@Kern10; @Evergreen13] did not result in significantly higher decoding accuracy (**RQ2**), but was one of the designs preferred by the respondents (**RQ3**).
 
@@ -1310,7 +1310,7 @@ The legend design variations created for this study to investigate a reduced nee
 
 # Conclusions
 
-When using a transparency mapping, there were strong and statistically significant results that map designs using legends provide reduced visual estimation errors (**RQ1**). However, there were no statistically differing errors when comparing the different legend designs created for this study (**RQ2**). In terms of user preference/acceptance of the different legend designs, both Sampled and Annotated designs were preferred (**RQ3**). These were also the two designs that had the overall lowest estimation errors. The duration until the users submitted responses or the number of times they changed their response before submitting were influenced by too many external factors to provide useful inference to respondent confidence or uncertainty (**RQ4**).
+When using transparency mapping, there were strong and statistically significant results that map designs using legends provide reduced visual estimation errors (**RQ1**). However, there were no statistically differing errors when comparing the different legend designs created for this study (**RQ2**). In terms of user preference/acceptance of the different legend designs, both Sampled and Annotated designs were preferred (**RQ3**). These were also the two designs that had the overall lowest estimation errors. The duration until the users submitted responses or the number of times they changed their response before submitting were influenced by too many external factors to provide useful inference to respondent confidence or uncertainty (**RQ4**).
 
 
 
