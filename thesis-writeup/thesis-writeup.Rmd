@@ -199,25 +199,50 @@ worldwide [@Veenendaal17]. According to a site measuring the presence of differe
 
 This frequent exposure to maps creates a multiplying effect in the exposure of even less frequently seen map types in terms of impressions (how many people see even less common visualizations). Lower opacity visualizations\footnote{mapping of data directly to opacity or mapping of data to other channels, such as a colour scale in combination with lowered opacity to reduce occlusion.} are suitable for visualizations of e.g. high-impact events such as typhoons/hurricanes. There are very few previous studies on the perception accuracy of such map designs as will be outlined in section \ref{literature}.
 
-\subsection{Previous related literature} \label{literature}
+\subsection{Related studies} \label{literature}
 
 Literature that intersects with the scope of this study can be found in a few different research fields.
 
-In the area of perception and data visualization studies, there is a long history of low-level studies measuring the ability of humans to correctly perceive visual data encodings, such as position, length, angle, circle area, hue, etc. [@Cleveland828]. There are also studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas [@Adelson2042]. For higher-level tasks, @Tufte01 exemplifies attempts to bring these smaller encodings together to describe good data visualization practices. This corpus of literature usually tries to create design guidelines and best practices for data visualizations. 
+In the area of perception and data visualization studies, there is a long history of low-level studies measuring the ability of humans to correctly perceive visual data encodings, such as position, length, angle, circle area, hue, etc. [@Cleveland828]. 
+
+There are also studies on perception effects from context, such as luminosity perception of a grey area depending on surrounding areas [@Adelson2042]. For higher-level tasks, @Tufte01 exemplifies attempts to bring these smaller encodings together to describe good data visualization practices. This corpus of literature usually tries to create design guidelines and best practices for data visualizations. 
 
 These efforts to quantify design choices and data encoding methods have been criticized, where e.g. Muzner [-@brehmermuzner13] describes a gap between these low-level tasks and high-level tasks in the data visualization literature. In recent years, researchers commonly attempt to bridge the gap towards other scientific areas [@Kim17; @Kim19], incorporating mental models, uncertainty, and Bayesian prior beliefs of subjects into the perception task. The goal in this literature is to bridge the combination of the lower-level tasks and relate them to efficient user experiences through e.g. preattentive processing - meaning differentiating objects of interest to the viewer by giving it different encoding (e.g. giving data points of interest emphasis by encoding them in different colours than the other data points) [@Treisman85; @Findlay98; @Wolfe04].
 
-Studies that cover transparency directly or indirectly for data visualization are rare. @Jo19 briefly mentions opacity: "*To scale scatterplots, several approaches have been proposed, such as adaptive opacity [15, 30, 32] and aggregation [13, 53]. However, adaptive opacity does not scale well with the number of categories since multiple categorical colors become ambiguous when blended[..]"*.
+A similar discourse is also present in the field of map visualizations. Cognitive cartography blends the fields of cognitive methods with how maps are used. This cover perception of e.g. colours, the need for users to keep information in their long term or working memory. The way this has commonly been studied through low level identification and decoding tasks and creating an controlled environment where the subjects don't interact with maps in a natural way have been criticized in a similar way as for the larger literature on data visualization [@Montello02].
 
-For map and perception studies, colour choices in a cartographic context is a large corpus, with @Brewer06 having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective.
 
-Targeted literature on legends is often highly tied to different visualization types. In a walk-through of proper data visualization practices, Evergreen and Metzner suggest that there is clear importance of data-proximity of legend usage and placement *"Because human eyesight has only a narrow range of focus, graphics should be placed very near their associated text (Malamed, 2009; Ware, 2012). [...] if a legend is required in the visualization, it should be so near the corresponding data points that no eye movements are needed to relate the two."* [@Evergreen13]. 
+Studies that cover transparency directly or indirectly for 2D data visualization are rare. @Jo19 briefly mentions opacity: 
+
+> *To scale scatterplots, several approaches have been proposed, such as adaptive opacity [15, 30, 32] and aggregation [13, 53]. However, adaptive opacity does not scale well with the number of categories since multiple categorical colors become ambiguous when blended[..].*
+
+For map and perception studies, colour choices in a cartographic context is a large corpus, with @Brewer06 having provided colour palette tools commonly used throughout data visualization from studying colour use from a cartographic/GIS perspective. These online tools help in creating suitable colour scales taking into consideration factors such as contrast, usability for people with colour blindness, etc. [@Brewer03]. The colour schemes/palettes provided by the tool have been extensively used also in other data visualization fields outside of map making. 
+
+@Brewer97 have also studied the use of colour scales, which is an alternative to using only a single colour as in this study. @Brewer97 states that "*Cartographers have long discouraged the use of spectral, or rainbow, color schemes on thematic maps of quantitative geographic data, though such color use is common in GIS and scientific visualization.*, but goes into detail on how spectral schemes can be useful if designed with care. 
+
+This level of care comes when using chosing any multiple of colours to encode data, the distance between different colours is perceptually ordered only for short sections, but not for the full spectrum. @Ware20 examplifies the issue: 
+
+> *This can be demonstrated by the following test. Give someone a series of gray paint chips and ask them to place them in order. They will happily comply with either a dark-to-light ordering or a light-to-dark ordering. Give the same person paint chips with the colors red, green, yellow, and blue and ask them to place them in order, and the result will be varied. For most people, the request will not seem particularly meaningful. [@Ware20, p. 128].*
+
+Colour is necessarily one of the most common ways to encode and communicate information in maps and other visualization types, and the design of colour schemes for different use cases is a field where many variations and use cases are studied. In the greater literature on how to represent uncertainty in maps [e.g. @Cheong16; @Leitner00], there are also creation of dedicated colour schemes for as in @Seipel17's study on the colour map design when assessing flood risk using maps.
+
+Colours and transparency interact by definition, as the output per pixel is a calculated composite of the colour of the transparent object and the colour of the items behind [@Porter84]. In the context of 3D models, and the ability to perceive objects clearly this is a major and well-studied problem. @Seipel20 have shown that in this context that distinct colours (evaluated using not only hue, but also perceptual properties) when fully opaque becomes difficult to distinguish when transparency is increased due to colour blending.  
+
+Other studies have looked at transparency/opacity more generally in distinguishing objects, finding that in computer based 3D modeled scenes reducing the transparency number of levels in the scene helps users in identification-tasks  [@Wang17].
+
+
+Targeted literature on legends is often highly tied to different visualization types. In a walk-through of proper data visualization practices, Evergreen and Metzner suggest that there is clear importance of data-proximity of legend usage and placement: 
+
+> *Because human eyesight has only a narrow range of focus, graphics should be placed very near their associated text (Malamed, 2009; Ware, 2012). [...] if a legend is required in the visualization, it should be so near the corresponding data points that no eye movements are needed to relate the two.* [@Evergreen13]. 
 
 A large part of the literature studying legends in the context of maps has a clear design focus. @Peterson99 introduced an interactive legend that allowed users to make changes to the map through the legend interactions, finding that users can get a better understanding of maps through the interactions. Other design studies have looked at fairly narrow questions related to legend designs for maps. Examples of such design studies have been using additional diagrams in combination with classic legends as a supplement to choropleth maps [@Cromley09; @Cromley06; @Chien19], and in other cases substituting the legend for a frequency histogram altogether [@Kumar04].
 
 In a more holistic view on legend usage/design within web GIS, @Cybulski16 analyzed if animated maps that are published on the internet have designs that follow long-established guidelines within cartography. @Cybulski16 finds that these maps do follow the guidelines in general, but also that they are adapting to new technologies and user circumstances.
 
-No intersection between legends and transparency, either in GIS-context or elsewhere, has been found in the literature review. This is largely supported in a literature study that aimed to find whether there were cartographic rules for effective legend designs *"[...]it is found that only one study was dedicated to the building of cartographic rules for effective legend design"* [@Zhe17].
+No intersection between legends and transparency, either in GIS-context or elsewhere, has been found in the literature review. This is largely supported in the literature study "Grouping Rules for Effective Legend Design" by @Zhe17 that aimed to find whether there were cartographic rules for effective legend designs *"[...]it is found that only one study was dedicated to the building of cartographic rules for effective legend design"*.
+
+@Kiik17 evaluates some visualization alternatives in cartographic design of polygons, transparency being one of the alternatives, together with outlines/boundaries, hatches (texture within the polygons) and icons. The results with examples of multiple polygons the hatches design was more effective along many of the metrics gathered using eye-tracking technology, but the transparency design was preferred by most of the subjects. This study used multiple overlayed polygons with low opacity, creating a colour blending effect between the polygons.
+
 
 # Methodology
 
@@ -288,81 +313,21 @@ The 4 legend designs and the version without legend, are presented below, togeth
  
  
 
-<!--  \begin{figure} -->
-<!--      \centering -->
-<!--      \begin{subfigure}[b]{0.58\textwidth} -->
-<!--          \centering -->
-<!--          \fbox{ -->
-<!--          \includegraphics[width=\textwidth]{img/cropped_headline_highlight.png} -->
-<!--          } -->
-<!--          \caption{Baseline 1 - No legend ["Headline"], highlighted in blue} -->
-<!--          \label{fig:headline} -->
-<!--      \end{subfigure} -->
-<!--      \hfill -->
-<!--      \begin{subfigure}[b]{0.58\textwidth} -->
-<!--          \centering -->
-<!--          \fbox{ -->
-<!--          \includegraphics[width=\textwidth]{img/cropped_checkered_highlight.png} -->
-<!--          } -->
-<!--          \caption{Baseline 2 – ArcGIS Imitation ["Checkered"], highlighted in blue} -->
-<!--          \label{fig:checkered} -->
-<!--      \end{subfigure} -->
-<!--     \caption{Visualization baseline legend types (enlarged legend for clarity)} -->
-<!--     \label{fig:legend-types-baseline} -->
-<!-- \end{figure} -->
 
-
-<!-- \begin{figure} -->
-<!--      \centering -->
-<!--      \begin{subfigure}[b]{0.58\textwidth} -->
-<!--          \centering -->
-<!--          \fbox{ -->
-<!--          \includegraphics[width=\textwidth]{img/cropped_sampled_highlight.png} -->
-<!--          } -->
-<!--          \caption{sampled context ["Sampled"], highlighted in blue} -->
-<!--          \label{fig:sampled} -->
-<!--      \end{subfigure} -->
-<!--      \hfill -->
-<!--      \begin{subfigure}[b]{0.58\textwidth} -->
-<!--          \centering -->
-<!--          \fbox{ -->
-<!--          \includegraphics[width=\textwidth]{img/cropped_clustered_highlight.png} -->
-<!--          } -->
-<!--          \caption{clustered colour bands ["Clustered"], highlighted in blue} -->
-<!--          \label{fig:clustered} -->
-<!--      \end{subfigure} -->
-<!--      \hfill -->
-<!--      \begin{subfigure}[b]{0.58\textwidth} -->
-<!--          \centering -->
-<!--          \fbox{ -->
-<!--          \includegraphics[width=\textwidth]{img/cropped_annotated_highlight.png} -->
-<!--          } -->
-<!--          \caption{Annotated Outline ["Annotated"], highlighted in blue} -->
-<!--          \label{fig:annotated} -->
-<!--      \end{subfigure} -->
-<!--         \caption{Visualization non-baseline legend types (enlarged legend for clarity)} -->
-<!--         \label{fig:legend-types-non-baseline} -->
-<!-- \end{figure}  -->
-
-<!-- **Baseline 1 - No legend ["Headline" in tables], (Figure \ref{fig:headline})** -->
 
 \emph{Baseline 1 No legend ["Headline" in tables], (Figure \ref{fig:headline})} - Only having a title indicating the range of values. Used to test the correctness of visual decoding by subjects without legend. Used as the first and last example in the progression presented to the subjects.
 
-<!-- **Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables], (Figure \ref{fig:checkered})** -->
 
 \emph{Baseline 2 – ArcGIS Legend Imitation ["Checkered" in tables], (Figure \ref{fig:checkered})} - The design is used as a baseline for models that explore if alternative legend choices are helping in decoding values compared to the current "industry standard". 
 
 One likely downside making it more difficult for subjects to accurately decode the data values is the lack of background-context in the legend, i.e. the colours in the legend do not interact with a coloured background as it does in the visualization. The remaining legend design types are all designed to combine the map base-layer background information into the legend.
  
-<!-- **Legend with sampled context ["Sampled" in tables], (Figure \ref{fig:sampled})**  -->
 
 \emph{Legend with sampled context ["Sampled" in tables], (Figure \ref{fig:sampled})} - Sampling a rectangular area of the base layer as background to the opacity mapping in the legend.
 
-<!-- **Legend with clustered colour bands ["Clustered" in tables], (Figure \ref{fig:clustered})** -->
 
 \emph{Legend with clustered colour bands ["Clustered" in tables], (Figure \ref{fig:clustered})} - Using the most common colours in the base layer as a background for the legend. In the Clustered legend design, the 10 most common colours of the background map\footnote{Using kMeans clustering algorithm implementation in the base R language, was used to extract 10 "colour centers" representing common colours in the base map.} were displayed as strips/columns in a vertical manner behind the opacity data mapping. This way the most prevalent colours in the map provide a context for data-encoding in the legend. 
 
-<!-- **Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})** -->
 
 \emph{Annotated Outline ["Annotated" in tables], (Figure \ref{fig:annotated})} - The legend placement may heavily affect the users' ability to keep the information in near memory while moving the eyes back and forth between visualized data and the legend. In an attempt to move the information closer to the data an outline legend was placed next to the data polygon. The legend is contextualized by having the legend opacity viewed directly on top of the base map layer.
 
@@ -672,9 +637,7 @@ Two variables were collected as potential control variables:
 
 For *PERCEPTION ERROR* the average value is likely centered around 0. Most statistical models are constructed to compare mean values between categories, which would not be able to give any indication of differences between the *PERCEPTION ERROR* for different legend designs. However, the distribution variance is of interest to estimate. 
 
-The parametric Bartlett's test \footnote{
-See https://en.wikipedia.org/wiki/Bartlett%27s_test and http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r for comparisons of standard statistical test for variance differences
-} is used to test if multiple categories all have equal variances. In the study Bartlett's test is used to test if variances differ in a statistically significant way between the different legend types. This is done for both the full data including the Headline/no-legend type, as well as a subset excluding the Headline type. Significant results for the tests would indicate that the distribution of errors differs between any of the legend categories included in the sample. 
+The parametric Bartlett's test [@Snedecor89] is used to test if multiple categories all have equal variances. In the study Bartlett's test is used to test if variances differ in a statistically significant way between the different legend types. This is done for both the full data including the Headline/no-legend type, as well as a subset excluding the Headline type. Significant results for the tests would indicate that the distribution of errors differs between any of the legend categories included in the sample. 
 
 Due to that Bartlett's test assumes that data is normally distributed, Shapiro-Wilk tests [@Shapiro65] are first conducted to assert if the normality assumption holds. This will be done for all legend types pooled, with Headline removed from the pooled sample, as well as for the subsample of each legend type separately.  
 
@@ -849,7 +812,7 @@ Some respondents picked their response in one click, while other respondents cli
 
 Plots for *SUBMIT TIME*, *INPUT CHANGES* and *HOVER EVENTS* (Figures \@ref(fig:submit-time-visualization), \@ref(fig:input-changes-visualization) and \@ref(fig:hover-events-visualization)) can be found in Appendix A.
 
-*COLOUR* - From visual inspection, no strong difference between the colours red/green/blue examples were perceptible (see Figure \@ref(fig:colour-visualization) in Appendix A). Statistical estimates also had no statistical differences in *|PERCEPTION ERROR|* between the colours, reducing the need to include colour as a control variable in any models.
+*COLOUR* - From visual inspection, no strong difference between the colours red/green/blue examples were perceptible (see Figure \@ref(fig:colour-visualization) in Appendix A). Statistical estimates also had no statistical differences in *|PERCEPTION ERROR|* between the colours (Table \@ref(tab:models-color) in Appendix A), reducing the need to include colour as a control variable in any models.
 
 
 ## Dependent variable: PERCEPTION ERROR
@@ -1316,22 +1279,27 @@ There are no clear results indicating differences in response accuracy depending
 
 The most robust results were from the user preferences/acceptance of the different legend types (**RQ3**), where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the Checkered legend type ("industry standard" imitation). 
 
-For the Annotated legend design type, this may be due to the reduced need for "attention switching" [@Kern10] following higher proximity to the data and marker. 
-**TODO: For Sampled, this may be due to familiarity, as the map makes part of the background...Discussion on familiarity or novelty: people tend to prefer what they are used to see**
+For the Annotated legend design type, this may be due to the reduced need for "attention switching" [@Kern10] following higher proximity to the data and marker. Another factor that is relevant for both Sampled and Annotated designs is that there may be higher familiarity for the user, as they have the background of the map superimposed for both these legend types.
 
 Notably as well was that the number of times the users changed their responses before submitting a response, or the duration until the users submitted their responses from the visualization rendering were not well-suited to act as proxy variables for respondent confidence or uncertainty (not being possible to draw any valid conclusions to in the study to **RQ4**). 
 
 During the data collection this may have been due to different respondents making use of the computer and UI-input elements in vastly different ways, and sometimes being distracted from the task or asking clarifying questions.
 
-This resulted in that it was not possible to draw conclusions decision times and user selection behaviour for different legend designs. For future studies, this could likely be improved by using eye-tracking technology, where you could track that the duration the user is actively looking at the map, instead of trying to make use of proxy variables.
-**TODO: INSERT REFERENCE**
+This resulted in that it was not possible to draw conclusions decision times and user selection behaviour for different legend designs. For future studies, this could likely be improved by using eye-tracking technology, where you could track that the duration the user is actively looking at the map, instead of trying to make use of proxy variables. This method has been used extensively in map design research [@Dong14; @Brychtova16; @Çöltekin09].
 
 Regarding the general design of the study, it would be of interest to see how the results would differ when using different map backgrounds. Another variation that is common in use and has not been tested is having discrete (non-continuous) opacity-mapped data - i.e. where larger regions have the same opacity value. Users ability to perceive the opacity-mapping where they have larger areas with the same value may differ from when there are pixel-level variation. This would also result in legends where the opacity values are binned, not showing the whole linear scale. 
 
 The sampling was performed using non-random convenience sampling. As outlined in section \ref{collection-info}, this was chosen to keep external factors, such as screen size and lighting, as consistent as possible. Due to access to a suitable group of technically adept map users and practitioners, the results ought to be representative of how adept map users can utilize different legend designs. Future studies could investigate legends for users with less experience of mapping products, as no claims can be made of that certain legend designs are helpful for users that don't have prior exposure to common map elements.
 
+In using only one colour for the data opacity layer for each example, the effects of colour scales being somewhat arbitrary, as described by @Ware20 did not need to be investigated. It is, however, common in visualizations with lower opacity to have either a constant opacity for a polygon, but using a colour scale to encode values, and it is also possible to have double encoding and have the same variable displayed using both opacity variations and colour encodings simultanously. For the purposes of this study, it would have been difficult to isolate and measure the effect of transparency variations with those designs.
 
-**TODO: EXTEND BELOW WITH NEW RESULTS AND CONNECT BACK TO PRIOR STUDIES WITH THE RESULTS ABOVE - SOMETHING ABOUT COLOUR**
+The different colours used for the examples (red, green and blue) did not result in differing decoding accuracy. It is likely that one or more of the participants were had some kind of colour blindness, as most of the participants were men\footnote{*"Globally, about 1 in 12 men (8%) and 1 in 200 (0.5%) women sees color differently
+from most of the population"* [@Lee2020]}. In this study, it is unclear if that would affect the difficulty of the decoding task, or increase issues with blending for specific colours. The respondents were not asked to distinguish between elements of different colours, but to evaluate opacity on top of a base map, where the combined colour blending results in general trends of contrast. If any systematic biases would exist for any colours, such effects may have become obvious from a accuracy difference for different colours. However, that would likely require a much larger sample.
+
+Relating to @Seipel20, where the task was to distinguish objects there ought to be less complication from colour blending in this study, due to only one lower opacity data layer on top of a fully opaque base layer. With the data encoded layers, it is possible to distinguish trends over a larger area of the base map. The opacity layer is still blended with the base map. Hence, in lower opacity areas, you would get more blending with the base layer, which may affect precision in the estimation from the respondents. This may have created less precision in some estimations, but is a natural effect of using opacity/transparency as an encoding mechanism. There could be certain colour combinations from the base map that makes the decoding task more difficult, which would be of interest to evaluate in future studies. In this study, those effects ought to have been smoothed out by randomization, and not have biased the results in any particular direction. 
+
+In comparison to @Kiik17, the usage of only a single opacity layer did circumvent the issue of having blending from multiple low opacity layers. 
+
 In the larger literature on data visualization, there has been discussions on the usefulness of legends in general. Alternatives such as simplifying the visualizations, directly labeling the data, altering visual weight and make use of motion to remove the need for legends have been suggested [@Evergreen13]. 
 
 In the field of cartography, legends containing map symbols are commonly listed as one of the essential elements of a map together with title, scale bar, north arrow and a few other elements [@Peterson09, p. 17]. This study showed that legends can effectively increase decoding accuracy  for complex visualizations (**RQ1**), where the the techniques described by @Evergreen13 may not be easy to implement. 
@@ -1519,6 +1487,28 @@ stargazer(
 ```
 
 
+```{r color-modeling, echo=FALSE, message = FALSE}
+
+colour_model <- lm(percept_error_abs ~ no_legend_baseline$colour,
+                             data = no_legend_baseline)
+
+```
+
+
+```{r color-model-table, echo=FALSE, message = FALSE, results='asis'}
+stargazer(
+  colour_model,
+  header = FALSE,
+  type='latex',
+  covariate.labels=c("Green","Red","Constant/Reference = Blue"),
+  column.labels = c("Full sample"),
+  dep.var.labels = c("|PERCEPTION ERROR|"),
+  label = "tab:models-color",
+  title="Absolute perception error by colour",
+  omit.stat = c("adj.rsq", "rsq", "f", "ser")
+  )
+
+```
 
 
 
