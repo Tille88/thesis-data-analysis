@@ -439,6 +439,22 @@ The Perlin noise data was put into the opacity value for a canvas image element,
 
 *Legends* - All legends were created using the Canvas API, similarly as was done for the base map and data layer. The different legend types have been described in detail in section \ref{legends-design}.
 
+
+\subsubsection{External validity and limitations of example designs} \label{legends-validity}
+
+To control the setting for the data collection, the examples were somewhat contrived. 
+
+\begin{itemize}
+  \item Today, rather few complex data visualizations are lacking annotation or possibilities for interaction.
+  \item All data area mappings were strictly rectangular in shape to allow for easy automated placement of the Annotated legend types.
+  \item Only one opacity data layer was included. However, this seems like a good design choice as multiple and possibly overlapping opacity layers would result in compounding opaqueness.
+  \item In order to keep the designs similar for the decoding task, the size of the legends were chosen to imitate the ArcGIS design. Verbal feedback was given by one respondent that it would be useful to have larger legends.
+  \item The base map layer was kept constant, and may not be representative of other areas. It is not clear how opacity mapping and legend are working for less complex (e.g. maps/backgrounds with less/no colours) or more complex backgrounds (e.g. aerial/satellite imagery).
+\end{itemize}
+
+None of these factors, except the last, ought to have strong implications for the external validity of the study.
+
+
 \subsection{Data collection} \label{data-collection}
 
 \subsubsection{Procedure and user interface (UI)} \label{data-collection-ui}
@@ -1289,39 +1305,47 @@ stargazer(
 ```
 
 
-# Discussion and conclusions
+# Discussion 
 
-This study has investigated whether different legend design types can help in decoding transparency-mapped data in a web GIS visualization. The study also evaluated the respondent-acceptance of four different legend designs and a map without legend.
 
-The results show that in visualizations using transparency mapped overlays on top of a static base map, there is an influence of legend choices - as to if legends are included or not. It is evident that there is both a lower variance of errors in estimations from the respondents and more accurate results when there is a legend compared to when no legend (Headline type) is present. In other words, a legend improves the ability to make visual comparisons and reduces estimation errors (answering **RQ1**). 
+Both the Bartlett's test results and the dummy-variable OLS models are consistent in establishing that for visualizations using transparency mapped overlays on top of a static base map, there is an influence of legend choices - as to if legends are included or not. It is evident that there is both a lower variance of errors in estimations from the respondents and more accurate results when there is a legend compared to when no legend (Headline type) is present. In other words, a legend improves the ability to make visual comparisons and reduces estimation errors (answering **RQ1**). 
 
-There are no clear results indicating differences in response accuracy depending on the type/design of legend, and there is quite a large variation in response accuracies in the sample overall. These results, indicate that the decoding support from a legend helps create an reference point for the user, but that it is not very precise or sensitive to the design of the legend used  (**RQ2**).
+There are no clear results indicating differences in response accuracy depending on the type/design of legend, and there is quite a large variation in response accuracy in the sample overall. These results, indicate that the decoding support from a legend helps create an reference point for the user, but that it is not very precise or sensitive to the design of the legend used  (**RQ2**). These results for **RQ1** and **RQ2** were robust to subsamples of respondents with average lower errors. There are no indications that there are learning effects where the users are able to memorize the opacity to value mappings without making use of the legends, meaning that it ought to be safe to use the full sample.
 
-The most robust results were from the user preferences/acceptance of the different legend types (**RQ3**), where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the Checkered legend type ("industry standard" imitation). For the Annotated legend design type, this may be due to the reduced need for "attention switching" [@Kern10] following higher proximity to the data and marker.
+**TODO: CONNECT PARAGRAPHS ABOVE TO EARLIER STUDIES OR PARTS OF THE STUDY**
 
-Notably as well was that the number of times the users changed their responses before submitting a response, or the duration until the users submitted their responses from the visualization rendering were not well-suited to act as proxy variables for respondent confidence or uncertainty (not being possible to draw any valid conclusions to in the study to **RQ4**). During the data collection this may have been due to different respondents making use of the computer and UI-input elements in vastly different ways, and sometimes being distracted from the task or asking clarifying questions. 
+The most robust results were from the user preferences/acceptance of the different legend types (**RQ3**), where both Sampled and Annotated (more contextualized and higher placement proximity to data) were preferred to the Checkered legend type ("industry standard" imitation). 
 
-This resulted in that it was not possible to draw conclusions decision times and user selection behaviour for different legend designs. For future studies, extensive user testing prior to data collection may be required to find more useful proxy variables for user uncertainty, or change the ways the users can interact with the interface.
+For the Annotated legend design type, this may be due to the reduced need for "attention switching" [@Kern10] following higher proximity to the data and marker. 
+**TODO: For Sampled, this may be due to familiarity, as the map makes part of the background...Discussion on familiarity or novelty: people tend to prefer what they are used to see**
 
-To control the setting for the data collection, the examples were somewhat contrived. 
+Notably as well was that the number of times the users changed their responses before submitting a response, or the duration until the users submitted their responses from the visualization rendering were not well-suited to act as proxy variables for respondent confidence or uncertainty (not being possible to draw any valid conclusions to in the study to **RQ4**). 
 
-\begin{itemize}
-  \item Today, rather few complex data visualizations are lacking annotation or possibilities for interaction.
-  \item All data area mappings were strictly rectangular in shape to allow for easy automated placement of the Annotated legend types.
-  \item Only one opacity data layer was included. However, this seems like a good design choice as multiple and possibly overlapping opacity layers would result in compounding opaqueness.
-  \item In order to keep the designs similar for the decoding task, the size of the legends were chosen to imitate the ArcGIS design. Verbal feedback was given by one respondent that it would be useful to have larger legends.
-  \item The base map layer was kept constant, and may not be representative of other areas. It is not clear how opacity mapping and legend are working for less complex (e.g. maps/backgrounds with less/no colours) or more complex backgrounds (e.g. aerial/satellite imagery).
-\end{itemize}
+During the data collection this may have been due to different respondents making use of the computer and UI-input elements in vastly different ways, and sometimes being distracted from the task or asking clarifying questions.
 
-None of these factors, except the last, ought to have strong implications for the external validity of the study.
+This resulted in that it was not possible to draw conclusions decision times and user selection behaviour for different legend designs. For future studies, this could likely be improved by using eye-tracking technology, where you could track that the duration the user is actively looking at the map, instead of trying to make use of proxy variables.
+**TODO: INSERT REFERENCE**
 
-The sampling was performed using non-random convenience sampling. As outlined in section \ref{collection-info}, this was chosen to keep external factors, such as screen size and lighting, as consistent as possible. 
+Regarding the general design of the study, it would be of interest to see how the results would differ when using different map backgrounds. Another variation that is common in use and has not been tested is having discrete (non-continuous) opacity-mapped data - i.e. where larger regions have the same opacity value. Users ability to perceive the opacity-mapping where they have larger areas with the same value may differ from when there are pixel-level variation. This would also result in legends where the opacity values are binned, not showing the whole linear scale. 
 
+The sampling was performed using non-random convenience sampling. As outlined in section \ref{collection-info}, this was chosen to keep external factors, such as screen size and lighting, as consistent as possible. Due to access to a suitable group of technically adept map users and practitioners, the results ought to be representative of how adept map users can utilize different legend designs. Future studies could investigate legends for users with less experience of mapping products, as no claims can be made of that certain legend designs are helpful for users that don't have prior exposure to common map elements.
+
+
+**TODO: EXTEND BELOW WITH NEW RESULTS AND CONNECT BACK TO PRIOR STUDIES WITH THE RESULTS ABOVE - SOMETHING ABOUT COLOUR**
 In the larger literature on data visualization, there has been discussions on the usefulness of legends in general. Alternatives such as simplifying the visualizations, directly labeling the data, altering visual weight and make use of motion to remove the need for legends have been suggested [@Evergreen13]. 
 
 In the field of cartography, legends containing map symbols are commonly listed as one of the essential elements of a map together with title, scale bar, north arrow and a few other elements [@Peterson09, p. 17]. This study showed that legends can effectively increase decoding accuracy  for complex visualizations (**RQ1**), where the the techniques described by @Evergreen13 may not be easy to implement. 
 
 The legend design variations created for this study to investigate a reduced need for "attention switching" through data-proximity from the legend [@Kern10; @Evergreen13] did not result in significantly higher decoding accuracy (**RQ2**), but was one of the designs preferred by the respondents (**RQ3**).
+
+
+
+# Conclusions
+
+When using a transparency mapping, there were strong and statistically significant results that map designs using legends provide reduced visual estimation errors (**RQ1**). However, there were no statistically differing errors when comparing the different legend designs created for this study (**RQ2**). In terms of user preference/acceptance of the different legend designs, both Sampled and Annotated designs were preferred (**RQ3**). These were also the two designs that had the overall lowest estimation errors. The duration until the users submitted responses or the number of times they changed their response before submitting were influenced by too many external factors to provide useful inference to respondent confidence or uncertainty (**RQ4**).
+
+
+
 
 
 
