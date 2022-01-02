@@ -1325,12 +1325,13 @@ The legend design variations created for this study to investigate a reduced nee
 <!-- # Conclusions -->
 \section{Conclusions} \label{conclusions}
 
-When using transparency mapping, there were strong and statistically significant results that map designs using legends provide reduced visual estimation errors (**RQ1**). However, there were no statistically differing errors when comparing the different legend designs created for this study (**RQ2**). In terms of user preference/acceptance of the different legend designs Sampled and Annotated designs were preferred (**RQ3**). These were also the two designs that had the overall lowest estimation errors. The duration until the users submitted responses or the number of times they changed their response before submitting were influenced by too many external factors to provide useful inference to respondent confidence or uncertainty (**RQ4**).
+When using transparency mapping, there were strong and statistically significant results that map designs using legends provide reduced visual estimation errors compared to when no legend is present (**RQ1**). This was concluded through variance analysis, dummy-variable OLS models and robustness tests, where all results provided clear reduced estimation errors when providing a legend for the user.
 
+However, there were no statistically differing errors when comparing the different legend designs created for this study (**RQ2**). The inclusion of the legend for opacity mapped data seems to provide a reference point to the user, but none of the designs resulted in low enough variation for the differences in decoding errors to be statistically significant.
 
+In terms of user preference/acceptance of the different legend designs Sampled and Annotated designs were preferred (**RQ3**). These were also the two designs that had the overall lowest estimation errors. These designs had in common that they put the data in context of the base map through either being directly overlayed on the map, or having a sampled rectangle from the map as background. In the case of the Annotated legend design, the distance between the legend and the data/marker was also reduced compared to the other legend designs.
 
-
-
+The duration until the users submitted responses or the number of times they changed their response before submitting were influenced by too many external factors to provide useful inference to respondent confidence or uncertainty (**RQ4**). In future studies alternative methodology could alleviate these issues, as outlined in Section \ref{discussion}.
 
 \newpage
 
