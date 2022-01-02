@@ -190,6 +190,13 @@ ESRI's “ArcGIS Online” examples [@ArcgisBrightOnline; @ArcgisDarkOnline] usi
 - **RQ4** - How are decision times and user selection behaviour affected by legend designs? 
 
 
+\subsection{Limitations} \label{introduction-limitations}
+
+
+\subsection{Disposition} \label{introduction-disposition}
+
+Section \emph{\ref{background}. \nameref{background}} provides contextualization and a walk-through of related literature. Section \emph{\ref{methodology}. \nameref{methodology}} describes the legend designs used in the study as well as how the data was collected analyzed. \emph{\ref{results}. \nameref{results}} includes summary statistics, key results and robustness tests, which are elaborated upon in section \emph{\ref{discussion}. \nameref{discussion}}. Section \ref{conclusions} concludes the thesis.
+
 
 <!-- # Background -->
 \section{Background} \label{background}
@@ -243,7 +250,9 @@ No intersection between legends and transparency, either in GIS-context or elsew
 @Kiik17 evaluates some visualization alternatives in the cartographic design of polygons, transparency being one of the alternatives, together with outlines/boundaries, hatches (texture within the polygons) and icons. The results with examples of multiple polygons the hatches design was more effective along many of the metrics gathered using eye-tracking technology, but the transparency design was preferred by most of the subjects. @Kiik17's study used multiple overlayed polygons with low opacity in their examples, creating a colour blending effect between the polygons.
 
 
-# Methodology
+<!-- # Methodology -->
+\section{Methodology} \label{methodology}
+
 
 Four different map legend designs, as well as a version without legend, were generated and then shown to respondents through a web user interface. Using this interface, the task for the respondents was to estimate the value of the opacity-mapped overlay at the location of a marker.
 
@@ -678,7 +687,8 @@ Subset analysis using only the respondents that are likely to be the most engage
 
 
 
-# Results
+<!-- # Results -->
+\section{Results} \label{results}
 
 ## Summary statistics and exploratory graphs
 
@@ -1266,8 +1276,8 @@ stargazer(
 ```
 
 
-# Discussion 
-
+<!-- # Discussion  -->
+\section{Discussion} \label{discussion}
 
 Both the Bartlett's test results and the dummy-variable OLS models are consistent in establishing that for visualizations using transparency mapped overlays on top of a static base map, there is an influence of legend choices - as to if legends are included or not. It is evident that there is both a lower variance of errors in estimations from the respondents and more accurate results when there is a legend compared to when no legend (Headline type) is present. In other words, a legend improves the ability to make visual comparisons and reduces estimation errors (answering **RQ1**). 
 
@@ -1303,7 +1313,8 @@ The legend design variations created for this study to investigate a reduced nee
 
 
 
-# Conclusions
+<!-- # Conclusions -->
+\section{Conclusions} \label{conclusions}
 
 When using transparency mapping, there were strong and statistically significant results that map designs using legends provide reduced visual estimation errors (**RQ1**). However, there were no statistically differing errors when comparing the different legend designs created for this study (**RQ2**). In terms of user preference/acceptance of the different legend designs Sampled and Annotated designs were preferred (**RQ3**). These were also the two designs that had the overall lowest estimation errors. The duration until the users submitted responses or the number of times they changed their response before submitting were influenced by too many external factors to provide useful inference to respondent confidence or uncertainty (**RQ4**).
 
