@@ -1314,16 +1314,19 @@ When using transparency mapping, there were strong and statistically significant
 
 \newpage
 
-# References
+# References {-}
 
 <div id="refs"></div>
 
 
 \newpage
 
-\section{Appendices} \label{appendices}
 
-\subsection{Appendix A - plots and tables}
+\addcontentsline{toc}{section}{Appendices}
+\section*{Appendices} \label{appendices}
+
+\addcontentsline{toc}{subsection}{Appendix A - plots and tables}
+\subsection*{Appendix A - plots and tables}
 
 **Note:** All analysis code and data for reproducing results can be found at https://github.com/Tille88/thesis-data-analysis
 
