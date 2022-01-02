@@ -192,6 +192,15 @@ ESRI's “ArcGIS Online” examples [@ArcgisBrightOnline; @ArcgisDarkOnline] usi
 
 \subsection{Limitations} \label{introduction-limitations}
 
+The study looks at static 2D maps with not chance for interaction to ensure only the legend could be used to decode the values. Most web based maps these days have some mechanism for interaction.
+
+The base map was kept constant and using only one colour scheme that was very close to the commonly used map cartographic representation of e.g. Google maps. The results may differ if having an opacity layer on top of simpler base map with less colours and details, or more details as when having satellite images as the base layer.
+
+The opacity data layer was continuous, where each pixel have a slightly different opacity data value compared to the neighboring pixels. It is common to have larger polygons with the same data value, which may be easier for the user to decode.
+
+The sample of the study focused on people with some previous experience with web based maps, which may limit the external validity for the general population that may be less used to using map elements such as legends. 
+
+Lastly, the tested designs were created by the author of the study, and there may be alternative designs which are more optimal.
 
 \subsection{Disposition} \label{introduction-disposition}
 
